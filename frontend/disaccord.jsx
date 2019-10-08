@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDom from 'React-dom';
+import ReactDom from 'react-dom';
 import {login, logout, signup} from './actions/session_actions'
 import configureStore from './store/store'
 import Root from './components/root'
