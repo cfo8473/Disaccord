@@ -82,6 +82,26 @@ a {
   border: none;
 }
 
+
+.guest-button {
+  margin: auto;
+  margin-top: 10px;
+  width: 50%;
+  color: white;
+  background-color: #7289da;
+  font-size: 16px;
+  line-height: 24px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: none;
+  text-align: center;
+}
+
+.guest-button:hover {
+  cursor: pointer;
+  background-color: #cebb65;
+}
+
 .submit-button:hover {
   cursor: pointer;
   background-color: #6c80cc;

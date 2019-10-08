@@ -7,17 +7,23 @@ export default class SessionForm extends React.Component {
     super(props);
     this.state = this.props.userInfo
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.guestLogin = this.guestLogin.bind(this);
   }
 
-  update(feild) {
+  update(field) {
     return(e) => {
-      this.setState({[feild]: e.target.value})
+      this.setState({[field]: e.target.value})
     }
   }
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+  }
+
+  guestLogin() {
+    const guest = {username: "test2", password: "hunter2"}
+    this.props.processForm(guest)
   }
 
   emailSignup() {
@@ -65,7 +71,11 @@ export default class SessionForm extends React.Component {
   render () {
     return (
       <div className="sessionFormDiv">
+        
         <form onSubmit={this.handleSubmit} className="sessionForm">
+  
+            <button className="guest-button" type="submit" onClick={this.guestLogin}>Guest Login</button>
+      
         {this.formSwapGreeting()}
           {this.props.errors && this.props.errors.map((ele, idx) => {
             return <li key={`error-${idx}`}>{ele}</li>
