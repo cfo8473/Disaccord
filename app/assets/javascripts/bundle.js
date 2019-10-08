@@ -435,6 +435,15 @@ function (_React$Component) {
       })));
     }
   }, {
+    key: "formSpacers",
+    value: function formSpacers() {
+      if (this.props.formType === "login") {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "login-spacer"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+      }
+    }
+  }, {
     key: "formSwapGreeting",
     value: function formSwapGreeting() {
       if (this.props.formType === "login") {
@@ -475,7 +484,7 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sessionFormDiv"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.formSpacers()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit,
         className: "sessionForm"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {

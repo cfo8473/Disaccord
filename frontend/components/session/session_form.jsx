@@ -41,6 +41,15 @@ export default class SessionForm extends React.Component {
 
   }
 
+  formSpacers() {
+    if (this.props.formType === "login") {
+      return (
+        <div className="login-spacer"><br></br></div>
+      )
+    }
+
+  }
+
   formSwapGreeting() {
     if (this.props.formType === "login") {
       return (
@@ -70,8 +79,9 @@ export default class SessionForm extends React.Component {
 
   render () {
     return (
+      
       <div className="sessionFormDiv">
-        
+        <div>{this.formSpacers()}</div>
         <form onSubmit={this.handleSubmit} className="sessionForm">
   
             <button className="guest-button" type="submit" onClick={this.guestLogin}>Guest Login</button>
