@@ -12,6 +12,4 @@ export default (state = _nullSession, action) => {
     default:
       return state;
   }
-
-
 };

@@ -25,8 +25,8 @@ export default class SessionForm extends React.Component {
       return (
         <div className="sessionField">
         <label>
-          Email:
-            <input type="text"
+            <h5 className="login-text">Email </h5>
+            <input className="session-input"  type="text"
             value={this.state.email}
             onChange={this.update('email')} />
         </label>
@@ -35,14 +35,29 @@ export default class SessionForm extends React.Component {
 
   }
 
-  headEr () {
-    if (this.props.formType === "signup") {
+  formSwapGreeting() {
+    if (this.props.formType === "login") {
       return (
-        <h2>Please Sign Up or <Link to={'/login'}>Log In!</Link></h2>
+        <div>
+          <div className="login-welcome">Welcome back!</div>
+          <div className="login-subtitle">We're so excited to see you again!</div>
+        </div>
       )
     } else {
       return (
-        <h2>Please Log In or  <Link to={'/signup'}>Sign Up!</Link></h2>
+        <div className="login-welcome">Create an account</div>
+      )
+    };
+  }
+
+  formSwap () {
+    if (this.props.formType === "login") {
+      return (
+        <span className="form-prompt-text">Need an account? <Link to={'/signup'}>Register</Link></span>
+      )
+    } else {
+      return (
+        <span className="form-prompt-text"><Link to={'/login'}>Already have an account?</Link></span>
       )
       };
   }
@@ -51,34 +66,22 @@ export default class SessionForm extends React.Component {
     return (
       <div className="sessionFormDiv">
         <form onSubmit={this.handleSubmit} className="sessionForm">
-        {this.headEr()}
+        {this.formSwapGreeting()}
           {this.props.errors && this.props.errors.map((ele, idx) => {
             return <li key={`error-${idx}`}>{ele}</li>
           })}
-          <div className="sessionField">
-          <label>
-            Username: 
-            <input type="text"
-                    value={this.state.username}
-                    onChange={this.update('username')}/>
-          </label>
-          </div>
-          <div className="sessionField">
-          <label >
-            Password:
-            <input type="password"
-              value={this.state.password}
-              onChange={this.update('password')} />
-          </label>
+          
+          <h5 className="login-text">Username </h5>
+          <input className="session-input" type="text" value={this.state.username} onChange={this.update('username')}/>
+          
+          <h5 className="login-text">Password </h5>
+          <input className="session-input"  type="password" value={this.state.password} onChange={this.update('password')} />
+
           {this.emailSignup()}
-          </div>
-          
-          
-
-          
-          
-
-          <input type="submit" value="Submit"/>
+            
+          <input className="submit-button" type="submit" value="Submit"/>
+          {this.formSwap()}
+     
         </form>
 
       </div>

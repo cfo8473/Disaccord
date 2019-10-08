@@ -7,10 +7,13 @@ export default ({ currentUser, logout }) => {
       <p>Hello, {currentUser.username}</p>
       <button onClick={logout}>logout</button>
     </div>) : (
-      <div>
-        <Link className="btn" to="/signup">Sign Up</Link>
-        <Link className="btn" to="/login">Log In</Link>
-      </div>
+      <header className="main-header">
+        <nav className="header-inner">
+          <ul className="header-nav-right">
+            test
+           </ul>
+        </nav>
+      </header>
     )
     return (
     <header className="Welcome Message">
