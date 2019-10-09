@@ -1,0 +1,51 @@
+body {
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  z-index: 5;
+}
+
+.current-user-block {
+  display: block;
+  background: #262b33;
+  position: absolute;
+  width: 200px;
+  bottom: 16px;
+  left: 16px;
+}
+
+.username-text {
+  font-size: 14px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 400;
+  float: left;
+  padding: 10px;
+}
+
+.settings-icon {
+  line-height: 61px;
+  background: inherit;
+  position: absolute;
+  border: none;
+  color: white;
+
+  right: 16px;
+  
+}
+
+.settings-icon:hover {
+  background: #6d7a91a1;
+}
+
+.login-button {
+  color: white;
+  border: 2px solid hsla(0,0%,100%,.8);
+  padding: 5px 17px 7px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  opacity: .8;
+
+}
+
+.login-button:hover {
+  opacity: 1;
+}
