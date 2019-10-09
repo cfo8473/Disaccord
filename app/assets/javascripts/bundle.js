@@ -495,9 +495,16 @@ var msp = function msp(state, ownProps) {
 };
 
 var mdp = function mdp(dispatch, ownProps) {
+  var guest = {
+    username: "test2",
+    password: "hunter2"
+  };
   return {
     processForm: function processForm(formUser) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(formUser));
+    },
+    guestLogin: function guestLogin() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(guest));
     }
   };
 };
@@ -555,7 +562,6 @@ function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SessionForm).call(this, props));
     _this.state = _this.props.userInfo;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
-    _this.guestLogin = _this.guestLogin.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -574,15 +580,6 @@ function (_React$Component) {
       e.preventDefault();
       var user = Object.assign({}, this.state);
       this.props.processForm(user);
-    }
-  }, {
-    key: "guestLogin",
-    value: function guestLogin() {
-      var guest = {
-        username: "test2",
-        password: "hunter2"
-      };
-      this.props.processForm(guest);
     }
   }, {
     key: "emailSignup",
@@ -654,7 +651,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "guest-button",
         type: "submit",
-        onClick: this.guestLogin
+        onClick: this.props.guestLogin
       }, "Guest Login"), this.formSwapGreeting(), this.props.errors && this.props.errors.map(function (ele, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: "error-".concat(idx)

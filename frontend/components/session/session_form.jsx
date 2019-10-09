@@ -7,7 +7,7 @@ export default class SessionForm extends React.Component {
     super(props);
     this.state = this.props.userInfo
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.guestLogin = this.guestLogin.bind(this);
+ 
   }
 
   update(field) {
@@ -21,10 +21,7 @@ export default class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
-  guestLogin() {
-    const guest = {username: "test2", password: "hunter2"}
-    this.props.processForm(guest)
-  }
+
 
   emailSignup() {
     if (this.props.formType === "signup")
@@ -84,7 +81,7 @@ export default class SessionForm extends React.Component {
         <div>{this.formSpacers()}</div>
         <form onSubmit={this.handleSubmit} className="sessionForm">
   
-            <button className="guest-button" type="submit" onClick={this.guestLogin}>Guest Login</button>
+            <button className="guest-button" type="submit" onClick={this.props.guestLogin}>Guest Login</button>
       
         {this.formSwapGreeting()}
           {this.props.errors && this.props.errors.map((ele, idx) => {
