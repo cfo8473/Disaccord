@@ -79,27 +79,30 @@ export default class SessionForm extends React.Component {
       
       <div className="sessionFormDiv">
         <div>{this.formSpacers()}</div>
-        <form onSubmit={this.handleSubmit} className="sessionForm">
-  
-            <button className="guest-button" type="submit" onClick={this.props.guestLogin}>Guest Login</button>
-      
-        {this.formSwapGreeting()}
-          {this.props.errors && this.props.errors.map((ele, idx) => {
-            return <li key={`error-${idx}`}>{ele}</li>
-          })}
-          
-          <h5 className="login-text">Username </h5>
-          <input className="session-input" type="text" value={this.state.username} onChange={this.update('username')}/>
-          
-          <h5 className="login-text">Password </h5>
-          <input className="session-input"  type="password" value={this.state.password} onChange={this.update('password')} />
-
-          {this.emailSignup()}
+        <div className="sessionForm">
+          <button className="guest-button" type="submit" onClick={this.props.guestLogin}>Guest Login</button>
+          <form onSubmit={this.handleSubmit}>
+    
+              
+        
+          {this.formSwapGreeting()}
+            {this.props.errors && this.props.errors.map((ele, idx) => {
+              return <li key={`error-${idx}`}>{ele}</li>
+            })}
             
-          <input className="submit-button" type="submit" value="Submit"/>
-          {this.formSwap()}
-     
-        </form>
+            <h5 className="login-text">Username </h5>
+            <input className="session-input" type="text" value={this.state.username} onChange={this.update('username')}/>
+            
+            <h5 className="login-text">Password </h5>
+            <input className="session-input"  type="password" value={this.state.password} onChange={this.update('password')} />
+
+            {this.emailSignup()}
+              
+            <input className="submit-button" type="submit" value="Submit"/>
+            {this.formSwap()}
+            
+          </form>
+        </div>
 
       </div>
 

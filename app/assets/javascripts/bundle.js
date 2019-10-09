@@ -645,14 +645,15 @@ function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sessionFormDiv"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.formSpacers()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        onSubmit: this.handleSubmit,
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, this.formSpacers()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sessionForm"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "guest-button",
         type: "submit",
         onClick: this.props.guestLogin
-      }, "Guest Login"), this.formSwapGreeting(), this.props.errors && this.props.errors.map(function (ele, idx) {
+      }, "Guest Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        onSubmit: this.handleSubmit
+      }, this.formSwapGreeting(), this.props.errors && this.props.errors.map(function (ele, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: "error-".concat(idx)
         }, ele);
@@ -674,7 +675,7 @@ function (_React$Component) {
         className: "submit-button",
         type: "submit",
         value: "Submit"
-      }), this.formSwap()));
+      }), this.formSwap())));
     }
   }]);
 
