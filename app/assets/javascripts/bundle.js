@@ -746,12 +746,19 @@ var msp = function msp(state, ownProps) {
 };
 
 var mdp = function mdp(dispatch, ownProps) {
+  var guest = {
+    username: "test2",
+    password: "hunter2"
+  };
   return {
     processForm: function processForm(formUser) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["signup"])(formUser));
     },
     clearErrors: function clearErrors() {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["clearErrors"])());
+    },
+    guestLogin: function guestLogin() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["login"])(guest));
     }
   };
 };
