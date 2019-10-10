@@ -18,17 +18,36 @@
   background-color: rgba(170, 111, 111, 0.438)
 }
 
+.settings-window {
+  display: flex;
+  z-index: 9499;
+}
+
+.menu-bar {
+  height: 100%;
+  width: 40%;
+  background: #1d61c7;
+  z-index: 14444;
+}
+
 .settings-exit {
   font-size: 20px;
-  top: 16px;
-  right: 16px;
+  top: 44px;
+  right: 44px;
   position: absolute;
   cursor: pointer;
-  padding: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  border: 2px solid hsla(0,0%,100%,.8);
+  padding: 8px 14px 8px;
+  border-radius: 20px;
+  opacity: .8;
   font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
+
 .settings-exit:hover {
+  opacity: 1;
   background-color: #6e7c9271;
 
 }

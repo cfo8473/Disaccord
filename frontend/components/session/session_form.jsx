@@ -7,6 +7,7 @@ export default class SessionForm extends React.Component {
     super(props);
     this.state = this.props.userInfo
     this.handleSubmit = this.handleSubmit.bind(this);
+    // this.componentWillUnmount = this.componentWillUnmount().bind(this);
  
   }
 
@@ -21,7 +22,9 @@ export default class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
-
+  componentWillUnmount() {
+      this.props.clearErrors();
+  }
 
   emailSignup() {
     if (this.props.formType === "signup")
@@ -87,7 +90,7 @@ export default class SessionForm extends React.Component {
         
           {this.formSwapGreeting()}
             {this.props.errors && this.props.errors.map((ele, idx) => {
-              return <li key={`error-${idx}`}>{ele}</li>
+              return <li className ="errors" key={`error-${idx}`}>{ele}</li>
             })}
             
             <h5 className="login-text">Username </h5>

@@ -119,7 +119,15 @@ a {
 
 }
 
-
+.errors {
+  display: block;
+  color: #f04747;
+  align-items: left;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 500;
+  cursor: default;
+}
 
 
 
