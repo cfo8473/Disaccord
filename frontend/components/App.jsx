@@ -7,7 +7,7 @@ import SignupFormContainer from './session/sign_up_container'
 import ServerContainer from './servers/server_show_container'
 import {Route} from 'react-router-dom'
 import { AuthRoute, ProtectedRoute } from '../util/route_util'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 export default () => (
   <div>
