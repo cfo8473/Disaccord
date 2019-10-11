@@ -27,7 +27,7 @@ class Greeting extends React.Component {
           <header className="main-header">
             <nav className="header-inner">
               <ul className="header-nav-right">
-                testf
+                
            </ul>
             </nav>
           </header>

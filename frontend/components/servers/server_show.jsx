@@ -13,7 +13,8 @@ class ServerShow extends React.Component {
   render() {
     const addServer = (
       <div className="nav-servers-button ">
-        <FontAwesomeIcon icon={faPlus}/>
+       {this.props.openCreateServer}
+        
       </div>
     )
 
@@ -34,7 +35,7 @@ class ServerShow extends React.Component {
           <div className="username-id">#{this.props.currentUser.id}</div>
         </div>
 
-        {this.props.openModal}
+        {this.props.openSettings}
       </div>)
 
       return (

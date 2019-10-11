@@ -5,7 +5,6 @@ class Settings extends React.Component {
   constructor(props){
     super(props);
     this.logoutModal = this.logoutModal.bind(this);
-  
   }
 
   logoutModal(e) {
@@ -15,12 +14,14 @@ class Settings extends React.Component {
 
   render () {
     return (
-      <div className="settings-window">
-        <p className="settings-exit" onClick={this.props.closeModal}>X</p>
-        <nav className="menu-bar">
-          
-         <Link className="settings-logout" to="/" onClick={this.logoutModal}>Log Out</Link>
-        </nav>
+      <div className="modal-setfdfdstings">
+
+          <p className="settings-exit" onClick={this.props.closeModal}>X</p>
+          <nav className="menu-bar">
+            
+          <Link className="settings-logout" to="/" onClick={this.logoutModal}>Log Out</Link>
+          </nav>
+
       </div>
     )
   }
