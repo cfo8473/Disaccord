@@ -12,13 +12,14 @@
  *
  *= require_tree .
  *= require_self
-
  */
 
  body {
    background-color: #353c47;
    color: white;
+   font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
  }
+
 .main-header {
   display: block;
   padding: 8px 0;
