@@ -399,7 +399,8 @@ var mdp = function mdp(dispatch) {
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faCog"]
     }))
   };
-};
+}; //testf
+
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(msp, mdp)(_greeting__WEBPACK_IMPORTED_MODULE_2__["default"]));
 

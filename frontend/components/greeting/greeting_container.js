@@ -17,5 +17,5 @@ const mdp = dispatch => ({
     <FontAwesomeIcon icon={faCog} />
       </button>
 });
-
+//testf
 export default connect(msp, mdp)(Greeting);
