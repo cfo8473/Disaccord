@@ -613,9 +613,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
+  // debugger
   var errors = state.errors.session.errors;
   var serverInfo = {
-    title: ""
+    title: "",
+    admin_id: "".concat(state.session.currentUser.id)
   };
   return {
     serverInfo: serverInfo,

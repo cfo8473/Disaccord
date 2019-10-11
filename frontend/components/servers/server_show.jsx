@@ -34,7 +34,7 @@ class ServerShow extends React.Component {
 
           <div className="username-id">#{this.props.currentUser.id}</div>
         </div>
-
+        
         {this.props.openSettings}
       </div>)
 

@@ -15,7 +15,7 @@ class Api::ServersController < ApplicationController
     @server = Server.new(server_params)
 
     if @server.save
-      render :index
+      render :show
     else
       render json: @server.errors.full_messages, status: 422
     end
@@ -38,6 +38,6 @@ class Api::ServersController < ApplicationController
 
   private
   def server_params
-    params.require(:server).permit(:title)
+    params.require(:server).permit(:title, :admin_id)
   end
 end
