@@ -12,7 +12,7 @@ class Api::ServersController < ApplicationController
   end
 
   def create
-    @server = Server.new(user_params)
+    @server = Server.new(server_params)
 
     if @server.save
       render :index

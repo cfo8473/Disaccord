@@ -668,6 +668,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -676,9 +678,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -693,20 +695,52 @@ function (_React$Component) {
   _inherits(ServerForm, _React$Component);
 
   function ServerForm(props) {
+    var _this;
+
     _classCallCheck(this, ServerForm);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ServerForm).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ServerForm).call(this, props));
+    _this.state = _this.props.serverInfo;
+    _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ServerForm, [{
+    key: "update",
+    value: function update(field) {
+      var _this2 = this;
+
+      return function (e) {
+        _this2.setState(_defineProperty({}, field, e.target.value));
+      };
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+      var server = Object.assign({}, this.state);
+      this.props.processForm(server);
+    }
+  }, {
     key: "render",
     value: function render() {
+      // debugger
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-createChannel"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "modal-createChannelExit",
         onClick: this.props.closeModal
-      }, "X"), "Create Server");
+      }, "X"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "CREATE YOUR SERVER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "By creating a server, you will have access to text chat to use amongst your friends."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "modal-createChannelInput",
+        onSubmit: this.handleSubmit
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "SERVER NAME"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "text",
+        value: this.state.title,
+        onChange: this.update("title")
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "submit",
+        value: "Create"
+      })));
     }
   }]);
 
@@ -1488,7 +1522,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var _nullSession = {
-  currentUser: null
+  server: null
 };
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _nullSession;
@@ -1754,13 +1788,13 @@ __webpack_require__.r(__webpack_exports__);
 var fetchServers = function fetchServers() {
   return $.ajax({
     method: "GET",
-    url: "api/servers"
+    url: "/api/servers"
   });
 };
 var fetchServer = function fetchServer(id) {
   return $.ajax({
     method: "GET",
-    url: "api/servers/".concat(id)
+    url: "/api/servers/".concat(id)
   });
 };
 var createServer = function createServer(server) {

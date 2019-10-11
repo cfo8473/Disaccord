@@ -1,7 +1,7 @@
 import { RECEIVE_SERVERS, RECEIVE_SERVER, REMOVE_SERVER } from "../actions/server_actions";
 
 const _nullSession = {
-  currentUser: null
+  server: null
 };
 
 export default (state = _nullSession, action) => {
