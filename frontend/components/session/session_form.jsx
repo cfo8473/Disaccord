@@ -1,6 +1,8 @@
 
 import React from 'react'
 import {Link} from 'react-router-dom'
+import { faDog } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -86,10 +88,15 @@ export default class SessionForm extends React.Component {
   }
 
   render () {
+    const buttonText = (this.props.formType === "login") ? "Login" : "Continue";
 
     return (
       
+
       <div className="sessionFormDiv">
+        <div className="session-logo">
+          <FontAwesomeIcon icon={faDog} />  disaccord
+        </div>
         <div className="vertical-spacer">{this.formSpacers()}</div>
         <div className="sessionForm">
           <button className="guest-button" type="submit" onClick={this.props.guestLogin}>Guest Login</button>
@@ -110,7 +117,7 @@ export default class SessionForm extends React.Component {
 
             {this.emailSignup()}
               
-            <input className="submit-button" type="submit" value="Submit"/>
+            <input className="submit-button" type="submit" value={buttonText}/>
             {this.formSwap()}
             
           </form>

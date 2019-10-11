@@ -47,14 +47,22 @@ a {
 
 }
 
+.session-logo {
+  display: flex;
+  align-items: center;
+  font-size: 40px;
+  opacity: .8;
+
+}
+
 .login-spacer {
   padding-bottom: 45px;
 }
 
 .vertical-spacer {
   display: block;
-  padding: 50px;
-  top: 400px;
+  padding: 30px;
+  top: 200px;
 
 }
 .sessionField:last-of-type {
