@@ -706,7 +706,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "modal-createChannelExit",
         onClick: this.props.closeModal
-      }, "X"), "testesaffsdfsd");
+      }, "X"), "Create Server");
     }
   }]);
 
@@ -1251,7 +1251,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-setfdfdstings"
+        className: "modal-settings"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "settings-exit",
         onClick: this.props.closeModal

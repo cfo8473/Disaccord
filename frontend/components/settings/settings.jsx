@@ -14,7 +14,7 @@ class Settings extends React.Component {
 
   render () {
     return (
-      <div className="modal-setfdfdstings">
+      <div className="modal-settings">
 
           <p className="settings-exit" onClick={this.props.closeModal}>X</p>
           <nav className="menu-bar">

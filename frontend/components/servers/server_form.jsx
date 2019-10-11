@@ -11,7 +11,7 @@ class ServerForm extends React.Component {
       <div className="modal-createChannel">
         <p className="modal-createChannelExit" onClick={this.props.closeModal}>X</p>
 
-          testesaffsdfsd
+          Create Server
 
       </div>
     )
