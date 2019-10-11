@@ -91,10 +91,19 @@ a {
   margin-bottom: 8px;
   font-size: 16px;
   border-radius: 5px;
-  border-color: #1b1e22;
+  border: 2px solid #1b1e22;
   background: #282d33;
   color: rgb(211, 211, 211);
   
+}
+
+.session-input:hover {
+  border-color: #121416;
+}
+
+.session-input:focus {
+  border-color: #5e71b8;
+  outline: none;
 }
 
 .submit-button {
