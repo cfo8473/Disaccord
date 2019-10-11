@@ -565,8 +565,16 @@ function (_React$Component) {
   _createClass(ServerShow, [{
     key: "render",
     value: function render() {
-      var addServer = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeIcon"], {
+      var addServer = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "nav-servers-button "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faPlus"]
+      })); //probably won't implement any time soon but a nice placeholder
+
+      var searchServer = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "nav-servers-button "
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faSearch"]
       }));
       var userBox = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "current-user-block"
@@ -585,7 +593,7 @@ function (_React$Component) {
         className: "navbar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "nav-servers"
-      }, addServer), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      }, addServer, searchServer), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "nav-channels"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         className: "nav-channels-header"

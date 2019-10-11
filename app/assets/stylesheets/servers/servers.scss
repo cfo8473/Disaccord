@@ -76,6 +76,29 @@
   background: #202225;
 } 
 
+.nav-servers-button {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+
+  font-size: 20px;
+  color: #43b581;
+  padding: 15px;
+  border-radius: 50%;
+  background: #2f3136;
+  opacity: .8;
+  height: 25px;
+  width: 25px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  margin-bottom: 10px;
+}
+
+.nav-servers-button:hover {
+  opacity: 1;
+  background: #6e7c9271;
+
+}
+
 .nav-channels {
   width: 240px;
   display: flex;
@@ -128,3 +151,4 @@
   flex-direction: column;
   background: #2f3136;
 }
+

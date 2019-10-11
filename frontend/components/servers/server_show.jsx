@@ -2,7 +2,7 @@ import React from "react";
 import Modal from '../modal/modal';
 import { Link } from 'react-router-dom'
 import { AuthRoute } from '../../util/route_util'
-import { faAddressCard, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class ServerShow extends React.Component {
@@ -12,9 +12,15 @@ class ServerShow extends React.Component {
 
   render() {
     const addServer = (
-      <div>
+      <div className="nav-servers-button ">
         <FontAwesomeIcon icon={faPlus}/>
+      </div>
+    )
 
+    //probably won't implement any time soon but a nice placeholder
+    const searchServer = (
+      <div className="nav-servers-button ">
+        <FontAwesomeIcon icon={faSearch} />
       </div>
     )
 
@@ -35,6 +41,7 @@ class ServerShow extends React.Component {
         <div className="navbar">
           <nav className="nav-servers">
             {addServer}
+            {searchServer}
           </nav>
           <nav className="nav-channels">
             <header className="nav-channels-header">
