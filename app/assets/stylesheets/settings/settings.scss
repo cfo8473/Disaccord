@@ -20,14 +20,15 @@
 
 .settings-window {
   display: flex;
-  z-index: 9499;
+  width: 100%;
+  height: 100%;
 }
 
 .menu-bar {
-  height: 100%;
-  width: 40%;
-  background: #1d61c7;
-  z-index: 14444;
+  width: 20%;
+  background: #262b33;
+  z-index: 11;
+  display: flex;
 }
 
 .settings-exit {

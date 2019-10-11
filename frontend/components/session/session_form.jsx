@@ -5,10 +5,12 @@ import {Link} from 'react-router-dom'
 export default class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.userInfo
+    
+    this.state = this.props.userInfo;
+    // this.state.sessionMounted = false;
     this.handleSubmit = this.handleSubmit.bind(this);
     // this.componentWillUnmount = this.componentWillUnmount().bind(this);
- 
+    
   }
 
   update(field) {
@@ -21,6 +23,13 @@ export default class SessionForm extends React.Component {
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
   }
+
+  componentDidMount() {
+    let location = "form"
+    console.log(location);
+  
+  }
+
 
   componentWillUnmount() {
       this.props.clearErrors();
@@ -78,10 +87,11 @@ export default class SessionForm extends React.Component {
   }
 
   render () {
+
     return (
       
       <div className="sessionFormDiv">
-        <div>{this.formSpacers()}</div>
+        <div className="vertical-spacer">{this.formSpacers()}</div>
         <div className="sessionForm">
           <button className="guest-button" type="submit" onClick={this.props.guestLogin}>Guest Login</button>
           <form onSubmit={this.handleSubmit}>

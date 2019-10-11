@@ -16,10 +16,11 @@ class Settings extends React.Component {
   render () {
     return (
       <div className="settings-window">
+        <p className="settings-exit" onClick={this.props.closeModal}>X</p>
         <nav className="menu-bar">
-          <p className="settings-exit" onClick={this.props.closeModal}>X</p>
+          
+         <Link className="settings-logout" to="/" onClick={this.logoutModal}>Log Out</Link>
         </nav>
-        <Link className="settings-logout" to="/" onClick={this.logoutModal}>Log Out</Link>
       </div>
     )
   }

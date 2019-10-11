@@ -20,6 +20,7 @@ window.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
+
   window.getState = store.getState;
   ReactDom.render(<Root store={store} />, rootEl)
 });
