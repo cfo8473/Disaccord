@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import ServerShow from './server_show'
 import { logout } from '../../actions/session_actions'
 import { openModal, closeModal } from '../../actions/modal_actions';
-
+import { faCog } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 const msp = (state) => ({
   currentUser: state.session.currentUser
 });
@@ -12,7 +13,7 @@ const mdp = dispatch => ({
   logout: () => dispatch(logout()),
   closeModal: () => dispatch(closeModal()),
   openModal: <button className="settings-icon" onClick={() => dispatch(openModal('settings'))}>
-    [ O ]
+    <FontAwesomeIcon icon={faCog} />
       </button>
 });
 

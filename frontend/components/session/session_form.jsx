@@ -30,7 +30,6 @@ export default class SessionForm extends React.Component {
   
   }
 
-
   componentWillUnmount() {
       this.props.clearErrors();
   }
@@ -38,7 +37,7 @@ export default class SessionForm extends React.Component {
   emailSignup() {
     if (this.props.formType === "signup")
       return (
-        <div className="sessionField">
+        <div>
         <label>
             <h5 className="login-text">Email </h5>
             <input className="session-input"  type="text"

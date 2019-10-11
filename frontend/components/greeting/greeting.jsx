@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import LoginFormContainer from '../session/login_form_container'
 import SignupFormContainer from '../session/sign_up_container'
 import { AuthRoute } from '../../util/route_util'
+import { faDog} from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Greeting extends React.Component {
     constructor(props) {
@@ -13,8 +15,14 @@ class Greeting extends React.Component {
     render () {
       const display = this.props.currentUser ? (
         <div className="current-user-block">
-          <p className="username-text">{this.props.currentUser.username}</p>
-          {this.props.openModal}
+          <div className="username-icon"><FontAwesomeIcon icon={faAddressCard} /></div>
+          
+          <div className="username-box">
+            <div className="username-text">{this.props.currentUser.username}</div>
+
+            <div className="username-id">#{this.props.currentUser.id}</div>
+          </div>
+
         </div>) : (
           <header className="main-header">
             <nav className="header-inner">
@@ -31,10 +39,10 @@ class Greeting extends React.Component {
             <header className="main-header">
               <nav className="header-inner">
                 <div className="header-logo">
-                  T[logoplaceholder]
+                  <FontAwesomeIcon icon={faDog} /> Disaccord
               </div>
                 <ul className="header-nav-center">
-                  DISACCORD TEST [ DOWNLOAD, BLAH BLAH, TEST2, TEST3, TEST4, TEST 5 ]
+                  [ placeholder ]
               </ul>
 
                 <ul className="header-nav-right">

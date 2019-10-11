@@ -52,6 +52,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'pry-rails'
   gem 'annotate', '~> 2.7.1'
+  gem 'font-awesome-rails'
 end
 
 group :test do

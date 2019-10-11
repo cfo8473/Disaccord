@@ -1,6 +1,20 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  box-shadow: 0 0 0 50px #282d33  inset;
+  -webkit-box-shadow: 0 0 0 50px #282d33 inset;
+  -webkit-text-fill-color: rgb(211, 211, 211);
+}
+
 a {
   color: #7289da;
   text-decoration: none;
@@ -21,7 +35,7 @@ a {
   padding: 40px;
   font-size: 18px;
   color: #72767d;
-  background: #353c47;
+  background: #272d35;
   border-radius: 5px;
   flex-direction: column;
   justify-content: space-between;
@@ -35,10 +49,6 @@ a {
 
 .login-spacer {
   padding-bottom: 60px;
-}
-
-.sessionField{
-
 }
 
 .vertical-spacer {
@@ -71,15 +81,20 @@ a {
   color: rgb(182, 182, 182);
   text-transform: uppercase;
   font-weight: 500;
+  
 }
 
 .session-input {
-  width: 94%;
+  width: 95%;
   padding: 10px;
   height: 16px;
   margin-bottom: 8px;
   font-size: 16px;
-
+  border-radius: 5px;
+  border-color: #1b1e22;
+  background: #282d33;
+  color: rgb(211, 211, 211);
+  
 }
 
 .submit-button {
@@ -89,6 +104,7 @@ a {
   background-color: #7289da;
   font-size: 16px;
   line-height: 24px;
+  border-radius: 3px;
   padding: 10px;
   margin-bottom: 8px;
   border: none;
@@ -134,10 +150,5 @@ a {
   font-weight: 500;
   cursor: default;
 }
-
-
-
-
-// nav bar 
 
 
