@@ -15,7 +15,7 @@ class Greeting extends React.Component {
     render () {
       const display = this.props.currentUser ? (
         <div className="current-user-block">
-          <div className="username-icon"><FontAwesomeIcon icon={faAddressCard} /></div>
+          <div className="username-icon"></div>
           
           <div className="username-box">
             <div className="username-text">{this.props.currentUser.username}</div>
