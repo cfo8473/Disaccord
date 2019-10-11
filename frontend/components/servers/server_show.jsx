@@ -2,7 +2,7 @@ import React from "react";
 import Modal from '../modal/modal';
 import { Link } from 'react-router-dom'
 import { AuthRoute } from '../../util/route_util'
-import { faAddressCard } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class ServerShow extends React.Component {
@@ -11,7 +11,14 @@ class ServerShow extends React.Component {
   }
 
   render() {
-    const display = this.props.currentUser ? (
+    const addServer = (
+      <div>
+        <FontAwesomeIcon icon={faPlus}/>
+
+      </div>
+    )
+
+    const userBox = (
       <div className="current-user-block">
         <div className="username-icon"><FontAwesomeIcon icon={faAddressCard} /></div>
 
@@ -22,19 +29,43 @@ class ServerShow extends React.Component {
         </div>
 
         {this.props.openModal}
-      </div>) : (
-        <header className="main-header">
-          <nav className="header-inner">
-            <ul className="header-nav-right">
-              testf
-           </ul>
-          </nav>
-        </header>
-      )
+      </div>)
 
       return (
-        <div>
-          {display}
+        <div className="navbar">
+          <nav className="nav-servers">
+            {addServer}
+          </nav>
+          <nav className="nav-channels">
+            <header className="nav-channels-header">
+              Current Channel:[test]
+            </header>
+            <div className="nav-channels-list">
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+            </div>
+
+            {userBox}
+          </nav>
+                      
+          <nav className="nav-content">
+            <header className="nav-content-header">
+                # current channel:[test]
+            </header>
+
+            <div className="nav-content-messages">
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+            </div>
+
+            
+          </nav>
+          <nav className="nav-users">
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          </nav>
+          
         </div>
       );
     }

@@ -16,6 +16,9 @@ function Modal({ modal, closeModal }) {
     case 'greetings':
       component = <GreetingsContainer />;
       break;
+    case "createServer":
+      component = <CreateServerContainer/>;
+      break;
     default:
       return null;
   }

@@ -57,7 +57,6 @@ class Greeting extends React.Component {
     else {
       return (
         <div>
-          {display}
         </div>
       );
     }

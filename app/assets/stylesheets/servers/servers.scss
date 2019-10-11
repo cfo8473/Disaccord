@@ -1,13 +1,12 @@
 .current-user-block {
   display: flex;
   background: #262b33;
-  position: absolute;
+  position: relative;
   height: 50px;
   width: 200px;
-  bottom: 16px;
-  left: 16px;
+  margin-top: auto;
   padding: 0 10px;
-  margin-bottom: 1px;
+
 }
 
 .username-box {
@@ -61,4 +60,71 @@
 .settings-icon:hover {
   background: #6d7a91a1;
   
+}
+
+//bunch of settings, can be split into different server components later
+
+.navbar {
+  width: 100%;
+  height: 600px;
+  display: flex;
+}
+.nav-servers {
+  display: block;
+  width: 70px;
+  padding: 16px;
+  background: #202225;
+} 
+
+.nav-channels {
+  width: 240px;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  background: #2f3136;
+}
+
+.nav-channels-header {
+  padding: 16px;
+  font-weight: 500;
+  align-items: center;
+  border-bottom: 2px solid rgb(36, 36, 36);
+
+}
+
+.nav-channels-list {
+  padding: 16px;
+  opacity: .4;
+}
+.nav-main{
+  width: 100%;
+  display: flex;
+}
+
+.nav-content {
+  width: 100%;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  background: #36393f
+}
+
+.nav-content-header {
+  padding: 16px;
+  font-weight: 500;
+  align-items: center;
+  border-bottom: 2px solid rgb(36, 36, 36);
+}
+
+.nav-content-messages {
+  padding: 16px;
+  opacity: .7;
+}
+
+.nav-users {
+  width: 240px;
+    display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  background: #2f3136;
 }
