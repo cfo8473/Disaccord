@@ -18,21 +18,22 @@ class ServerForm extends React.Component {
     e.preventDefault();
     const server = Object.assign({}, this.state);
     this.props.processForm(server);
+    this.props.closeModal() ;
   }
 
   render() {
     // debugger
     return (
       <div className="modal-createChannel">
-        <p className="modal-createChannelExit" onClick={this.props.closeModal}>X</p>
+       
 
-          <p>CREATE YOUR SERVER</p>
-          <p>By creating a server, you will have access to text chat to use amongst your friends.</p>
+          <p className="modal-createChannelGreet">CREATE YOUR SERVER</p>
+          <p className="modal-createChannelGreetText">By creating a server, you will have access to text chat to use amongst your friends.</p>
           <form className="modal-createChannelInput" onSubmit={this.handleSubmit}>
-            <label>SERVER NAME</label>
-            <input type="text" value={this.state.title} onChange={this.update("title")}/>
+            <label className="modal-createChannelTitle">SERVER NAME</label>
+            <input className="modal-createChannelTitleInput" type="text" value={this.state.title} onChange={this.update("title")}/>
 
-            <input type="submit" value="Create"/>
+            <input className="modal-createChannelButton" type="submit" value="Create"/>
 
 
           </form>

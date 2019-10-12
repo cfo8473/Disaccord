@@ -12,18 +12,20 @@ class ServerShow extends React.Component {
 
   render() {
     const addServer = (
-      <div className="nav-servers-button ">
-       {this.props.openCreateServer}
+      <div>
+        <button className="nav-servers-button " onClick={this.props.openServerModal}>
+          <FontAwesomeIcon icon={faPlus} />
+        </button>
         
       </div>
     )
 
     //probably won't implement any time soon but a nice placeholder
-    const searchServer = (
-      <div className="nav-servers-button ">
-        <FontAwesomeIcon icon={faSearch} />
-      </div>
-    )
+    // const searchServer = (
+    //   <div className="nav-servers-button ">
+    //     <FontAwesomeIcon icon={faSearch} />
+    //   </div>
+    // )
 
     const userBox = (
       <div className="current-user-block">
@@ -42,7 +44,7 @@ class ServerShow extends React.Component {
         <div className="navbar">
           <nav className="nav-servers">
             {addServer}
-            {searchServer}
+            {/* {searchServer} */}
           </nav>
           <nav className="nav-channels">
             <header className="nav-channels-header">

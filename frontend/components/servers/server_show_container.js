@@ -18,6 +18,8 @@ const mdp = dispatch => ({
   openCreateServer: <button className="modal-button-icon" onClick={() => dispatch(openModal('createServer'))}>
     <FontAwesomeIcon icon={faPlus} />
   </button>,
+  openServerModal: () => dispatch(openModal("createServer")),
+  openModal: modalType => dispatch(openModal(modalType)),
       
 });
 

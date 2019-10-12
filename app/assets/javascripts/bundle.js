@@ -305,7 +305,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "test"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Route"], {
     exact: true,
     path: "/",
     component: _greeting_greeting_container__WEBPACK_IMPORTED_MODULE_2__["default"]
@@ -722,6 +724,7 @@ function (_React$Component) {
       e.preventDefault();
       var server = Object.assign({}, this.state);
       this.props.processForm(server);
+      this.props.closeModal();
     }
   }, {
     key: "render",
@@ -730,16 +733,21 @@ function (_React$Component) {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-createChannel"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "modal-createChannelExit",
-        onClick: this.props.closeModal
-      }, "X"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "CREATE YOUR SERVER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "By creating a server, you will have access to text chat to use amongst your friends."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "modal-createChannelGreet"
+      }, "CREATE YOUR SERVER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "modal-createChannelGreetText"
+      }, "By creating a server, you will have access to text chat to use amongst your friends."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "modal-createChannelInput",
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "SERVER NAME"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
+        className: "modal-createChannelTitle"
+      }, "SERVER NAME"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "modal-createChannelTitleInput",
         type: "text",
         value: this.state.title,
         onChange: this.update("title")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "modal-createChannelButton",
         type: "submit",
         value: "Create"
       })));
@@ -808,15 +816,18 @@ function (_React$Component) {
   _createClass(ServerShow, [{
     key: "render",
     value: function render() {
-      var addServer = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "nav-servers-button "
-      }, this.props.openCreateServer); //probably won't implement any time soon but a nice placeholder
-
-      var searchServer = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "nav-servers-button "
+      var addServer = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "nav-servers-button ",
+        onClick: this.props.openServerModal
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_5__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faSearch"]
-      }));
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_4__["faPlus"]
+      }))); //probably won't implement any time soon but a nice placeholder
+      // const searchServer = (
+      //   <div className="nav-servers-button ">
+      //     <FontAwesomeIcon icon={faSearch} />
+      //   </div>
+      // )
+
       var userBox = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "current-user-block"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -834,7 +845,7 @@ function (_React$Component) {
         className: "navbar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "nav-servers"
-      }, addServer, searchServer), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      }, addServer), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "nav-channels"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         className: "nav-channels-header"
@@ -913,7 +924,13 @@ var mdp = function mdp(dispatch) {
       }
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_6__["FontAwesomeIcon"], {
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_5__["faPlus"]
-    }))
+    })),
+    openServerModal: function openServerModal() {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])("createServer"));
+    },
+    openModal: function openModal(modalType) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])(modalType));
+    }
   };
 };
 

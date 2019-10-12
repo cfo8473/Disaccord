@@ -10,7 +10,7 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util'
 
 
 export default () => (
-  <div>
+  <div className="test">
     <Modal/>
 
     <Route exact path="/" component={GreetingContainer} />
