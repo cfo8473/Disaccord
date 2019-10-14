@@ -56,20 +56,21 @@ class ServerShow extends React.Component {
           <ServerIndexContainer />
         </nav>
 
-        <nav className="nav-channels">
+        {/* <nav className="nav-channels">
           <header className="nav-channels-header">
-            <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
+            Current Server Placeholder
           </header>
 
           <div className="nav-channels-list">
             {loremIpsum}
             
-            {/* <ServerChannelIndexContainer/> */}
-          </div>
+            <ServerChannelIndexContainer/>
+          </div> */}
 
-          {userBox}
-        </nav>
-
+          {/* {userBox} */}
+        {/* </nav> */}
+        <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
+        
         <nav className="nav-content">
           <header className="nav-content-header"># current channel:[test]</header>
           <div className="nav-content-messages">
