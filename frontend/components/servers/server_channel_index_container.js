@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react'
 import ServerChannelIndex from './server_channel_index'
-import { fetchServers, removeServer } from '../../actions/server_actions'
+import { fetchServers, removeServer, fetchServer } from '../../actions/server_actions'
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { faCog, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -21,6 +21,7 @@ const msp = (state, ownProps) => {
 
 const mdp = dispatch => ({
   fetchServers: () => dispatch(fetchServers()),
+  fetchServer: (id) => dispatch(fetchServer(id)),
   removeServer: (serverId) => dispatch(removeServer(serverId)),
   closeModal: () => dispatch(closeModal()),
   openSettings: <button className="settings-icon" onClick={() => dispatch(openModal('settings'))}>

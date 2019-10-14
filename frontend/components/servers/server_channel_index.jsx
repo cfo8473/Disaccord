@@ -10,8 +10,10 @@ class ServerChannelIndex extends React.Component {
     }
       // debugger
   }
-
   
+  componentDidMount() {
+    this.props.fetchServer(this.props.match.params.serverId);
+  }
 
   render() {
     const userBox = (
@@ -28,50 +30,37 @@ class ServerChannelIndex extends React.Component {
     const loremIpsum = (
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     )
+    if (!this.props.server) { return (
+      <div>Loading...</div>
+    ) } else {
+      return (
 
-    let server;
-    const serverTitle = (typeof (this.props.server) !== 'undefined' ) ? (
-      server = this.props.server.title
-    ) : (
-      <div></div>
-    )
+          <nav className="nav-channels">
+            <header className="nav-channels-header">
+              {this.props.server.title}
+            </header>
 
-    let serverId;
-    const serverIdNum = (typeof (this.props.server) !== 'undefined') ? (
-      serverId = this.props.server.id
-    ) : (1111)
-      
-    // if (this.state.server) {
-    //   let server = this.state.server.id;
-    // }
-    // debugger
-    return (
+            <div className="nav-channels-list">
+              {loremIpsum}
 
-        <nav className="nav-channels">
-          <header className="nav-channels-header">
-            {serverTitle}
-          </header>
+              {/* <ServerChannelIndexContainer/> */}
+            </div>
 
-          <div className="nav-channels-list">
-            {loremIpsum}
+            {/* delete debug */}
 
-            {/* <ServerChannelIndexContainer/> */}
-          </div>
+            <br></br>
+            <button  
+              onClick={() => this.props.removeServer(this.props.server.id)}>
+              DEBUG DELETESERVER
+            </button>
 
-          {/* delete debug */}
+            {userBox}
+          </nav>
 
-          <br></br>
-          <button  
-            onClick={() => this.props.removeServer(serverIdNum)}>
-            DEBUG DELETESERVER
-          </button>
+          
 
-          {userBox}
-        </nav>
-
-        
-
-    )
+      )
+     }
 
   }
 

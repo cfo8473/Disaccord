@@ -10,13 +10,13 @@
 #
 
 class UserRole < ApplicationRecord
-  validates :user_id, :role_id
+  validates :user_id, :role_id, presence: true
 
-  has_one :user,
+  belongs_to :user,
     foreign_key: :user_id,
     class_name: :User
 
-  has_many :roles,
+  belongs_to :role,
     foreign_key: :role_id,
     class_name: :Role
 

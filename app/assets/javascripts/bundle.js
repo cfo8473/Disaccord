@@ -118,7 +118,7 @@ var fetchChannels = function fetchChannels() {
 var fetchChannel = function fetchChannel(id) {
   return function (dispatch) {
     return _util_channel_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchChannel"](id).then(function (channel) {
-      return dispatch(receiveChannel(id));
+      return dispatch(receiveChannel(channel));
     });
   };
 };
@@ -228,7 +228,7 @@ var fetchServers = function fetchServers() {
 var fetchServer = function fetchServer(id) {
   return function (dispatch) {
     return _util_server_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchServer"](id).then(function (server) {
-      return dispatch(receiveServer(id));
+      return dispatch(receiveServer(server));
     });
   };
 };
@@ -743,6 +743,11 @@ function (_React$Component) {
   }
 
   _createClass(ServerChannelIndex, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchServer(this.props.match.params.serverId);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
@@ -761,25 +766,22 @@ function (_React$Component) {
         className: "username-id"
       }, "#", this.props.currentUser.id)), this.props.openSettings);
       var loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
-      var server;
-      var serverTitle = typeof this.props.server !== 'undefined' ? server = this.props.server.title : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
-      var serverId;
-      var serverIdNum = typeof this.props.server !== 'undefined' ? serverId = this.props.server.id : 1111; // if (this.state.server) {
-      //   let server = this.state.server.id;
-      // }
-      // debugger
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-        className: "nav-channels"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
-        className: "nav-channels-header"
-      }, serverTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "nav-channels-list"
-      }, loremIpsum), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: function onClick() {
-          return _this2.props.removeServer(serverIdNum);
-        }
-      }, "DEBUG DELETESERVER"), userBox);
+      if (!this.props.server) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Loading...");
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+          className: "nav-channels"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+          className: "nav-channels-header"
+        }, this.props.server.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "nav-channels-list"
+        }, loremIpsum), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: function onClick() {
+            return _this2.props.removeServer(_this2.props.server.id);
+          }
+        }, "DEBUG DELETESERVER"), userBox);
+      }
     }
   }]);
 
@@ -832,6 +834,9 @@ var mdp = function mdp(dispatch) {
   return {
     fetchServers: function fetchServers() {
       return dispatch(Object(_actions_server_actions__WEBPACK_IMPORTED_MODULE_3__["fetchServers"])());
+    },
+    fetchServer: function fetchServer(id) {
+      return dispatch(Object(_actions_server_actions__WEBPACK_IMPORTED_MODULE_3__["fetchServer"])(id));
     },
     removeServer: function removeServer(serverId) {
       return dispatch(Object(_actions_server_actions__WEBPACK_IMPORTED_MODULE_3__["removeServer"])(serverId));

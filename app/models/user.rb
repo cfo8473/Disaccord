@@ -23,12 +23,21 @@ class User < ApplicationRecord
     class_name: :Server,
     dependent: :destroy
   
-  has_many :memberships, as: :membership
+  has_many :memberships
 
-  has_many :joined_servers,
+  has_many :joined_servers, 
     through: :memberships,
-    source: :roles
+    source: :membership,
+    source_type: :Server
 
+  has_many :joined_channels,
+    through: :memberships,
+    source: :membership,
+    source_type: :Channel
+
+  has_many :userRoles,
+    foreign_key: :user_id,
+    class_name: :UserRole
 
 
   def self.find_by_credentials(username, password)

@@ -11,7 +11,7 @@ export const fetchServers = () => dispatch => {
 
 export const fetchServer = id => dispatch => {
   return APIServerUtil
-    .fetchServer(id).then(server => dispatch(receiveServer(id)));
+    .fetchServer(id).then(server => dispatch(receiveServer(server)));
 };
 
 export const createServer = server => dispatch => {

@@ -11,7 +11,7 @@ export const fetchChannels = () => dispatch => {
 
 export const fetchChannel = id => dispatch => {
   return APIChannelUtil
-    .fetchChannel(id).then(channel => dispatch(receiveChannel(id)));
+    .fetchChannel(id).then(channel => dispatch(receiveChannel(channel)));
 };
 
 export const createChannel = channel => dispatch => {

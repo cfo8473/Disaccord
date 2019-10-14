@@ -12,11 +12,11 @@
 class RoleChannel < ApplicationRecord
   validates :role_id, :channel_id, presence: true
 
-  has_many :roles,
+  belongs_to :roles,
     foreign_key: :role_id,
     class_name: :Role
   
-  has_one :channel,
+  belongs_to :channel,
     foreign_key: :channel_id,
     class_name: :Channel
 end
