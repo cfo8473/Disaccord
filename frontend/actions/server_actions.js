@@ -18,7 +18,7 @@ export const fetchServer = id => dispatch => {
 
 export const createServer = server => dispatch => {
   return (
-    APIUtil.createServer(server).then(server => dispatch(receiveServer))
+    APIUtil.createServer(server).then(server => dispatch(receiveServer(server)))
   );
 }
 

@@ -154,7 +154,7 @@ var fetchServer = function fetchServer(id) {
 var createServer = function createServer(server) {
   return function (dispatch) {
     return _util_server_api_util__WEBPACK_IMPORTED_MODULE_0__["createServer"](server).then(function (server) {
-      return dispatch(receiveServer);
+      return dispatch(receiveServer(server));
     });
   };
 };
@@ -949,11 +949,10 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var servers = this.props.servers;
-      console.log(servers); // debugger
-      // const serverList = servers.map(server => (
-      //     <li>{server}</li>
-      // ));
-
+      console.log(servers);
+      var serverList = Object.values(servers).map(function (server) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, server.title);
+      });
       var addServer = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "nav-servers-button ",
         onClick: this.props.openServerModal
@@ -983,7 +982,7 @@ function (_React$Component) {
         className: "navbar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "nav-servers"
-      }, addServer, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_server_index_container__WEBPACK_IMPORTED_MODULE_6__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      }, addServer, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_server_index_container__WEBPACK_IMPORTED_MODULE_6__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, serverList)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "nav-channels"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         className: "nav-channels-header"
@@ -1037,7 +1036,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var msp = function msp(state) {
   var currentUser = state.session.currentUser;
-  var servers = state.entities.servers;
+  var servers = state.entities.servers; // debugger
+
   return {
     currentUser: currentUser,
     servers: servers

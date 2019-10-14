@@ -21,15 +21,11 @@ class ServerShow extends React.Component {
   render() {
     
     const servers = this.props.servers;
-
     console.log(servers)
-    // debugger
 
-    // const serverList = servers.map(server => (
-
-    //     <li>{server}</li>
- 
-    // ));
+    const serverList = Object.values(servers).map(server => (
+        <li>{server.title}</li>
+    ))
 
     const addServer = (
       <div>
@@ -64,7 +60,8 @@ class ServerShow extends React.Component {
           <nav className="nav-servers">
             {addServer}
             <ServerIndexContainer/>
-            {/* {searchServer} */}
+            <ul>{serverList}</ul>
+  
           </nav>
           <nav className="nav-channels">
             <header className="nav-channels-header">

@@ -11,7 +11,7 @@ const msp = (state) => {
 
   let currentUser = state.session.currentUser
   let servers = state.entities.servers;
-  
+  // debugger
   return{
     currentUser: currentUser,
     servers: servers
