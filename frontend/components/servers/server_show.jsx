@@ -58,11 +58,12 @@ class ServerShow extends React.Component {
 
         <nav className="nav-channels">
           <header className="nav-channels-header">
-            Current Server Placeholder
+            <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
           </header>
 
           <div className="nav-channels-list">
             {loremIpsum}
+            
             {/* <ServerChannelIndexContainer/> */}
           </div>
 
@@ -82,7 +83,7 @@ class ServerShow extends React.Component {
         <nav className="nav-users">
           {loremIpsum}
         </nav>
-        <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
+        
       </div>
     );
   }

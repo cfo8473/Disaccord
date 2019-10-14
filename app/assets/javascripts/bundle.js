@@ -645,22 +645,28 @@ function (_React$Component) {
   _inherits(ServerChannelIndex, _React$Component);
 
   function ServerChannelIndex(props) {
+    var _this;
+
     _classCallCheck(this, ServerChannelIndex);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ServerChannelIndex).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ServerChannelIndex).call(this, props));
+    _this.state = {
+      server: _this.props.server
+    }; // debugger
+
+    return _this;
   }
 
   _createClass(ServerChannelIndex, [{
     key: "render",
     value: function render() {
-      if (this.props.server) {
-        var _server = this.props.server.id;
-      } else {
-        var _server2 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
-      }
+      var server;
+      var serverTitle = typeof this.props.server !== 'undefined' ? server = this.props.server.title : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null); // if (this.state.server) {
+      //   let server = this.state.server.id;
+      // }
+      // debugger
 
-      debugger;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, server);
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, serverTitle);
     }
   }]);
 
@@ -704,6 +710,9 @@ var mdp = function mdp(dispatch) {
   return {
     fetchServers: function fetchServers() {
       return dispatch(Object(_actions_server_actions__WEBPACK_IMPORTED_MODULE_2__["fetchServers"])());
+    },
+    removeServer: function removeServer(serverId) {
+      return dispatch(Object(_actions_server_actions__WEBPACK_IMPORTED_MODULE_2__["removeServer"])(serverId));
     }
   };
 };
@@ -974,7 +983,7 @@ function (_React$Component) {
         onClick: this.props.openServerModal
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "nav-servers-button-title"
-      }, this.props.server.title))));
+      }, this.props.server.title.slice(0, 1)))));
     }
   }]);
 
@@ -1082,7 +1091,10 @@ function (_React$Component) {
         className: "nav-channels"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         className: "nav-channels-header"
-      }, "Current Server Placeholder"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__["ProtectedRoute"], {
+        path: "/servers/:serverId",
+        component: _server_channel_index_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-channels-list"
       }, loremIpsum), userBox), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "nav-content"
@@ -1092,10 +1104,7 @@ function (_React$Component) {
         className: "nav-content-messages"
       }, loremIpsum, loremIpsum, loremIpsum, loremIpsum)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "nav-users"
-      }, loremIpsum), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__["ProtectedRoute"], {
-        path: "/servers/:serverId",
-        component: _server_channel_index_container__WEBPACK_IMPORTED_MODULE_5__["default"]
-      }));
+      }, loremIpsum));
     }
   }]);
 

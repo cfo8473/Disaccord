@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ServerChannelIndex from './server_channel_index'
-import { fetchServers } from '../../actions/server_actions'
+import { fetchServers, removeServer } from '../../actions/server_actions'
 
 const msp = (state, ownProps) => {
   // debugger
@@ -16,7 +16,8 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = dispatch => ({
-  fetchServers: () => dispatch(fetchServers())
+  fetchServers: () => dispatch(fetchServers()),
+  removeServer: (serverId) => dispatch(removeServer(serverId))
 })
 
 export default connect(msp, mdp)(ServerChannelIndex);
