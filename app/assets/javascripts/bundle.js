@@ -2190,19 +2190,19 @@ __webpack_require__.r(__webpack_exports__);
 var fetchChannels = function fetchChannels() {
   return $.ajax({
     method: "GET",
-    url: "/api/servers/:serverId/"
+    url: "/api/channels//"
   });
 };
 var fetchChannel = function fetchChannel(id) {
   return $.ajax({
     method: "GET",
-    url: "/api/servers/:serverId/".concat(id)
+    url: "/api/channels//".concat(id)
   });
 };
 var createChannel = function createChannel(channel) {
   return $.ajax({
     method: "POST",
-    url: "/api/servers/:serverId",
+    url: "/api/channels/",
     data: {
       channel: channel
     }
@@ -2211,7 +2211,7 @@ var createChannel = function createChannel(channel) {
 var editChannel = function editChannel(channel) {
   return $.ajax({
     method: "PATCH",
-    url: "/api/servers/:serverId/".concat(channel.id, "/edit"),
+    url: "/api/channels/".concat(channel.id, "/edit"),
     data: {
       channel: channel
     }
@@ -2220,7 +2220,7 @@ var editChannel = function editChannel(channel) {
 var deleteChannel = function deleteChannel(channelId) {
   return $.ajax({
     method: "DELETE",
-    url: "/api/servers/:serverId/".concat(channelId)
+    url: "/api/channels/".concat(channelId)
   });
 };
 

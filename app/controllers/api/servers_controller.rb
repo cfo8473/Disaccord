@@ -14,7 +14,7 @@ class Api::ServersController < ApplicationController
 
   def create
     @server = Server.new(server_params)
-    
+    # debugger
     if @server.save
       @serverMembership = Membership.new(user_id: current_user.id, membership_id: @server.id, membership_type: "Server")
       @serverMembership.save!

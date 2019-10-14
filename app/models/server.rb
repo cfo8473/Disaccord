@@ -19,7 +19,7 @@ class Server < ApplicationRecord
 
   has_many :memberships, as: :membership
 
-  belongs_to :role,
+  has_many :roles,
     foreign_key: :server_id,
     class_name: :Role
 
