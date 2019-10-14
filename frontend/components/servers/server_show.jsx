@@ -5,27 +5,17 @@ import { AuthRoute } from '../../util/route_util'
 import { faAddressCard, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ServerIndexContainer from './server_index_container'
+import ServerIndexItem from './server_index_item'
 
 class ServerShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.currentUser;
 
-    
-  }
-
-  componentDidMount() {
-    this.props.fetchServers();
   }
 
   render() {
-    
-    const servers = this.props.servers;
-    console.log(servers)
-
-    const serverList = Object.values(servers).map(server => (
-        <li>{server.title}</li>
-    ))
+  
 
     const addServer = (
       <div>
@@ -36,12 +26,6 @@ class ServerShow extends React.Component {
       </div>
     )
 
-    //probably won't implement any time soon but a nice placeholder
-    // const searchServer = (
-    //   <div className="nav-servers-button ">
-    //     <FontAwesomeIcon icon={faSearch} />
-    //   </div>
-    // )
     const userBox = (
       <div className="current-user-block">
         <div className="username-icon"><FontAwesomeIcon icon={faAddressCard} /></div>
@@ -60,7 +44,7 @@ class ServerShow extends React.Component {
           <nav className="nav-servers">
             {addServer}
             <ServerIndexContainer/>
-            <ul>{serverList}</ul>
+            {/* <ul>{serverList}</ul> */}
   
           </nav>
           <nav className="nav-channels">

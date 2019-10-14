@@ -9,6 +9,10 @@
 
 }
 
+li {
+  list-style-type: none;
+}
+
 .username-box {
   display: box;
   padding: 5px;
@@ -71,10 +75,34 @@
 }
 .nav-servers {
   display: block;
-  width: 70px;
+  width: 90px;
   padding: 16px;
   background: #202225;
+  overflow: hidden;
+  overflow-y: scroll;
+  contain: layout size;
 } 
+
+::-webkit-scrollbar {
+  width: 3px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: #2f3136; 
+  border: 3px solid #36393f;
+  border-radius: 7px;
+  border-style: solid;
+  background-clip: padding-box;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
 
 .nav-servers-button {
   position: relative;
@@ -92,6 +120,7 @@
   margin-bottom: 10px;
   -webkit-align-content: center;
   align-content: center;
+
 }
 
 .nav-servers-button:hover {

@@ -8,14 +8,15 @@ import { faCog, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const msp = (state) => {
-  let currentUser = state.session.currentUser // placeholder for return
-  //let currentServers = state.entities.servers <-- hopefully?
-  return (
-    currentUser
-    //,currentServers
-  )
-};
 
+  let currentUser = state.session.currentUser
+  let servers = state.entities.servers;
+  // debugger
+  return {
+    currentUser: currentUser,
+    servers: servers
+  }
+};
 
 const mdp = dispatch => ({
   fetchServers: () => dispatch(fetchServers())
