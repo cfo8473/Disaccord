@@ -8,7 +8,7 @@ class Api::ServersController < ApplicationController
 
   def show
     @server = Server.find(params[:id])
-    render :index
+    render :show
   end
 
   def create
