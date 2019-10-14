@@ -22,6 +22,8 @@ class User < ApplicationRecord
     foreign_key: :admin_id,
     class_name: :Server,
     dependent: :destroy
+  
+  has_many :memberships, as: :membership
 
 
   def self.find_by_credentials(username, password)

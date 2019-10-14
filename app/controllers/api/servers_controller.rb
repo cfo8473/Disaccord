@@ -13,8 +13,12 @@ class Api::ServersController < ApplicationController
 
   def create
     @server = Server.new(server_params)
-
+    
     if @server.save
+      @membership = Membership.new(user_id: current_user.id, membership_id: @server.id, membership_type: "Server")
+  
+      @membership.save!
+      # debugger
       render :show
     else
       render json: @server.errors.full_messages, status: 422

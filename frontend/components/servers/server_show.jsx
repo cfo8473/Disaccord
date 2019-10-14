@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom'
 import { AuthRoute } from '../../util/route_util'
 import { faAddressCard, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ServerIndexContainer from './server_index_container'
 
 class ServerShow extends React.Component {
   constructor(props) {
     super(props);
   }
+
+ 
 
   render() {
     const addServer = (
@@ -26,7 +29,7 @@ class ServerShow extends React.Component {
     //     <FontAwesomeIcon icon={faSearch} />
     //   </div>
     // )
-
+    // debugger
     const userBox = (
       <div className="current-user-block">
         <div className="username-icon"><FontAwesomeIcon icon={faAddressCard} /></div>
@@ -44,6 +47,7 @@ class ServerShow extends React.Component {
         <div className="navbar">
           <nav className="nav-servers">
             {addServer}
+            <ServerIndexContainer/>
             {/* {searchServer} */}
           </nav>
           <nav className="nav-channels">

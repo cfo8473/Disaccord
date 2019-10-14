@@ -5,7 +5,9 @@ import { logout } from '../../actions/session_actions'
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { faCog, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { fetchServers } from "../../actions/server_actions"
 const msp = (state) => ({
+  
   currentUser: state.session.currentUser
 });
 
@@ -20,6 +22,7 @@ const mdp = dispatch => ({
   </button>,
   openServerModal: () => dispatch(openModal("createServer")),
   openModal: modalType => dispatch(openModal(modalType)),
+  fetchServers: () => dispatch(fetchServers())
       
 });
 
