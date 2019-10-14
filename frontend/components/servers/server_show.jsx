@@ -51,6 +51,7 @@ class ServerShow extends React.Component {
           {addServer}
           <ServerIndexContainer/>
         </nav>
+        
         <nav className="nav-channels">
           <header className="nav-channels-header">
             Current Server Placeholder
@@ -72,7 +73,7 @@ class ServerShow extends React.Component {
             {loremIpsum}
           </div>
         </nav>
-        
+
         <nav className="nav-users">
           {loremIpsum}
         </nav>

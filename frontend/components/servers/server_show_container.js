@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fetchServers, fetchServer } from "../../actions/server_actions"
 
 const msp = (state, ownProps) => {
+  // debugger
+
   let currentUser = state.session.currentUser
   let servers = state.entities.servers;
   let server = state.entities.servers[ownProps.match.params.serverId];
