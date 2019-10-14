@@ -16,8 +16,12 @@ class Api::ServersController < ApplicationController
     @server = Server.new(server_params)
     
     if @server.save
-      @membership = Membership.new(user_id: current_user.id, membership_id: @server.id, membership_type: "Server")
-      @membership.save!
+      @serverMembership = Membership.new(user_id: current_user.id, membership_id: @server.id, membership_type: "Server")
+      @serverMembership.save!
+      @channelMembership = Membership.new(user_id: current_user.id, membership_id: 1, membership_type: "Channel")
+      @channelMembership.save!
+      @channel = Channel.new(title: "General", server_id: @server.id, topic: "Default topic!")
+      @channel.save!
       render :show
     else
       render json: @server.errors.full_messages, status: 422

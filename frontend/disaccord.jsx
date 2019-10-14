@@ -5,6 +5,7 @@ import configureStore from './store/store'
 import Root from './components/root'
 
 import {fetchServers} from './actions/server_actions'
+import {fetchChannels} from './actions/channel_actions'
 
 window.addEventListener("DOMContentLoaded", () => {
   let rootEl = document.getElementById("root"); 
@@ -24,8 +25,9 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   // window.fetchServers = fetchServers;
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
+  window.fetchChannels = fetchChannels;
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
 
   // console.log(window.getState());
   ReactDom.render(<Root store={store} />, rootEl)

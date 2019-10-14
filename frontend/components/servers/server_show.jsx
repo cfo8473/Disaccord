@@ -16,9 +16,12 @@ class ServerShow extends React.Component {
   // }
 
   // buggy as servers is not being passed through properly
+  // need to fix to keep current server saved
+
   // componentDidUpdate(prevProps) {
-  //   if (prevProps.server.id != this.props.match.params.id) {
-  //     this.props.fetchServer(this.props.match.params.id);
+  //   debugger
+  //   if (prevProps.server.id != this.props.match.params.serverId) {
+  //     this.props.fetchServer(this.props.match.params.serverId);
   //   }
   // }
 
