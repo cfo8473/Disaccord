@@ -4,6 +4,7 @@ class Api::ServersController < ApplicationController
   def index
     @servers = Server.all
     render :index
+
   end
 
   def show

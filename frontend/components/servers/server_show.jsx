@@ -2,6 +2,8 @@ import React from "react";
 import { faAddressCard, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ServerIndexContainer from './server_index_container'
+import { AuthRoute, ProtectedRoute } from '../../util/route_util'
+import ServerChannelIndexContainer from './server_channel_index_container'
 
 class ServerShow extends React.Component {
   constructor(props) {
@@ -9,9 +11,9 @@ class ServerShow extends React.Component {
     this.state = this.props.currentUser;
   }
   
-  componentDidMount() {
-    this.props.fetchServer(this.props.match.params.id)
-  }
+  // componentDidMount() {
+  //   this.props.fetchServer(this.props.match.params.id)
+  // }
 
   // buggy as servers is not being passed through properly
   // componentDidUpdate(prevProps) {
@@ -21,6 +23,8 @@ class ServerShow extends React.Component {
   // }
 
   render() {
+    <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
+
     const addServer = (
       <div>
         <button className="nav-servers-button " onClick={this.props.openServerModal}>
@@ -51,7 +55,7 @@ class ServerShow extends React.Component {
           {addServer}
           <ServerIndexContainer/>
         </nav>
-        
+
         <nav className="nav-channels">
           <header className="nav-channels-header">
             Current Server Placeholder
@@ -59,6 +63,7 @@ class ServerShow extends React.Component {
 
           <div className="nav-channels-list">
            {loremIpsum}
+           {/* <ServerChannelIndexContainer/> */}
           </div>
 
           {userBox}

@@ -4,7 +4,7 @@ import { createServer } from '../../actions/server_actions'
 import { openModal, closeModal } from '../../actions/modal_actions';
 import ServerForm from './server_form'
 
-const msp = (state, ownProps) => {
+const msp = (state) => {
   const errors = state.errors.session.errors;
   let serverInfo = { title: "", admin_id: `${state.session.currentUser.id}`}
   return {
@@ -14,7 +14,7 @@ const msp = (state, ownProps) => {
   }
 };
 
-const mdp = (dispatch, ownProps) => {
+const mdp = (dispatch) => {
   return {
     processForm: formServer => dispatch(createServer(formServer)),
     clearErrors: () => dispatch(clearErrors({errors: []})),
