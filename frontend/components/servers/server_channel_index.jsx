@@ -7,7 +7,13 @@ class ServerChannelIndex extends React.Component {
 
   render() {
 
-  let server = this.props.server.id;
+    if (this.props.server) {
+      let server = this.props.server.id;
+    } else {
+      let server = (<div></div>
+      );
+    }
+    debugger
     return (
       <div>
         {server}

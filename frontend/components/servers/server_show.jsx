@@ -10,7 +10,7 @@ class ServerShow extends React.Component {
     super(props);
     this.state = this.props.currentUser;
   }
-  
+
   // componentDidMount() {
   //   this.props.fetchServer(this.props.match.params.id)
   // }
@@ -23,7 +23,7 @@ class ServerShow extends React.Component {
   // }
 
   render() {
-    <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
+    
 
     const addServer = (
       <div>
@@ -37,10 +37,10 @@ class ServerShow extends React.Component {
       <div className="current-user-block">
         <div className="username-icon"><FontAwesomeIcon icon={faAddressCard} /></div>
         <div className="username-box">
-        <div className="username-text">{this.props.currentUser.username}</div>
-        <div className="username-id">#{this.props.currentUser.id}</div>
-      </div>
-      {this.props.openSettings}
+          <div className="username-text">{this.props.currentUser.username}</div>
+          <div className="username-id">#{this.props.currentUser.id}</div>
+        </div>
+        {this.props.openSettings}
       </div>
     )
 
@@ -53,7 +53,7 @@ class ServerShow extends React.Component {
       <div className="navbar">
         <nav className="nav-servers">
           {addServer}
-          <ServerIndexContainer/>
+          <ServerIndexContainer />
         </nav>
 
         <nav className="nav-channels">
@@ -62,13 +62,13 @@ class ServerShow extends React.Component {
           </header>
 
           <div className="nav-channels-list">
-           {loremIpsum}
-           {/* <ServerChannelIndexContainer/> */}
+            {loremIpsum}
+            {/* <ServerChannelIndexContainer/> */}
           </div>
 
           {userBox}
         </nav>
-                    
+
         <nav className="nav-content">
           <header className="nav-content-header"># current channel:[test]</header>
           <div className="nav-content-messages">
@@ -82,7 +82,7 @@ class ServerShow extends React.Component {
         <nav className="nav-users">
           {loremIpsum}
         </nav>
-        
+        <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
       </div>
     );
   }

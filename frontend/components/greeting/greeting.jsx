@@ -28,6 +28,7 @@ class Greeting extends React.Component {
     return (
       <div>
         {display}
+        
       </div>
     )
   };

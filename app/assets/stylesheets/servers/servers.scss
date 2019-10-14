@@ -81,6 +81,7 @@ li {
   // overflow: hidden;
   overflow-y: scroll;
   contain: layout size;
+  overflow-x: hidden;
 } 
 
 ::-webkit-scrollbar {
@@ -109,6 +110,8 @@ li {
   text-align: center;
   display: flex;
   cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 29px;
   color: #43b581;
   border-radius: 50%;
@@ -125,6 +128,8 @@ li {
 
 .nav-servers-button-title{
   visibility: hidden;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .nav-servers-button-title:first-letter {
@@ -173,6 +178,8 @@ nav-servers-button-tooltip .tooltip:hover .tooltiptext {
   background: #2f3136;
   overflow: hidden;
   text-overflow: ellipsis;
+  overflow-y: scroll;
+  
 
 }
 
@@ -203,7 +210,8 @@ nav-servers-button-tooltip .tooltip:hover .tooltiptext {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
-  background: #36393f
+  background: #36393f;
+  overflow-y: scroll;
 }
 
 .nav-content-header {
@@ -224,5 +232,6 @@ nav-servers-button-tooltip .tooltip:hover .tooltiptext {
   flex: 1 1 auto;
   flex-direction: column;
   background: #2f3136;
+  overflow-y: scroll;
 }
 

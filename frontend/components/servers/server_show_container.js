@@ -9,8 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fetchServers, fetchServer } from "../../actions/server_actions"
 
 const msp = (state, ownProps) => {
-  
-
   let currentUser = state.session.currentUser
   let servers = state.entities.servers;
 
@@ -24,13 +22,13 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => ({
   logout: () => dispatch(logout()),
   closeModal: () => dispatch(closeModal()),
-  openSettings: <button className="settings-icon" onClick={() => dispatch(openModal('settings'))}>
-    <FontAwesomeIcon icon={faCog} />
-      </button>,
   openServerModal: () => dispatch(openModal("createServer")),
   openModal: modalType => dispatch(openModal(modalType)),
   fetchServers: () => dispatch(fetchServers()),
   fetchServer: (id) => dispatch(fetchServer(id)),
+  openSettings: <button className="settings-icon" onClick={() => dispatch(openModal('settings'))}>
+    <FontAwesomeIcon icon={faCog} />
+  </button>,
 });
 
 export default withRouter(connect(msp, mdp)(ServerShow));

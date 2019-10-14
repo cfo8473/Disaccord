@@ -301,6 +301,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 /* harmony default export */ __webpack_exports__["default"] = (function () {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "test"
@@ -652,7 +653,13 @@ function (_React$Component) {
   _createClass(ServerChannelIndex, [{
     key: "render",
     value: function render() {
-      var server = this.props.server.id;
+      if (this.props.server) {
+        var _server = this.props.server.id;
+      } else {
+        var _server2 = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
+
+      debugger;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, server);
     }
   }]);
@@ -1046,10 +1053,6 @@ function (_React$Component) {
   _createClass(ServerShow, [{
     key: "render",
     value: function render() {
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__["ProtectedRoute"], {
-        path: "/servers/:serverId",
-        component: _server_channel_index_container__WEBPACK_IMPORTED_MODULE_5__["default"]
-      });
       var addServer = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "nav-servers-button ",
         onClick: this.props.openServerModal
@@ -1089,7 +1092,10 @@ function (_React$Component) {
         className: "nav-content-messages"
       }, loremIpsum, loremIpsum, loremIpsum, loremIpsum)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "nav-users"
-      }, loremIpsum));
+      }, loremIpsum), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_4__["ProtectedRoute"], {
+        path: "/servers/:serverId",
+        component: _server_channel_index_container__WEBPACK_IMPORTED_MODULE_5__["default"]
+      }));
     }
   }]);
 
@@ -1147,14 +1153,6 @@ var mdp = function mdp(dispatch) {
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["closeModal"])());
     },
-    openSettings: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-      className: "settings-icon",
-      onClick: function onClick() {
-        return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["openModal"])('settings'));
-      }
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__["FontAwesomeIcon"], {
-      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCog"]
-    })),
     openServerModal: function openServerModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["openModal"])("createServer"));
     },
@@ -1166,7 +1164,15 @@ var mdp = function mdp(dispatch) {
     },
     fetchServer: function fetchServer(id) {
       return dispatch(Object(_actions_server_actions__WEBPACK_IMPORTED_MODULE_8__["fetchServer"])(id));
-    }
+    },
+    openSettings: react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "settings-icon",
+      onClick: function onClick() {
+        return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_5__["openModal"])('settings'));
+      }
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_7__["FontAwesomeIcon"], {
+      icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_6__["faCog"]
+    }))
   };
 };
 
