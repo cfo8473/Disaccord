@@ -615,7 +615,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
-  // debugger
   var errors = state.errors.session.errors;
   var serverInfo = {
     title: "",
@@ -729,7 +728,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // debugger
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-createChannel"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -816,7 +814,7 @@ function (_React$Component) {
   _createClass(ServerIndex, [{
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      this.props.fetchServers(); // debugger
+      this.props.fetchServers();
     }
   }, {
     key: "render",
@@ -866,7 +864,6 @@ __webpack_require__.r(__webpack_exports__);
 
 var msp = function msp(state) {
   var currentUser = state.session.currentUser; // placeholder for return
-  // debugger
   //let currentServers = state.entities.servers <-- hopefully?
 
   return currentUser //,currentServers
@@ -951,9 +948,12 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var servers = this.props.servers; // debugger;
+      var servers = this.props.servers;
+      console.log(servers); // debugger
+      // const serverList = servers.map(server => (
+      //     <li>{server}</li>
+      // ));
 
-      console.log(servers);
       var addServer = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "nav-servers-button ",
         onClick: this.props.openServerModal
@@ -965,7 +965,6 @@ function (_React$Component) {
       //     <FontAwesomeIcon icon={faSearch} />
       //   </div>
       // )
-      // debugger
 
       var userBox = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "current-user-block"
@@ -1037,11 +1036,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state) {
-  // debugger
   var currentUser = state.session.currentUser;
   var servers = state.entities.servers;
   return {
-    // currentUser: state.session.currentUser
     currentUser: currentUser,
     servers: servers
   };

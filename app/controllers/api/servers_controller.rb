@@ -8,7 +8,7 @@ class Api::ServersController < ApplicationController
 
   def show
     @server = Server.find(params[:id])
-    render :show
+    render :index
   end
 
   def create
@@ -18,7 +18,6 @@ class Api::ServersController < ApplicationController
       @membership = Membership.new(user_id: current_user.id, membership_id: @server.id, membership_type: "Server")
   
       @membership.save!
-      # debugger
       render :show
     else
       render json: @server.errors.full_messages, status: 422

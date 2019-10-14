@@ -10,6 +10,7 @@ class ServerShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.currentUser;
+
     
   }
 
@@ -20,9 +21,15 @@ class ServerShow extends React.Component {
   render() {
     
     const servers = this.props.servers;
-    // debugger;
+
     console.log(servers)
-    
+    // debugger
+
+    // const serverList = servers.map(server => (
+
+    //     <li>{server}</li>
+ 
+    // ));
 
     const addServer = (
       <div>
@@ -39,7 +46,6 @@ class ServerShow extends React.Component {
     //     <FontAwesomeIcon icon={faSearch} />
     //   </div>
     // )
-    // debugger
     const userBox = (
       <div className="current-user-block">
         <div className="username-icon"><FontAwesomeIcon icon={faAddressCard} /></div>

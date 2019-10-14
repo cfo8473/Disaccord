@@ -5,7 +5,6 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import ServerForm from './server_form'
 
 const msp = (state, ownProps) => {
-  // debugger
   const errors = state.errors.session.errors;
   let serverInfo = { title: "", admin_id: `${state.session.currentUser.id}`}
   return {

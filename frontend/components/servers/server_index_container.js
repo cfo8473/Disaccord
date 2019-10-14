@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const msp = (state) => {
   let currentUser = state.session.currentUser // placeholder for return
-  // debugger
   //let currentServers = state.entities.servers <-- hopefully?
   return (
     currentUser
