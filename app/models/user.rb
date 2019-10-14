@@ -25,6 +25,11 @@ class User < ApplicationRecord
   
   has_many :memberships, as: :membership
 
+  has_many :joined_servers,
+    through: :memberships,
+    source: :roles
+
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

@@ -18,4 +18,10 @@ class Server < ApplicationRecord
     class_name: :User
 
   has_many :memberships, as: :membership
+
+  has_many :roles,
+    foreign_key: :server_id,
+    class_name: :Role
+
+    
 end

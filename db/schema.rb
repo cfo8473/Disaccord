@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_14_010439) do
+ActiveRecord::Schema.define(version: 2019_10_14_160742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +34,40 @@ ActiveRecord::Schema.define(version: 2019_10_14_010439) do
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
+  create_table "role_channels", force: :cascade do |t|
+    t.integer "role_id", null: false
+    t.integer "channel_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["channel_id"], name: "index_role_channels_on_channel_id"
+    t.index ["role_id"], name: "index_role_channels_on_role_id"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "color", null: false
+    t.integer "permissions", null: false
+    t.integer "server_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["server_id"], name: "index_roles_on_server_id"
+  end
+
   create_table "servers", force: :cascade do |t|
     t.string "title", null: false
     t.integer "admin_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["admin_id"], name: "index_servers_on_admin_id"
+  end
+
+  create_table "user_roles", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["role_id"], name: "index_user_roles_on_role_id"
+    t.index ["user_id"], name: "index_user_roles_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

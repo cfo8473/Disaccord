@@ -11,6 +11,8 @@ class ServerChannelIndex extends React.Component {
       // debugger
   }
 
+  
+
   render() {
     const userBox = (
       <div className="current-user-block">
