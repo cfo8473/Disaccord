@@ -315,7 +315,7 @@ __webpack_require__.r(__webpack_exports__);
     path: "/signup",
     component: _session_sign_up_container__WEBPACK_IMPORTED_MODULE_4__["default"]
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_6__["ProtectedRoute"], {
-    path: "/",
+    path: "/servers",
     component: _servers_server_show_container__WEBPACK_IMPORTED_MODULE_5__["default"]
   }));
 });
@@ -1894,7 +1894,7 @@ var Auth = function Auth(_ref) {
     render: function render(props) {
       return (// !loggedIn ? <Redirect to="/servers" /> : <Redirect to="/" />
         !loggedIn ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
-          to: "/"
+          to: "/servers"
         })
       );
     }
@@ -1911,9 +1911,9 @@ var Protected = function Protected(_ref2) {
     exact: exact,
     render: function render(props) {
       return (// !loggedIn ? <Redirect to="/servers" /> : <Redirect to="/" />
-        !loggedIn ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+        loggedIn ? react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, props) : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
           to: "/"
-        }) : react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(Component, props)
+        })
       );
     }
   });
