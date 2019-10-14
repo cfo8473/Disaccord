@@ -1440,9 +1440,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -1467,21 +1467,30 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ServerShow).call(this, props));
     _this.state = _this.props.currentUser;
+    _this.onEnterPress = _this.onEnterPress.bind(_assertThisInitialized(_this));
     return _this;
-  } // componentDidMount() {
-  //   this.props.fetchServer(this.props.match.params.id)
-  // }
-  // buggy as servers is not being passed through properly
-  // need to fix to keep current server saved
-  // componentDidUpdate(prevProps) {
-  //   debugger
-  //   if (prevProps.server.id != this.props.match.params.serverId) {
-  //     this.props.fetchServer(this.props.match.params.serverId);
-  //   }
-  // }
-
+  }
 
   _createClass(ServerShow, [{
+    key: "onEnterPress",
+    value: function onEnterPress(e) {
+      if (e.keyCode == 13 && e.shiftKey == false) {
+        e.preventDefault();
+        e.target.value = "";
+      }
+    } // componentDidMount() {
+    //   this.props.fetchServer(this.props.match.params.id)
+    // }
+    // buggy as servers is not being passed through properly
+    // need to fix to keep current server saved
+    // componentDidUpdate(prevProps) {
+    //   debugger
+    //   if (prevProps.server.id != this.props.match.params.serverId) {
+    //     this.props.fetchServer(this.props.match.params.serverId);
+    //   }
+    // }
+
+  }, {
     key: "render",
     value: function render() {
       var addServer = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -1520,10 +1529,11 @@ function (_React$Component) {
         className: "nav-content-messages"
       }, loremIpsum, loremIpsum, loremIpsum, loremIpsum), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-content-message-bar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "nav-content-message-box",
+        onKeyDown: this.onEnterPress,
         placeholder: "Message #channelplaceholder"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "nav-users"
       }, loremIpsum));
     }

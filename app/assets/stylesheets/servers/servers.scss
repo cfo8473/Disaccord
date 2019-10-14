@@ -197,7 +197,7 @@ flex: 0;
 .nav-content-messages {
   padding: 16px;
   opacity: .7;
-  height: 100%;
+  height: 90%;
   overflow-y: scroll;
 }
 
@@ -235,14 +235,15 @@ input.nav-content-message-box[type="text"], textarea {
   width: 80%;
   padding: 10px;
   min-height: 10px;
-  max-height: 30px;
+  max-height: 20px;
   margin: 2px 2px 2px 0;
   border-radius: 5px;
   color: white;
   margin-left:  auto;
   margin-right:  auto;
-  display: block;
-  margin-top: 10px;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 .nav-content.message-box:focus {
