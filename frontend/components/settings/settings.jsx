@@ -13,14 +13,28 @@ class Settings extends React.Component {
   }
 
   render () {
+// debugger
     return (
       <div className="modal-settings">
 
-          <p className="settings-exit" onClick={this.props.closeModal}>X</p>
-          <nav className="menu-bar">
-            
+          
+        <nav className="menu-bar">
+          
           <Link className="settings-logout" to="/" onClick={this.logoutModal}>Log Out</Link>
-          </nav>
+        </nav>
+
+        <div className="modal-settings-user-info">
+          <div className="modal-settings-user-info-text">
+            
+            <h5 className="login-text">USERNAME</h5>
+            <h6 className="settings-info-text">{this.props.username}#{this.props.id}</h6>
+
+            <h5 className="login-text">EMAIL</h5>
+            <h6 className="settings-info-text">{this.props.email} </h6>
+          </div>
+        </div>
+
+         <p className="settings-exit" onClick={this.props.closeModal}>X</p>
 
       </div>
     )

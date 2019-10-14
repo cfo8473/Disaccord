@@ -694,7 +694,7 @@ function (_React$Component) {
         className: "nav-channels-header"
       }, serverTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-channels-list"
-      }, loremIpsum), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, loremIpsum), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: function onClick() {
           return _this2.props.removeServer(serverIdNum);
         }
@@ -1598,18 +1598,31 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      // debugger
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-settings"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "settings-exit",
-        onClick: this.props.closeModal
-      }, "X"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "menu-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "settings-logout",
         to: "/",
         onClick: this.logoutModal
-      }, "Log Out")));
+      }, "Log Out")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-settings-user-info"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "modal-settings-user-info-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "login-text"
+      }, "USERNAME"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
+        className: "settings-info-text"
+      }, this.props.username, "#", this.props.id), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
+        className: "login-text"
+      }, "EMAIL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
+        className: "settings-info-text"
+      }, this.props.email, " "))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "settings-exit",
+        onClick: this.props.closeModal
+      }, "X"));
     }
   }]);
 
@@ -1642,9 +1655,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state) {
-  return {
-    currentUser: state.session.currentUser
-  };
+  var currentUser = state.entities.users[state.session.currentUser.id];
+  return currentUser;
 };
 
 var mdp = function mdp(dispatch) {

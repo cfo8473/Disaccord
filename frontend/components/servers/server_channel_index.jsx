@@ -57,6 +57,8 @@ class ServerChannelIndex extends React.Component {
           </div>
 
           {/* delete debug */}
+
+          <br></br>
           <button  
             onClick={() => this.props.removeServer(serverIdNum)}>
             DEBUG DELETESERVER
