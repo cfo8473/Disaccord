@@ -28,7 +28,7 @@
   border: none;
 }
 
-.modal-createChannel{
+.modal-createServer{
   position: absolute;
   padding: 28px 40px 0;
   width: 100%;
@@ -57,7 +57,7 @@
   
 }
 
-.modal-createChannelExit {
+.modal-createServerExit {
   font-size: 20px;
   top: 44px;
   right: 44px;
@@ -73,14 +73,14 @@
   font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
-.modal-createChannelGreet {
+.modal-createServerGreet {
   color: #7289da;
   font-weight: 700;
   text-align: center;
   text-transform: uppercase;
   font-size: 18px;
 }
-.modal-createChannelGreetText {
+.modal-createServerGreetText {
   color: #99aab5;
   font-weight: 350;
   padding: 10px 0;
@@ -88,7 +88,7 @@
   font-size: 16px;
 }
 
-.modal-createChannelTitle {
+.modal-createServerTitle {
   color: #87909c;
   font-size: 11px;
   font-weight: 700;
@@ -96,7 +96,7 @@
   display: block;
 }
 
-.modal-createChannelTitleInput {
+.modal-createServerTitleInput {
   margin-top: 12px;
   border-width: 0 0 2px;
   border-radius: 0;
@@ -108,11 +108,11 @@
 }
 
 
-.modal-createChannelTitleInput:focus {
+.modal-createServerTitleInput:focus {
   outline: none;
 }
 
-.modal-createChannelButton {
+.modal-createServerButton {
   display: block;
   position: relative;
     margin-top: auto;

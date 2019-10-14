@@ -22,13 +22,13 @@ class ServerForm extends React.Component {
 
   render() {
     return (
-      <div className="modal-createChannel">
-        <p className="modal-createChannelGreet">CREATE YOUR SERVER</p>
-        <p className="modal-createChannelGreetText">By creating a server, you will have access to text chat to use amongst your friends.</p>
-        <form className="modal-createChannelInput" onSubmit={this.handleSubmit}>
-          <label className="modal-createChannelTitle">SERVER NAME</label>
-          <input className="modal-createChannelTitleInput" type="text" value={this.state.title} onChange={this.update("title")}/>
-          <input className="modal-createChannelButton" type="submit" value="Create"/>
+      <div className="modal-createServer">
+        <p className="modal-createServerGreet">CREATE YOUR SERVER</p>
+        <p className="modal-createServerGreetText">By creating a server, you will have access to text chat to use amongst your friends.</p>
+        <form className="modal-createServerInput" onSubmit={this.handleSubmit}>
+          <label className="modal-createServerTitle">SERVER NAME</label>
+          <input className="modal-createServerTitleInput" type="text" value={this.state.title} onChange={this.update("title")}/>
+          <input className="modal-createServerButton" type="submit" value="Create"/>
         </form>
       </div>
     )

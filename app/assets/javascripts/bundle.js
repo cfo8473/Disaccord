@@ -700,18 +700,19 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      // debugger
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-createChannel"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "modal-createChannelGreet"
-      }, "CREATE YOUR SERVER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "CREATE TEXT CHANNEL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "modal-createChannelGreetText"
-      }, "By creating a server, you will have access to text chat to use amongst your friends."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, "in Text Channels"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "modal-createChannelInput",
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
         className: "modal-createChannelTitle"
-      }, "SERVER NAME"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "CHANNEL NAME"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "modal-createChannelTitleInput",
         type: "text",
         value: this.state.title,
@@ -753,11 +754,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
-  debugger;
+  // debugger
   var errors = state.errors.session.errors;
   var channelInfo = {
-    title: "",
-    server_id: "".concat(state.session.server.id),
+    title: " ",
+    server_id: '',
     topic: "Default topic!"
   };
   return {
@@ -935,10 +936,16 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_server_channel_index_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
           channel: channel
         })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
-      });
+      }); // let server;
+      // if (this.props.server) {
+      //   <div></div>
+      // } else {
+      //   serverId = server.id;
+      // }
+
       var addChannel = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        onClick: function onClick() {
-          return dispatch(_this2.props.openModal("createChannel"));
+        onClick: function onClick(serverId) {
+          return dispatch(_this2.props.openModal("createChannel", serverId));
         }
       }, "+");
       var userBox = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1204,23 +1211,23 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "modal-createChannel"
+        className: "modal-createServer"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "modal-createChannelGreet"
+        className: "modal-createServerGreet"
       }, "CREATE YOUR SERVER"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
-        className: "modal-createChannelGreetText"
+        className: "modal-createServerGreetText"
       }, "By creating a server, you will have access to text chat to use amongst your friends."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-        className: "modal-createChannelInput",
+        className: "modal-createServerInput",
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-        className: "modal-createChannelTitle"
+        className: "modal-createServerTitle"
       }, "SERVER NAME"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "modal-createChannelTitleInput",
+        className: "modal-createServerTitleInput",
         type: "text",
         value: this.state.title,
         onChange: this.update("title")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "modal-createChannelButton",
+        className: "modal-createServerButton",
         type: "submit",
         value: "Create"
       })));
@@ -1511,7 +1518,12 @@ function (_React$Component) {
         className: "nav-content-header"
       }, "# current channel:[test]"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-content-messages"
-      }, loremIpsum, loremIpsum, loremIpsum, loremIpsum)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      }, loremIpsum, loremIpsum, loremIpsum, loremIpsum), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "nav-content-message-bar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+        className: "nav-content-message-box",
+        placeholder: "Message #channelplaceholder"
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "nav-users"
       }, loremIpsum));
     }
