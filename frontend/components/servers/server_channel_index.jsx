@@ -1,6 +1,7 @@
 import React from "react";
 import { faAddressCard, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ServerChannelIndexItem from './server_channel_index_item'
 
 class ServerChannelIndex extends React.Component {
   constructor(props) {
@@ -13,9 +14,26 @@ class ServerChannelIndex extends React.Component {
   
   componentDidMount() {
     this.props.fetchServer(this.props.match.params.serverId);
+    this.props.fetchChannels();
   }
 
   render() {
+    // debugger
+    let channels = this.props.channels;
+    const channelList = Object.values(channels).map(channel => (
+      (channel.server_id === this.props.server.id) ? (
+      <li key={`channel-${channel.id}`}>
+         <ServerChannelIndexItem channel={channel}/>
+      </li> ) : ( <div></div>)
+    ))
+
+    const addChannel = (
+
+      <span onClick={() => dispatch(this.props.openModal("createChannel"))}>
+        +
+      </span>
+    )
+
     const userBox = (
       <div className="current-user-block">
         <div className="username-icon"><FontAwesomeIcon icon={faAddressCard} /></div>
@@ -26,7 +44,7 @@ class ServerChannelIndex extends React.Component {
         {this.props.openSettings}
       </div>
     )
-
+     
     const loremIpsum = (
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     )
@@ -34,6 +52,7 @@ class ServerChannelIndex extends React.Component {
       <div>Loading...</div>
     ) } else {
       return (
+        
 
           <nav className="nav-channels">
             <header className="nav-channels-header">
@@ -41,8 +60,17 @@ class ServerChannelIndex extends React.Component {
             </header>
 
             <div className="nav-channels-list">
-              {loremIpsum}
 
+            <div className="channel-text-header-block">
+              <span className="channel-text-title">TEXT CHANNELS</span>
+              <span className="channel-add-button">+</span>
+              {/* <span className="channel-add-button">{addChannel}</span> */}
+            </div>
+
+            <ul>
+              {channelList}
+            </ul>
+          
               {/* <ServerChannelIndexContainer/> */}
             </div>
 

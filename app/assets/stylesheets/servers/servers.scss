@@ -172,40 +172,7 @@ nav-servers-button-tooltip .tooltip:hover .tooltiptext {
 flex: 0;
 }
 
-.nav-channels {
-  width: 320px;
-  min-height: 100%;
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  align-items: stretch;
-  background: #2f3136;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  overflow-y: scroll;
-  padding-right: 16px;
-  position: relative;
-  
 
-}
-
-.nav-channels-header {
-  padding: 16px;
-  font-weight: 600;
-  font-size: 16px;
-  display: flex;
-  width: 100%;
-  align-items: center;
-  border-bottom: 2px solid rgb(36, 36, 36);
-  overflow: hidden;
-  text-overflow: ellipsis;
-
-}
-
-.nav-channels-list {
-  padding: 16px;
-  opacity: .4;
-}
 .nav-main{
   width: 100%;
   display: flex;

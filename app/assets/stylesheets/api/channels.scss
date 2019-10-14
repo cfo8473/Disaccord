@@ -1,3 +1,95 @@
 // Place all the styles related to the api/channels controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.nav-channels {
+  width: 320px;
+  min-height: 100%;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: stretch;
+  background: #2f3136;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-y: scroll;
+  padding-right: 16px;
+  position: relative;
+  
+
+}
+
+.nav-channels-header {
+  padding: 16px;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-bottom: 2px solid rgb(36, 36, 36);
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
+.nav-channels-list {
+  padding: 16px;
+  opacity: .8;
+  height: 100%
+}
+
+
+.channel-title {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  color: #9b9fa5;
+  text-transform: lowercase;
+  font-family: Whitney;
+  padding: 5px;
+  width: 105%;
+
+}
+
+.channel-title-pound {
+  font-size: 20px;
+  font-weight: 0;
+  padding-right: 10px;
+}
+
+.channel-title:hover {
+  background: rgb(78, 78, 78);
+  color: white;
+}
+
+.channel-text-header-block {
+  padding-bottom: 16px;
+  width: 120%;
+  color: #9b9fa5;
+}
+
+.channel-text-header-block:hover {
+  color: white;
+  font-weight: 700;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.channel-text-title {
+  margin-bottom: 18px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+  
+}
+
+.channel-add-button {
+  position: relative;
+  left: 30%;
+  font-weight: 700;
+}
