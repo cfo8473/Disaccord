@@ -37,7 +37,7 @@ class ServerShow extends React.Component {
 
     const addServer = (
       <div>
-        <button className="nav-servers-button " onClick={this.props.openServerModal}>
+        <button className="nav-servers-add-server " onClick={this.props.openServerModal}>
           <FontAwesomeIcon icon={faPlus} />
         </button>
       </div>

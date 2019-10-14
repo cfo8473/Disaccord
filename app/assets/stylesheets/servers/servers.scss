@@ -96,7 +96,7 @@ li {
   background: #555; 
 }
 
-.nav-servers-button {
+.nav-servers-add-server {
   position: relative;
   text-align: center;
   display: flex;
@@ -107,6 +107,28 @@ li {
   color: #43b581;
   border-radius: 50%;
   background: #2f3136;
+  border-color: transparent;
+  opacity: .8;
+  height: 42px;
+  width: 42px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  margin-bottom: 10px;
+  -webkit-align-content: center;
+  align-content: center;
+}
+
+.nav-servers-button {
+  position: relative;
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  color: white;
+  border-radius: 50%;
+  background: #2f3136;
+  border-color: transparent;
   opacity: .8;
   height: 42px;
   width: 42px;
@@ -150,10 +172,21 @@ nav-servers-button-tooltip .tooltip:hover .tooltiptext {
   visibility: visible;
 }
 
-.nav-servers-button:hover {
+.nav-servers-add-server:hover {
 
   border-radius: 15px;
   background: #43b581;
+  left: 1px;
+  border: none;
+  color: white;
+  transition: color .15s ease-out,background-color .15s ease-out
+
+}
+
+.nav-servers-button:hover {
+
+  border-radius: 15px;
+  background: #7289da;
   left: 1px;
   border: none;
   color: white;

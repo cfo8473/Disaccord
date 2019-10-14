@@ -1494,7 +1494,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       var addServer = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "nav-servers-button ",
+        className: "nav-servers-add-server ",
         onClick: this.props.openServerModal
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faPlus"]
