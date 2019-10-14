@@ -9,11 +9,21 @@ import ServerIndexContainer from './server_index_container'
 class ServerShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = this.props.currentUser;
+    
   }
 
- 
+  componentDidMount() {
+    this.props.fetchServers();
+  }
 
   render() {
+    
+    const servers = this.props.servers;
+    // debugger;
+    console.log(servers)
+    
+
     const addServer = (
       <div>
         <button className="nav-servers-button " onClick={this.props.openServerModal}>

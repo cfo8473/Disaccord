@@ -11,7 +11,7 @@ class ServerIndex extends React.Component {
     
   }
 
-  componentDidMount() {
+  componentDidUpdate() {
     this.props.fetchServers();
     // debugger
   }

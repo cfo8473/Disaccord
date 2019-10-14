@@ -168,7 +168,7 @@ var editServer = function editServer(server) {
 var removeServer = function removeServer(serverId) {
   return function (dispatch) {
     return _util_server_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteServer"](serverId).then(function () {
-      return dispatch(deleteServer);
+      return dispatch(deleteServer());
     });
   };
 };
@@ -814,8 +814,8 @@ function (_React$Component) {
   }
 
   _createClass(ServerIndex, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
       this.props.fetchServers(); // debugger
     }
   }, {
@@ -865,7 +865,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state) {
-  var currentUser = state.session.currentUser; // debugger
+  var currentUser = state.session.currentUser; // placeholder for return
+  // debugger
   //let currentServers = state.entities.servers <-- hopefully?
 
   return currentUser //,currentServers
@@ -933,14 +934,26 @@ function (_React$Component) {
   _inherits(ServerShow, _React$Component);
 
   function ServerShow(props) {
+    var _this;
+
     _classCallCheck(this, ServerShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ServerShow).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ServerShow).call(this, props));
+    _this.state = _this.props.currentUser;
+    return _this;
   }
 
   _createClass(ServerShow, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchServers();
+    }
+  }, {
     key: "render",
     value: function render() {
+      var servers = this.props.servers; // debugger;
+
+      console.log(servers);
       var addServer = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "nav-servers-button ",
         onClick: this.props.openServerModal
@@ -1024,8 +1037,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state) {
+  // debugger
+  var currentUser = state.session.currentUser;
+  var servers = state.entities.servers;
   return {
-    currentUser: state.session.currentUser
+    // currentUser: state.session.currentUser
+    currentUser: currentUser,
+    servers: servers
   };
 };
 
@@ -1519,7 +1537,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./actions/session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var _store_store__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./store/store */ "./frontend/store/store.js");
 /* harmony import */ var _components_root__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/root */ "./frontend/components/root.jsx");
+/* harmony import */ var _actions_server_actions__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./actions/server_actions */ "./frontend/actions/server_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -1548,6 +1568,7 @@ window.addEventListener("DOMContentLoaded", function () {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
   }
 
+  window.fetchServers = _actions_server_actions__WEBPACK_IMPORTED_MODULE_5__["fetchServers"];
   window.getState = store.getState;
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_4__["default"], {
     store: store
@@ -1674,21 +1695,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var _nullSession = {
-  server: null
-};
 /* harmony default export */ __webpack_exports__["default"] = (function () {
-  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _nullSession;
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
   Object.freeze(state);
 
   switch (action.type) {
     case _actions_server_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SERVERS"]:
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, action.servers);
+      // return merge({}, state, action.servers);
+      return action.servers;
 
     case _actions_server_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SERVER"]:
-      return Object(lodash__WEBPACK_IMPORTED_MODULE_1__["merge"])({}, state, _defineProperty({}, action.server.id, action.server));
-    //case REMOVE_SERVER:
+      return Object.assign({}, state, _defineProperty({}, action.server.id, action.server));
+
+    case _actions_server_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_SERVER"]:
+      var newState = Object.assign({}, state);
+      delete newState[action.id];
+      return newState;
 
     default:
       return state;

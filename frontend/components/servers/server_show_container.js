@@ -6,10 +6,18 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import { faCog, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fetchServers } from "../../actions/server_actions"
-const msp = (state) => ({
+
+const msp = (state) => {
+  // debugger
+  let currentUser = state.session.currentUser
+  let servers = state.entities.servers;
   
-  currentUser: state.session.currentUser
-});
+  return{
+  // currentUser: state.session.currentUser
+    currentUser: currentUser,
+    servers: servers
+  }
+};
 
 const mdp = dispatch => ({
   logout: () => dispatch(logout()),

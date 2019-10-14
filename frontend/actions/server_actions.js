@@ -30,7 +30,7 @@ export const editServer = server => dispatch => {
 
 export const removeServer = serverId => dispatch => {
   return (
-    APIUtil.deleteServer(serverId).then(() => dispatch(deleteServer))
+    APIUtil.deleteServer(serverId).then(() => dispatch(deleteServer()))
   )
 }
 

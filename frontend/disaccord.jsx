@@ -4,6 +4,8 @@ import {login, logout, signup, clearErrors} from './actions/session_actions'
 import configureStore from './store/store'
 import Root from './components/root'
 
+import {fetchServers} from './actions/server_actions'
+
 window.addEventListener("DOMContentLoaded", () => {
   let rootEl = document.getElementById("root"); 
 
@@ -18,9 +20,11 @@ window.addEventListener("DOMContentLoaded", () => {
     store = configureStore(preloadedState);
     delete window.currentUser;
   } else {
+
     store = configureStore();
   }
 
+  window.fetchServers = fetchServers;
   window.getState = store.getState;
   ReactDom.render(<Root store={store} />, rootEl)
 });
