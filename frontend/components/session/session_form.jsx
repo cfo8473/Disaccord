@@ -7,12 +7,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 export default class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    
     this.state = this.props.userInfo;
-    // this.state.sessionMounted = false;
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.componentWillUnmount = this.componentWillUnmount().bind(this);
-    
   }
 
   update(field) {
@@ -40,12 +36,12 @@ export default class SessionForm extends React.Component {
     if (this.props.formType === "signup")
       return (
         <div>
-        <label>
-            <h5 className="login-text">Email </h5>
-            <input className="session-input"  type="text"
-            value={this.state.email}
-            onChange={this.update('email')} />
-        </label>
+          <label>
+              <h5 className="login-text">Email </h5>
+              <input className="session-input"  type="text"
+                value={this.state.email}
+                onChange={this.update('email')} />
+          </label>
         </div>
       );
 
@@ -53,11 +49,8 @@ export default class SessionForm extends React.Component {
 
   formSpacers() {
     if (this.props.formType === "login") {
-      return (
-        <div className="login-spacer"><br></br></div>
-      )
+      return ( <div className="login-spacer"><br></br></div> )
     }
-
   }
 
   formSwapGreeting() {
@@ -69,9 +62,7 @@ export default class SessionForm extends React.Component {
         </div>
       )
     } else {
-      return (
-        <div className="login-welcome">Create an account</div>
-      )
+      return ( <div className="login-welcome">Create an account</div> )
     };
   }
 
@@ -102,8 +93,6 @@ export default class SessionForm extends React.Component {
           <button className="guest-button" type="submit" onClick={this.props.guestLogin}>Guest Login</button>
           <form onSubmit={this.handleSubmit}>
     
-              
-        
           {this.formSwapGreeting()}
             {this.props.errors && this.props.errors.map((ele, idx) => {
               return <li className ="errors" key={`error-${idx}`}>{ele}</li>
@@ -127,8 +116,5 @@ export default class SessionForm extends React.Component {
 
     );
   }
-
-
-
 }
 

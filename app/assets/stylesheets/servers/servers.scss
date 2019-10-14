@@ -78,7 +78,7 @@ li {
   width: 90px;
   padding: 16px;
   background: #202225;
-  overflow: hidden;
+  // overflow: hidden;
   overflow-y: scroll;
   contain: layout size;
 } 
@@ -120,7 +120,38 @@ li {
   margin-bottom: 10px;
   -webkit-align-content: center;
   align-content: center;
+}
 
+
+.nav-servers-button-title{
+  visibility: hidden;
+}
+
+.nav-servers-button-title:first-letter {
+  visibility: visible;
+  text-transform: lowercase;
+}
+
+.nav-servers-button-tooltip .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.nav-servers-button-tooltip .tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+nav-servers-button-tooltip .tooltip:hover .tooltiptext {
+  visibility: visible;
 }
 
 .nav-servers-button:hover {
@@ -135,18 +166,26 @@ li {
 }
 
 .nav-channels {
-  width: 240px;
+  width: 380px;
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
   background: #2f3136;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
 }
 
 .nav-channels-header {
   padding: 16px;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  width: 380px;
   align-items: center;
   border-bottom: 2px solid rgb(36, 36, 36);
+  overflow: hidden;
+  text-overflow: ellipsis;
 
 }
 

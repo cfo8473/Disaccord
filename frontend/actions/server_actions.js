@@ -1,37 +1,32 @@
-import * as APIUtil from "../util/server_api_util";
+import * as APIServerUtil from "../util/server_api_util";
 
 export const RECEIVE_SERVERS = "RECEIVE_SERVERS"
 export const RECEIVE_SERVER = "RECEIVE_SERVER"
 export const REMOVE_SERVER = "REMOVE_SERVER"
 
 export const fetchServers = () => dispatch => {
-  return (
-    APIUtil.fetchServers().then(servers => dispatch(receiveServers(servers)))
-  );
+  return APIServerUtil.fetchServers()
+    .then(servers => dispatch(receiveServers(servers)));
 }
 
 export const fetchServer = id => dispatch => {
-  return (
-    APIUtil.fetchServer(id).then(server => dispatch(receiveServer(server)))
-  )
-}
+  return APIServerUtil
+    .fetchServer(id).then(server => dispatch(receiveServer(id)));
+};
 
 export const createServer = server => dispatch => {
-  return (
-    APIUtil.createServer(server).then(server => dispatch(receiveServer(server)))
-  );
-}
+  return APIServerUtil
+    .createServer(server).then(server => dispatch(receiveServer(server)));
+};
 
 export const editServer = server => dispatch => {
-  return (
-    APIUtil.editServer(server).then(server => dispatch(receiveServer(server)))
-  );
-}
+  return APIServerUtil
+    .editServer(server).then(server => dispatch(receiveServer(server)));
+};
 
 export const removeServer = serverId => dispatch => {
-  return (
-    APIUtil.deleteServer(serverId).then(() => dispatch(deleteServer()))
-  )
+  return APIServerUtil
+    .deleteServer(serverId).then(() => dispatch(deleteServer()));
 }
 
 const receiveServers = servers => ({

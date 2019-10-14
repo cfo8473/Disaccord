@@ -1,15 +1,9 @@
 import React from "react";
-import Modal from '../modal/modal';
-import { Link } from 'react-router-dom'
-import { Route, AuthRoute } from '../../util/route_util'
-import { faAddressCard, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ServerIndexItem from './server_index_item'
 
 class ServerIndex extends React.Component {
   constructor(props) {
     super(props);
-    
   }
 
   componentDidMount() {

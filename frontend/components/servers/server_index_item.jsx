@@ -7,12 +7,13 @@ class ServerIndexItem extends React.Component {
   }
 
   render() {
-
     return (
       <div>
         <Link to={`/servers/${this.props.server.id}`}>
           <button className="nav-servers-button " onClick={this.props.openServerModal}>
-            {this.props.server.title}
+            <span className="nav-servers-button-title">{this.props.server.title}</span>
+            {/* [fix] tooltip */}
+            {/* <div className="nav-servers-button-tooltip">{this.props.server.title}</div> */}
           </button>
         </Link>
       </div>

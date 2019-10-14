@@ -16,7 +16,6 @@ class Api::ServersController < ApplicationController
     
     if @server.save
       @membership = Membership.new(user_id: current_user.id, membership_id: @server.id, membership_type: "Server")
-  
       @membership.save!
       render :show
     else

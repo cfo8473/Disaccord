@@ -25,6 +25,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
   window.fetchServers = fetchServers;
   window.getState = store.getState;
+  window.dispatch = store.dispatch;
+
+  console.log(window.getState());
   ReactDom.render(<Root store={store} />, rootEl)
 });
 
