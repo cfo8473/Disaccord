@@ -14,6 +14,8 @@ export default () => (
     <AuthRoute path="/login"  component={LoginFormContainer} />
     <AuthRoute path="/signup" component={SignupFormContainer} />
     <ProtectedRoute path ="/servers" component={ServerContainer}/>
+
+    
     {/* pull in the ffirst server of current user */}
     
   </div>

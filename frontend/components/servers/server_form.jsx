@@ -28,7 +28,7 @@ class ServerForm extends React.Component {
         <form className="modal-createServerInput" onSubmit={this.handleSubmit}>
           <label className="modal-createServerTitle">SERVER NAME</label>
           <input className="modal-createServerTitleInput" type="text" value={this.state.title} onChange={this.update("title")}/>
-          <input className="modal-createServerButton" type="submit" value="Create"/>
+          <input className="modal-createServerButton" type="submit" value={this.props.formType}/>
         </form>
       </div>
     )

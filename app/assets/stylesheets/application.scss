@@ -82,3 +82,23 @@ body {
   flex: 0 1 auto;
   margin-left: auto;
 }
+
+.debug-button {
+  margin: auto;
+  margin-top: 10px;
+
+  height: 40px;
+  color: white;
+  background-color: #7289da;
+  font-size: 11px;
+  line-height: 24px;
+
+  margin-bottom: 8px;
+  border: none;
+  text-align: center;
+}
+
+.debug-button:hover {
+  cursor: pointer;
+  background-color: #6c80cc;
+}

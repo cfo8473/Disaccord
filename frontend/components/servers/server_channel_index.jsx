@@ -2,6 +2,8 @@ import React from "react";
 import { faAddressCard, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ServerChannelIndexItem from './server_channel_index_item'
+import { withRouter } from 'react-router-dom'
+
 
 class ServerChannelIndex extends React.Component {
   constructor(props) {
@@ -9,15 +11,22 @@ class ServerChannelIndex extends React.Component {
     this.state = {
       server: this.props.server
     }
-      // debugger
+
   }
+
+
+  
   
   componentDidMount() {
     this.props.fetchServer(this.props.match.params.serverId);
-    this.props.fetchChannels();
+    this.props.fetchChannels(),
+    this.props.fetchServers()
   }
 
   render() {
+    const onClick = ({ event, props }) => console.log(event, props);
+
+
     // debugger
     let channels = this.props.channels;
     const channelList = Object.values(channels).map(channel => (
@@ -38,9 +47,9 @@ class ServerChannelIndex extends React.Component {
     }
     const addChannel = (
       
-      <span onClick={() => dispatch(this.props.openModal("createChannel", serverId))}>
+      <a className="channel-plus" onClick={() => dispatch(this.props.openModal("createChannel", serverId))}>
         +
-      </span>
+      </a>
     )
 
     const userBox = (
@@ -67,35 +76,36 @@ class ServerChannelIndex extends React.Component {
             <header className="nav-channels-header">
               {this.props.server.title}
             </header>
+            
+            
 
             <div className="nav-channels-list">
 
-            <div className="channel-text-header-block">
-              <span className="channel-text-title">TEXT CHANNELS</span>
-              {/* <span className="channel-add-button">+</span> */}
-              <span className="channel-add-button">{addChannel}</span>
-            </div>
+              <div className="channel-text-header-block">
+                <span className="channel-text-title">TEXT CHANNELS</span>
+                  
+                  
+                  <a className="channel-add-button tooltips">
+                    {addChannel}
+                    <span>Create Channel</span>
+                  
+                  </a>
 
-            <ul>
-              {channelList}
-            </ul>
-          
-              {/* <ServerChannelIndexContainer/> */}
-            </div>
+              </div>
 
-            {/* delete debug */}
+              <ul>
+                
+                {channelList}
+              </ul>
+            </div>
 
             <br></br>
-            <button  
-              onClick={() => this.props.removeServer(this.props.server.id)}>
-              DEBUG DELETESERVER
-            </button>
+          <button className="debug-button " onClick={this.props.openServerModalEdit}>
+            DEBUG EDIT SERVER
+          </button>
 
             {userBox}
           </nav>
-
-          
-
       )
      }
 
@@ -103,4 +113,4 @@ class ServerChannelIndex extends React.Component {
 
 }
 
-export default ServerChannelIndex;
+export default withRouter(ServerChannelIndex);

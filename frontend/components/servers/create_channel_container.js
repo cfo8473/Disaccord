@@ -5,8 +5,6 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import ChannelForm from './channel_form'
 
 const msp = (state, ownProps) => {
-  // debugger
-  // debugger
   const errors = state.errors.session.errors;
   let channelInfo = { title: " ", server_id: '', topic: "Default topic!" }
   return {

@@ -8,17 +8,21 @@ import { faCog, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fetchServers, fetchServer } from "../../actions/server_actions"
 import { fetchChannels } from '../../actions/channel_actions'
+import { fetchUsers } from '../../actions/user_actions'
 
 const msp = (state, ownProps) => {
   let currentUser = state.session.currentUser
   let servers = state.entities.servers;
   let channels = state.entities.channels;
+  let users = state.entities.users;
 
-  // debugger
+
+  
   return {
     currentUser: currentUser,
     servers: servers,
-    channels: channels
+    channels: channels,
+    users: users,
   }
 };
 
@@ -30,6 +34,7 @@ const mdp = dispatch => ({
   fetchChannels: () => dispatch(fetchChannels()),
   fetchServers: () => dispatch(fetchServers()),
   fetchServer: (id) => dispatch(fetchServer(id)),
+  fetchUsers: () => dispatch(fetchUsers()),
   openSettings: <button className="settings-icon" onClick={() => dispatch(openModal('settings'))}>
     <FontAwesomeIcon icon={faCog} />
   </button>,

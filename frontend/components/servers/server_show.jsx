@@ -1,8 +1,9 @@
 import React from "react";
-import { faAddressCard, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard, faDog, faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import ServerIndexContainer from './server_index_container'
-import { AuthRoute, ProtectedRoute } from '../../util/route_util'
+import { AuthRoute, ProtectedRoute, Redirect } from '../../util/route_util'
 import ServerChannelIndexContainer from './server_channel_index_container'
 
 class ServerShow extends React.Component {
@@ -18,8 +19,10 @@ class ServerShow extends React.Component {
       e.target.value = "";
     }
   }
+
   componentDidMount() {
-    this.props.fetchChannels();
+    this.props.fetchChannels(),
+    this.props.fetchUsers()
   }
 
   // buggy as servers is not being passed through properly
@@ -33,13 +36,24 @@ class ServerShow extends React.Component {
   // }
 
   render() {
-    
+    // debugger
 
     const addServer = (
       <div>
-        <button className="nav-servers-add-server " onClick={this.props.openServerModal}>
-          <FontAwesomeIcon icon={faPlus} />
+        <button className="nav-servers-add-server tooltips" onClick={this.props.openServerModal}>
+          <p className="nav-servers-button-spacer">+</p>
+          <span>Add Server</span>
         </button>
+      </div>
+    )
+
+    const home = (
+      <div>
+        <button className="nav-servers-button tooltips">
+          <p className="nav-servers-home-button-spacer nav-servers-home"><FontAwesomeIcon icon={faHome} /></p>
+          <span>Home (not added)</span>
+        </button>
+        <div className="nav-servers-home-spacer"></div>
       </div>
     )
 
@@ -59,10 +73,6 @@ class ServerShow extends React.Component {
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     )
 
-    // let channelId = this.props.location.pathname.split("/")[3];
-    // console.log(this.props);
-    // console.log(channelId);
-// debugger
     let channelId;
     let channelTitle = "";
     if (this.props.location.pathname.split("/").length >= 3) {
@@ -72,15 +82,20 @@ class ServerShow extends React.Component {
       }
 
     }
-    console.log(this.props.channels);
 
+    // console.log(this.props);
+    let currentUser = this.props.users[this.props.currentUser.id]
+    // console.log(currentUser.joinedServerIds[0]);
+    let defaultServer = currentUser.joinedServerIds[0];
+    // <Redirect from="/servers" to={`/servers/${defaultServer}`}/>
 
 
     return (
       <div className="navbar">
         <nav className="nav-servers">
-          {addServer}
+          {home}
           <ServerIndexContainer />
+          {addServer}
         </nav>
 
         <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
@@ -94,6 +109,7 @@ class ServerShow extends React.Component {
             {loremIpsum}
             {loremIpsum}
             {loremIpsum}
+
           </div>
 
           <div className="nav-content-message-bar">

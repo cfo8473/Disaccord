@@ -1,5 +1,6 @@
 import React from "react";
 import ServerIndexItem from './server_index_item'
+import {withRouter} from 'react-router-dom'
 
 class ServerIndex extends React.Component {
   constructor(props) {
@@ -12,6 +13,8 @@ class ServerIndex extends React.Component {
   
   render() {
 
+    
+    
     const servers = this.props.servers;
     const serverList = Object.values(servers).map(server => (
       <li key={`server-${server.id}`}>
@@ -31,4 +34,4 @@ class ServerIndex extends React.Component {
 
 }
 
-export default ServerIndex;
+export default withRouter(ServerIndex);
