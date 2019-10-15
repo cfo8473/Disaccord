@@ -24,7 +24,7 @@ export default class SessionForm extends React.Component {
 
   componentDidMount() {
     let location = "form"
-    console.log(location);
+    // console.log(location);
   
   }
 

@@ -18,9 +18,9 @@ class ServerShow extends React.Component {
       e.target.value = "";
     }
   }
-  // componentDidMount() {
-  //   this.props.fetchServer(this.props.match.params.id)
-  // }
+  componentDidMount() {
+    this.props.fetchChannels();
+  }
 
   // buggy as servers is not being passed through properly
   // need to fix to keep current server saved
@@ -59,7 +59,22 @@ class ServerShow extends React.Component {
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     )
 
-    
+    // let channelId = this.props.location.pathname.split("/")[3];
+    // console.log(this.props);
+    // console.log(channelId);
+// debugger
+    let channelId;
+    let channelTitle = "";
+    if (this.props.location.pathname.split("/").length >= 3) {
+      channelId = this.props.location.pathname.split("/")[3];
+      if (this.props.channels[channelId]) {
+        channelTitle = this.props.channels[channelId].title
+      }
+
+    }
+    console.log(this.props.channels);
+
+
 
     return (
       <div className="navbar">
@@ -71,7 +86,7 @@ class ServerShow extends React.Component {
         <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
         
         <nav className="nav-content">
-          <header className="nav-content-header"># current channel:[test]</header>
+          <header className="nav-content-header">{channelTitle}</header>
           <div className="nav-content-messages">
 
           {/* <ProtectedRoute path='/channels/:channelId' component={ServerChannelIndexContainer} /> */}

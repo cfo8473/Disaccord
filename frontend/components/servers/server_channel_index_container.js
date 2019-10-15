@@ -28,7 +28,8 @@ const mdp = dispatch => ({
   fetchChannels: () => dispatch(fetchChannels()),
   removeServer: (serverId) => dispatch(removeServer(serverId)),
   closeModal: () => dispatch(closeModal()),
-  openModal: modalType => dispatch(openModal(modalType)),
+  // openModal: (modalType, serverId) => dispatch(openModal(modalType, serverId)),
+  openModal: (modalType) => dispatch(openModal(modalType)),
   openSettings: <button className="settings-icon" onClick={() => dispatch(openModal('settings'))}>
     <FontAwesomeIcon icon={faCog} />
   </button>,

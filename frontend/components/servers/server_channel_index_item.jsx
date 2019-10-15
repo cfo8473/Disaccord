@@ -9,9 +9,13 @@ class ServerChannelIndexItem extends React.Component {
   }
 
   render() {
+    // debugger
     return (
       <div>
-        <Link to={`/channels/${this.props.channel.id}`}>
+        <Link to={`/servers/${this.props.channel.server_id}/${this.props.channel.id}`}>
+          {/* no link, just rerender in same nav maybe extend? */}
+          {/* /server/serverid/channelid
+          reference actual channel */}
           
           <div className="channel-title">
             <span className="channel-title-pound"><FontAwesomeIcon icon={faHashtag} /></span>{this.props.channel.title}

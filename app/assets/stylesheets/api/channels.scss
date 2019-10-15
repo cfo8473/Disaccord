@@ -100,14 +100,101 @@
   position: absolute;
   padding: 28px 40px 0;
   width: 100%;
-  height: 100%;
+  height: 300px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: rgb(48, 48, 48);
+  background: #36393f;
   z-index: 11;
   color: black;
   border-radius: 15px;
 
   
+}
+
+.modal-createChannelGreet{
+  color: rgb(163, 163, 163);
+  font-weight: 700;
+
+  text-transform: uppercase;
+  font-size: 18px;
+
+}
+
+.modal-createChannelGreetText{
+  color: #7c7c7c;
+  font-weight: 350;
+  padding: 10px 0;
+
+  font-size: 13px;
+
+}
+
+.modal-createChannelTitle {
+  margin-top: 50px;
+  color: #87909c;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+}
+
+.modal-createChannelTitleInput {
+  margin-top: 10px;
+  width: 95%;
+  padding: 10px;
+  height: 16px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  border-radius: 2px;
+  border: 1px solid #1b1e22;
+  background: #282d33;
+  color: rgb(211, 211, 211);
+  
+}
+
+.modal-createChannelTitleInput:hover {
+  border-color: #121416;
+}
+
+.modal-createChannelTitleInput:focus {
+  border-color: #5e71b8;
+  outline: none;
+}
+
+.modal-createChannelButton {
+  display: block;
+  position: relative;
+    margin-top: auto;
+  width: 80px;
+  height: 40px;
+  top: 30px;
+  margin-left: auto;
+  color: white;
+  background-color: #7289da;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: none;
+}
+.modal-createChannelCancel{
+  position: relative;
+  top: 60px;
+  left: 300px;
+  display: flex;
+  color: white;
+
+}
+
+.modal-createChannelCancel:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  
+}
+
+.modal-createChannelButton:hover {
+  cursor: pointer;
+  background-color: #6c80cc;
 }

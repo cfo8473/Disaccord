@@ -28,15 +28,17 @@ class ServerChannelIndex extends React.Component {
     ))
 
 
-    // let server;
-    // if (this.props.server) {
-    //   <div></div>
-    // } else {
-    //   serverId = server.id;
-    // }
+
+    let server;
+    let serverId;
+    if (!this.props.server) {
+      <div></div>
+    } else {
+      serverId = this.props.server.id;
+    }
     const addChannel = (
       
-      <span onClick={(serverId) => dispatch(this.props.openModal("createChannel", serverId))}>
+      <span onClick={() => dispatch(this.props.openModal("createChannel", serverId))}>
         +
       </span>
     )
@@ -70,8 +72,8 @@ class ServerChannelIndex extends React.Component {
 
             <div className="channel-text-header-block">
               <span className="channel-text-title">TEXT CHANNELS</span>
-              <span className="channel-add-button">+</span>
-              {/* <span className="channel-add-button">{addChannel}</span> */}
+              {/* <span className="channel-add-button">+</span> */}
+              <span className="channel-add-button">{addChannel}</span>
             </div>
 
             <ul>

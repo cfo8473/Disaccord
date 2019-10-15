@@ -9,6 +9,7 @@ class ServerIndex extends React.Component {
   componentDidMount() {
     this.props.fetchServers();
   }
+  
   render() {
 
     const servers = this.props.servers;
