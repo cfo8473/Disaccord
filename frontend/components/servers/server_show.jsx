@@ -2,6 +2,7 @@ import React from "react";
 import { faAddressCard, faDog, faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
+
 import ServerIndexContainer from './server_index_container'
 import { AuthRoute, ProtectedRoute, Redirect } from '../../util/route_util'
 import ServerChannelIndexContainer from './server_channel_index_container'

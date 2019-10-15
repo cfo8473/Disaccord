@@ -3,6 +3,7 @@ import { faAddressCard, faPlus, faSearch } from '@fortawesome/free-solid-svg-ico
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ServerChannelIndexItem from './server_channel_index_item'
 import { withRouter } from 'react-router-dom'
+import Collapsible from 'react-collapsible';
 
 
 class ServerChannelIndex extends React.Component {
@@ -70,33 +71,34 @@ class ServerChannelIndex extends React.Component {
       <div>Loading...</div>
     ) } else {
       return (
-        
-
           <nav className="nav-channels">
             <header className="nav-channels-header">
               {this.props.server.title}
             </header>
             
-            
 
             <div className="nav-channels-list">
 
               <div className="channel-text-header-block">
-                <span className="channel-text-title">TEXT CHANNELS</span>
-                  
-                  
-                  <a className="channel-add-button tooltips">
-                    {addChannel}
-                    <span>Create Channel</span>
-                  
-                  </a>
+
+                <Collapsible open="true"
+                triggerWhenOpen="↓ TEXT CHANNELS"
+                            transitionTime="200" className="channel-text-title" trigger="> TEXT CHANNELS">
+                  <ul>
+
+                    {channelList}
+                  </ul>
+                </Collapsible>
+                
+                <a className="channel-add-button tooltips">
+                  {addChannel}
+                  <span>Create Channel</span>
+                
+                </a>
 
               </div>
 
-              <ul>
-                
-                {channelList}
-              </ul>
+              
             </div>
 
             <br></br>
