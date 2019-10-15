@@ -166,7 +166,6 @@
   display: block;
   position: relative;
     margin-top: auto;
-  width: 80px;
   height: 40px;
   top: 30px;
   margin-left: auto;
@@ -180,10 +179,11 @@
   border: none;
 }
 .modal-createChannelCancel{
+  display: block;
   position: relative;
   top: 60px;
   left: 300px;
-  display: flex;
+  display: block;
   color: white;
 
 }

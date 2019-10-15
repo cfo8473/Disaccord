@@ -728,7 +728,7 @@ function (_React$Component) {
       }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "modal-createChannelButton",
         type: "submit",
-        value: "Create"
+        value: "Create Channel"
       }))));
     }
   }]);

@@ -38,7 +38,7 @@ class ChannelForm extends React.Component {
           <input className="modal-createChannelTitleInput" type="text" value={this.state.title} onChange={this.update("title")} />
           <div>
           <span className="modal-createChannelCancel" onClick={this.props.closeModal}>Cancel</span>
-          <input className="modal-createChannelButton" type="submit" value="Create" />
+          <input className="modal-createChannelButton" type="submit" value="Create Channel" />
           </div>
         </form>
       </div>
