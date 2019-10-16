@@ -40,7 +40,9 @@ class ChannelShow extends React.Component {
           <p className="debug-text-channel"> {this.props.channel}</p> */}
           {messageList}
         </ul>
-        <CreateMessageContainer />
+        {/* <div className="nav-content-message-bar">
+          <CreateMessageContainer />
+        </div> */}
       </div>
     )
     

@@ -7,7 +7,7 @@ import ServerIndexContainer from './server_index_container'
 import { AuthRoute, ProtectedRoute, Redirect } from '../../util/route_util'
 import ChannelIndexContainer from '../channels/channel_index_container'
 import ChannelShowContainer from '../channels/channel_show_container'
-
+import CreateMessageContainer from '../messages/create_message_container'
 
 class ServerShow extends React.Component {
   constructor(props) {
@@ -71,10 +71,13 @@ class ServerShow extends React.Component {
 
     let channelId;
     let channelTitle = "";
+    let channelTopic = "";
+    // debugger
     if (this.props.location.pathname.split("/").length >= 3) {
       channelId = this.props.location.pathname.split("/")[3];
       if (this.props.channels[channelId]) {
-        channelTitle = this.props.channels[channelId].title
+        channelTitle = this.props.channels[channelId].title;
+        channelTopic = this.props.channels[channelId].topic;
       }
     }
 
@@ -96,7 +99,7 @@ class ServerShow extends React.Component {
         
         <ProtectedRoute path='/servers/:serverId' component={ChannelIndexContainer} />
         <div className="nav-block">
-          <div className="nav-content-header">{channelTitle}
+          <div className="nav-content-header">{channelTitle}  <span className="login-text">| {channelTopic}</span>
           </div>
             <div className="content-block">
     
@@ -107,9 +110,7 @@ class ServerShow extends React.Component {
                 <ProtectedRoute path={`/servers/:serverId/:channelId`} component={ChannelShowContainer} />
                   </div>
               <div className="nav-content-message-bar">
-                {/* <form>
-                  <textarea className="nav-content-message-box" onKeyDown={this.onEnterPress} placeholder="Message #channelplaceholder"></textarea>
-                </form> */}
+                <CreateMessageContainer/>
               </div>
                 </div>
                 

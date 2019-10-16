@@ -1009,7 +1009,7 @@ function (_React$Component) {
           users: _this.props.users
         })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
       });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, messageList), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_create_message_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, messageList));
     }
   }]);
 
@@ -1456,12 +1456,15 @@ var msp = function msp(state, ownProps) {
     pinned: Boolean(false)
   };
   var channels = state.entities.channels;
+  var channel = state.ui.channelId;
   var currentUser = state.session.currentUser.id; // debugger
 
+  console.log(channel);
   return {
     messageInfo: messageInfo,
     channels: channels,
     errors: errors,
+    channel: channel,
     currentUser: currentUser
   };
 };
@@ -1564,7 +1567,7 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       if (e.keyCode == 13 && e.shiftKey == false) {
         // debugger
-        // console.log(this.props)
+        console.log(this.props);
         this.props.updateChannel(this.props.match.params.channelId);
         e.preventDefault();
         var message = Object.assign({}, this.state);
@@ -1575,7 +1578,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      this.state.channel_id = this.props.match.params.channelId;
+      this.state.channel_id = this.props.channel; // this.state.channel_id = this.props.match.params.channelId;
+
       this.state.author_id = this.props.currentUser;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "nav-content-message-box",
@@ -1648,15 +1652,25 @@ function (_React$Component) {
     value: function render() {
       // debugger
       // console.log(this.props)
-      var date = new Date(this.props.message.created_at);
-      console.log(date);
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      var date = new Date(this.props.message.created_at); // console.log(date)
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-wrap"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "messages-icon"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDog"]
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "messages-block"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "messages-username"
-      }, this.props.users[this.props.message.author_id].username, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "messages-username-name"
+      }, this.props.users[this.props.message.author_id].username), " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "login-text"
       }, this.props.message.created_at)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "messages-body"
-      }, this.props.message.body)));
+      }, this.props.message.body))));
     }
   }]);
 
@@ -2408,6 +2422,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_route_util__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../util/route_util */ "./frontend/util/route_util.jsx");
 /* harmony import */ var _channels_channel_index_container__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../channels/channel_index_container */ "./frontend/components/channels/channel_index_container.js");
 /* harmony import */ var _channels_channel_show_container__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../channels/channel_show_container */ "./frontend/components/channels/channel_show_container.js");
+/* harmony import */ var _messages_create_message_container__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../messages/create_message_container */ "./frontend/components/messages/create_message_container.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -2425,6 +2440,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -2500,12 +2516,14 @@ function (_React$Component) {
       var loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
       var channelId;
       var channelTitle = "";
+      var channelTopic = ""; // debugger
 
       if (this.props.location.pathname.split("/").length >= 3) {
         channelId = this.props.location.pathname.split("/")[3];
 
         if (this.props.channels[channelId]) {
           channelTitle = this.props.channels[channelId].title;
+          channelTopic = this.props.channels[channelId].topic;
         }
       }
 
@@ -2522,7 +2540,9 @@ function (_React$Component) {
         className: "nav-block"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-content-header"
-      }, channelTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, channelTitle, "  ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "login-text"
+      }, "| ", channelTopic)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content-block"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-content-messages"
@@ -2533,7 +2553,7 @@ function (_React$Component) {
         component: _channels_channel_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-content-message-bar"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_create_message_container__WEBPACK_IMPORTED_MODULE_9__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "nav-users"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_users_users_index_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
         users: this.props.users
@@ -3773,7 +3793,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_2___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"]));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);

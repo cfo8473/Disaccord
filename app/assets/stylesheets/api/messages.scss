@@ -6,10 +6,15 @@
   color: rgb(255, 37, 37);
   font-weight: 500;
   line-height: 2px;
-  cursor: pointer;
-  padding-bottom: 10px;
+  
   padding-top: 10px;
+  
 
+}
+
+.messages-username-name:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .messages-body {
@@ -17,8 +22,59 @@
   word-wrap: break-word;
   font-weight: 0;
   font-size: 14px;
+  margin-top: 10px;
 }
 
 .messages-time {
   color: white;
+}.nav-users-icon {
+  position: relative;
+  text-align: center;
+
+  font-size: 16px;
+  color: white;
+  border-radius: 50%;
+  background: rgb(173, 20, 87);
+  border-color: transparent;
+  opacity: .8;
+  height: 33px;
+  width: 33px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+
+  -webkit-align-content: center;
+
+}
+
+.messages-block {
+  display: box;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 80%;
+  height: 90px;
+  padding: 5px;
+  float: left;
+}
+
+.message-wrap {
+  width: 100%;
+}
+
+.messages-icon {
+  float: left;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  font-size: 25px;
+  color: white;
+  border-radius: 50%;
+  background: rgb(255, 0, 0);
+  border-color: transparent;
+  opacity: 1;
+  height: 44px;
+  width: 44px;
+  margin-right: 10px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+
+  -webkit-align-content: center;
+
 }
