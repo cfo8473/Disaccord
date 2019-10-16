@@ -28,7 +28,6 @@ class ServerShow extends React.Component {
   }
 
   render() {
-    // debugger
 
     const addServer = (
       <div>
@@ -81,6 +80,8 @@ class ServerShow extends React.Component {
     let defaultServer = currentUser.joinedServerIds[0];
     // <Redirect from="/servers" to={`/servers/${defaultServer}`}/>
 
+    
+
 
     return (
       <div className="navbar">
@@ -90,8 +91,9 @@ class ServerShow extends React.Component {
           {addServer}
         </nav>
 
-        <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
         
+        <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
+
         <nav className="nav-content">
           <header className="nav-content-header">{channelTitle}</header>
           <div className="nav-content-messages">
@@ -101,13 +103,7 @@ class ServerShow extends React.Component {
             {loremIpsum}
             {loremIpsum}
             {loremIpsum}
-
-            
-
           </div>
-
-          
-
           <div className="nav-content-message-bar">
             <form>
               <textarea className="nav-content-message-box" onKeyDown={this.onEnterPress} placeholder="Message #channelplaceholder"></textarea>

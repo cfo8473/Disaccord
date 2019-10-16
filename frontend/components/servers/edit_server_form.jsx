@@ -38,13 +38,15 @@ class EditServerForm extends React.Component {
     let currentServer;
 
     if (typeof(this.props.servers) !== 'undefined') {
-      currentServer = this.props.servers[serverId];
+      currentServer = this.props.servers[this.props.server];
       this.state.admin_id = this.props.servers[serverId].admin_id;
       this.state.id= this.props.servers[serverId].id;
     }
+    console.log(currentServer)
 
     return (
 
+      
       <div className="modal-settings">
         <nav className="menu-bar">
 
@@ -59,7 +61,7 @@ class EditServerForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
               <div className="modal-editServerInput">
                 <label className="modal-editServerTitle">SERVER NAME</label>
-                <input className="modal-editServerTitleInput" type="text" placeholder={this.state.title} value={this.state.title} onChange={this.update("title")} />
+                <input className="modal-editServerTitleInput" type="text" placeholder={currentServer.title} value={this.props.title} onChange={this.update("title")} />
                 <input className="modal-createServerButton" type="submit" value={this.props.formType} />
               </div>
             </form>

@@ -107,7 +107,7 @@ class ServerChannelIndex extends React.Component {
 
             <br></br>
           <button className="debug-button " onClick={this.props.openServerModalEdit}>
-            DEBUG EDIT SERVER
+            EDIT SERVER
           </button>
 
             {userBox}

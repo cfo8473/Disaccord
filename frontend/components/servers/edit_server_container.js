@@ -9,13 +9,14 @@ const msp = (state) => {
   const errors = state.errors.session.errors;
   let serverInfo = { title: '', admin_id: ``, id: ""}
   let servers = state.entities.servers;
-  console.log(state)
+  let server = state.ui.active.server;
 
   return {
     serverInfo,
     formType: "Edit",
     errors: errors,
-    servers: servers
+    servers: servers,
+    server: server
   }
 };
 

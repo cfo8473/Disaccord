@@ -14,18 +14,28 @@ class ServerIndex extends React.Component {
     this.props.fetchServers({userId: this.props.currentUser.id});
   }
   
+  componentWillUnmount() {
+    this.props.fetchServers()
+  }
+  
   render() {
-    console.log(this.props.currentUser)
-
-    
-    console.log(this.props.location.pathname === "/servers")
     let pathName = this.props.location.pathname;
+
     let currentServer = Object.keys(this.props.servers)[0];
     if (pathName === '/servers' && currentServer) {
       return <Redirect to={`${pathName}/${currentServer}`}/>
     }
     // console.log(this.props.servers)
-    console.log(Object.keys(this.props.servers)[0])
+    // if (this.props.servers.length > 0) {
+    //   let currentServer = Object.keys(this.props.servers)[0];
+    //   if (pathName === '/servers' && currentServer) {
+    //     return <Redirect to={`${pathName}/${currentServer}`} />
+    //   }
+    // } else {
+    //   return <Redirect to={`/servers/`}/>
+    // }
+
+
     const servers = this.props.servers;
     const serverList = Object.values(servers).map(server => (
       <li key={`server-${server.id}`}>

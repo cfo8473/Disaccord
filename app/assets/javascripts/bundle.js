@@ -1018,12 +1018,13 @@ var msp = function msp(state) {
     id: ""
   };
   var servers = state.entities.servers;
-  console.log(state);
+  var server = state.ui.active.server;
   return {
     serverInfo: serverInfo,
     formType: "Edit",
     errors: errors,
-    servers: servers
+    servers: servers,
+    server: server
   };
 };
 
@@ -1155,11 +1156,12 @@ function (_React$Component) {
       var currentServer;
 
       if (typeof this.props.servers !== 'undefined') {
-        currentServer = this.props.servers[serverId];
+        currentServer = this.props.servers[this.props.server];
         this.state.admin_id = this.props.servers[serverId].admin_id;
         this.state.id = this.props.servers[serverId].id;
       }
 
+      console.log(currentServer);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-settings"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -1182,8 +1184,8 @@ function (_React$Component) {
       }, "SERVER NAME"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "modal-editServerTitleInput",
         type: "text",
-        placeholder: this.state.title,
-        value: this.state.title,
+        placeholder: currentServer.title,
+        value: this.props.title,
         onChange: this.update("title")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "modal-createServerButton",
@@ -1342,7 +1344,7 @@ function (_React$Component) {
         }, addChannel, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Create Channel")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "debug-button ",
           onClick: this.props.openServerModalEdit
-        }, "DEBUG EDIT SERVER"), userBox);
+        }, "EDIT SERVER"), userBox);
       }
     }
   }]);
@@ -1386,7 +1388,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
-  console.log(state);
   var currentUser = state.session.currentUser;
   var servers = state.entities.servers;
   var server = state.entities.servers[ownProps.match.params.serverId];
@@ -1670,10 +1671,13 @@ function (_React$Component) {
       });
     }
   }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.props.fetchServers();
+    }
+  }, {
     key: "render",
     value: function render() {
-      console.log(this.props.currentUser);
-      console.log(this.props.location.pathname === "/servers");
       var pathName = this.props.location.pathname;
       var currentServer = Object.keys(this.props.servers)[0];
 
@@ -1682,9 +1686,16 @@ function (_React$Component) {
           to: "".concat(pathName, "/").concat(currentServer)
         });
       } // console.log(this.props.servers)
+      // if (this.props.servers.length > 0) {
+      //   let currentServer = Object.keys(this.props.servers)[0];
+      //   if (pathName === '/servers' && currentServer) {
+      //     return <Redirect to={`${pathName}/${currentServer}`} />
+      //   }
+      // } else {
+      //   return <Redirect to={`/servers/`}/>
+      // }
 
 
-      console.log(Object.keys(this.props.servers)[0]);
       var servers = this.props.servers;
       var serverList = Object.values(servers).map(function (server) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -1896,7 +1907,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // debugger
       var addServer = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "nav-servers-add-server tooltips",
         onClick: this.props.openServerModal
