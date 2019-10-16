@@ -9,7 +9,7 @@ const msp = (state, ownProps) => {
   const errors = state.errors.session.errors;
   let messageInfo = { body: '', author_id: '', channel_id: '', pinned: Boolean(false) }
   let channels = state.entities.channels
-  let channel = state.ui.channelId;
+  let channel = state.ui.active.channel;
   let currentUser = state.session.currentUser.id;
   // debugger
   console.log(channel)

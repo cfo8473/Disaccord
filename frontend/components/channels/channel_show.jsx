@@ -7,20 +7,38 @@ import MessageIndexItem from '../messages/message_index_item'
 class ChannelShow extends React.Component {
   constructor(props) {
     super(props);
+    // this.updateScroll = this.updateScroll.bind(this)
   }
 
   componentDidMount() {
     this.props.fetchMessages();
     this.props.fetchChannels();
+    
   }
+
+  // componentWillReceiveProps() {
+  //   this.props.updateChannel(this.props.match.params.channelId);
+  //   // this.updateScroll();
+  // }
 
   //old lifecycle, ask about this
   componentWillUpdate() {
-    this.props.updateChannel(this.props.match.params.channelId)
+    this.props.updateChannel(this.props.match.params.channelId);
+    
+  }
+
+  updateScroll() {
+    let element;
+    if (document.getElementsByClassName(".nav-content-messages")[0]) {
+      element = document.getElementById("div");
+    }
+    element.scrollTop = element.scrollHeight;
   }
 
 
   render() {
+
+
     // console.log(this.props.channel)
     // console.log(window.getState().ui.active)
   
@@ -29,7 +47,7 @@ class ChannelShow extends React.Component {
       (message.channel_id === parseInt(this.props.channel)) ? (
         <li key={`message-${idx}`}>
           <MessageIndexItem message={message} users={this.props.users}/>
-        </li>) : (<div></div>)
+        </li>) : ( console.log("not found"))
     ))
     
 

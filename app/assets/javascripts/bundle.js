@@ -979,7 +979,7 @@ function (_React$Component) {
   function ChannelShow(props) {
     _classCallCheck(this, ChannelShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ChannelShow).call(this, props));
+    return _possibleConstructorReturn(this, _getPrototypeOf(ChannelShow).call(this, props)); // this.updateScroll = this.updateScroll.bind(this)
   }
 
   _createClass(ChannelShow, [{
@@ -987,12 +987,27 @@ function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchMessages();
       this.props.fetchChannels();
-    } //old lifecycle, ask about this
+    } // componentWillReceiveProps() {
+    //   this.props.updateChannel(this.props.match.params.channelId);
+    //   // this.updateScroll();
+    // }
+    //old lifecycle, ask about this
 
   }, {
     key: "componentWillUpdate",
     value: function componentWillUpdate() {
       this.props.updateChannel(this.props.match.params.channelId);
+    }
+  }, {
+    key: "updateScroll",
+    value: function updateScroll() {
+      var element;
+
+      if (document.getElementsByClassName(".nav-content-messages")[0]) {
+        element = document.getElementById("div");
+      }
+
+      element.scrollTop = element.scrollHeight;
     }
   }, {
     key: "render",
@@ -1007,7 +1022,7 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_message_index_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
           message: message,
           users: _this.props.users
-        })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+        })) : console.log("not found");
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, messageList));
     }
@@ -1456,7 +1471,7 @@ var msp = function msp(state, ownProps) {
     pinned: Boolean(false)
   };
   var channels = state.entities.channels;
-  var channel = state.ui.channelId;
+  var channel = state.ui.active.channel;
   var currentUser = state.session.currentUser.id; // debugger
 
   console.log(channel);
@@ -1578,6 +1593,7 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      console.log(this.props);
       this.state.channel_id = this.props.channel; // this.state.channel_id = this.props.match.params.channelId;
 
       this.state.author_id = this.props.currentUser;

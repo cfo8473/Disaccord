@@ -28,6 +28,7 @@ class MessageForm extends React.Component {
   }
 
   render() {
+    console.log(this.props)
     this.state.channel_id = this.props.channel
     // this.state.channel_id = this.props.match.params.channelId;
     this.state.author_id = this.props.currentUser
