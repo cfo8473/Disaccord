@@ -19,25 +19,31 @@ class ServerChannelIndex extends React.Component {
   
   
   componentDidMount() {
+    // debugger
     this.props.fetchServer(this.props.match.params.serverId);
     this.props.fetchChannels(),
-    this.props.fetchServers()
+    this.props.fetchServers(),
+    this.props.updateServer(this.props.match.params.serverId)
+    // this.props.updateChannel(this.props.match.params)
+
   }
 
+  componentDidUpdate(prevProps) {
+  
+    if (prevProps.match.params.serverId != this.props.match.params.serverId) {
+      this.props.updateServer(this.props.match.params.serverId)
+    }
+  }
+
+
   render() {
-    const onClick = ({ event, props }) => console.log(event, props);
-
-
-    // debugger
     let channels = this.props.channels;
-    const channelList = Object.values(channels).map(channel => (
+    const channelList = Object.values(channels).map((channel, idx) => (
       (channel.server_id === this.props.server.id) ? (
       <li key={`channel-${channel.id}`}>
          <ServerChannelIndexItem channel={channel}/>
       </li> ) : ( <div></div>)
     ))
-
-
 
     let server;
     let serverId;
@@ -48,9 +54,9 @@ class ServerChannelIndex extends React.Component {
     }
     const addChannel = (
       
-      <a className="channel-plus" onClick={() => dispatch(this.props.openModal("createChannel", serverId))}>
+      <div className="channel-plus" onClick={() => dispatch(this.props.openModal("createChannel", serverId))}>
         +
-      </a>
+      </div>
     )
 
     const userBox = (
@@ -81,11 +87,9 @@ class ServerChannelIndex extends React.Component {
 
               <div className="channel-text-header-block">
 
-                <Collapsible open="true"
-                triggerWhenOpen="↓ TEXT CHANNELS"
-                            transitionTime="200" className="channel-text-title" trigger="> TEXT CHANNELS">
+                <Collapsible open={Boolean(true)} style="div" triggerWhenOpen="↓ TEXT CHANNELS"
+                    transitionTime={parseInt(10)} className="channel-text-title" trigger="> TEXT CHANNELS">
                   <ul>
-
                     {channelList}
                   </ul>
                 </Collapsible>

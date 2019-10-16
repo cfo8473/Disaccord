@@ -13,7 +13,7 @@ const msp = (state) => {
 };
 
 const mdp = dispatch => ({
-  fetchServers: () => dispatch(fetchServers())
+  fetchServers: (filter) => dispatch(fetchServers(filter))
 })
 
 export default connect(msp, mdp)(ServerIndex);

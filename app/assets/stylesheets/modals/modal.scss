@@ -6,6 +6,7 @@
   left: 0;
   background: rgba(0, 0, 0, 0.85);
   z-index: 10;
+  // transition: all 5s ease-in-out;
 }
 
 .modal-child {
@@ -17,6 +18,7 @@
   transform: translate(-50%, -50%);
   background: transparent;
   z-index: 11;
+
 }
 
 .modal-button-icon{
@@ -27,6 +29,8 @@
   background: inherit;
   border: none;
 }
+
+
 
 .modal-createServer{
   position: absolute;
@@ -40,6 +44,7 @@
   z-index: 11;
   color: black;
   border-radius: 15px;
+  transition: all 5s ease-in-out;
 
   
 }
@@ -119,7 +124,7 @@
   width: 80px;
   height: 40px;
   top: 80px;
-  margin-left: auto;
+  left: 60%;
   color: white;
   background-color: #7289da;
   font-size: 16px;

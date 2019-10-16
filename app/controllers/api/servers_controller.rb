@@ -2,7 +2,16 @@ class Api::ServersController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @servers = Server.all
+    # debugger
+    if (params[:filter][:userId])
+      
+      @servers = User.find(params[:filter][:userId]).joined_servers
+      # debugger
+    else
+    
+      # debugger
+      @servers = Server.all
+    end
     render :index
 
   end

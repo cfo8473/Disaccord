@@ -94,6 +94,7 @@
   font-size: 12px;
   text-transform: uppercase;
   font-weight: 500;
+  width: 100%;
 
 }
 
@@ -238,18 +239,17 @@
 
 .modal-settings-server {
   position: absolute;
-  width: 60%;
+  width: 500px;
   min-width: 200px;
-  height: 30%; 
-  left: 60%;
-  top: 30%;
+  height: 30%;
+  left: 600px;
+  top: 200px;
   transform: translate(-50%, -50%);
   background: transparent;
-
   padding: 20px;
   border-radius: 5px;
   border-style: solid black;
-  border-width: 1px
+  border-width: 1px;
 }
 
 .modal-settings-server-text {

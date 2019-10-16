@@ -23,18 +23,9 @@ class ServerShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchChannels(),
-    this.props.fetchUsers()
+    this.props.fetchUsers(),
+    this.props.fetchServer(this.props.location.pathname.split("/")[2])
   }
-
-  // buggy as servers is not being passed through properly
-  // need to fix to keep current server saved
-
-  // componentDidUpdate(prevProps) {
-  //   debugger
-  //   if (prevProps.server.id != this.props.match.params.serverId) {
-  //     this.props.fetchServer(this.props.match.params.serverId);
-  //   }
-  // }
 
   render() {
     // debugger
@@ -111,7 +102,11 @@ class ServerShow extends React.Component {
             {loremIpsum}
             {loremIpsum}
 
+            
+
           </div>
+
+          
 
           <div className="nav-content-message-bar">
             <form>

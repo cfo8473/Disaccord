@@ -5,14 +5,15 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import EditServerForm from './edit_server_form'
 import { editServer, removeServer } from '../../actions/server_actions'
 
-const msp = (state, ownProps) => {
+const msp = (state) => {
   const errors = state.errors.session.errors;
-  let serverInfo = { title: '', admin_id: `` }
+  let serverInfo = { title: '', admin_id: ``, id: ""}
   let servers = state.entities.servers;
+  console.log(state)
 
   return {
     serverInfo,
-    formType: "edit",
+    formType: "Edit",
     errors: errors,
     servers: servers
   }

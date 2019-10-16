@@ -7,8 +7,11 @@ import { fetchChannels } from '../../actions/channel_actions'
 import { openModal, closeModal } from '../../actions/modal_actions';
 import { faCog, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { updateServer, updateChannel} from '../../actions/active_actions'
+
 
 const msp = (state, ownProps) => {
+  console.log(state)
   let currentUser = state.session.currentUser
   let servers = state.entities.servers;
   let server = state.entities.servers[ownProps.match.params.serverId];
@@ -34,6 +37,8 @@ const mdp = dispatch => ({
   openSettings: <button className="settings-icon" onClick={() => dispatch(openModal('settings'))}>
     <FontAwesomeIcon icon={faCog} />
   </button>,
+  updateServer: (serverId) => dispatch(updateServer(serverId)),
+  updateChannel: (channelId) => dispatch(updateChannel(channelId)),
 
 })
 

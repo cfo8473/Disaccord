@@ -34,6 +34,10 @@ class Server < ApplicationRecord
     channel.save!
     channelMembership = Membership.new(user_id: user, membership_id: channel.id, membership_type: "Channel")
     channelMembership.save!
+    role = Role.new(title: "Owner", permissions: 0, color: "Red", server_id: self.id)
+    role.save!
+    userRole = UserRole.new(user_id: user, role_id: role.id)
+    userRole.save!
   end
 
   

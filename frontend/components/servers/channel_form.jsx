@@ -17,6 +17,7 @@ class ChannelForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const server = Object.assign({}, this.state);
+    
     this.props.processForm(server);
     this.props.closeModal();
   }
@@ -37,8 +38,8 @@ class ChannelForm extends React.Component {
           <label className="modal-createChannelTitle">CHANNEL NAME</label>
           <input className="modal-createChannelTitleInput" type="text" value={this.state.title} onChange={this.update("title")} />
           <div>
-          <span className="modal-createChannelCancel" onClick={this.props.closeModal}>Cancel</span>
-          <input className="modal-createChannelButton" type="submit" value="Create Channel" />
+            <span className="modal-createChannelCancel" onClick={this.props.closeModal}>Cancel</span>
+            <input className="modal-createChannelButton" type="submit" value="Create Channel" />
           </div>
         </form>
       </div>

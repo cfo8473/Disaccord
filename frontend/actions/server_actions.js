@@ -1,11 +1,12 @@
 import * as APIServerUtil from "../util/server_api_util";
 
 export const RECEIVE_SERVERS = "RECEIVE_SERVERS"
+export const RECIEVE_ALL_SERVERS = "RECEIVE_ALL_SERVERS"
 export const RECEIVE_SERVER = "RECEIVE_SERVER"
 export const REMOVE_SERVER = "REMOVE_SERVER"
 
-export const fetchServers = () => dispatch => {
-  return APIServerUtil.fetchServers()
+export const fetchServers = (filter) => dispatch => {
+  return APIServerUtil.fetchServers(filter)
     .then(servers => dispatch(receiveServers(servers)));
 }
 

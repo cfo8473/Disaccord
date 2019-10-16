@@ -86,6 +86,36 @@
 /************************************************************************/
 /******/ ({
 
+/***/ "./frontend/actions/active_actions.js":
+/*!********************************************!*\
+  !*** ./frontend/actions/active_actions.js ***!
+  \********************************************/
+/*! exports provided: RECEIVE_ACTIVE_SERVER, RECEIVE_ACTIVE_CHANNEL, updateServer, updateChannel */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ACTIVE_SERVER", function() { return RECEIVE_ACTIVE_SERVER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_ACTIVE_CHANNEL", function() { return RECEIVE_ACTIVE_CHANNEL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateServer", function() { return updateServer; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateChannel", function() { return updateChannel; });
+var RECEIVE_ACTIVE_SERVER = "RECEIVE_ACTIVE_SERVER";
+var RECEIVE_ACTIVE_CHANNEL = "RECEIVE_ACTIVE_CHANNEL";
+var updateServer = function updateServer(server) {
+  return {
+    type: RECEIVE_ACTIVE_SERVER,
+    server: server
+  };
+};
+var updateChannel = function updateChannel(channel) {
+  return {
+    type: RECEIVE_ACTIVE_CHANNEL,
+    channel: channel
+  };
+};
+
+/***/ }),
+
 /***/ "./frontend/actions/channel_actions.js":
 /*!*********************************************!*\
   !*** ./frontend/actions/channel_actions.js ***!
@@ -200,12 +230,13 @@ var closeModal = function closeModal() {
 /*!********************************************!*\
   !*** ./frontend/actions/server_actions.js ***!
   \********************************************/
-/*! exports provided: RECEIVE_SERVERS, RECEIVE_SERVER, REMOVE_SERVER, fetchServers, fetchServer, createServer, editServer, removeServer */
+/*! exports provided: RECEIVE_SERVERS, RECIEVE_ALL_SERVERS, RECEIVE_SERVER, REMOVE_SERVER, fetchServers, fetchServer, createServer, editServer, removeServer */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SERVERS", function() { return RECEIVE_SERVERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECIEVE_ALL_SERVERS", function() { return RECIEVE_ALL_SERVERS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_SERVER", function() { return RECEIVE_SERVER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_SERVER", function() { return REMOVE_SERVER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchServers", function() { return fetchServers; });
@@ -216,11 +247,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _util_server_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/server_api_util */ "./frontend/util/server_api_util.js");
 
 var RECEIVE_SERVERS = "RECEIVE_SERVERS";
+var RECIEVE_ALL_SERVERS = "RECEIVE_ALL_SERVERS";
 var RECEIVE_SERVER = "RECEIVE_SERVER";
 var REMOVE_SERVER = "REMOVE_SERVER";
-var fetchServers = function fetchServers() {
+var fetchServers = function fetchServers(filter) {
   return function (dispatch) {
-    return _util_server_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchServers"]().then(function (servers) {
+    return _util_server_api_util__WEBPACK_IMPORTED_MODULE_0__["fetchServers"](filter).then(function (servers) {
       return dispatch(receiveServers(servers));
     });
   };
@@ -978,16 +1010,18 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var msp = function msp(state, ownProps) {
+var msp = function msp(state) {
   var errors = state.errors.session.errors;
   var serverInfo = {
     title: '',
-    admin_id: ""
+    admin_id: "",
+    id: ""
   };
   var servers = state.entities.servers;
+  console.log(state);
   return {
     serverInfo: serverInfo,
-    formType: "edit",
+    formType: "Edit",
     errors: errors,
     servers: servers
   };
@@ -1077,8 +1111,9 @@ function (_React$Component) {
 
     _classCallCheck(this, EditServerForm);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditServerForm).call(this, props));
-    _this.state = _this.props.serverInfo;
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(EditServerForm).call(this, props)); // this.state = this.props.serverInfo;
+
+    _this.state = Object.assign({}, _this.props.serverInfo);
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.deleteServer = _this.deleteServer.bind(_assertThisInitialized(_this));
     return _this;
@@ -1103,7 +1138,6 @@ function (_React$Component) {
     value: function handleSubmit(e) {
       e.preventDefault();
       var server = Object.assign({}, this.state);
-      console.log(server);
       this.props.processForm(server);
       this.props.closeModal();
     }
@@ -1113,11 +1147,6 @@ function (_React$Component) {
       var serverId = this.props.location.pathname.split("/")[2];
       this.props.removeServer(serverId);
       this.props.closeModal();
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
-        to: "/servers/"
-      }); // bug
-
-      console.log("Deleted server!");
     }
   }, {
     key: "render",
@@ -1127,7 +1156,8 @@ function (_React$Component) {
 
       if (typeof this.props.servers !== 'undefined') {
         currentServer = this.props.servers[serverId];
-        this.props.serverInfo.admin_id = this.props.servers[serverId].admin_id;
+        this.state.admin_id = this.props.servers[serverId].admin_id;
+        this.state.id = this.props.servers[serverId].id;
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -1152,7 +1182,8 @@ function (_React$Component) {
       }, "SERVER NAME"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "modal-editServerTitleInput",
         type: "text",
-        value: currentServer.title,
+        placeholder: this.state.title,
+        value: this.state.title,
         onChange: this.update("title")
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "modal-createServerButton",
@@ -1234,23 +1265,24 @@ function (_React$Component) {
   _createClass(ServerChannelIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      // debugger
       this.props.fetchServer(this.props.match.params.serverId);
-      this.props.fetchChannels(), this.props.fetchServers();
+      this.props.fetchChannels(), this.props.fetchServers(), this.props.updateServer(this.props.match.params.serverId); // this.props.updateChannel(this.props.match.params)
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (prevProps.match.params.serverId != this.props.match.params.serverId) {
+        this.props.updateServer(this.props.match.params.serverId);
+      }
     }
   }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var onClick = function onClick(_ref) {
-        var event = _ref.event,
-            props = _ref.props;
-        return console.log(event, props);
-      }; // debugger
-
-
       var channels = this.props.channels;
-      var channelList = Object.values(channels).map(function (channel) {
+      var channelList = Object.values(channels).map(function (channel, idx) {
         return channel.server_id === _this2.props.server.id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: "channel-".concat(channel.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_server_channel_index_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
@@ -1266,7 +1298,7 @@ function (_React$Component) {
         serverId = this.props.server.id;
       }
 
-      var addChannel = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+      var addChannel = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-plus",
         onClick: function onClick() {
           return dispatch(_this2.props.openModal("createChannel", serverId));
@@ -1299,9 +1331,10 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "channel-text-header-block"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_collapsible__WEBPACK_IMPORTED_MODULE_5___default.a, {
-          open: "true",
+          open: Boolean(true),
+          style: "div",
           triggerWhenOpen: "\u2193 TEXT CHANNELS",
-          transitionTime: "200",
+          transitionTime: parseInt(10),
           className: "channel-text-title",
           trigger: "> TEXT CHANNELS"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, channelList)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1340,6 +1373,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 /* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var _actions_active_actions__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../actions/active_actions */ "./frontend/actions/active_actions.js");
+
 
 
 
@@ -1351,6 +1386,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
+  console.log(state);
   var currentUser = state.session.currentUser;
   var servers = state.entities.servers;
   var server = state.entities.servers[ownProps.match.params.serverId];
@@ -1394,7 +1430,13 @@ var mdp = function mdp(dispatch) {
       }
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__["FontAwesomeIcon"], {
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faCog"]
-    }))
+    })),
+    updateServer: function updateServer(serverId) {
+      return dispatch(Object(_actions_active_actions__WEBPACK_IMPORTED_MODULE_9__["updateServer"])(serverId));
+    },
+    updateChannel: function updateChannel(channelId) {
+      return dispatch(Object(_actions_active_actions__WEBPACK_IMPORTED_MODULE_9__["updateChannel"])(channelId));
+    }
   };
 };
 
@@ -1623,11 +1665,26 @@ function (_React$Component) {
   _createClass(ServerIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchServers();
+      this.props.fetchServers({
+        userId: this.props.currentUser.id
+      });
     }
   }, {
     key: "render",
     value: function render() {
+      console.log(this.props.currentUser);
+      console.log(this.props.location.pathname === "/servers");
+      var pathName = this.props.location.pathname;
+      var currentServer = Object.keys(this.props.servers)[0];
+
+      if (pathName === '/servers' && currentServer) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Redirect"], {
+          to: "".concat(pathName, "/").concat(currentServer)
+        });
+      } // console.log(this.props.servers)
+
+
+      console.log(Object.keys(this.props.servers)[0]);
       var servers = this.props.servers;
       var serverList = Object.values(servers).map(function (server) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -1674,8 +1731,8 @@ var msp = function msp(state) {
 
 var mdp = function mdp(dispatch) {
   return {
-    fetchServers: function fetchServers() {
-      return dispatch(Object(_actions_server_actions__WEBPACK_IMPORTED_MODULE_2__["fetchServers"])());
+    fetchServers: function fetchServers(filter) {
+      return dispatch(Object(_actions_server_actions__WEBPACK_IMPORTED_MODULE_2__["fetchServers"])(filter));
     }
   };
 };
@@ -1834,16 +1891,8 @@ function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchChannels(), this.props.fetchUsers();
-    } // buggy as servers is not being passed through properly
-    // need to fix to keep current server saved
-    // componentDidUpdate(prevProps) {
-    //   debugger
-    //   if (prevProps.server.id != this.props.match.params.serverId) {
-    //     this.props.fetchServer(this.props.match.params.serverId);
-    //   }
-    // }
-
+      this.props.fetchChannels(), this.props.fetchUsers(), this.props.fetchServer(this.props.location.pathname.split("/")[2]);
+    }
   }, {
     key: "render",
     value: function render() {
@@ -2517,6 +2566,43 @@ window.addEventListener("DOMContentLoaded", function () {
 
 /***/ }),
 
+/***/ "./frontend/reducers/active_reducer.js":
+/*!*********************************************!*\
+  !*** ./frontend/reducers/active_reducer.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _actions_active_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/active_actions */ "./frontend/actions/active_actions.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {
+    server: "",
+    channel: ""
+  };
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  Object.freeze(state);
+
+  switch (action.type) {
+    case _actions_active_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ACTIVE_SERVER"]:
+      return Object.assign({}, state, {
+        server: action.server
+      });
+
+    case _actions_active_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_ACTIVE_CHANNEL"]:
+      return Object.assign({}, state, {
+        channel: action.channel
+      });
+
+    default:
+      return state;
+  }
+});
+
+/***/ }),
+
 /***/ "./frontend/reducers/channels_reducer.js":
 /*!***********************************************!*\
   !*** ./frontend/reducers/channels_reducer.js ***!
@@ -2794,10 +2880,13 @@ var _nullSession = {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _modal_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal_reducer */ "./frontend/reducers/modal_reducer.js");
+/* harmony import */ var _active_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./active_reducer */ "./frontend/reducers/active_reducer.js");
+
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  modal: _modal_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  modal: _modal_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
+  active: _active_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 }));
 
 /***/ }),
@@ -2900,7 +2989,7 @@ var createChannel = function createChannel(channel) {
 var editChannel = function editChannel(channel) {
   return $.ajax({
     method: "PATCH",
-    url: "/api/channels/".concat(channel.id, "/edit"),
+    url: "/api/channels/".concat(channel.id),
     data: {
       channel: channel
     }
@@ -2993,10 +3082,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteServer", function() { return deleteServer; });
 //fetchServers params empty until joins table are implemented
 //will need to fetch only servers that belong in users server array
-var fetchServers = function fetchServers() {
+var fetchServers = function fetchServers(filter) {
+  // debugger
   return $.ajax({
     method: "GET",
-    url: "/api/servers"
+    url: "/api/servers",
+    data: {
+      filter: filter
+    }
   });
 };
 var fetchServer = function fetchServer(id) {
@@ -3017,7 +3110,7 @@ var createServer = function createServer(server) {
 var editServer = function editServer(server) {
   return $.ajax({
     method: "PATCH",
-    url: "/api/servers/".concat(server.id, "/edit"),
+    url: "/api/servers/".concat(server.id),
     data: {
       server: server
     }
