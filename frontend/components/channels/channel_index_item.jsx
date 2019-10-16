@@ -4,7 +4,7 @@ import { faHashtag } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {withRouter} from 'react-router-dom'
 
-class ServerChannelIndexItem extends React.Component {
+class ChannelIndexItem extends React.Component {
   constructor(props) {
     super(props)
   }
@@ -28,4 +28,4 @@ class ServerChannelIndexItem extends React.Component {
 
 }
 
-export default withRouter(ServerChannelIndexItem);
+export default withRouter(ChannelIndexItem);

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import UsersIndexContainer from '../users/users_index_container'
 import ServerIndexContainer from './server_index_container'
 import { AuthRoute, ProtectedRoute, Redirect } from '../../util/route_util'
-import ServerChannelIndexContainer from './server_channel_index_container'
+import ChannelIndexContainer from '../channels/channel_index_container'
 
 class ServerShow extends React.Component {
   constructor(props) {
@@ -90,7 +90,7 @@ class ServerShow extends React.Component {
         </nav>
 
         
-        <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
+        <ProtectedRoute path='/servers/:serverId' component={ChannelIndexContainer} />
         <div className="nav-block">
           <div className="nav-content-header">{channelTitle}
           </div>

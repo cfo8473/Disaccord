@@ -1,12 +1,12 @@
 import React from "react";
 import { faAddressCard, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import ServerChannelIndexItem from './server_channel_index_item'
+import ChannelIndexItem from './channel_index_item'
 import { withRouter, Redirect } from 'react-router-dom'
 import Collapsible from 'react-collapsible';
 
 
-class ServerChannelIndex extends React.Component {
+class ChannelIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,7 +47,7 @@ class ServerChannelIndex extends React.Component {
     const channelList = Object.values(channels).map((channel, idx) => (
       (channel.server_id === this.props.server.id) ? (
       <li key={`channel-${channel.id}`}>
-         <ServerChannelIndexItem channel={channel}/>
+         <ChannelIndexItem channel={channel}/>
       </li> ) : ( <div></div>)
     ))
 
@@ -137,4 +137,4 @@ class ServerChannelIndex extends React.Component {
 
 }
 
-export default withRouter(ServerChannelIndex);
+export default withRouter(ChannelIndex);

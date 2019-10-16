@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react'
 import { withRouter } from "react-router-dom"
-import ServerChannelIndex from './server_channel_index'
+import ChannelIndex from './channel_index'
 import { fetchServers, removeServer, fetchServer } from '../../actions/server_actions'
 import { fetchChannels } from '../../actions/channel_actions'
 import { openModal, closeModal } from '../../actions/modal_actions';
@@ -42,4 +42,4 @@ const mdp = dispatch => ({
 
 })
 
-export default withRouter(connect(msp, mdp)(ServerChannelIndex));
+export default withRouter(connect(msp, mdp)(ChannelIndex));

@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import SettingsContainer from '../settings/settings_container';
 import GreetingsContainer from "../greeting/greeting_container";
 import CreateServerContainer from '../servers/create_server_container'
-import CreateChannelContainer from '../servers/create_channel_container'
+import CreateChannelContainer from '../channels/create_channel_container'
 import EditServerContainer from '../servers/edit_server_container'
+
 function Modal({ modal, closeModal }) {
   if (!modal) {
     return null;
