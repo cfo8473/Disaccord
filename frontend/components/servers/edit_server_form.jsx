@@ -33,9 +33,9 @@ class EditServerForm extends React.Component {
     
     let serverList = Object.values(this.props.servers);
     let lastServer = serverList[serverList.length-2];
-    console.log(lastServer);
+    // console.log(lastServer);
     this.props.closeModal();
-    console.log(`/servers/${lastServer.id}`);
+    // console.log(`/servers/${lastServer.id}`);
     // not working correctly
     <Redirect to={`/servers/${lastServer.id}/`} />
     
@@ -44,13 +44,13 @@ class EditServerForm extends React.Component {
   render() {
     let serverId = this.props.location.pathname.split("/")[2];
     let currentServer;
-    console.log(this.props)
+
     if (typeof(this.props.servers) !== 'undefined') {
       currentServer = this.props.servers[this.props.server];
       this.state.admin_id = this.props.servers[serverId].admin_id;
       this.state.id= this.props.servers[serverId].id;
     }
-    console.log(currentServer)
+ 
 
     return (
 

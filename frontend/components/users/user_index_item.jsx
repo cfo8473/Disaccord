@@ -7,7 +7,7 @@ class UserIndexItem extends React.Component {
   }
 
   render() {
-    console.log(this.props.user.title)
+    // console.log(this.props.user.title)
     return ( 
       <div className="nav-users-block">
           <button className="nav-users-icon" onClick={this.props.openUserModal}>

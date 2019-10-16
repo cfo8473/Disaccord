@@ -8,10 +8,11 @@ import { openModal, closeModal } from '../../actions/modal_actions';
 import { faCog, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { updateServer, updateChannel} from '../../actions/active_actions'
-
+import { fetchMessages } from '../../actions/message_actions'
 
 const msp = (state, ownProps) => {
   // console.log(state)
+  // debugger
   let currentUser = state.session.currentUser
   let servers = state.entities.servers;
   let server = state.entities.servers[ownProps.match.params.serverId];
@@ -29,6 +30,7 @@ const mdp = dispatch => ({
   fetchServers: () => dispatch(fetchServers()),
   fetchServer: (id) => dispatch(fetchServer(id)),
   fetchChannels: () => dispatch(fetchChannels()),
+  fetchMessages: () => dispatch(fetchMessages()),
   removeServer: (serverId) => dispatch(removeServer(serverId)),
   closeModal: () => dispatch(closeModal()),
   openServerModalEdit: () => dispatch(openModal("editServer")),

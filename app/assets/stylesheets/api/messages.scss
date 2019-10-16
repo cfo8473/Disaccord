@@ -1,0 +1,24 @@
+// Place all the styles related to the api/messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.messages-username{
+  color: rgb(255, 37, 37);
+  font-weight: 500;
+  line-height: 2px;
+  cursor: pointer;
+  padding-bottom: 10px;
+  padding-top: 10px;
+
+}
+
+.messages-body {
+  word-break: break-word;
+  word-wrap: break-word;
+  font-weight: 0;
+  font-size: 14px;
+}
+
+.messages-time {
+  color: white;
+}

@@ -1,6 +1,6 @@
 // user bar
 .nav-users {
-  min-width: 200px;
+  min-width: 160px;
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
@@ -8,7 +8,7 @@
   overflow-y: scroll;
   overflow-x: hidden;
   padding: 10px;
-  height: 100%;
+  height: 110%;
 }
 
 .nav-users-block {

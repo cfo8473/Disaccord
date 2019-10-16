@@ -8,7 +8,7 @@ class ServerIndexItem extends React.Component {
   }
 
   render() {
-
+    
 
     let serverId = this.props.location.pathname.split("/")[2];
     

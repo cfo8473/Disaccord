@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ServerShow from './server_show'
+import ChannelShow from './channel_show'
 import { withRouter } from "react-router-dom"
 import { logout } from '../../actions/session_actions'
 import { openModal, closeModal } from '../../actions/modal_actions';
@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fetchServers, fetchServer } from "../../actions/server_actions"
 import { fetchChannels } from '../../actions/channel_actions'
 import { fetchUsers } from '../../actions/user_actions'
+import { fetchMessages } from '../../actions/message_actions'
 import { updateServer, updateChannel } from '../../actions/active_actions'
 
 const msp = (state, ownProps) => {
@@ -16,14 +17,19 @@ const msp = (state, ownProps) => {
   let servers = state.entities.servers;
   let channels = state.entities.channels;
   let users = state.entities.users;
+  let channel = state.ui.active.channel;
+  // debugger
+  let messages = state.entities.messages;
 
 
-  
+
   return {
     currentUser: currentUser,
     servers: servers,
     channels: channels,
     users: users,
+    channel: channel,
+    messages: messages
   }
 };
 
@@ -36,10 +42,11 @@ const mdp = dispatch => ({
   fetchServers: () => dispatch(fetchServers()),
   fetchServer: (id) => dispatch(fetchServer(id)),
   fetchUsers: () => dispatch(fetchUsers()),
+  fetchMessages: () => dispatch(fetchMessages()),
   openSettings: <button className="settings-icon" onClick={() => dispatch(openModal('settings'))}>
     <FontAwesomeIcon icon={faCog} />
   </button>,
   updateChannel: (channelId) => dispatch(updateChannel(channelId)),
 });
 
-export default withRouter(connect(msp, mdp)(ServerShow));
+export default withRouter(connect(msp, mdp)(ChannelShow));

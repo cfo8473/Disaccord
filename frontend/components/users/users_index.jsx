@@ -13,14 +13,14 @@ class UsersIndex extends React.Component {
   }
 
   render() {
-    console.log(this.props.users)
+    // console.log(this.props.users)
     const userList = Object.values(this.props.users).map(user => (
       <li key={`user-${user.id}`}>
         <UserIndexItem user={user} />
       </li>
     ))
 
-    console.log(userList)
+    // console.log(userList)
     return (
       <div>{userList}</div>
     )

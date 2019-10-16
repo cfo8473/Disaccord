@@ -1,11 +1,13 @@
 import React from "react";
 import { faAddressCard, faDog, faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-
+import { withRouter } from 'react-router-dom'
 import UsersIndexContainer from '../users/users_index_container'
 import ServerIndexContainer from './server_index_container'
 import { AuthRoute, ProtectedRoute, Redirect } from '../../util/route_util'
 import ChannelIndexContainer from '../channels/channel_index_container'
+import ChannelShowContainer from '../channels/channel_show_container'
+
 
 class ServerShow extends React.Component {
   constructor(props) {
@@ -25,9 +27,9 @@ class ServerShow extends React.Component {
   componentDidMount() {
     this.props.fetchChannels(),
     this.props.fetchUsers(),
-    this.props.fetchServer(this.props.location.pathname.split("/")[2])
+    this.props.fetchServer(this.props.location.pathname.split("/")[2]),
+      this.props.updateChannel(this.props.match.params.channelId)
   }
-
 
 
   render() {
@@ -81,6 +83,8 @@ class ServerShow extends React.Component {
 
   
 
+  
+
     return (
       <div className="navbar">
         <nav className="nav-servers">
@@ -98,25 +102,14 @@ class ServerShow extends React.Component {
     
                 <div className="nav-content-messages">
                   <div className="nav-content-message-block">
-                    {loremIpsum}
-                    {loremIpsum}
-                    {loremIpsum}
-                    {loremIpsum}
-                    {loremIpsum}
-                    {loremIpsum}
-                    {loremIpsum}
-                    {loremIpsum}
-                    {loremIpsum}
-                    {loremIpsum}
-                    {loremIpsum}
-                    {loremIpsum}
-                    {loremIpsum}
-
+    
+      
+                <ProtectedRoute path={`/servers/:serverId/:channelId`} component={ChannelShowContainer} />
                   </div>
               <div className="nav-content-message-bar">
-                <form>
+                {/* <form>
                   <textarea className="nav-content-message-box" onKeyDown={this.onEnterPress} placeholder="Message #channelplaceholder"></textarea>
-                </form>
+                </form> */}
               </div>
                 </div>
                 
@@ -137,4 +130,4 @@ class ServerShow extends React.Component {
   }
 }
 
-export default ServerShow;
+export default withRouter(ServerShow);

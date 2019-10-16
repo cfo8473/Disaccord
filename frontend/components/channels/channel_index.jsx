@@ -19,12 +19,16 @@ class ChannelIndex extends React.Component {
   
   
   componentDidMount() {
+    
     // console.log(this.props)
     this.props.fetchServer(this.props.match.params.serverId);
     this.props.fetchChannels(),
     this.props.fetchServers(),
+    this.props.fetchMessages(),
     this.props.updateServer(this.props.match.params.serverId)
-    // this.props.updateChannel(this.props.match.params)
+    // debugger
+    // this.props.updateChannel(this.props.match.params.channelId)
+    // this.props.updateChannel(this.props.match.params.serverId.channels[0])
 
   }
 
