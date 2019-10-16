@@ -2,7 +2,7 @@ import React from "react";
 import { faAddressCard, faDog, faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-
+import UsersIndexContainer from '../users/users_index_container'
 import ServerIndexContainer from './server_index_container'
 import { AuthRoute, ProtectedRoute, Redirect } from '../../util/route_util'
 import ServerChannelIndexContainer from './server_channel_index_container'
@@ -71,14 +71,10 @@ class ServerShow extends React.Component {
       if (this.props.channels[channelId]) {
         channelTitle = this.props.channels[channelId].title
       }
-
     }
 
-    // console.log(this.props);
     let currentUser = this.props.users[this.props.currentUser.id]
-    // console.log(currentUser.joinedServerIds[0]);
     let defaultServer = currentUser.joinedServerIds[0];
-    // <Redirect from="/servers" to={`/servers/${defaultServer}`}/>
 
     
 
@@ -91,7 +87,6 @@ class ServerShow extends React.Component {
           {addServer}
         </nav>
 
-        
         <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
 
         <nav className="nav-content">
@@ -111,8 +106,9 @@ class ServerShow extends React.Component {
           </div>
         </nav>
 
+        {/* Users NavBar (4th) */}
         <nav className="nav-users">
-          {loremIpsum}
+          <UsersIndexContainer users={this.props.users}/>
         </nav>
         
       </div>
