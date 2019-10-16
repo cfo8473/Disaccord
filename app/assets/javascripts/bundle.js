@@ -1267,7 +1267,7 @@ function (_React$Component) {
   _createClass(ServerChannelIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // debugger
+      // console.log(this.props)
       this.props.fetchServer(this.props.match.params.serverId);
       this.props.fetchChannels(), this.props.fetchServers(), this.props.updateServer(this.props.match.params.serverId); // this.props.updateChannel(this.props.match.params)
     }
@@ -1283,6 +1283,8 @@ function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
+      var pathName = this.props.location.pathname; // let currentServer = Object.keys(this.props.servers)[0];
+
       var channels = this.props.channels;
       var channelList = Object.values(channels).map(function (channel, idx) {
         return channel.server_id === _this2.props.server.id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -1292,6 +1294,19 @@ function (_React$Component) {
         })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
       });
       var server;
+
+      if (!this.props.server) {
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      } else {
+        server = this.props.server;
+
+        if (pathName === "/servers/".concat(server.id)) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Redirect"], {
+            to: "".concat(pathName, "/").concat(server.channels[0].id)
+          });
+        }
+      }
+
       var serverId;
 
       if (!this.props.server) {
@@ -1388,6 +1403,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
+  // console.log(state)
   var currentUser = state.session.currentUser;
   var servers = state.entities.servers;
   var server = state.entities.servers[ownProps.match.params.serverId];

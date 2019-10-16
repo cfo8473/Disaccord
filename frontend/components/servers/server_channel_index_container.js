@@ -11,7 +11,7 @@ import { updateServer, updateChannel} from '../../actions/active_actions'
 
 
 const msp = (state, ownProps) => {
-
+  // console.log(state)
   let currentUser = state.session.currentUser
   let servers = state.entities.servers;
   let server = state.entities.servers[ownProps.match.params.serverId];

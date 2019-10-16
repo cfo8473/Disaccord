@@ -2,7 +2,7 @@ import React from "react";
 import { faAddressCard, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ServerChannelIndexItem from './server_channel_index_item'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Redirect } from 'react-router-dom'
 import Collapsible from 'react-collapsible';
 
 
@@ -19,7 +19,7 @@ class ServerChannelIndex extends React.Component {
   
   
   componentDidMount() {
-    // debugger
+    // console.log(this.props)
     this.props.fetchServer(this.props.match.params.serverId);
     this.props.fetchChannels(),
     this.props.fetchServers(),
@@ -37,6 +37,12 @@ class ServerChannelIndex extends React.Component {
 
 
   render() {
+    let pathName = this.props.location.pathname;
+
+    // let currentServer = Object.keys(this.props.servers)[0];
+ 
+
+
     let channels = this.props.channels;
     const channelList = Object.values(channels).map((channel, idx) => (
       (channel.server_id === this.props.server.id) ? (
@@ -45,7 +51,19 @@ class ServerChannelIndex extends React.Component {
       </li> ) : ( <div></div>)
     ))
 
+
+
     let server;
+    if (!this.props.server){
+      <div></div>
+    } else {
+      server = this.props.server;
+      if (pathName === `/servers/${server.id}` ) {
+        return <Redirect to={`${pathName}/${server.channels[0].id}`} />
+      }
+    }
+    
+
     let serverId;
     if (!this.props.server) {
       <div></div>
