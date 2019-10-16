@@ -243,16 +243,29 @@ flex: 0;
 
 .nav-content-header {
   padding: 16px;
+  // width: 100%;
+  height: 24px;
   font-weight: 500;
+  display: block;
   align-items: center;
   border-bottom: 2px solid rgb(36, 36, 36);
 }
 
 .nav-content-messages {
-  padding: 16px;
-  opacity: .7;
+    opacity: .8;
+    height: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.content-block {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  width: 100%;
   height: 90%;
-  overflow-y: scroll;
+  background: #36393f;
+  contain: layout size;
 }
 
 
@@ -263,6 +276,8 @@ flex: 0;
   position: relative;
   margin-top: auto;
   border-top: 2px solid hsla(0,0%,100%,0.06)
+
+  
 
 }
 
@@ -290,6 +305,17 @@ input.nav-content-message-box[type="text"], textarea {
   display: flex;
   margin-top: 20px;
   margin-bottom: 10px;
+}
+
+.nav-content-message-block{
+  opacity: .8;
+  height: 80%;
+  overflow-y: auto; 
+  overflow-x: hidden;
+  padding: 16px;
+  position: relative;
+  flex-direction: column-reverse
+  
 }
 
 .nav-content.message-box:focus {
@@ -332,6 +358,11 @@ textarea {
   outline: none;
 }
 
+.nav-content-message-box{
+  height: 100%;
+  overflow-y: scroll;
+}
+
 .nav-servers-pill{
   position: absolute;
   background: white;
@@ -351,3 +382,9 @@ textarea {
   margin-bottom: 10px;
 }
 
+.nav-block {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #36393f;
+}

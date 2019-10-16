@@ -21,11 +21,14 @@ class ServerShow extends React.Component {
     }
   }
 
+
   componentDidMount() {
     this.props.fetchChannels(),
     this.props.fetchUsers(),
     this.props.fetchServer(this.props.location.pathname.split("/")[2])
   }
+
+
 
   render() {
 
@@ -76,8 +79,7 @@ class ServerShow extends React.Component {
     let currentUser = this.props.users[this.props.currentUser.id]
     let defaultServer = currentUser.joinedServerIds[0];
 
-    
-
+  
 
     return (
       <div className="navbar">
@@ -87,29 +89,48 @@ class ServerShow extends React.Component {
           {addServer}
         </nav>
 
+        
         <ProtectedRoute path='/servers/:serverId' component={ServerChannelIndexContainer} />
-
-        <nav className="nav-content">
-          <header className="nav-content-header">{channelTitle}</header>
-          <div className="nav-content-messages">
-
-          {/* <ProtectedRoute path='/channels/:channelId' component={ServerChannelIndexContainer} /> */}
-            {loremIpsum}
-            {loremIpsum}
-            {loremIpsum}
-            {loremIpsum}
+        <div className="nav-block">
+          <div className="nav-content-header">{channelTitle}
           </div>
-          <div className="nav-content-message-bar">
-            <form>
-              <textarea className="nav-content-message-box" onKeyDown={this.onEnterPress} placeholder="Message #channelplaceholder"></textarea>
-            </form>
-          </div>
-        </nav>
+            <div className="content-block">
+    
+                <div className="nav-content-messages">
+                  <div className="nav-content-message-block">
+                    {loremIpsum}
+                    {loremIpsum}
+                    {loremIpsum}
+                    {loremIpsum}
+                    {loremIpsum}
+                    {loremIpsum}
+                    {loremIpsum}
+                    {loremIpsum}
+                    {loremIpsum}
+                    {loremIpsum}
+                    {loremIpsum}
+                    {loremIpsum}
+                    {loremIpsum}
 
-        {/* Users NavBar (4th) */}
-        <nav className="nav-users">
-          <UsersIndexContainer users={this.props.users}/>
-        </nav>
+                  </div>
+              <div className="nav-content-message-bar">
+                <form>
+                  <textarea className="nav-content-message-box" onKeyDown={this.onEnterPress} placeholder="Message #channelplaceholder"></textarea>
+                </form>
+              </div>
+                </div>
+                
+
+
+            {/* Users NavBar (4th) */}
+            <nav className="nav-users">
+              <UsersIndexContainer users={this.props.users}/>
+            </nav>
+            </div>
+          {/* <div style={{ float: "left", clear: "both" }}
+            ref={(el) => { this.messagesEnd = el; }}>
+          </div> */}
+          </div>
         
       </div>
     );

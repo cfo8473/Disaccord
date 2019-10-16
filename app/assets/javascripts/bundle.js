@@ -1975,13 +1975,17 @@ function (_React$Component) {
       }, home, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_server_index_container__WEBPACK_IMPORTED_MODULE_4__["default"], null), addServer), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_5__["ProtectedRoute"], {
         path: "/servers/:serverId",
         component: _server_channel_index_container__WEBPACK_IMPORTED_MODULE_6__["default"]
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-        className: "nav-content"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "nav-block"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-content-header"
       }, channelTitle), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "content-block"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-content-messages"
-      }, loremIpsum, loremIpsum, loremIpsum, loremIpsum), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "nav-content-message-block"
+      }, loremIpsum, loremIpsum, loremIpsum, loremIpsum, loremIpsum, loremIpsum, loremIpsum, loremIpsum, loremIpsum, loremIpsum, loremIpsum, loremIpsum, loremIpsum), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-content-message-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "nav-content-message-box",
@@ -1991,7 +1995,7 @@ function (_React$Component) {
         className: "nav-users"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_users_users_index_container__WEBPACK_IMPORTED_MODULE_3__["default"], {
         users: this.props.users
-      })));
+      })))));
     }
   }]);
 
