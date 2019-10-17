@@ -1750,11 +1750,15 @@ function (_React$Component) {
         className: "message-wrap"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "messages-block"
-      }, this.userIcon(), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-icon-block"
+      }, this.userIcon()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-content"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", {
         className: "messages-username"
       }, this.messageContent()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "messages-body"
-      }, this.props.message.body))));
+      }, this.props.message.body)))));
     }
   }]);
 

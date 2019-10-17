@@ -12,6 +12,10 @@
 
 }
 
+.messages-username-name{
+padding-right: 20px;
+}
+
 .messages-username-name:hover {
   cursor: pointer;
   text-decoration: underline;
@@ -44,17 +48,31 @@
   -webkit-align-content: center;
 
 }
+.message-content{
+  height: 100%;
+  float: left;
+  width: 80%;
+
+}
 
 .messages-block {
-  display: box;
-  overflow-x: hidden;
+  overflow-x: inherit;
   display: inline-block;
-  width: 80%;
-  height: 90px;
+  width: 90%;
+  /* height: 90px; */
   padding: 5px;
   float: left;
-  margin: 20px 20px -20px;
-  border-bottom: 1px solid black;
+  /* margin: 20px 20px -20px; */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.37);
+
+  padding: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.message-icon-block {
+  height: 100%;
+  float: left;
 }
 
 .message-wrap {

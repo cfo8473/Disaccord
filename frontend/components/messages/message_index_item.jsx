@@ -59,12 +59,16 @@ class MessageIndexItem extends React.Component {
         <div className="message-wrap">
           
             <div className="messages-block">
+            <div className="message-icon-block">
               {this.userIcon()}
-            <h3 className="messages-username">
-              {this.messageContent()}
-              </h3>
-            <div className="messages-body">
-              {this.props.message.body}
+            </div>
+            <div className="message-content">
+              <h3 className="messages-username">
+                {this.messageContent()}
+                </h3>
+              <div className="messages-body">
+                {this.props.message.body}
+              </div>
             </div>
           </div>
         </div>
