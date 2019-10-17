@@ -76,6 +76,18 @@ class EditSettings extends React.Component {
       </div >
     )
 
+    const flavorText = (
+      <div className="settings-flavor-text-edit">
+        <h1 className="settings-two-factor-edit">TWO-FACTOR-AUTHENTICATION</h1>
+        <br></br>
+        <p><h2>...does not exist on this server so heres a lorem ipsum block.</h2>
+        <br></br>
+          
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+
+    )
+
 
     const preview = this.props.photo ? <img className="settings-icon-preview" src={this.props.photo} /> : null;
 
@@ -127,6 +139,10 @@ class EditSettings extends React.Component {
             Delete Account
           </button>
 
+          <button className="settings-disable-button" onClick={this.props.openServerModal} type="submit" value="Edit">
+            Disable Account
+          </button>
+
           <span className="settings-edit-cancel-text" onClick={this.props.openSettingsModal} type="submit" value="Edit">
             Cancel
           </span>
@@ -135,6 +151,7 @@ class EditSettings extends React.Component {
           </button>
           <div className="settings-edit-bar"></div>
         </div>
+        {flavorText}
 
         <p className="settings-exit" onClick={this.props.closeModal}>X</p>
 

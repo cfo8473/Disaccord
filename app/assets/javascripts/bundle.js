@@ -3382,6 +3382,11 @@ function (_React$Component) {
       }, "USER SETTINGS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "settings-selected-menu-text"
       }, "My Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "));
+      var flavorText = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "settings-flavor-text-edit"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "settings-two-factor-edit"
+      }, "TWO-FACTOR-AUTHENTICATION"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "...does not exist on this server so heres a lorem ipsum block."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."));
       var preview = this.props.photo ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "settings-icon-preview",
         src: this.props.photo
@@ -3454,7 +3459,12 @@ function (_React$Component) {
         onClick: this.props.openServerModal,
         type: "submit",
         value: "Edit"
-      }, "Delete Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, "Delete Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "settings-disable-button",
+        onClick: this.props.openServerModal,
+        type: "submit",
+        value: "Edit"
+      }, "Disable Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "settings-edit-cancel-text",
         onClick: this.props.openSettingsModal,
         type: "submit",
@@ -3466,7 +3476,7 @@ function (_React$Component) {
         value: "Edit"
       }, "Save"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "settings-edit-bar"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      })), flavorText, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "settings-exit",
         onClick: this.props.closeModal
       }, "X"));
@@ -3681,6 +3691,11 @@ function (_React$Component) {
       }, "USER SETTINGS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "settings-selected-menu-text"
       }, "My Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "));
+      var flavorText = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "settings-flavor-text"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "settings-two-factor"
+      }, "TWO-FACTOR-AUTHENTICATION"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "...does not exist on this server so heres a lorem ipsum block."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."));
       var preview = this.props.photo ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "settings-icon-preview",
         src: this.props.photo
@@ -3718,7 +3733,7 @@ function (_React$Component) {
         onClick: this.props.openServerModal,
         type: "submit",
         value: "Edit"
-      }, "Edit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "Edit")), flavorText, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "settings-exit",
         onClick: this.props.closeModal
       }, "X"));

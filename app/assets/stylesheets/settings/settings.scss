@@ -216,9 +216,7 @@
   border-color: #8f302d;
   background: transparent;
   color: #f04747;
-  /* font-weight: bold; */
   font-size: 14px;
-  /* line-height: 24px; */
   border-radius: 3px;
   padding: 10px;
   float: left;
@@ -362,4 +360,60 @@ position: absolute;
   left: 20px;
   position: absolute;
   left: 85px;
+}
+
+.settings-flavor-text-edit {
+  position: absolute;
+  left: 335px;
+  top: 470px;
+  font-size: 14px;
+  color: #b9bbbe;
+  width: 500px;
+}
+
+.settings-two-factor-edit {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+
+}
+
+.settings-flavor-text {
+  position: absolute;
+  left: 335px;
+  top: 290px;
+  font-size: 14px;
+  color: #b9bbbe;
+  width: 500px;
+}
+
+.settings-two-factor {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+
+}
+
+// settings-disable-button
+.settings-disable-button {
+  color: white;
+  border-color: #8f302d;
+  background: transparent;
+  color: #f04747;
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 10px;
+  float: left;
+  top: 287px;
+  position: absolute;
+  left: 160px;
+}
+
+.settings-disable-button:hover{
+  cursor: pointer;
+  border-color: #d64a45;
+}
+
+.settings-disable-button:focus{
+  outline: none;
 }
