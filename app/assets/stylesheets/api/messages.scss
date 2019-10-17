@@ -53,6 +53,8 @@
   height: 90px;
   padding: 5px;
   float: left;
+  margin: 20px 20px -20px;
+  border-bottom: 1px solid black;
 }
 
 .message-wrap {
@@ -83,4 +85,9 @@
   width: 100%;
   height: 100%;
   border-radius: 50%
+}
+
+.message-divider {
+  margin: 20px 20px -20px;
+  border-bottom: solid 1px black;
 }

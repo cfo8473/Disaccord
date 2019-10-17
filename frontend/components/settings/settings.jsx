@@ -80,10 +80,10 @@ class Settings extends React.Component {
       <div className="settings-flavor-text">
         <h1 className="settings-two-factor">TWO-FACTOR-AUTHENTICATION</h1>
         <br></br>
-        <p><h2>...does not exist on this server so heres a lorem ipsum block.</h2>
+        <h2>...does not exist on this server so heres a lorem ipsum block.</h2>
           <br></br>
 
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
 
     )
@@ -99,6 +99,7 @@ class Settings extends React.Component {
         </nav>
         
         <div className="modal-settings-user-info">
+          {flavorText}
           <span className="settings-account-header-text">My account</span>
           <div className="settings-form">
            
@@ -126,7 +127,7 @@ class Settings extends React.Component {
 
           </button>
         </div>
-        {flavorText}
+        
 
          <p className="settings-exit" onClick={this.props.closeModal}>X</p>
 

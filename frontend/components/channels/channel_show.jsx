@@ -7,7 +7,7 @@ import MessageIndexItem from '../messages/message_index_item'
 class ChannelShow extends React.Component {
   constructor(props) {
     super(props);
-    // this.updateScroll = this.updateScroll.bind(this)
+
   }
 
   componentDidMount() {
@@ -16,12 +16,6 @@ class ChannelShow extends React.Component {
     
   }
 
-  // componentWillReceiveProps() {
-  //   this.props.updateChannel(this.props.match.params.channelId);
-  //   // this.updateScroll();
-  // }
-
-  //old lifecycle, ask about this
   componentWillUpdate() {
     this.props.updateChannel(this.props.match.params.channelId);
     
@@ -37,34 +31,21 @@ class ChannelShow extends React.Component {
 
 
   render() {
-
-
-    // console.log(this.props.channel)
-    // console.log(window.getState().ui.active)
-  
-  
     const messageList = Object.values(this.props.messages).map((message, idx) => (
       (message.channel_id === parseInt(this.props.channel)) ? (
-        <li key={`message-${idx}`}>
-          <MessageIndexItem message={message} users={this.props.users}/>
-        </li>) : ( console.log("not found"))
+        <li key={`message-${message.id}`}>
+          <MessageIndexItem message={message} key={`message-${idx}`} users={this.props.users}/>
+        </li>) : (<div></div>)
     ))
     
 
     return (
       <div>
         <ul>
-          {/* <p className="debug-text">CHANNEL SHOW WORKING!! Currently loading channel</p>
-          <p className="debug-text-channel"> {this.props.channel}</p> */}
           {messageList}
         </ul>
-        {/* <div className="nav-content-message-bar">
-          <CreateMessageContainer />
-        </div> */}
       </div>
     )
-    
-
   }
 
 }

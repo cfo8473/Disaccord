@@ -625,9 +625,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -654,6 +654,7 @@ function (_React$Component) {
     _this.state = {
       server: _this.props.server
     };
+    _this.userIcon = _this.userIcon.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -674,12 +675,33 @@ function (_React$Component) {
       }
     }
   }, {
+    key: "userIcon",
+    value: function userIcon() {
+      console.log(this.props);
+
+      if (this.props.users[this.props.currentUser.id]) {
+        if (this.props.users[this.props.currentUser.id].photo) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "messages-icon"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            className: "messages-icon-picture",
+            src: this.props.users[this.props.currentUser.id].photo
+          }));
+        }
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "messages-icon"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faDog"]
+        })));
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this2 = this;
 
-      var pathName = this.props.location.pathname; // let currentServer = Object.keys(this.props.servers)[0];
-
+      var pathName = this.props.location.pathname;
       var channels = this.props.channels;
       var channelList = Object.values(channels).map(function (channel, idx) {
         return channel.server_id === _this2.props.server.id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -716,13 +738,15 @@ function (_React$Component) {
           return dispatch(_this2.props.openModal("createChannel", serverId));
         }
       }, "+");
+      var preview = this.props.photo ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "settings-icon-preview",
+        src: this.props.photo
+      }) : null;
       var userBox = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "current-user-block"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "username-icon"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faAddressCard"]
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, this.userIcon()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "username-box"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "username-text"
@@ -738,7 +762,12 @@ function (_React$Component) {
           className: "nav-channels"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
           className: "nav-channels-header"
-        }, this.props.server.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, this.props.server.title, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "debug-button ",
+          onClick: this.props.openServerModalEdit
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faCog"]
+        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-channels-list"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "channel-text-header-block"
@@ -751,10 +780,7 @@ function (_React$Component) {
           trigger: "> TEXT CHANNELS"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, channelList)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           className: "channel-add-button tooltips"
-        }, addChannel, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Create Channel")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "debug-button ",
-          onClick: this.props.openServerModalEdit
-        }, "EDIT SERVER"), userBox);
+        }, addChannel, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Create Channel")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), userBox);
       }
     }
   }]);
@@ -806,11 +832,13 @@ var msp = function msp(state, ownProps) {
   var servers = state.entities.servers;
   var server = state.entities.servers[ownProps.match.params.serverId];
   var channels = state.entities.channels;
+  var users = state.entities.users;
   return {
     currentUser: currentUser,
     servers: servers,
     server: server,
-    channels: channels
+    channels: channels,
+    users: users
   };
 };
 
@@ -914,16 +942,30 @@ function (_React$Component) {
   _createClass(ChannelIndexItem, [{
     key: "render",
     value: function render() {
-      // debugger
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-        to: "/servers/".concat(this.props.channel.server_id, "/").concat(this.props.channel.id)
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "channel-title"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "channel-title-pound"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faHashtag"]
-      })), this.props.channel.title)));
+      var channelId = this.props.location.pathname.split("/")[3];
+      console.log(channelId);
+
+      if (this.props.channel.id === parseInt(channelId)) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/servers/".concat(this.props.channel.server_id, "/").concat(this.props.channel.id)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "current-channel-title"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "channel-title-pound"
+        }, "\u27A4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "current-channel-title"
+        }, " ", this.props.channel.title))));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          to: "/servers/".concat(this.props.channel.server_id, "/").concat(this.props.channel.id)
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "channel-title"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "channel-title-pound"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faHashtag"]
+        })), this.props.channel.title)));
+      }
     }
   }]);
 
@@ -979,7 +1021,7 @@ function (_React$Component) {
   function ChannelShow(props) {
     _classCallCheck(this, ChannelShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ChannelShow).call(this, props)); // this.updateScroll = this.updateScroll.bind(this)
+    return _possibleConstructorReturn(this, _getPrototypeOf(ChannelShow).call(this, props));
   }
 
   _createClass(ChannelShow, [{
@@ -987,12 +1029,7 @@ function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchMessages();
       this.props.fetchChannels();
-    } // componentWillReceiveProps() {
-    //   this.props.updateChannel(this.props.match.params.channelId);
-    //   // this.updateScroll();
-    // }
-    //old lifecycle, ask about this
-
+    }
   }, {
     key: "componentWillUpdate",
     value: function componentWillUpdate() {
@@ -1014,15 +1051,14 @@ function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      // console.log(this.props.channel)
-      // console.log(window.getState().ui.active)
       var messageList = Object.values(this.props.messages).map(function (message, idx) {
         return message.channel_id === parseInt(_this.props.channel) ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: "message-".concat(idx)
+          key: "message-".concat(message.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_message_index_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
           message: message,
+          key: "message-".concat(idx),
           users: _this.props.users
-        })) : console.log("not found");
+        })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, messageList));
     }
@@ -1673,10 +1709,6 @@ function (_React$Component) {
     value: function userIcon() {
       if (this.props.users[this.props.message.author_id]) {
         if (this.props.users[this.props.message.author_id].photo) {
-          console.log("Found"); // return (<div className="messages-icon" style={{
-          //   backgroundImage: `url('${this.props.users[this.props.message.author_id].photo}')`
-          // }}>
-
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "messages-icon"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -3143,7 +3175,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state);
       var preview = this.state.photoUrl ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: this.state.photoUrl
       }) : null;
@@ -3386,7 +3417,7 @@ function (_React$Component) {
         className: "settings-flavor-text-edit"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "settings-two-factor-edit"
-      }, "TWO-FACTOR-AUTHENTICATION"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "...does not exist on this server so heres a lorem ipsum block."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."));
+      }, "TWO-FACTOR-AUTHENTICATION"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "...does not exist on this server so heres a lorem ipsum block."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."));
       var preview = this.props.photo ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "settings-icon-preview",
         src: this.props.photo
@@ -3401,7 +3432,7 @@ function (_React$Component) {
         onClick: this.logoutModal
       }, "Log Out")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-settings-edit-user-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, flavorText, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "settings-account-header-text"
       }, "My account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "settings-edit-input-fields"
@@ -3476,7 +3507,7 @@ function (_React$Component) {
         value: "Edit"
       }, "Save"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "settings-edit-bar"
-      })), flavorText, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "settings-exit",
         onClick: this.props.closeModal
       }, "X"));
@@ -3530,7 +3561,6 @@ var msp = function msp(state) {
     username: '',
     email: ''
   };
-  console.log("JSKDFLSD");
   return postInfo, iconInfo, userInfo, currentUser;
 };
 
@@ -3695,7 +3725,7 @@ function (_React$Component) {
         className: "settings-flavor-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "settings-two-factor"
-      }, "TWO-FACTOR-AUTHENTICATION"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "...does not exist on this server so heres a lorem ipsum block."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."));
+      }, "TWO-FACTOR-AUTHENTICATION"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "...does not exist on this server so heres a lorem ipsum block."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."));
       var preview = this.props.photo ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "settings-icon-preview",
         src: this.props.photo
@@ -3710,7 +3740,7 @@ function (_React$Component) {
         onClick: this.logoutModal
       }, "Log Out")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-settings-user-info"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, flavorText, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "settings-account-header-text"
       }, "My account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "settings-form"
@@ -3733,7 +3763,7 @@ function (_React$Component) {
         onClick: this.props.openServerModal,
         type: "submit",
         value: "Edit"
-      }, "Edit")), flavorText, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "Edit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "settings-exit",
         onClick: this.props.closeModal
       }, "X"));
@@ -3771,7 +3801,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var msp = function msp(state) {
-  console.log(currentUser);
   var currentUser = state.entities.users[state.session.currentUser.id];
 
   var iconInfo = _defineProperty({
@@ -3782,7 +3811,6 @@ var msp = function msp(state) {
   var postInfo = {
     title: ''
   };
-  console.log(currentUser);
   return postInfo, iconInfo, currentUser;
 };
 
@@ -4501,7 +4529,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_2___default.a));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_1__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"]));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);

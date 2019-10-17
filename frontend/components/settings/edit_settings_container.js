@@ -9,7 +9,6 @@ const msp = (state) => {
   let iconInfo = { icon_id: '', membership_type: '', membership_type: 'User' }
   let postInfo = { title: '' }
   let userInfo = { username: '', email: ''}
-  console.log("JSKDFLSD")
   return (
     postInfo,
     iconInfo,

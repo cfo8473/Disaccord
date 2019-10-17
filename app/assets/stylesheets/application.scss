@@ -88,18 +88,17 @@ header {
 }
 
 .debug-button {
-  margin: auto;
   margin-top: 10px;
-
-  height: 40px;
+  margin-left: auto;
+  /* height: 40px; */
   color: white;
-  background-color: #7289da;
+  background-color: transparent;
   font-size: 11px;
   line-height: 24px;
-
   margin-bottom: 8px;
   border: none;
   text-align: center;
+  margin-right: 13px;
 }
 
 .debug-button:hover {

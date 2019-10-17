@@ -9,7 +9,8 @@ li {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
-  margin-right: 4px
+  margin-right: 4px;
+  margin-top: 5px;
 }
 
 .username-icon {
@@ -37,7 +38,7 @@ li {
 }
 
 .settings-icon {
-  top: 3px;
+  top: 8px;
   background: inherit;
   position: absolute;
   border: none;
@@ -217,7 +218,7 @@ nav-servers-button-tooltip .tooltip:hover .tooltiptext {
   display: flex;
   background: #262b33;
   position: relative;
-  height: 50px;
+  height: 60px;
   width: 100%;
   margin-top: auto;
   padding: 0 10px;

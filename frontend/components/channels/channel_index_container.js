@@ -16,13 +16,15 @@ const msp = (state, ownProps) => {
   let currentUser = state.session.currentUser
   let servers = state.entities.servers;
   let server = state.entities.servers[ownProps.match.params.serverId];
-  let channels = state.entities.channels
+  let channels = state.entities.channels;
+  let users = state.entities.users;
 
   return {
     currentUser: currentUser,
     servers: servers,
     server: server,
-    channels: channels
+    channels: channels,
+    users: users
   }
 };
 

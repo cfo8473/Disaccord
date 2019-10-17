@@ -1,5 +1,5 @@
 import React from "react";
-import { faAddressCard, faPlus, faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard, faDog, faCog } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ChannelIndexItem from './channel_index_item'
 import { withRouter, Redirect } from 'react-router-dom'
@@ -12,6 +12,7 @@ class ChannelIndex extends React.Component {
     this.state = {
       server: this.props.server
     }
+    this.userIcon = this.userIcon.bind(this)
 
   }
 
@@ -39,13 +40,28 @@ class ChannelIndex extends React.Component {
     }
   }
 
+  userIcon() {
+    console.log(this.props)
+    if (this.props.users[this.props.currentUser.id]) {
+      if (this.props.users[this.props.currentUser.id].photo) {
+        return (<div className="messages-icon">
+          <img className="messages-icon-picture" src={this.props.users[this.props.currentUser.id].photo} />
+        </div>)
+      }
+    } else {
+      return (
+        <div className="messages-icon">
+          <button >
+            <FontAwesomeIcon icon={faDog} />
+          </button>
+        </div>
+      )
+    }
+  }
+
 
   render() {
     let pathName = this.props.location.pathname;
-
-    // let currentServer = Object.keys(this.props.servers)[0];
- 
-
 
     let channels = this.props.channels;
     const channelList = Object.values(channels).map((channel, idx) => (
@@ -81,9 +97,15 @@ class ChannelIndex extends React.Component {
       </div>
     )
 
+  
+    const preview = this.props.photo ? <img className="settings-icon-preview" src={this.props.photo} /> : null;
+      
     const userBox = (
+
+      
       <div className="current-user-block">
-        <div className="username-icon"><FontAwesomeIcon icon={faAddressCard} /></div>
+        {/* <div className="username-icon"><FontAwesomeIcon icon={faAddressCard} /></div> */}
+        <div className="username-icon">{this.userIcon()}</div>
         <div className="username-box">
           <div className="username-text">{this.props.currentUser.username}</div>
           <div className="username-id">#{this.props.currentUser.id}</div>
@@ -102,9 +124,13 @@ class ChannelIndex extends React.Component {
           <nav className="nav-channels">
             <header className="nav-channels-header">
               {this.props.server.title}
+
+            <button className="debug-button " onClick={this.props.openServerModalEdit}>
+              <FontAwesomeIcon icon={faCog}/>
+          </button>
             </header>
             
-
+          
             <div className="nav-channels-list">
 
               <div className="channel-text-header-block">
@@ -128,9 +154,7 @@ class ChannelIndex extends React.Component {
             </div>
 
             <br></br>
-          <button className="debug-button " onClick={this.props.openServerModalEdit}>
-            EDIT SERVER
-          </button>
+          
 
             {userBox}
           </nav>

@@ -54,7 +54,6 @@ group :development do
   gem 'pry-rails'
   gem 'annotate', '~> 2.7.1'
   gem 'font-awesome-rails'
-  gem "aws-sdk-s3"
 end
 
 group :test do

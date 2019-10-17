@@ -129,6 +129,7 @@
     text-transform: uppercase;
     font-weight: 700;
     opacity: .7;
+    cursor: default;
 }
 
 .settings-icon-preview {
@@ -364,11 +365,12 @@ position: absolute;
 
 .settings-flavor-text-edit {
   position: absolute;
-  left: 335px;
-  top: 470px;
+  left: 0px;
+  top: 370px;
   font-size: 14px;
   color: #b9bbbe;
   width: 500px;
+  cursor: default;
 }
 
 .settings-two-factor-edit {
@@ -380,11 +382,12 @@ position: absolute;
 
 .settings-flavor-text {
   position: absolute;
-  left: 335px;
-  top: 290px;
+  left: -2px;
+  top: 185px;
   font-size: 14px;
   color: #b9bbbe;
   width: 500px;
+  cursor: default;
 }
 
 .settings-two-factor {
