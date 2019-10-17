@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       
       
     end
-    resources :posts, only: [:show, :create]
+    # resources :posts, only: [:show, :create]
 
     resources :channels, only: [:index, :show, :create, :update, :destroy] do
       resources :memberships, only: [:index, :create, :destroy]

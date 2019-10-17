@@ -11,12 +11,12 @@
 #
 
 class Icon < ApplicationRecord
-  validates :image_id, :icon_membership_id, :icon_membership_type, presence: true
+  # validates :image_id, :icon_membership_id, :icon_membership_type, presence: true
 
-  belongs_to :image,
-    foreign_key: :image_id,
-    class_name: :Post
+  # belongs_to :image,
+  #   foreign_key: :image_id,
+  #   class_name: :Post
 
-  belongs_to :icon_membership,
-    polymorphic: true
+  # belongs_to :icon_membership,
+  #   polymorphic: true
 end

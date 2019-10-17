@@ -9,9 +9,9 @@
 #
 
 class Post < ApplicationRecord
-  validates :title, presence: true
+  # validates :title, presence: true
 
-  has_one_attached :photo
+  # has_one_attached :photo
 
-  has_many :icon_memberships
+  # has_many :icon_memberships
 end
