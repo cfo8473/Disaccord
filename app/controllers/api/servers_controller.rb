@@ -2,14 +2,9 @@ class Api::ServersController < ApplicationController
   before_action :require_logged_in
 
   def index
-    # debugger
-    if (params[:filter][:userId])
-      
+    if (params[:filter] && params[:filter][:userId])
       @servers = User.find(params[:filter][:userId]).joined_servers
-      # debugger
     else
-    
-      # debugger
       @servers = Server.all
     end
     render :index
@@ -23,7 +18,6 @@ class Api::ServersController < ApplicationController
 
   def create
     @server = Server.new(server_params)
-    # debugger
     if @server.save
       @server.setup_server(current_user.id)
 
