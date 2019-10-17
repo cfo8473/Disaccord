@@ -3904,9 +3904,7 @@ function (_React$Component) {
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "messages-icon"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FontAwesomeIcon, {
-          icon: faDog
-        })));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null));
       }
     }
   }, {

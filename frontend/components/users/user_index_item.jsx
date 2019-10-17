@@ -17,7 +17,7 @@ class UserIndexItem extends React.Component {
       return (
         <div className="messages-icon">
           <button >
-            <FontAwesomeIcon icon={faDog} />
+            
           </button>
         </div>
       )
