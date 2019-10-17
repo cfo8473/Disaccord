@@ -3863,9 +3863,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -3880,21 +3880,44 @@ function (_React$Component) {
   _inherits(UserIndexItem, _React$Component);
 
   function UserIndexItem(props) {
+    var _this;
+
     _classCallCheck(this, UserIndexItem);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(UserIndexItem).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UserIndexItem).call(this, props));
+    _this.userIcon = _this.userIcon.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(UserIndexItem, [{
+    key: "userIcon",
+    value: function userIcon() {
+      console.log(this.props);
+
+      if (this.props.user.photo) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "messages-icon"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "messages-icon-picture",
+          src: this.props.user.photo
+        }));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "messages-icon"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(FontAwesomeIcon, {
+          icon: faDog
+        })));
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       // console.log(this.props.user.title)
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-users-block"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "nav-users-icon",
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         onClick: this.props.openUserModal
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }, this.userIcon()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "nav-users-username"
       }, this.props.user.username));
     }
@@ -3948,9 +3971,13 @@ function (_React$Component) {
   _inherits(UsersIndex, _React$Component);
 
   function UsersIndex(props) {
+    var _this;
+
     _classCallCheck(this, UsersIndex);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(UsersIndex).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(UsersIndex).call(this, props));
+    _this.state = _this.props;
+    return _this;
   }
 
   _createClass(UsersIndex, [{
@@ -3961,12 +3988,16 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       // console.log(this.props.users)
+      console.log(this.props);
       var userList = Object.values(this.props.users).map(function (user) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: "user-".concat(user.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          user: user
+          user: user,
+          currentUser: _this2.props.currentUser
         }));
       }); // console.log(userList)
 
@@ -4007,9 +4038,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state) {
+  // debugger
   var users = state.entities.users;
+  var currentUser = state.session.currentUser;
   return {
-    users: users
+    users: users,
+    currentUser: currentUser
   };
 };
 

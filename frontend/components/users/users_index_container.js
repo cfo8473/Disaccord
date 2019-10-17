@@ -7,9 +7,12 @@ import { fetchServer } from '../../actions/server_actions'
 import {fetchUsers } from '../../actions/user_actions'
 
 const msp = (state) => {
+  // debugger
   let users = state.entities.users
+  let currentUser = state.session.currentUser
   return {
-    users: users
+    users: users,
+    currentUser: currentUser
   }
 };
 
