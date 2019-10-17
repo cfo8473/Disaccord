@@ -33,7 +33,7 @@ class ServerShow extends React.Component {
 
 
   render() {
-
+    // debugger
     const addServer = (
       <div>
         <button className="nav-servers-add-server tooltips" onClick={this.props.openServerModal}>

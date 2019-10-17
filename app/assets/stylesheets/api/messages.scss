@@ -67,7 +67,7 @@
   font-size: 25px;
   color: white;
   border-radius: 50%;
-  background: rgb(255, 0, 0);
+  background: white;
   border-color: transparent;
   opacity: 1;
   height: 44px;
@@ -77,4 +77,10 @@
 
   -webkit-align-content: center;
 
+}
+
+.messages-icon-picture {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%
 }

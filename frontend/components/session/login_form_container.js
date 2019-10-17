@@ -14,7 +14,7 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = (dispatch, ownProps) => {
-  const guest = { username: "test2", password: "hunter2"};
+  const guest = { username: "GuestUser", password: "hunter2"};
   return {
     processForm: formUser => dispatch(login(formUser)),
     guestLogin: () => dispatch(login(guest)),

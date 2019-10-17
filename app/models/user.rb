@@ -23,7 +23,11 @@ class User < ApplicationRecord
     class_name: :Server,
     dependent: :destroy
   
+  has_one_attached :photo
+  
   has_many :memberships
+
+  has_many :icon_memberships
 
   has_many :joined_servers, 
     through: :memberships,

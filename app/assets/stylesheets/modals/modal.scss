@@ -57,7 +57,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 11;
-  background: #353c47;
+  background: #36393f;
 
   
 }
@@ -133,4 +133,13 @@
   padding: 10px;
   margin-bottom: 8px;
   border: none;
+}
+
+.modal-createServerButton:hover{
+  cursor: pointer;
+  background-color: #6c80cc;
+}
+
+.modal-createServerButton:focus{
+  outline: none;
 }

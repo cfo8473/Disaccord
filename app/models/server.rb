@@ -27,7 +27,7 @@ class Server < ApplicationRecord
     foreign_key: :server_id,
     class_name: :Channel
 
-    
+  has_many :icon_memberships
 
   def setup_server(user)
     serverMembership = Membership.new(user_id: user, membership_id: self.id, membership_type: "Server")

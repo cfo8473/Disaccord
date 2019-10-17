@@ -21,11 +21,11 @@ export const createUser = user => {
   })
 }
 
-export const editUser = user => {
+export const editUser = formData => {
   return $.ajax({
     method: "PATCH",
-    url: `/api/users/${user.id}/edit`,
-    data: { user }
+    url: `/api/users/${formData.get('user[id]')}`,
+    data: formData, contentType: false, processData: false
   })
 }
 

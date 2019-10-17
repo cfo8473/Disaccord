@@ -28,6 +28,7 @@ window.addEventListener("DOMContentLoaded", () => {
   window.fetchChannels = fetchChannels;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.logout = store.logout;
 
   // console.log(window.getState());
   ReactDom.render(<Root store={store} />, rootEl)

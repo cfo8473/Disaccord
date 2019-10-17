@@ -2,10 +2,12 @@ import React from 'react';
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import SettingsContainer from '../settings/settings_container';
+import CreateUserIconContainer from '../settings/create_user_icon_container';
 import GreetingsContainer from "../greeting/greeting_container";
 import CreateServerContainer from '../servers/create_server_container'
 import CreateChannelContainer from '../channels/create_channel_container'
 import EditServerContainer from '../servers/edit_server_container'
+import EditSettingsContainer from '../settings/edit_settings_container'
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -27,6 +29,12 @@ function Modal({ modal, closeModal }) {
       break;
     case "createChannel":
       component = <CreateChannelContainer/>;
+      break;
+    case "uploadUserIcon":
+      component = <CreateUserIconContainer/>;
+      break;
+    case "editSettings":
+      component = <EditSettingsContainer/>;
       break;
     default:
       return null;
