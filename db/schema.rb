@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_16_202843) do
+ActiveRecord::Schema.define(version: 2019_10_17_212033) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,16 +45,6 @@ ActiveRecord::Schema.define(version: 2019_10_16_202843) do
     t.index ["server_id"], name: "index_channels_on_server_id"
   end
 
-  create_table "icons", force: :cascade do |t|
-    t.integer "image_id", null: false
-    t.string "icon_membership_type", null: false
-    t.integer "icon_membership_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["icon_membership_id"], name: "index_icons_on_icon_membership_id"
-    t.index ["image_id"], name: "index_icons_on_image_id"
-  end
-
   create_table "memberships", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "membership_type", null: false
@@ -73,12 +63,6 @@ ActiveRecord::Schema.define(version: 2019_10_16_202843) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id", "channel_id"], name: "index_messages_on_author_id_and_channel_id"
-  end
-
-  create_table "posts", force: :cascade do |t|
-    t.string "title", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "role_channels", force: :cascade do |t|
