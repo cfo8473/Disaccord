@@ -1684,7 +1684,8 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       this.state.channel_id = this.props.channel;
-      this.state.author_id = this.props.currentUser;
+      this.state.author_id = this.props.currentUser; // the only nicely formatted return statement I have so far
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "nav-content-message-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
@@ -2938,7 +2939,28 @@ function (_React$Component) {
         className: "nav-content-header"
       }, channelTitle, "  ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "login-text"
-      }, "| ", channelTopic)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "| ", channelTopic), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "nav-content-header-icons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+        className: "spacer",
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faGuitar"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+        className: "spacer",
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faBell"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+        className: "spacer",
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faUser"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "search-dummy-bar",
+        type: "text",
+        value: "Search \uD83D\uDD0D"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+        className: "spacer",
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faAt"]
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
+        className: "spacer",
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faQuestionCircle"]
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "content-block"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-content-messages"

@@ -30,6 +30,7 @@ class MessageForm extends React.Component {
     this.state.channel_id = this.props.channel
     this.state.author_id = this.props.currentUser
 
+    // the only nicely formatted return statement I have so far
     return (
       <form className="nav-content-message-bar">
         <textarea className   = "nav-content-message-box" 

@@ -439,3 +439,21 @@ textarea {
   display: block;
   background: #36393f;
 }
+
+.nav-content-header-icons{
+  position: absolute;
+  top: 15px;
+  font-size: 19px;
+  right: 0px;
+  color: #929292;
+}
+
+.spacer {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.spacer:hover {
+  color: white;
+  cursor: pointer;
+}

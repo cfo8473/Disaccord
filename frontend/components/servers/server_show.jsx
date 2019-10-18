@@ -1,5 +1,5 @@
 import React from "react";
-import { faAddressCard, faDog, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard, faDog, faHome, faGuitar, faSearch, faBell, faUser, faAt, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { withRouter } from 'react-router-dom'
 import UsersIndexContainer from '../users/users_index_container'
@@ -95,6 +95,17 @@ class ServerShow extends React.Component {
         <ProtectedRoute path='/servers/:serverId' component={ChannelIndexContainer} />
         <div className="nav-block">
           <div className="nav-content-header">{channelTitle}  <span className="login-text">| {channelTopic}</span>
+          <div className="nav-content-header-icons"> 
+              <FontAwesomeIcon className="spacer" icon={faGuitar} />
+              <FontAwesomeIcon className="spacer" icon={faBell} />
+              <FontAwesomeIcon className="spacer" icon={faUser} />
+              <input className="search-dummy-bar" type="text"
+                value="Search 🔍"
+               />
+              <FontAwesomeIcon className="spacer" icon={faAt} />
+              <FontAwesomeIcon className="spacer" icon={faQuestionCircle} />
+
+          </div>
           </div>
             <div className="content-block">
     

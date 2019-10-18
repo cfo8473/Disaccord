@@ -173,3 +173,23 @@ a {
 }
 
 
+
+.search-dummy-bar {
+  width: 120px;
+  padding: 10px;
+  height: 7px;
+  font-size: 14px;
+  border-radius: 2px;
+  border: 1px solid #1b1e22;
+  background: rgba(0, 0, 0, 0.28);
+  color: #8c8c8c;
+  
+}
+
+.search-dummy-bar:hover{
+  border-color: black;
+}
+
+.search-dummy-bar:focus{
+  outline: none;
+}
