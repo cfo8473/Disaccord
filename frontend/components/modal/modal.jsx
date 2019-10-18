@@ -8,6 +8,7 @@ import CreateServerContainer from '../servers/create_server_container'
 import CreateChannelContainer from '../channels/create_channel_container'
 import EditServerContainer from '../servers/edit_server_container'
 import EditSettingsContainer from '../settings/edit_settings_container'
+import ServerModalContainer from '../servers/server_modal_container'
 
 function Modal({ modal, closeModal }) {
   if (!modal) {
@@ -29,6 +30,9 @@ function Modal({ modal, closeModal }) {
       break;
     case "createChannel":
       component = <CreateChannelContainer/>;
+      break;
+    case "openServerModal":
+      component = <ServerModalContainer />;
       break;
     case "uploadUserIcon":
       component = <CreateUserIconContainer/>;
