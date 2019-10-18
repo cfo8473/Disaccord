@@ -50,7 +50,7 @@ class ChannelShow extends React.Component {
     const messageList = Object.values(this.props.messages).map((message, idx) => (
       (message.channel_id === parseInt(this.props.channel)) ? (
         <li key={`message-${message.id}`}>
-          <MessageIndexItem message={message} key={`message-${idx}`} users={this.props.users}/>
+          <MessageIndexItem message={message} users={this.props.users}/>
         </li>) : (<div key={idx}></div>)
     ))
     

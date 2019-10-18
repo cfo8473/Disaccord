@@ -90,7 +90,13 @@ class EditSettings extends React.Component {
     )
 
 
-    const preview = this.props.photo ? <img className="settings-icon-preview" src={this.props.photo} /> : <img className="settings-icon-preview" src="https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png" />;
+    const preview = this.props.photo ? 
+      <img className="settings-icon-preview" src={this.props.photo} /> :
+      <div className="settings-icon-preview">
+        <div className="messages-icon-picture-default"
+        />
+
+      </div>;
 
     return (
       <div className="modal-settings">

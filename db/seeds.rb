@@ -5,6 +5,21 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'open-uri'
+
+file = open('https://disaccord-seeds.s3-us-west-1.amazonaws.com/icon-corgi.png')
+file2 = open('https://disaccord-seeds.s3-us-west-1.amazonaws.com/icon-car.jpg')
+file3 = open('https://disaccord-seeds.s3-us-west-1.amazonaws.com/icon-cat.jpg')
+file4 = open('https://disaccord-seeds.s3-us-west-1.amazonaws.com/icon-dog.jpg')
+file5= open('https://disaccord-seeds.s3-us-west-1.amazonaws.com/icon-kimetsu.png')
+file6 = open('https://disaccord-seeds.s3-us-west-1.amazonaws.com/icon-korea.jpg')
+file7 = open('https://disaccord-seeds.s3-us-west-1.amazonaws.com/icon-pokemon.jpg')
+file8 = open('https://disaccord-seeds.s3-us-west-1.amazonaws.com/icon-shibu.jpg')
+
+
+
+
+
 
 users = User.create([
   {username: "GuestUser", email: "guest@guest.com", password: "hunter2"},
@@ -22,6 +37,30 @@ users = User.create([
   {username: "ThisPlaceHasEverything", email: "tphe@gmail.com", password: "hunter2"},
   {username: "J4484", email: "js@gmail.com", password: "hunter2"},
 ])
+
+user0 = User.find(1)
+user0.photo.attach(io: file, filename: 'icon-corgi.png')
+
+user1 = User.find(2)
+user1.photo.attach(io: file8, filename: 'icon-kimetsu.png')
+
+user2 = User.find(9)
+user2.photo.attach(io: file2, filename: 'icon-car.jpg')
+
+user3 = User.find(4)
+user3.photo.attach(io: file3, filename: 'icon-pokemon.jpg')
+
+user4 = User.find(5)
+user4.photo.attach(io: file4, filename: 'icon-shibu.jpg')
+
+user5 = User.find(7)
+user5.photo.attach(io: file5, filename: 'icon-dog.jpg')
+
+user6 = User.find(3)
+user6.photo.attach(io: file6, filename: 'icon-cat.jpg')
+
+user7 = User.find(6)
+user7.photo.attach(io: file7, filename: 'icon-korea.jpg')
 
 servers = Server.create([
   {title: "Main", admin_id: users[0].id},

@@ -32,7 +32,7 @@ class ChannelForm extends React.Component {
         <p className="modal-createChannelGreetText">in Text Channels</p>
         <p className="login-text"> CHANNEL TYPE</p>
         <button className="channel-text-button"><input className="checkbox" type="checkbox" checked/> # Text Channel</button>
-        <button className="channel-text-button-deactivate"><input className="checkbox" type="checkbox" /> # Text Channel</button>
+        <button className="channel-text-button-deactivate"><input className="checkbox" type="checkbox" /> # ...another Text Channel</button>
         <form className="modal-createChannelInput" onSubmit={this.handleSubmit}>
           <label className="modal-createChannelTitle">CHANNEL NAME</label>
           <input className="modal-createChannelTitleInput" type="text" value={this.state.title} onChange={this.update("title")} />

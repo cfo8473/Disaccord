@@ -674,8 +674,8 @@ function (_React$Component) {
   }, {
     key: "userIcon",
     value: function userIcon() {
-      if (this.props.users[this.props.currentUser.id]) {
-        if (this.props.users[this.props.currentUser.id].photo) {
+      if (this.props.users[this.props.currentUser.id] && this.props.users[this.props.currentUser.id].photo) {
+        {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "messages-icon"
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1074,7 +1074,6 @@ function (_React$Component) {
           key: "message-".concat(message.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_message_index_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
           message: message,
-          key: "message-".concat(idx),
           users: _this2.props.users
         })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           key: idx
@@ -1363,7 +1362,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "checkbox",
         type: "checkbox"
-      }), " # Text Channel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }), " # ...another Text Channel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "modal-createChannelInput",
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -1762,24 +1761,19 @@ function (_React$Component) {
   _createClass(MessageIndexItem, [{
     key: "userIcon",
     value: function userIcon() {
-      if (this.props.users[this.props.message.author_id]) {
-        if (this.props.users[this.props.message.author_id].photo) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            className: "messages-icon"
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            className: "messages-icon-picture",
-            src: this.props.users[this.props.message.author_id].photo
-          }));
-        }
+      if (this.props.users[this.props.message.author_id] && this.props.users[this.props.message.author_id].photo) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "messages-icon"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "messages-icon-picture",
+          src: this.props.users[this.props.message.author_id].photo
+        }));
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "messages-icon"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "messages-icon-picture-default"
-        })) // <div className="messages-icon">
-        //   <button className="messages-icon-picture"><FontAwesomeIcon icon={faDog} /></button>
-        // </div>
-        ;
+        }));
       }
     }
   }, {
@@ -3725,10 +3719,11 @@ function (_React$Component) {
       var preview = this.props.photo ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "settings-icon-preview",
         src: this.props.photo
-      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "settings-icon-preview",
-        src: "https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png"
-      });
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "settings-icon-preview"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "messages-icon-picture-default"
+      }));
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-settings"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -4045,10 +4040,11 @@ function (_React$Component) {
       var preview = this.props.photo ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "settings-icon-preview",
         src: this.props.photo
-      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        className: "settings-icon-preview",
-        src: "https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png"
-      });
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "settings-icon-preview"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "messages-icon-picture-default"
+      }));
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-settings"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {

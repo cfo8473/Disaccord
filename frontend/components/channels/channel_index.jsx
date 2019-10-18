@@ -36,8 +36,8 @@ class ChannelIndex extends React.Component {
   }
 
   userIcon() {
-    if (this.props.users[this.props.currentUser.id]) {
-      if (this.props.users[this.props.currentUser.id].photo) {
+    if (this.props.users[this.props.currentUser.id] && this.props.users[this.props.currentUser.id].photo) {
+     {
         return (
         <div className="messages-icon">
           <img className="messages-icon-picture" src={this.props.users[this.props.currentUser.id].photo} />
