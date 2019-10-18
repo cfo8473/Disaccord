@@ -172,7 +172,7 @@ header {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url("splash.png");
+  background-image: image-url("splash.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: transparent;
@@ -184,7 +184,7 @@ header {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-image: url("session-background.jpg");
+  background-image: image-url("session-background.jpg");
   background-repeat: no-repeat;
   background-size: cover; 
   background-color: transparent;

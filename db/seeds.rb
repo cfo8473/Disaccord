@@ -58,8 +58,13 @@ memberships = Membership.create([
   {user_id: users[0].id, membership_id: servers[6].id, membership_type: "Server"},
   {user_id: users[0].id, membership_id: servers[7].id, membership_type: "Server"},
 
+  {user_id: users[3].id, membership_id: servers[1].id, membership_type: "Server"},
+  {user_id: users[9].id, membership_id: servers[1].id, membership_type: "Server"},
+  {user_id: users[10].id, membership_id: servers[1].id, membership_type: "Server"},
+  {user_id: users[11].id, membership_id: servers[1].id, membership_type: "Server"},
+
   {user_id: users[1].id, membership_id: servers[2].id, membership_type: "Server"},
-  {user_id: users[4].id, membership_id: servers[2].id, membership_type: "Server"},
+  {user_id: users[2].id, membership_id: servers[2].id, membership_type: "Server"},
   {user_id: users[4].id, membership_id: servers[2].id, membership_type: "Server"},
   {user_id: users[12].id, membership_id: servers[2].id, membership_type: "Server"},
   {user_id: users[11].id, membership_id: servers[2].id, membership_type: "Server"},
@@ -131,6 +136,8 @@ messages = Message.create([
   {body: "suere sollicitudin aliquam ultrices. Aliquam eleifend mi in nulla posuere sollicitudin. ", author_id: users[1].id, channel_id: channels[1].id, pinned: false},
   {body: "nulla posuere sollicitudin. Accumsan lacus vel facilisis volutpat est velit egestas dui. Phasellus faucibus sc", author_id: users[2].id, channel_id: channels[1].id, pinned: false},
 
+  
+
   {body: "im trying to get messages into my reducer, which isnt hard but i was hungry", author_id: users[4].id, channel_id: channels[1].id, pinned: false},
   {body: "and I fixed my broken asf newsfeed!", author_id: users[10].id, channel_id: channels[1].id, pinned: false},
   {body: "Seems we each have like one thing that completely eluded us", author_id: users[0].id, channel_id: channels[2].id, pinned: false},
@@ -195,4 +202,38 @@ Stuff like that", author_id: users[4].id, channel_id: channels[15].id, pinned: f
   {body: "Found and added 41 songs from playlist ✿ham.
 The player is now shuffled.", author_id: users[3].id, channel_id: channels[15].id, pinned: false},
   {body: "-p cosp louder", author_id: users[2].id, channel_id: channels[15].id, pinned: false},
+
+  {body: "Yeah, anywhere that's ruby-based
+current_user.roles.where(server_id: 2)
+Stuff like that", author_id: users[4].id, channel_id: channels[12].id, pinned: false},
+  {body: "added by SNP+s5AegxckQvMF9sQo1psj/EYSItGa [04:47]
+[", author_id: users[12].id, channel_id: channels[12].id, pinned: false},
+  {body: "Found and added 12 songs from playlist", author_id: users[11].id, channel_id: channels[12].id, pinned: false},
+  {body: "Found and added 41 songs from playlist ✿ham.
+The player is now shuffled.", author_id: users[3].id, channel_id: channels[12].id, pinned: false},
+  {body: "-p cosp louder", author_id: users[2].id, channel_id: channels[12].id, pinned: false},
+
+  {body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ", author_id: users[11].id, channel_id: channels[13].id, pinned: false},
+  {body: "Tincidunt nunc pulvinar sapien et ligula", author_id: users[7].id, channel_id: channels[13].id, pinned: false},
+  {body: "suere sollicitudin aliquam ultrices. Aliquam eleifend mi in nulla posuere sollicitudin. ", author_id: users[1].id, channel_id: channels[13].id, pinned: false},
+  {body: "nulla posuere sollicitudin. Accumsan lacus vel facilisis volutpat est velit egestas dui. Phasellus faucibus sc", author_id: users[2].id, channel_id: channels[13].id, pinned: false},
+
+  {body: "need assistance from tap ", author_id: users[0].id, channel_id: channels[14].id, pinned: false},
+  {body: "Tincidunt nunc pulvinar sapien et ligula", author_id: users[1].id, channel_id: channels[14].id, pinned: false},
+  {body: "suere sollicitudin aliquam ultrices. Aliquam eleifend mi in nulla posuere sollicitudin. ", author_id: users[6].id, channel_id: channels[14].id, pinned: false},
+  {body: "nulla posuere sollicitudin. Accumsan lacus vel facilisis volutpat est velit egestas dui. Phasellus faucibus sc", author_id: users[2].id, channel_id: channels[14].id, pinned: false},
+
+  {body: "Step 1: heroku restart", author_id: users[0].id, channel_id: channels[6].id, pinned: false},
+  {body: "heroku pg:reset DATABASE", author_id: users[4].id, channel_id: channels[6].id, pinned: false},
+  {body: "heroku restart; heroku pg:reset DATABASE --confirm APP-NAME; heroku run rake db:migrate", author_id: users[3].id, channel_id: channels[6].id, pinned: false},
+
+  {body: "Heroku doesn't allow users from using rake db:reset, rake db:drop and rake db:create command. They only allow heroku pg:reset and rake db:migrate commands.", author_id: users[5].id, channel_id: channels[7].id, pinned: false},
+  {body: "If you have more than 1 remote, append --remote [your_remote_name] like this:", author_id: users[6].id, channel_id: channels[7].id, pinned: false},
+  {body: "heroku run rake db:migrate --remote dev (dev is example remote here)", author_id: users[8].id, channel_id: channels[7].id, pinned: false},
+
+  {body: "Create a lib/tasks/scheduler.rake file that looks similar to this", author_id: users[8].id, channel_id: channels[5].id, pinned: false},
+  {body: "puts Cleaning Up The DB...
+  DatabaseCleaner.strategy = :truncation
+  DatabaseCleaner.clean", author_id: users[8].id, channel_id: channels[5].id, pinned: false},
+
 ])
