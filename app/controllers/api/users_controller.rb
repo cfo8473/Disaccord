@@ -8,6 +8,10 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
+      server = Server.new(title: "#{@user.username}-general", admin_id: @user.id)
+        
+      server.save
+      server.setup_server(@user.id)
       login!(@user)
       render 'api/users/show'
     else
@@ -18,8 +22,6 @@ class Api::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
-      # print(url_for(@user.photo))
-      # debugger/
       render :show
     else
       render json: @user.errors.full_messages, status:422

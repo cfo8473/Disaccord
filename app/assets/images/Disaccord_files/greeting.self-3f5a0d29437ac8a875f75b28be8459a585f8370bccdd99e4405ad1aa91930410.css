@@ -1,0 +1,21 @@
+/* line 1, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/greeting/greeting.scss */
+.header-logo {
+  font-size: 50px;
+  opacity: .4;
+}
+
+/* line 6, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/greeting/greeting.scss */
+.login-button {
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  padding: 5px 17px 7px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  opacity: .8;
+}
+
+/* line 16, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/greeting/greeting.scss */
+.login-button:hover {
+  opacity: 1;
+}

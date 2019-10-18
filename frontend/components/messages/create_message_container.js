@@ -11,8 +11,7 @@ const msp = (state, ownProps) => {
   let channels = state.entities.channels
   let channel = state.ui.active.channel;
   let currentUser = state.session.currentUser.id;
-  // debugger
-  // console.log(channel)
+
   return {
     messageInfo,
     channels: channels,

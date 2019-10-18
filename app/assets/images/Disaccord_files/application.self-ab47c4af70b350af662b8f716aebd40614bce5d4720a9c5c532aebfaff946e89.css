@@ -1,0 +1,109 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+/* line 17, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/application.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* line 38, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/application.scss */
+html, body, #root, .test {
+  height: 100%;
+}
+
+/* line 45, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/application.scss */
+body {
+  background-color: #353c47;
+  color: white;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+/* line 51, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/application.scss */
+header {
+  font-family: Whitney, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+/* line 55, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/application.scss */
+.main-header {
+  display: block;
+  padding: 8px 0;
+  position: relative;
+  width: 100%;
+  z-index: 10;
+}
+
+/* line 63, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/application.scss */
+.header-inner {
+  display: flex;
+  margin: 0 auto;
+  padding: 0 30px;
+  position: relative;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  max-width: 1600px;
+  flex-wrap: wrap;
+}
+
+/* line 80, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/application.scss */
+.header-logo {
+  flex: 0 0 auto;
+  margin-top: 4px;
+}
+
+/* line 85, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/application.scss */
+.header-nav-right {
+  align-items: center;
+  flex: 0 1 auto;
+  margin-left: auto;
+}
+
+/* line 91, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/application.scss */
+.debug-button {
+  margin-top: 10px;
+  margin-left: auto;
+  /* height: 40px; */
+  color: white;
+  background-color: transparent;
+  font-size: 11px;
+  line-height: 24px;
+  margin-bottom: 8px;
+  border: none;
+  text-align: center;
+  margin-right: 13px;
+}
+
+/* line 105, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/application.scss */
+.debug-button:hover {
+  cursor: pointer;
+  background-color: #6c80cc;
+}

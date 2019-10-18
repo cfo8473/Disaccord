@@ -17,8 +17,7 @@ class MessageForm extends React.Component {
 
   handleSubmit(e) {
     if (e.keyCode == 13 && e.shiftKey == false) {
-      // debugger
-      // console.log(this.props)
+
       this.props.updateChannel(this.props.match.params.channelId)
       e.preventDefault();
       const message = Object.assign({}, this.state);
@@ -28,13 +27,11 @@ class MessageForm extends React.Component {
   }
 
   render() {
-    // console.log(this.props)
     this.state.channel_id = this.props.channel
-    // this.state.channel_id = this.props.match.params.channelId;
     this.state.author_id = this.props.currentUser
 
     return (
-      <form >
+      <form className="nav-content-message-bar">
         <textarea className   = "nav-content-message-box" 
                   onKeyDown   = {this.handleSubmit} 
                   value       = {this.props.body}

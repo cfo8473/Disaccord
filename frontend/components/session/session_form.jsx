@@ -24,8 +24,6 @@ export default class SessionForm extends React.Component {
 
   componentDidMount() {
     let location = "form"
-    // console.log(location);
-  
   }
 
   componentWillUnmount() {
@@ -38,7 +36,7 @@ export default class SessionForm extends React.Component {
         <div>
           <label>
               <h5 className="login-text">Email </h5>
-              <input className="session-input"  type="text"
+              <input className="session-input" type="text"
                 value={this.state.email}
                 onChange={this.update('email')} />
           </label>

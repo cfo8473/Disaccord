@@ -661,11 +661,8 @@ function (_React$Component) {
   _createClass(ChannelIndex, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // console.log(this.props)
       this.props.fetchServer(this.props.match.params.serverId);
-      this.props.fetchChannels(), this.props.fetchServers(), this.props.fetchMessages(), this.props.updateServer(this.props.match.params.serverId); // debugger
-      // this.props.updateChannel(this.props.match.params.channelId)
-      // this.props.updateChannel(this.props.match.params.serverId.channels[0])
+      this.props.fetchChannels(), this.props.fetchServers(), this.props.fetchMessages(), this.props.updateServer(this.props.match.params.serverId);
     }
   }, {
     key: "componentDidUpdate",
@@ -677,8 +674,6 @@ function (_React$Component) {
   }, {
     key: "userIcon",
     value: function userIcon() {
-      console.log(this.props);
-
       if (this.props.users[this.props.currentUser.id]) {
         if (this.props.users[this.props.currentUser.id].photo) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -691,9 +686,10 @@ function (_React$Component) {
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "messages-icon"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faDog"]
-        })));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "messages-icon-picture",
+          src: "https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png"
+        }));
       }
     }
   }, {
@@ -705,10 +701,12 @@ function (_React$Component) {
       var channels = this.props.channels;
       var channelList = Object.values(channels).map(function (channel, idx) {
         return channel.server_id === _this2.props.server.id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: "channel-".concat(channel.id)
+          key: "channel-".concat(channel.id, "-").concat(_this2.props.server.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_channel_index_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
           channel: channel
-        })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+        })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: idx
+        });
       });
       var server;
 
@@ -763,21 +761,21 @@ function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
           className: "nav-channels-header"
         }, this.props.server.title, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "debug-button ",
+          className: "debug-button tooltips ",
           onClick: this.props.openServerModalEdit
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
           icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faCog"]
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Edit Server"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-channels-list"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "channel-text-header-block"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_collapsible__WEBPACK_IMPORTED_MODULE_5___default.a, {
           open: Boolean(true),
           style: "div",
-          triggerWhenOpen: "\u2193 TEXT CHANNELS",
+          triggerWhenOpen: "\u25BC TEXT CHANNELS",
           transitionTime: parseInt(10),
           className: "channel-text-title",
-          trigger: "> TEXT CHANNELS"
+          trigger: "\u25BA TEXT CHANNELS"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, channelList)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           className: "channel-add-button tooltips"
         }, addChannel, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Create Channel")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), userBox);
@@ -826,8 +824,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state, ownProps) {
-  // console.log(state)
-  // debugger
   var currentUser = state.session.currentUser;
   var servers = state.entities.servers;
   var server = state.entities.servers[ownProps.match.params.serverId];
@@ -866,17 +862,15 @@ var mdp = function mdp(dispatch) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_6__["openModal"])("editServer"));
     },
     // openModal: (modalType, serverId) => dispatch(openModal(modalType, serverId)),
-    openModal: function openModal(modalType) {
-      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_6__["openModal"])(modalType));
-    },
+    // openModal: (modalType) => dispatch(openModal(modalType)),
     openSettings: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
-      className: "settings-icon",
+      className: "settings-icon tooltips",
       onClick: function onClick() {
         return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_6__["openModal"])('settings'));
       }
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__["FontAwesomeIcon"], {
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faCog"]
-    })),
+    }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "User Settings")),
     updateServer: function updateServer(serverId) {
       return dispatch(Object(_actions_active_actions__WEBPACK_IMPORTED_MODULE_9__["updateServer"])(serverId));
     },
@@ -942,21 +936,24 @@ function (_React$Component) {
   _createClass(ChannelIndexItem, [{
     key: "render",
     value: function render() {
-      var channelId = this.props.location.pathname.split("/")[3];
-      console.log(channelId);
+      var channelId = this.props.location.pathname.split("/")[3]; // console.log(channelId)
 
       if (this.props.channel.id === parseInt(channelId)) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: this.props.channel.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/servers/".concat(this.props.channel.server_id, "/").concat(this.props.channel.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "current-channel-title"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "channel-title-pound"
-        }, "\u27A4"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-          className: "current-channel-title"
-        }, " ", this.props.channel.title))));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faHashtag"]
+        })), this.props.channel.title)));
       } else {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: this.props.channel.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/servers/".concat(this.props.channel.server_id, "/").concat(this.props.channel.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "channel-title"
@@ -1000,9 +997,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -1019,9 +1016,13 @@ function (_React$Component) {
   _inherits(ChannelShow, _React$Component);
 
   function ChannelShow(props) {
+    var _this;
+
     _classCallCheck(this, ChannelShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ChannelShow).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ChannelShow).call(this, props));
+    _this.updateScroll = _this.updateScroll.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ChannelShow, [{
@@ -1029,6 +1030,7 @@ function (_React$Component) {
     value: function componentDidMount() {
       this.props.fetchMessages();
       this.props.fetchChannels();
+      this.props.updateChannel(this.props.match.params.channelId);
     }
   }, {
     key: "componentWillUpdate",
@@ -1038,27 +1040,37 @@ function (_React$Component) {
   }, {
     key: "updateScroll",
     value: function updateScroll() {
-      var element;
+      var container;
 
-      if (document.getElementsByClassName(".nav-content-messages")[0]) {
-        element = document.getElementById("div");
+      if (document.getElementsByClassName('nav-content-messages').length >= 1) {
+        container = document.getElementsByClassName('nav-content-messages')[0];
+        console.log(container.scrollHeight); // container.scrollTop + container.clientHeight >= container.scrollHeight
+
+        container.scrollTop = container.scrollHeight;
       }
-
-      element.scrollTop = element.scrollHeight;
     }
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
+
+      var container;
+
+      if (document.getElementsByClassName('nav-content-messages-block').length >= 1) {
+        container = document.getElementsByClassName('nav-content-messages-block')[0];
+        container.scrollTop = container.scrollHeight;
+      }
 
       var messageList = Object.values(this.props.messages).map(function (message, idx) {
-        return message.channel_id === parseInt(_this.props.channel) ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+        return message.channel_id === parseInt(_this2.props.channel) ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: "message-".concat(message.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_message_index_item__WEBPACK_IMPORTED_MODULE_3__["default"], {
           message: message,
           key: "message-".concat(idx),
-          users: _this.props.users
-        })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+          users: _this2.props.users
+        })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: idx
+        });
       });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, messageList));
     }
@@ -1197,7 +1209,7 @@ __webpack_require__.r(__webpack_exports__);
 var msp = function msp(state, ownProps) {
   var errors = state.errors.session.errors;
   var channelInfo = {
-    title: " ",
+    title: "",
     server_id: '',
     topic: "Default topic!"
   };
@@ -1322,10 +1334,8 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var serverId = this.props.location.pathname.split("/")[2]; // console.log(serverId);  
-
-      this.props.channelInfo.server_id = serverId; // debugger
-
+      var serverId = this.props.location.pathname.split("/")[2];
+      this.props.channelInfo.server_id = serverId;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-createChannel"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1508,9 +1518,7 @@ var msp = function msp(state, ownProps) {
   };
   var channels = state.entities.channels;
   var channel = state.ui.active.channel;
-  var currentUser = state.session.currentUser.id; // debugger
-  // console.log(channel)
-
+  var currentUser = state.session.currentUser.id;
   return {
     messageInfo: messageInfo,
     channels: channels,
@@ -1617,8 +1625,6 @@ function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       if (e.keyCode == 13 && e.shiftKey == false) {
-        // debugger
-        // console.log(this.props)
         this.props.updateChannel(this.props.match.params.channelId);
         e.preventDefault();
         var message = Object.assign({}, this.state);
@@ -1629,11 +1635,11 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // console.log(this.props)
-      this.state.channel_id = this.props.channel; // this.state.channel_id = this.props.match.params.channelId;
-
+      this.state.channel_id = this.props.channel;
       this.state.author_id = this.props.currentUser;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        className: "nav-content-message-bar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
         className: "nav-content-message-box",
         onKeyDown: this.handleSubmit,
         value: this.props.body,
@@ -1727,13 +1733,15 @@ function (_React$Component) {
   }, {
     key: "messageContent",
     value: function messageContent() {
+      var message = this.props.message;
+
       if (this.props.users) {
         if (this.props.users[this.props.message.author_id]) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "messages-username-name"
           }, this.props.users[this.props.message.author_id].username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "login-text"
-          }, this.props.message.created_at));
+          }, "".concat(message.created_at.split('T')[0], " @ ").concat(message.created_at.split('T')[1].slice(0, 5))));
         } else {
           react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
         }
@@ -1742,10 +1750,6 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      // debugger
-      // console.log(this.props)
-      var date = new Date(this.props.message.created_at); // console.log(date)
-
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "message-wrap"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -2347,7 +2351,14 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var pathName = this.props.location.pathname;
+      var _this = this;
+
+      var pathName = this.props.location.pathname; // if (this.props.currentUser.joinedServerIds) {
+      //   currentServer = this.props.currentUser.joinedServerIds[0];
+      // } else {
+      //   return <Redirect to="/" /> // server disc soon
+      // } refer back to [bug1]
+
       var currentServer = Object.keys(this.props.servers)[0];
 
       if (pathName === '/servers' && currentServer) {
@@ -2365,14 +2376,22 @@ function (_React$Component) {
       // }
 
 
-      var servers = this.props.servers;
-      var serverList = Object.values(servers).map(function (server) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: "server-".concat(server.id)
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_server_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          server: server
-        }));
-      });
+      var servers = this.props.currentUserServers;
+      var serverList;
+
+      if (Object.keys(this.props.servers).length) {
+        // debugger
+        serverList = servers.map(function (server) {
+          if (_this.props.servers[server]) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            key: "server-".concat(server)
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_server_index_item__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            server: _this.props.servers[server]
+          }));
+        });
+      } else {
+        react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, serverList));
     }
   }]);
@@ -2396,16 +2415,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _server_index__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./server_index */ "./frontend/components/servers/server_index.jsx");
 /* harmony import */ var _actions_server_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/server_actions */ "./frontend/actions/server_actions.js");
+/* harmony import */ var _reducers_selectors__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../reducers/selectors */ "./frontend/reducers/selectors.js");
+
 
 
 
 
 var msp = function msp(state) {
-  var currentUser = state.session.currentUser;
-  var servers = state.entities.servers;
+  var currentUser = state.entities.users[state.session.currentUser.id];
+  var servers = state.entities.servers; // let currentUserServers = (currentUser) ? 
+  //             selectJoinedServers(state, currentUser) 
+  //                  :  [] 
+
+  var currentUserServers = currentUser.joinedServerIds; //jioned server selector
+
   return {
     currentUser: currentUser,
-    servers: servers
+    servers: servers,
+    currentUserServers: currentUserServers
   };
 };
 
@@ -2468,7 +2495,7 @@ function (_React$Component) {
   _createClass(ServerIndexItem, [{
     key: "render",
     value: function render() {
-      var serverId = this.props.location.pathname.split("/")[2];
+      var serverId = this.props.location.pathname.split("/")[2]; // debugger
 
       if (this.props.server.id === parseInt(serverId)) {
         return (// current servers icon
@@ -2652,9 +2679,7 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_util_route_util__WEBPACK_IMPORTED_MODULE_6__["ProtectedRoute"], {
         path: "/servers/:serverId/:channelId",
         component: _channels_channel_show_container__WEBPACK_IMPORTED_MODULE_8__["default"]
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "nav-content-message-bar"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_create_message_container__WEBPACK_IMPORTED_MODULE_9__["default"], null))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_messages_create_message_container__WEBPACK_IMPORTED_MODULE_9__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "nav-users"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_users_users_index_container__WEBPACK_IMPORTED_MODULE_4__["default"], {
         users: this.props.users
@@ -2709,6 +2734,7 @@ var msp = function msp(state, ownProps) {
   var servers = state.entities.servers;
   var channels = state.entities.channels;
   var users = state.entities.users;
+  console.log(state);
   return {
     currentUser: currentUser,
     servers: servers,
@@ -2892,7 +2918,7 @@ function (_React$Component) {
   }, {
     key: "componentDidMount",
     value: function componentDidMount() {
-      var location = "form"; // console.log(location);
+      var location = "form";
     }
   }, {
     key: "componentWillUnmount",
@@ -3425,7 +3451,10 @@ function (_React$Component) {
       var preview = this.props.photo ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "settings-icon-preview",
         src: this.props.photo
-      }) : null;
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "settings-icon-preview",
+        src: "https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png"
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-settings"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -3733,7 +3762,10 @@ function (_React$Component) {
       var preview = this.props.photo ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         className: "settings-icon-preview",
         src: this.props.photo
-      }) : null;
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "settings-icon-preview",
+        src: "https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png"
+      });
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-settings"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -3892,8 +3924,6 @@ function (_React$Component) {
   _createClass(UserIndexItem, [{
     key: "userIcon",
     value: function userIcon() {
-      console.log(this.props);
-
       if (this.props.user.photo) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "messages-icon"
@@ -3904,13 +3934,15 @@ function (_React$Component) {
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "messages-icon"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          className: "messages-icon-picture",
+          src: "https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png"
+        }));
       }
     }
   }, {
     key: "render",
     value: function render() {
-      // console.log(this.props.user.title)
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "nav-users-block"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3969,13 +4001,9 @@ function (_React$Component) {
   _inherits(UsersIndex, _React$Component);
 
   function UsersIndex(props) {
-    var _this;
-
     _classCallCheck(this, UsersIndex);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(UsersIndex).call(this, props));
-    _this.state = _this.props;
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(UsersIndex).call(this, props));
   }
 
   _createClass(UsersIndex, [{
@@ -3986,20 +4014,19 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this2 = this;
+      var _this = this;
 
-      // console.log(this.props.users)
-      console.log(this.props);
       var userList = Object.values(this.props.users).map(function (user) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: "user-".concat(user.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
           user: user,
-          currentUser: _this2.props.currentUser
+          currentUser: _this.props.currentUser
         }));
-      }); // console.log(userList)
-
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, userList);
+      });
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "login-text"
+      }, "ONLINE USERS"), userList);
     }
   }]);
 
@@ -4128,14 +4155,12 @@ window.addEventListener("DOMContentLoaded", function () {
     delete window.currentUser;
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  } // window.fetchServers = fetchServers;
-
+  }
 
   window.fetchChannels = _actions_channel_actions__WEBPACK_IMPORTED_MODULE_6__["fetchChannels"];
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.logout = store.logout; // console.log(window.getState());
-
+  window.logout = store.logout;
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_4__["default"], {
     store: store
   }), rootEl);
@@ -4369,6 +4394,24 @@ var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])(
 
 /***/ }),
 
+/***/ "./frontend/reducers/selectors.js":
+/*!****************************************!*\
+  !*** ./frontend/reducers/selectors.js ***!
+  \****************************************/
+/*! exports provided: selectJoinedServers */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "selectJoinedServers", function() { return selectJoinedServers; });
+var selectJoinedServers = function selectJoinedServers(state, currentUser) {
+  return currentUser.joinedServerIds.map(function (serverId) {
+    return state.entities.server[serverId];
+  });
+};
+
+/***/ }),
+
 /***/ "./frontend/reducers/servers_reducer.js":
 /*!**********************************************!*\
   !*** ./frontend/reducers/servers_reducer.js ***!
@@ -4522,7 +4565,9 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 var _nullSession = {
@@ -4534,6 +4579,11 @@ var _nullSession = {
   Object.freeze(state);
 
   switch (action.type) {
+    case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_USERS"]:
+      return action.users;
+    // case RECEIVE_USER:
+    //   return Object.assign({}, state, { [action.user.id]: action.user })
+
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
       return Object.assign({}, state, _defineProperty({}, action.user.id, action.user));
 

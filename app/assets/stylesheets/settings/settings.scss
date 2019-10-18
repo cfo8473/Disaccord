@@ -163,6 +163,17 @@
   font-family: sans-serif;
 }
 
+.settings-icon-upload-button:hover{
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.settings-icon-upload-button:focus{
+  outline: none;
+}
+
+
+
 .settings-icon-edit-preview:hover {
   opacity: .6
 }

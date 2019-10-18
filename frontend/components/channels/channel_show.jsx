@@ -7,14 +7,17 @@ import MessageIndexItem from '../messages/message_index_item'
 class ChannelShow extends React.Component {
   constructor(props) {
     super(props);
+    this.updateScroll = this.updateScroll.bind(this)
 
   }
 
   componentDidMount() {
     this.props.fetchMessages();
     this.props.fetchChannels();
+    this.props.updateChannel(this.props.match.params.channelId);
     
   }
+
 
   componentWillUpdate() {
     this.props.updateChannel(this.props.match.params.channelId);
@@ -22,20 +25,28 @@ class ChannelShow extends React.Component {
   }
 
   updateScroll() {
-    let element;
-    if (document.getElementsByClassName(".nav-content-messages")[0]) {
-      element = document.getElementById("div");
+    let container;
+    if (document.getElementsByClassName('nav-content-messages').length >= 1) {
+      container = document.getElementsByClassName('nav-content-messages')[0];
+      console.log(container.scrollHeight)
+      // container.scrollTop + container.clientHeight >= container.scrollHeight
+      container.scrollTop = container.scrollHeight
     }
-    element.scrollTop = element.scrollHeight;
   }
 
 
   render() {
+    let container;
+    if (document.getElementsByClassName('nav-content-messages-block').length >= 1) {
+      container = document.getElementsByClassName('nav-content-messages-block')[0];
+      container.scrollTop = container.scrollHeight;
+    }
+
     const messageList = Object.values(this.props.messages).map((message, idx) => (
       (message.channel_id === parseInt(this.props.channel)) ? (
         <li key={`message-${message.id}`}>
           <MessageIndexItem message={message} key={`message-${idx}`} users={this.props.users}/>
-        </li>) : (<div></div>)
+        </li>) : (<div key={idx}></div>)
     ))
     
 
@@ -43,6 +54,8 @@ class ChannelShow extends React.Component {
       <div>
         <ul>
           {messageList}
+
+          {/* {this.updateScroll()} */}
         </ul>
       </div>
     )

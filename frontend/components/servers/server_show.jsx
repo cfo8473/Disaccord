@@ -80,13 +80,8 @@ class ServerShow extends React.Component {
         channelTopic = this.props.channels[channelId].topic;
       }
     }
-
     let currentUser = this.props.users[this.props.currentUser.id]
     let defaultServer = currentUser.joinedServerIds[0];
-
-  
-
-  
 
     return (
       <div className="navbar">
@@ -108,14 +103,21 @@ class ServerShow extends React.Component {
     
       
                 <ProtectedRoute path={`/servers/:serverId/:channelId`} component={ChannelShowContainer} />
+                
                   </div>
-              <div className="nav-content-message-bar">
+                  
+              {/* <div className="nav-content-message-bar">
                 <CreateMessageContainer/>
-              </div>
+              </div> */}
+              
+                <CreateMessageContainer />
+              
+
+              
                 </div>
                 
 
-
+                
             {/* Users NavBar (4th) */}
             <nav className="nav-users">
               <UsersIndexContainer users={this.props.users}/>

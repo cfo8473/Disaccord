@@ -20,16 +20,11 @@ class ChannelIndex extends React.Component {
   
   
   componentDidMount() {
-    
-    // console.log(this.props)
     this.props.fetchServer(this.props.match.params.serverId);
     this.props.fetchChannels(),
     this.props.fetchServers(),
     this.props.fetchMessages(),
     this.props.updateServer(this.props.match.params.serverId)
-    // debugger
-    // this.props.updateChannel(this.props.match.params.channelId)
-    // this.props.updateChannel(this.props.match.params.serverId.channels[0])
 
   }
 
@@ -41,20 +36,19 @@ class ChannelIndex extends React.Component {
   }
 
   userIcon() {
-    console.log(this.props)
     if (this.props.users[this.props.currentUser.id]) {
       if (this.props.users[this.props.currentUser.id].photo) {
-        return (<div className="messages-icon">
+        return (
+        <div className="messages-icon">
           <img className="messages-icon-picture" src={this.props.users[this.props.currentUser.id].photo} />
         </div>)
       }
     } else {
       return (
         <div className="messages-icon">
-          <button >
-            <FontAwesomeIcon icon={faDog} />
-          </button>
+          <img className="messages-icon-picture" src="https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png" />
         </div>
+        
       )
     }
   }
@@ -66,9 +60,9 @@ class ChannelIndex extends React.Component {
     let channels = this.props.channels;
     const channelList = Object.values(channels).map((channel, idx) => (
       (channel.server_id === this.props.server.id) ? (
-      <li key={`channel-${channel.id}`}>
+      <li key={`channel-${channel.id}-${this.props.server.id}`}>
          <ChannelIndexItem channel={channel}/>
-      </li> ) : ( <div></div>)
+      </li> ) : ( <div key={idx}></div>)
     ))
 
 
@@ -110,7 +104,10 @@ class ChannelIndex extends React.Component {
           <div className="username-text">{this.props.currentUser.username}</div>
           <div className="username-id">#{this.props.currentUser.id}</div>
         </div>
-        {this.props.openSettings}
+          {this.props.openSettings}
+
+        
+       
       </div>
     )
      
@@ -125,8 +122,9 @@ class ChannelIndex extends React.Component {
             <header className="nav-channels-header">
               {this.props.server.title}
 
-            <button className="debug-button " onClick={this.props.openServerModalEdit}>
+            <button className="debug-button tooltips " onClick={this.props.openServerModalEdit}>
               <FontAwesomeIcon icon={faCog}/>
+              <span>Edit Server</span>
           </button>
             </header>
             
@@ -135,8 +133,8 @@ class ChannelIndex extends React.Component {
 
               <div className="channel-text-header-block">
 
-                <Collapsible open={Boolean(true)} style="div" triggerWhenOpen="↓ TEXT CHANNELS"
-                    transitionTime={parseInt(10)} className="channel-text-title" trigger="> TEXT CHANNELS">
+              <Collapsible open={Boolean(true)} style="div" triggerWhenOpen="▼ TEXT CHANNELS"
+                transitionTime={parseInt(10)} className="channel-text-title" trigger="► TEXT CHANNELS">
                   <ul>
                     {channelList}
                   </ul>
@@ -155,7 +153,7 @@ class ChannelIndex extends React.Component {
 
             <br></br>
           
-
+          
             {userBox}
           </nav>
       )

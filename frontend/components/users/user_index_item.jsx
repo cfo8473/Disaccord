@@ -8,23 +8,23 @@ class UserIndexItem extends React.Component {
   }
 
   userIcon() {
-    console.log(this.props)
       if (this.props.user.photo) {
-        return (<div className="messages-icon">
+        return (
+        <div className="messages-icon">
           <img className="messages-icon-picture" src={this.props.user.photo} />
-        </div>)
+        </div>
+        )
       } else {
       return (
         <div className="messages-icon">
-          <button >
-            
-          </button>
+            <img className="messages-icon-picture" 
+              src="https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png"/>
+
         </div>
       )
     }
   }
   render() {
-    // console.log(this.props.user.title)
     return ( 
       <div className="nav-users-block">
           <div onClick={this.props.openUserModal}>

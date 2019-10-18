@@ -13,23 +13,23 @@ class ChannelIndexItem extends React.Component {
     
     let channelId = this.props.location.pathname.split("/")[3];
 
-    console.log(channelId)
+    // console.log(channelId)
     if (this.props.channel.id === parseInt(channelId)) {
       return (
-        <div>
+        <div key={this.props.channel.id}>
           <Link to={`/servers/${this.props.channel.server_id}/${this.props.channel.id}`}>
             <div className="current-channel-title">
               <span className="channel-title-pound">
-                ➤
+                <FontAwesomeIcon icon={faHashtag} />
               </span>
-              <span className="current-channel-title"> {this.props.channel.title}</span>
+              {this.props.channel.title}
             </div>
           </Link>
         </div>
       )
   } else {
       return (
-        <div>
+        <div key={this.props.channel.id}>
           <Link to={`/servers/${this.props.channel.server_id}/${this.props.channel.id}`}>
             <div className="channel-title">
               <span className="channel-title-pound">

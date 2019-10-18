@@ -20,6 +20,13 @@ class ServerIndex extends React.Component {
   
   render() {
     let pathName = this.props.location.pathname;
+    // if (this.props.currentUser.joinedServerIds) {
+    //   currentServer = this.props.currentUser.joinedServerIds[0];
+    // } else {
+    //   return <Redirect to="/" /> // server disc soon
+    // } refer back to [bug1]
+
+
 
     let currentServer = Object.keys(this.props.servers)[0];
     if (pathName === '/servers' && currentServer) {
@@ -35,13 +42,19 @@ class ServerIndex extends React.Component {
     //   return <Redirect to={`/servers/`}/>
     // }
 
-
-    const servers = this.props.servers;
-    const serverList = Object.values(servers).map(server => (
-      <li key={`server-${server.id}`}>
-        <ServerIndexItem server={server} />
-      </li>
-    ))
+    const servers = this.props.currentUserServers
+    let serverList;
+    if (Object.keys(this.props.servers).length) {
+      // debugger
+      serverList = servers.map(server => {
+        if (this.props.servers[server])
+        return (
+          <li key={`server-${server}`}>
+            <ServerIndexItem server={this.props.servers[server]} />
+          </li>
+        )
+      })
+    } else { <div></div>}   
 
     return(
       <div>

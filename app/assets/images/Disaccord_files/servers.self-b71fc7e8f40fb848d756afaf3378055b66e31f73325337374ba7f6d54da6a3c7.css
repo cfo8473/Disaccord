@@ -1,0 +1,420 @@
+/* line 1, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+li {
+  list-style-type: none;
+}
+
+/* line 5, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.username-box {
+  display: box;
+  padding: 5px;
+  flex-grow: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-right: 4px;
+  margin-top: 5px;
+}
+
+/* line 16, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.username-icon {
+  font-size: 30px;
+  padding: 7px;
+  color: #ce6d6d;
+}
+
+/* line 22, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.username-text {
+  line-height: 28px;
+  font-size: 14px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 600;
+}
+
+/* line 29, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.username-id {
+  line-height: 1px;
+  font-size: 12px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  color: gray;
+}
+
+/* line 36, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.settings-bar {
+  display: block;
+}
+
+/* line 40, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.settings-icon {
+  top: 8px;
+  background: inherit;
+  position: absolute;
+  border: none;
+  color: white;
+  font-size: 20px;
+  right: 16px;
+  cursor: pointer;
+  opacity: .7;
+  padding: 10px;
+}
+
+/* line 54, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.settings-icon:hover {
+  background: #6d7a91a1;
+}
+
+/* line 61, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.navbar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+/* line 66, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers {
+  display: block;
+  width: 90px;
+  padding: 16px;
+  background: #202225;
+  overflow-y: scroll;
+  contain: layout size;
+  overflow-x: hidden;
+}
+
+/* line 77, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+::-webkit-scrollbar {
+  width: 3px;
+  background: transparent;
+}
+
+/* line 82, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+::-webkit-scrollbar-track {
+  background: #2f3136;
+  border: 3px solid #36393f;
+  border-radius: 7px;
+  border-style: solid;
+  background-clip: padding-box;
+}
+
+/* line 90, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* line 94, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* line 98, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-add-server {
+  position: relative;
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 29px;
+  color: #43b581;
+  border-radius: 50%;
+  background: #2f3136;
+  border-color: transparent;
+  opacity: .8;
+  height: 52px;
+  width: 52px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  margin-bottom: 10px;
+  -webkit-align-content: center;
+  align-content: center;
+}
+
+/* line 121, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-button {
+  position: relative;
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  color: white;
+  border-radius: 50%;
+  background: #2f3136;
+  border-color: transparent;
+  opacity: .8;
+  height: 52px;
+  width: 52px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  margin-bottom: 10px;
+  -webkit-align-content: center;
+  align-content: center;
+}
+
+/* line 142, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-button:focus {
+  outline: none;
+}
+
+/* line 146, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-button-spacer {
+  position: relative;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 153, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-home-button-spacer {
+  position: relative;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 33px;
+}
+
+/* line 162, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-button-title {
+  visibility: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 168, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-button-title:first-letter {
+  visibility: visible;
+  text-transform: lowercase;
+}
+
+/* line 173, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-button-tooltip .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+/* line 179, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-button-tooltip .tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+/* line 191, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+nav-servers-button-tooltip .tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* line 195, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-add-server:hover {
+  border-radius: 15px;
+  background: #43b581;
+  left: 1px;
+  border: none;
+  color: white;
+  transition: color 0.15s ease-out, background-color 0.15s ease-out;
+}
+
+/* line 206, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-button:hover {
+  border-radius: 15px;
+  background: #7289da;
+  left: 1px;
+  border: none;
+  color: white;
+  transition: color 0.15s ease-out, background-color 0.15s ease-out;
+}
+
+/* line 217, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.current-user-block {
+  display: flex;
+  background: #262b33;
+  position: relative;
+  height: 60px;
+  width: 100%;
+  margin-top: auto;
+  padding: 0 10px;
+  flex: 0;
+}
+
+/* line 229, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-main {
+  width: 100%;
+  display: flex;
+}
+
+/* line 234, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-content {
+  width: 100%;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  background: #36393f;
+  overflow-y: scroll;
+}
+
+/* line 243, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-content-header {
+  padding: 16px;
+  height: 24px;
+  font-weight: 500;
+  display: block;
+  align-items: center;
+  border-bottom: 2px solid #242424;
+}
+
+/* line 253, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-content-messages {
+  opacity: .8;
+  height: 100%;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+/* line 261, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.content-block {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  width: 100%;
+  height: 90%;
+  background: #36393f;
+  contain: layout size;
+}
+
+/* line 272, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-content-message-bar {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  margin-top: auto;
+  border-top: 2px solid rgba(255, 255, 255, 0.06);
+  float: bottom;
+  display: block;
+  vertical-align: bottom;
+  /* left: 40px; */
+  /* top: 900px; */
+  padding-bottom: 40px;
+  float: left;
+}
+
+/* line 292, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+input.nav-content-message-box[type="text"], textarea {
+  background-color: #434750;
+}
+
+/* line 298, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-content-message-box {
+  resize: none;
+  border: none;
+  font-weight: 200;
+  font-size: 1rem;
+  width: 80%;
+  padding: 10px;
+  min-height: 10px;
+  max-height: 20px;
+  margin: 2px 2px 2px 0;
+  border-radius: 5px;
+  color: white;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* line 318, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-content-message-block {
+  opacity: .8;
+  height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
+  position: relative;
+  flex-direction: column-reverse;
+  overflow: auto;
+}
+
+/* line 330, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-content.message-box:focus {
+  outline: none;
+}
+
+/* line 334, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 343, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-current-button {
+  border-radius: 15px;
+  background: #7289da;
+  position: relative;
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  color: white;
+  border-color: transparent;
+  opacity: .8;
+  height: 52px;
+  width: 52px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  margin-bottom: 10px;
+  -webkit-align-content: center;
+  align-content: center;
+}
+
+/* line 366, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-current-button:focus {
+  outline: none;
+}
+
+/* line 370, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-content-message-box {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+/* line 375, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-pill {
+  position: absolute;
+  background: white;
+  left: 0px;
+  height: 52px;
+  width: 4px;
+  z-index: 3000;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+/* line 386, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-servers-home-spacer {
+  height: 2px;
+  width: 52px;
+  border-radius: 1px;
+  background: #3d4247;
+  margin-bottom: 10px;
+}
+
+/* line 394, /Users/Wei/Desktop/AA/Fullstack/Disaccord/app/assets/stylesheets/api/servers.scss */
+.nav-block {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #36393f;
+}

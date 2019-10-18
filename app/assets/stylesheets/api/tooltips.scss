@@ -34,7 +34,7 @@ a:hover.tooltips span {
     opacity: 0.8;
     bottom: 30px;
     left: 50%;
-    margin-left: -76px;
+    margin-left: -71px;
     z-index: 999;
 }
 
@@ -71,3 +71,36 @@ button:hover.tooltips span {
     margin-left: -76px;
     z-index: 999;
 }
+
+.debug-button.tooltips span {
+    position: absolute;
+    width:140px;
+    color: #ffffff;
+    background: #000000;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    visibility: hidden;
+    border-radius: 6px;
+    font-size: 10px;
+}
+.debug-button.tooltips span:after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    width: 0; height: 0;
+    border-top: 8px solid #000000;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+}
+.debug-button:hover.tooltips span {
+    visibility: visible;
+    opacity: 0.8;
+    bottom: 30px;
+    left: 50%;
+    margin-left: -76px;
+    z-index: 999;
+}
+

@@ -16,6 +16,7 @@ const msp = (state, ownProps) => {
   let servers = state.entities.servers;
   let channels = state.entities.channels;
   let users = state.entities.users;
+  console.log(state)
 
 
   

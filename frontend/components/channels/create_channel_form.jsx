@@ -24,12 +24,8 @@ class ChannelForm extends React.Component {
 
   render() {
     let serverId = this.props.location.pathname.split("/")[2];
-    // console.log(serverId);  
     this.props.channelInfo.server_id = serverId;
-
-
-    // debugger
-
+    
     return (
       <div className="modal-createChannel">
         <p className="modal-createChannelGreet">CREATE TEXT CHANNEL</p>

@@ -105,3 +105,40 @@ header {
   cursor: pointer;
   background-color: #6c80cc;
 }
+
+.debug-button:focus {
+  outline: none;
+}
+
+.debug-button .tooltips {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.debug-button-tooltip .tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.debug-button .tooltips {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.debug-button .tooltips:hover .tooltiptext {
+  visibility: visible;
+}

@@ -29,6 +29,7 @@ class MessageIndexItem extends React.Component {
   }
 
   messageContent() {
+    let message = this.props.message
     if (this.props.users) {
       if (this.props.users[this.props.message.author_id]) {
         return (
@@ -36,7 +37,7 @@ class MessageIndexItem extends React.Component {
             < span className = "messages-username-name" > 
               { this.props.users[this.props.message.author_id].username }
             </span >
-             <span className="login-text">{this.props.message.created_at}</span>
+            <span className="login-text">{`${message.created_at.split('T')[0]} @ ${message.created_at.split('T')[1].slice(0, 5)}`}</span>
           </div>
         )
       } else { 
@@ -47,12 +48,6 @@ class MessageIndexItem extends React.Component {
   }
 
   render() {
-    // debugger
-    // console.log(this.props)
-    let date = new Date(this.props.message.created_at)
-    // console.log(date)
-    
-    
 
     return (
       <div>
