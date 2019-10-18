@@ -61,7 +61,7 @@ class ChannelShow extends React.Component {
           {messageList}
 
 
-          {this.updateScroll()}
+          {/* {this.updateScroll()} */}
         </ul>
       </div>
     )

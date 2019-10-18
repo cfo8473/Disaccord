@@ -8,11 +8,15 @@ import {fetchUsers } from '../../actions/user_actions'
 
 const msp = (state) => {
   // debugger
-  let users = state.entities.users
-  let currentUser = state.session.currentUser
+  let users = state.entities.users;
+  let currentUser = state.session.currentUser;
+  let servers = state.entities.servers;
+  let server = state.entities.servers[state.ui.active.server];
   return {
     users: users,
-    currentUser: currentUser
+    currentUser: currentUser,
+    servers: servers,
+    server: server
   }
 };
 

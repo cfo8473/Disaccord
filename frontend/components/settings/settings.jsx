@@ -16,6 +16,7 @@ class Settings extends React.Component {
   logoutModal(e) {
     this.props.logout();
     this.props.closeModal();
+    
   }
 
   update(field) {
@@ -64,6 +65,16 @@ class Settings extends React.Component {
   }
 
   render () {
+    $('.button').click(function () {
+      var buttonId = $(this).attr('id');
+      $('#modal-container').removeAttr('class').addClass(buttonId);
+      $('body').addClass('modal-active');
+    })
+
+    $('#modal-container').click(function () {
+      $(this).addClass('out');
+      $('body').removeClass('modal-active');
+    });
 
     const menuBar = (
       <div className="menu-contents" >
@@ -122,7 +133,7 @@ class Settings extends React.Component {
             <h6 className="settings-info-text">{this.props.email} </h6>
           </div>
 
-          <button className="settings-edit-button" onClick={this.props.openServerModal} type="submit" value="Edit">
+          <button className="settings-edit-button button" id="four" onClick={this.props.openServerModal} type="submit" value="Edit">
             Edit
 
           </button>

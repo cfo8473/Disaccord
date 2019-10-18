@@ -1080,7 +1080,7 @@ function (_React$Component) {
           key: idx
         });
       });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, messageList, this.updateScroll()));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, messageList));
     }
   }]);
 
@@ -4021,6 +4021,15 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      $('.button').click(function () {
+        var buttonId = $(this).attr('id');
+        $('#modal-container').removeAttr('class').addClass(buttonId);
+        $('body').addClass('modal-active');
+      });
+      $('#modal-container').click(function () {
+        $(this).addClass('out');
+        $('body').removeClass('modal-active');
+      });
       var menuBar = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "menu-contents"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", {
@@ -4069,7 +4078,8 @@ function (_React$Component) {
       }, "EMAIL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", {
         className: "settings-info-text"
       }, this.props.email, " ")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "settings-edit-button",
+        className: "settings-edit-button button",
+        id: "four",
         onClick: this.props.openServerModal,
         type: "submit",
         value: "Edit"
@@ -4289,14 +4299,30 @@ function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      var userList = Object.values(this.props.users).map(function (user) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: "user-".concat(user.id)
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
-          user: user,
-          currentUser: _this.props.currentUser
-        }));
-      });
+      console.log(this.props); // const userList = Object.values(this.props.users).map(user => (
+      //   <li key={`user-${user.id}`}>
+      //     <UserIndexItem user={user} currentUser={this.props.currentUser}/>
+      //   </li>
+      // ))
+
+      var userList;
+
+      if (this.props.server) {
+        console.log("FOUND");
+        userList = Object.values(this.props.users).map(function (user, idx) {
+          return user.joinedServerIds.includes(_this.props.server.id) ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            key: "user-".concat(user.id)
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
+            user: user,
+            currentUser: _this.props.currentUser
+          })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            key: idx
+          });
+        });
+      } else {
+        console.log("NOT FOUND");
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "login-text"
       }, "ONLINE USERS"), userList);
@@ -4339,9 +4365,13 @@ var msp = function msp(state) {
   // debugger
   var users = state.entities.users;
   var currentUser = state.session.currentUser;
+  var servers = state.entities.servers;
+  var server = state.entities.servers[state.ui.active.server];
   return {
     users: users,
-    currentUser: currentUser
+    currentUser: currentUser,
+    servers: servers,
+    server: server
   };
 };
 

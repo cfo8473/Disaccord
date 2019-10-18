@@ -36,6 +36,20 @@ servers = Server.create([
 
 memberships = Membership.create([
   {user_id: users[0].id, membership_id: servers[0].id, membership_type: "Server"},
+  {user_id: users[1].id, membership_id: servers[0].id, membership_type: "Server"},
+  {user_id: users[2].id, membership_id: servers[0].id, membership_type: "Server"},
+  {user_id: users[3].id, membership_id: servers[0].id, membership_type: "Server"},
+  {user_id: users[4].id, membership_id: servers[0].id, membership_type: "Server"},
+  {user_id: users[5].id, membership_id: servers[0].id, membership_type: "Server"},
+  {user_id: users[6].id, membership_id: servers[0].id, membership_type: "Server"},
+  {user_id: users[7].id, membership_id: servers[0].id, membership_type: "Server"},
+  {user_id: users[8].id, membership_id: servers[0].id, membership_type: "Server"},
+  {user_id: users[9].id, membership_id: servers[0].id, membership_type: "Server"},
+  {user_id: users[10].id, membership_id: servers[0].id, membership_type: "Server"},
+  {user_id: users[11].id, membership_id: servers[0].id, membership_type: "Server"},
+  {user_id: users[12].id, membership_id: servers[0].id, membership_type: "Server"},
+  
+
   {user_id: users[0].id, membership_id: servers[1].id, membership_type: "Server"},
   {user_id: users[0].id, membership_id: servers[2].id, membership_type: "Server"},
   {user_id: users[0].id, membership_id: servers[3].id, membership_type: "Server"},
@@ -44,37 +58,40 @@ memberships = Membership.create([
   {user_id: users[0].id, membership_id: servers[6].id, membership_type: "Server"},
   {user_id: users[0].id, membership_id: servers[7].id, membership_type: "Server"},
 
-  {user_id: users[1].id, membership_id: servers[0].id, membership_type: "Server"},
-  {user_id: users[1].id, membership_id: servers[1].id, membership_type: "Server"},
   {user_id: users[1].id, membership_id: servers[2].id, membership_type: "Server"},
-  {user_id: users[1].id, membership_id: servers[3].id, membership_type: "Server"},
-  {user_id: users[1].id, membership_id: servers[4].id, membership_type: "Server"},
-  {user_id: users[1].id, membership_id: servers[5].id, membership_type: "Server"},
-  {user_id: users[1].id, membership_id: servers[6].id, membership_type: "Server"},
-  {user_id: users[1].id, membership_id: servers[7].id, membership_type: "Server"},
-
-  {user_id: users[2].id, membership_id: servers[0].id, membership_type: "Server"},
-  {user_id: users[2].id, membership_id: servers[1].id, membership_type: "Server"},
-  {user_id: users[2].id, membership_id: servers[2].id, membership_type: "Server"},
-  {user_id: users[2].id, membership_id: servers[3].id, membership_type: "Server"},
-  {user_id: users[2].id, membership_id: servers[4].id, membership_type: "Server"},
-  {user_id: users[2].id, membership_id: servers[5].id, membership_type: "Server"},
-  {user_id: users[2].id, membership_id: servers[6].id, membership_type: "Server"},
-  {user_id: users[2].id, membership_id: servers[7].id, membership_type: "Server"},
-
-  {user_id: users[3].id, membership_id: servers[0].id, membership_type: "Server"},
-  {user_id: users[3].id, membership_id: servers[1].id, membership_type: "Server"},
-  {user_id: users[3].id, membership_id: servers[2].id, membership_type: "Server"},
-  {user_id: users[3].id, membership_id: servers[3].id, membership_type: "Server"},
-  {user_id: users[3].id, membership_id: servers[4].id, membership_type: "Server"},
-  {user_id: users[3].id, membership_id: servers[5].id, membership_type: "Server"},
-  {user_id: users[3].id, membership_id: servers[6].id, membership_type: "Server"},
-  {user_id: users[3].id, membership_id: servers[7].id, membership_type: "Server"},
-
-  {user_id: users[4].id, membership_id: servers[0].id, membership_type: "Server"},
-  {user_id: users[4].id, membership_id: servers[1].id, membership_type: "Server"},
   {user_id: users[4].id, membership_id: servers[2].id, membership_type: "Server"},
+  {user_id: users[4].id, membership_id: servers[2].id, membership_type: "Server"},
+  {user_id: users[12].id, membership_id: servers[2].id, membership_type: "Server"},
+  {user_id: users[11].id, membership_id: servers[2].id, membership_type: "Server"},
+  {user_id: users[8].id, membership_id: servers[2].id, membership_type: "Server"},
+  
+  {user_id: users[2].id, membership_id: servers[3].id, membership_type: "Server"},
+  {user_id: users[3].id, membership_id: servers[3].id, membership_type: "Server"},
+  {user_id: users[5].id, membership_id: servers[3].id, membership_type: "Server"},
   {user_id: users[4].id, membership_id: servers[3].id, membership_type: "Server"},
+  {user_id: users[8].id, membership_id: servers[3].id, membership_type: "Server"},
+  {user_id: users[7].id, membership_id: servers[3].id, membership_type: "Server"},
+  {user_id: users[6].id, membership_id: servers[2].id, membership_type: "Server"},
+  {user_id: users[9].id, membership_id: servers[2].id, membership_type: "Server"},
+
+
+  {user_id: users[4].id, membership_id: servers[4].id, membership_type: "Server"},
+  {user_id: users[9].id, membership_id: servers[4].id, membership_type: "Server"},
+  {user_id: users[11].id, membership_id: servers[4].id, membership_type: "Server"},
+  {user_id: users[12].id, membership_id: servers[4].id, membership_type: "Server"},
+  {user_id: users[10].id, membership_id: servers[4].id, membership_type: "Server"},
+  {user_id: users[8].id, membership_id: servers[4].id, membership_type: "Server"},
+
+  {user_id: users[5].id, membership_id: servers[5].id, membership_type: "Server"},
+  {user_id: users[7].id, membership_id: servers[5].id, membership_type: "Server"},
+  {user_id: users[6].id, membership_id: servers[5].id, membership_type: "Server"},
+  {user_id: users[12].id, membership_id: servers[5].id, membership_type: "Server"},
+  {user_id: users[8].id, membership_id: servers[5].id, membership_type: "Server"},
+
+  {user_id: users[9].id, membership_id: servers[6].id, membership_type: "Server"},
+  {user_id: users[7].id, membership_id: servers[6].id, membership_type: "Server"},
+  {user_id: users[6].id, membership_id: servers[6].id, membership_type: "Server"},
+  
 
 ])
 
@@ -109,5 +126,73 @@ messages = Message.create([
   {body: "Using scopes with has_many and belongs_to", author_id: users[4].id, channel_id: channels[0].id, pinned: false},
   {body: "https://ducktypelabs.com/using-scope-with-associations/ where was all this when i needed it!?", author_id: users[10].id, channel_id: channels[0].id, pinned: false},
 
+  {body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod ", author_id: users[0].id, channel_id: channels[1].id, pinned: false},
+  {body: "Tincidunt nunc pulvinar sapien et ligula", author_id: users[0].id, channel_id: channels[1].id, pinned: false},
+  {body: "suere sollicitudin aliquam ultrices. Aliquam eleifend mi in nulla posuere sollicitudin. ", author_id: users[1].id, channel_id: channels[1].id, pinned: false},
+  {body: "nulla posuere sollicitudin. Accumsan lacus vel facilisis volutpat est velit egestas dui. Phasellus faucibus sc", author_id: users[2].id, channel_id: channels[1].id, pinned: false},
 
+  {body: "im trying to get messages into my reducer, which isnt hard but i was hungry", author_id: users[4].id, channel_id: channels[1].id, pinned: false},
+  {body: "and I fixed my broken asf newsfeed!", author_id: users[10].id, channel_id: channels[1].id, pinned: false},
+  {body: "Seems we each have like one thing that completely eluded us", author_id: users[0].id, channel_id: channels[2].id, pinned: false},
+  {body: "uh be careful with the search if you don't already have yarn working", author_id: users[1].id, channel_id: channels[2].id, pinned: false},
+  {body: "iw anted to add modal transitions", author_id: users[5].id, channel_id: channels[2].id, pinned: false},
+  {body: "since if i cant get scroll to bottom i need at least one thing", author_id: users[2].id, channel_id: channels[2].id, pinned: false},
+  {body: "search was one of the fastest things i could implement
+cuz it has minimal css, doesn't disrupt anything else, etc", author_id: users[11].id, channel_id: channels[2].id, pinned: false},
+
+  {body: "i'll take a look! Thanks!", author_id: users[12].id, channel_id: channels[3].id, pinned: false},
+  {body: "im preserving aspect ratio", author_id: users[1].id, channel_id: channels[3].id, pinned: false},
+  {body: "for some reason it doesnt take 100% of the container its in", author_id: users[6].id, channel_id: channels[3].id, pinned: false},
+  {body: "people relaly are ditching yipes and teamspeech huh", author_id: users[7].id, channel_id: channels[3].id, pinned: false},
+  {body: "im okay with that", author_id: users[8].id, channel_id: channels[3].id, pinned: false},
+  {body: "i actually just noticed that now", author_id: users[4].id, channel_id: channels[3].id, pinned: false},
+  {body: "I'm stopping at the main 25 users", author_id: users[4].id, channel_id: channels[3].id, pinned: false},
+
+  {body: "but im mssing a div
+alright", author_id: users[1].id, channel_id: channels[4].id, pinned: false},
+  {body: "You might be able to get it to work", author_id: users[5].id, channel_id: channels[4].id, pinned: false},
+  {body: "Mess with the height in your css for the various container", author_id: users[6].id, channel_id: channels[4].id, pinned: false},
+  {body: "not fitting in this grid", author_id: users[7].id, channel_id: channels[4].id, pinned: false},
+  {body: "Did you make it scrollable?", author_id: users[8].id, channel_id: channels[4].id, pinned: false},
+  {body: "idk wha thappeend", author_id: users[2].id, channel_id: channels[4].id, pinned: false},
+  {body: "and now I have to start it over
+", author_id: users[10].id, channel_id: channels[4].id, pinned: false},
+
+  {body: "i'll take a look! Thanks!", author_id: users[12].id, channel_id: channels[8].id, pinned: false},
+  {body: "im preserving aspect ratio", author_id: users[1].id, channel_id: channels[8].id, pinned: false},
+  {body: "for some reason it doesnt take 100% of the container its in", author_id: users[9].id, channel_id: channels[3].id, pinned: false},
+  {body: "people relaly are ditching yipes and teamspeech huh", author_id: users[9].id, channel_id: channels[3].id, pinned: false},
+  {body: "im okay with that", author_id: users[8].id, channel_id: channels[8].id, pinned: false},
+  {body: "i actually just noticed that now", author_id: users[4].id, channel_id: channels[8].id, pinned: false},
+  {body: "I'm stopping at the main 25 users", author_id: users[4].id, channel_id: channels[8].id, pinned: false},
+
+  {body: "i can't think", author_id: users[1].id, channel_id: channels[9].id, pinned: false},
+  {body: "of any memes", author_id: users[4].id, channel_id: channels[9].id, pinned: false},
+  {body: "to put in this seed file", author_id: users[0].id, channel_id: channels[9].id, pinned: false},
+  {body: "named this channel incorrectly ", author_id: users[4].id, channel_id: channels[9].id, pinned: false},
+  {body: "move on to the next one to test", author_id: users[2].id, channel_id: channels[9].id, pinned: false},
+  {body: "abcdefghilknopqrtuvwxyz", author_id: users[3].id, channel_id: channels[9].id, pinned: false},
+
+  {body: "winnie the pooh", author_id: users[0].id, channel_id: channels[10].id, pinned: false},
+  {body: "cant even log into localhost", author_id: users[0].id, channel_id: channels[10].id, pinned: false},
+  {body: "lmfao", author_id: users[0].id, channel_id: channels[10].id, pinned: false},
+  {body: "what a joke", author_id: users[0].id, channel_id: channels[10].id, pinned: false},
+  {body: "thunk", author_id: users[0].id, channel_id: channels[10].id, pinned: false},
+
+  {body: "weeb", author_id: users[5].id, channel_id: channels[11].id, pinned: false},
+  {body: "study", author_id: users[6].id, channel_id: channels[11].id, pinned: false},
+  {body: "group", author_id: users[3].id, channel_id: channels[11].id, pinned: false},
+  {body: "mern project asdf", author_id: users[8].id, channel_id: channels[11].id, pinned: false},
+  {body: "no ideas left", author_id: users[6].id, channel_id: channels[11].id, pinned: false},
+  {body: "random seed msgs", author_id: users[11].id, channel_id: channels[11].id, pinned: false},
+
+  {body: "Yeah, anywhere that's ruby-based
+current_user.roles.where(server_id: 2)
+Stuff like that", author_id: users[4].id, channel_id: channels[15].id, pinned: false},
+  {body: "added by SNP+s5AegxckQvMF9sQo1psj/EYSItGa [04:47]
+[", author_id: users[12].id, channel_id: channels[15].id, pinned: false},
+  {body: "Found and added 12 songs from playlist", author_id: users[11].id, channel_id: channels[15].id, pinned: false},
+  {body: "Found and added 41 songs from playlist ✿ham.
+The player is now shuffled.", author_id: users[3].id, channel_id: channels[15].id, pinned: false},
+  {body: "-p cosp louder", author_id: users[2].id, channel_id: channels[15].id, pinned: false},
 ])

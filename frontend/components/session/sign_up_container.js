@@ -7,6 +7,7 @@ import SessionForm from './session_form'
 const msp = (state, ownProps) => {
   const errors = state.errors.session.errors;
   let userInfo = {username: "", password: "", email: ""}
+  
   return {
     userInfo,
     formType: "signup",
