@@ -33,7 +33,7 @@ class ChannelShow extends React.Component {
     let container;
     if (document.getElementsByClassName('nav-content-messages').length >= 1) {
       container = document.getElementsByClassName('nav-content-messages')[0];
-      console.log(container.scrollHeight)
+      // console.log(container.scrollHeight)
       // container.scrollTop + container.clientHeight >= container.scrollHeight
       container.scrollTop = container.scrollHeight
     }

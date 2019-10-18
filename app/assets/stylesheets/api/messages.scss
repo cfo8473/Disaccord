@@ -105,15 +105,15 @@ padding-right: 20px;
   border-radius: 50%
 }
 
-.messages-icon-picture-default {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-image: image_url("../default-icon-orange.jpg");
-  background-repeat: no-repeat;
-  background-size: cover; 
-  background-color: transparent;
-}
+// .messages-icon-picture-default {
+//   width: 100%;
+//   height: 100%;
+//   border-radius: 50%;
+//   background-image: image_url("../default-icon-orange.jpg");
+//   background-repeat: no-repeat;
+//   background-size: cover; 
+//   background-color: transparent;
+// }
 
 .messages-icon-picture:hover {
   background: rgba(0, 0, 0, 0.137);

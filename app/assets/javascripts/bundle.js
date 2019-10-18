@@ -1051,8 +1051,8 @@ function (_React$Component) {
       var container;
 
       if (document.getElementsByClassName('nav-content-messages').length >= 1) {
-        container = document.getElementsByClassName('nav-content-messages')[0];
-        console.log(container.scrollHeight); // container.scrollTop + container.clientHeight >= container.scrollHeight
+        container = document.getElementsByClassName('nav-content-messages')[0]; // console.log(container.scrollHeight)
+        // container.scrollTop + container.clientHeight >= container.scrollHeight
 
         container.scrollTop = container.scrollHeight;
       }
@@ -4299,16 +4299,14 @@ function (_React$Component) {
     value: function render() {
       var _this = this;
 
-      console.log(this.props); // const userList = Object.values(this.props.users).map(user => (
+      // const userList = Object.values(this.props.users).map(user => (
       //   <li key={`user-${user.id}`}>
       //     <UserIndexItem user={user} currentUser={this.props.currentUser}/>
       //   </li>
       // ))
-
       var userList;
 
       if (this.props.server) {
-        console.log("FOUND");
         userList = Object.values(this.props.users).map(function (user, idx) {
           return user.joinedServerIds.includes(_this.props.server.id) ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             key: "user-".concat(user.id)
@@ -4319,9 +4317,7 @@ function (_React$Component) {
             key: idx
           });
         });
-      } else {
-        console.log("NOT FOUND");
-      }
+      } else {}
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "login-text"

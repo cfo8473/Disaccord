@@ -16,7 +16,6 @@ class UsersIndex extends React.Component {
   
 
   render() {
-    console.log(this.props)
 
     // const userList = Object.values(this.props.users).map(user => (
     //   <li key={`user-${user.id}`}>
@@ -26,7 +25,6 @@ class UsersIndex extends React.Component {
 
     let userList;
     if (this.props.server) {
-      console.log("FOUND")
       userList = Object.values(this.props.users).map((user, idx) => (
         (user.joinedServerIds.includes(this.props.server.id)) ? (
           <li key={`user-${user.id}`}>
@@ -35,7 +33,6 @@ class UsersIndex extends React.Component {
         ) : ( <div key={idx}></div> )
       ))
     } else {
-      console.log("NOT FOUND")
     }
 
     return (
