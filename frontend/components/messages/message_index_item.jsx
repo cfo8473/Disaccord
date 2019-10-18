@@ -20,10 +20,16 @@ class MessageIndexItem extends React.Component {
     } } else {
       return(
         <div className="messages-icon">
-          <button >
-            <FontAwesomeIcon icon={faDog} />
-          </button>
+          <div className="messages-icon-picture-default"
+          />
+
         </div>
+        // <div className="messages-icon">
+
+        //   <button className="messages-icon-picture"><FontAwesomeIcon icon={faDog} /></button>
+            
+
+        // </div>
       )
     }
   }

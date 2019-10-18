@@ -19,9 +19,14 @@ class ChannelShow extends React.Component {
   }
 
 
-  componentWillUpdate() {
-    this.props.updateChannel(this.props.match.params.channelId);
+  // componentWillUpdate() {
+  //   this.props.updateChannel(this.props.match.params.channelId);
     
+  // }
+
+  componentDidUpdate() {
+    this.props.updateChannel(this.props.match.params.channelId);
+
   }
 
   updateScroll() {
@@ -55,7 +60,8 @@ class ChannelShow extends React.Component {
         <ul>
           {messageList}
 
-          {/* {this.updateScroll()} */}
+
+          {this.updateScroll()}
         </ul>
       </div>
     )

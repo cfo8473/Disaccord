@@ -50,6 +50,20 @@ class EditServerForm extends React.Component {
       this.state.admin_id = this.props.servers[serverId].admin_id;
       this.state.id= this.props.servers[serverId].id;
     }
+
+    const flavorText = (
+      <div className="editServerFlavorText">
+        <h1 className="settings-two-factor-edit">Other settings would go here...</h1>
+        <br></br>
+        <h2>...but a server only has a dynamic name attribute at the moment so heres a lorem ipsum block.</h2>
+        <br></br>
+
+        <h1>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+
+    )
  
 
     return (
@@ -75,7 +89,7 @@ class EditServerForm extends React.Component {
             </form>
           </div>
         </div>
-
+        {flavorText}
         <p className="settings-exit" onClick={this.props.closeModal}>X</p>
 
       </div>

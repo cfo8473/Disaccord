@@ -61,6 +61,7 @@ class EditSettings extends React.Component {
       formData.append('user[photo]', this.state.photoFile);
     }
     this.props.editUser(formData);
+    this.props.closeModal()
   }
 
   render() {
@@ -147,7 +148,7 @@ class EditSettings extends React.Component {
           <span className="settings-edit-cancel-text" onClick={this.props.openSettingsModal} type="submit" value="Edit">
             Cancel
           </span>
-          <button className="settings-submit-button" onClick={this.handleSubmit} type="submit" value="Edit">
+          <button className="settings-submit-button" onClick={this.handleSubmit} type="submit" value="Edit" >
             Save
           </button>
           <div className="settings-edit-bar"></div>

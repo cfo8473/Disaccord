@@ -76,7 +76,7 @@ class ServerShow extends React.Component {
     if (this.props.location.pathname.split("/").length >= 3) {
       channelId = this.props.location.pathname.split("/")[3];
       if (this.props.channels[channelId]) {
-        channelTitle = this.props.channels[channelId].title;
+        channelTitle = `# ${this.props.channels[channelId].title}`;
         channelTopic = this.props.channels[channelId].topic;
       }
     }

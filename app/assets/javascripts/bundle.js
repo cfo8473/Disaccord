@@ -684,12 +684,15 @@ function (_React$Component) {
           }));
         }
       } else {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "messages-icon"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          className: "messages-icon-picture",
-          src: "https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png"
-        }));
+        return (// <div className="messages-icon">
+          //   <img className="messages-icon-picture" src="https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png" />
+          // </div>
+          react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "messages-icon"
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "messages-icon-picture-default"
+          }))
+        );
       }
     }
   }, {
@@ -754,7 +757,7 @@ function (_React$Component) {
       var loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
       if (!this.props.server) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Loading...");
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
           className: "nav-channels"
@@ -1033,10 +1036,13 @@ function (_React$Component) {
       this.props.fetchMessages();
       this.props.fetchChannels();
       this.props.updateChannel(this.props.match.params.channelId);
-    }
+    } // componentWillUpdate() {
+    //   this.props.updateChannel(this.props.match.params.channelId);
+    // }
+
   }, {
-    key: "componentWillUpdate",
-    value: function componentWillUpdate() {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
       this.props.updateChannel(this.props.match.params.channelId);
     }
   }, {
@@ -1074,7 +1080,7 @@ function (_React$Component) {
           key: idx
         });
       });
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, messageList));
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, messageList, this.updateScroll()));
     }
   }]);
 
@@ -1344,7 +1350,20 @@ function (_React$Component) {
         className: "modal-createChannelGreet"
       }, "CREATE TEXT CHANNEL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "modal-createChannelGreetText"
-      }, "in Text Channels"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, "in Text Channels"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "login-text"
+      }, " CHANNEL TYPE"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "channel-text-button"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "checkbox",
+        type: "checkbox",
+        checked: true
+      }), " # Text Channel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "channel-text-button-deactivate"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "checkbox",
+        type: "checkbox"
+      }), " # Text Channel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "modal-createChannelInput",
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -1354,7 +1373,9 @@ function (_React$Component) {
         type: "text",
         value: this.state.title,
         onChange: this.update("title")
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "createChannelDarkBar"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "modal-createChannelCancel",
         onClick: this.props.closeModal
       }, "Cancel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -1423,7 +1444,9 @@ function (_React$Component) {
   _createClass(Greeting, [{
     key: "render",
     value: function render() {
-      var display = !this.props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
+      var display = !this.props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splashPage"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("header", {
         className: "main-header"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
         className: "header-inner"
@@ -1431,14 +1454,38 @@ function (_React$Component) {
         className: "header-logo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDog"]
-      }), " Disaccord"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }), " DISACCORD"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "header-nav-center"
-      }, "[ placeholder ]"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, "This is where all the bars will be... if I had them!  Click on the login button to start ------->"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "header-icons"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faKiwiBird"]
+      }), " -", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDove"]
+      }), " -", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCat"]
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "header-nav-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "login-button",
         to: "/login"
-      }, "Log In"))))) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }, "Log In")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "header-language"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
+        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faLanguage"]
+      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "greeting-text-padding"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "greeting-header-text"
+      }, "It's time to ditch Skype and Teamspeak."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        className: "greeting-header-text"
+      }, "Also ditch this clone for that matter..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "greeting-text-use"
+      }, "Text chat for gamers that's free, secure, and works on both your desktop and your...laptop."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "greeting-text-use"
+      }, "Stop paying for TeamSpeak servers and hassling with Skype because nobody even uses those anymore. Simplify your life.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "splashBackground"
+      })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, display);
     }
   }]);
@@ -1727,9 +1774,12 @@ function (_React$Component) {
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "messages-icon"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDog"]
-        })));
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "messages-icon-picture-default"
+        })) // <div className="messages-icon">
+        //   <button className="messages-icon-picture"><FontAwesomeIcon icon={faDog} /></button>
+        // </div>
+        ;
       }
     }
   }, {
@@ -2158,6 +2208,11 @@ function (_React$Component) {
         this.state.id = this.props.servers[serverId].id;
       }
 
+      var flavorText = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "editServerFlavorText"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
+        className: "settings-two-factor-edit"
+      }, "Other settings would go here..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "...but a server only has a dynamic name attribute at the moment so heres a lorem ipsum block."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."));
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-settings"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
@@ -2187,7 +2242,7 @@ function (_React$Component) {
         className: "modal-createServerButton",
         type: "submit",
         value: this.props.formType
-      }))))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }))))), flavorText, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "settings-exit",
         onClick: this.props.closeModal
       }, "X"));
@@ -2635,7 +2690,6 @@ function (_React$Component) {
     value: function render() {
       var _this3 = this;
 
-      console.log("HIT MODAL");
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-serverModal"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -2870,7 +2924,7 @@ function (_React$Component) {
         channelId = this.props.location.pathname.split("/")[3];
 
         if (this.props.channels[channelId]) {
-          channelTitle = this.props.channels[channelId].title;
+          channelTitle = "# ".concat(this.props.channels[channelId].title);
           channelTopic = this.props.channels[channelId].topic;
         }
       }
@@ -2954,7 +3008,6 @@ var msp = function msp(state, ownProps) {
   var servers = state.entities.servers;
   var channels = state.entities.channels;
   var users = state.entities.users;
-  console.log(state);
   return {
     currentUser: currentUser,
     servers: servers,
@@ -3652,6 +3705,7 @@ function (_React$Component) {
       }
 
       this.props.editUser(formData);
+      this.props.closeModal();
     }
   }, {
     key: "render",
@@ -4154,9 +4208,8 @@ function (_React$Component) {
       } else {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "messages-icon"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          className: "messages-icon-picture",
-          src: "https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "messages-icon-picture-default"
         }));
       }
     }

@@ -16,7 +16,6 @@ class ServerModal extends React.Component {
 
 
   render() {
-    console.log("HIT MODAL")
     return (
       <div className="modal-serverModal">
         <p className="modal-serverModalGreet">OH, ANOTHER SERVER HUH?</p>

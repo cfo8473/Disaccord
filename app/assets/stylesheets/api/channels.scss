@@ -11,7 +11,7 @@
   background: #2f3136;
   overflow: hidden;
   text-overflow: ellipsis;
-  overflow-y: auto;
+  overflow-y: hidden;
   padding-right: 16px;
   position: relative;
   
@@ -165,39 +165,70 @@
 .modal-createChannel{
   position: absolute;
   padding: 28px 40px 0;
-  width: 100%;
-  height: 300px;
+  width: 370px;
+  height: 380px;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   background: #36393f;
   z-index: 11;
   color: black;
-  border-radius: 15px;
+  border-radius: 10px;
 
   
 }
 
 .modal-createChannelGreet{
-  color: rgb(163, 163, 163);
-  font-weight: 700;
-
+  color: #ffffff;
+  font-weight: 600;
   text-transform: uppercase;
   font-size: 18px;
 
 }
 
 .modal-createChannelGreetText{
-  color: #7c7c7c;
+  color: #949494;
   font-weight: 350;
-  padding: 10px 0;
-
   font-size: 13px;
+  margin-bottom: 25px;
 
 }
 
+.checkbox{
+
+}
+
+.channel-text-button {
+  margin-top: 10px;
+  width: 100%;
+  color: #ffffffba;
+  background-color: #7289da;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: none;
+  text-align: left;
+}
+
+.channel-text-button-deactivate {
+
+  width: 100%;
+  color: #ffffffba;
+  background-color: #282d33;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: none;
+  text-align: left;
+  border: 1px solid #1b1e22;
+}
+
 .modal-createChannelTitle {
-  margin-top: 50px;
+  margin-top: 6px;
   color: #87909c;
   font-size: 13px;
   font-weight: 700;
@@ -207,7 +238,7 @@
 
 .modal-createChannelTitleInput {
   margin-top: 10px;
-  width: 95%;
+  width: 93%;
   padding: 10px;
   height: 16px;
   margin-bottom: 8px;
@@ -230,28 +261,39 @@
 
 .modal-createChannelButton {
   display: block;
-  position: relative;
-    margin-top: auto;
+  position: absolute;
+  margin-top: auto;
   height: 40px;
-  top: 30px;
+  bottom: 5px;
+  right: 45px;
   margin-left: auto;
   color: white;
   background-color: #7289da;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 24px;
   border-radius: 3px;
-  padding: 10px;
+  /* padding: 10px; */
   margin-bottom: 8px;
   border: none;
 }
 .modal-createChannelCancel{
   display: block;
   position: relative;
-  top: 60px;
-  left: 300px;
+  top: 38px;
+  left: 220px;
   display: block;
   color: white;
+  font-size: 14px;
 
+}
+
+.createChannelDarkBar {
+  width: 100%;
+  height: 80px;
+  background: #0000002e;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
 }
 
 .modal-createChannelCancel:hover{
@@ -275,14 +317,14 @@
 
 .modal-settings-server {
   position: absolute;
-  width: 500px;
-  min-width: 200px;
-  height: 30%;
-  left: 600px;
-  top: 200px;
+  width: 499px;
+  /* min-width: 200px; */
+  /* height: 30%; */
+  left: 520px;
+  top: 100px;
   transform: translate(-50%, -50%);
   background: transparent;
-  padding: 20px;
+  /* padding: 20px; */
   border-radius: 5px;
   border-style: solid black;
   border-width: 1px;
@@ -311,7 +353,7 @@
 
 .modal-editServerTitleInput {
   margin-top: 10px;
-  width: 45%;
+  width: 70%;
   padding: 10px;
   height: 16px;
   margin-bottom: 8px;
@@ -352,4 +394,14 @@
   text-transform: uppercase;
   font-weight: 500;
   opacity: 1.4;
+}
+
+.editServerFlavorText {
+  position: absolute;
+  left: 280px;
+  top: 160px;
+  font-size: 14px;
+  color: #b9bbbe;
+  width: 500px;
+  cursor: default;
 }
