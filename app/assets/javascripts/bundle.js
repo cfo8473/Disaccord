@@ -862,7 +862,9 @@ var mdp = function mdp(dispatch) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_6__["openModal"])("editServer"));
     },
     // openModal: (modalType, serverId) => dispatch(openModal(modalType, serverId)),
-    // openModal: (modalType) => dispatch(openModal(modalType)),
+    openModal: function openModal(modalType) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_6__["openModal"])(modalType));
+    },
     openSettings: react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
       className: "settings-icon tooltips",
       onClick: function onClick() {
