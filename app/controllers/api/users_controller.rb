@@ -8,10 +8,12 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     
     if @user.save
-      server = Server.new(title: "#{@user.username}-general", admin_id: @user.id)
+      # server = Server.new(title: "#{@user.username}-general", admin_id: @user.id)
         
-      server.save
-      server.setup_server(@user.id)
+      # server.save
+      # server.setup_server(@user.id)
+
+      @user.default_server(@user);
       login!(@user)
       render 'api/users/show'
     else
