@@ -139,7 +139,7 @@ class ChannelIndex extends React.Component {
               <div className="channel-text-header-block">
 
               <Collapsible open={Boolean(true)} style="div" triggerWhenOpen="▼ TEXT CHANNELS"
-                transitionTime={parseInt(10)} className="channel-text-title" trigger="► TEXT CHANNELS">
+                transitionTime={parseInt(50)} className="channel-text-title" trigger="► TEXT CHANNELS">
                   <ul>
                     {channelList}
                   </ul>

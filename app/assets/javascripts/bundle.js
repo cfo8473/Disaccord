@@ -155,7 +155,9 @@ var fetchChannel = function fetchChannel(id) {
 var createChannel = function createChannel(channel) {
   return function (dispatch) {
     return _util_channel_api_util__WEBPACK_IMPORTED_MODULE_0__["createChannel"](channel).then(function (channel) {
-      return dispatch(receiveChannel(channel));
+      dispatch(receiveChannel(channel)); // console.log(channel);
+
+      return channel;
     });
   };
 };
@@ -776,7 +778,7 @@ function (_React$Component) {
           open: Boolean(true),
           style: "div",
           triggerWhenOpen: "\u25BC TEXT CHANNELS",
-          transitionTime: parseInt(10),
+          transitionTime: parseInt(50),
           className: "channel-text-title",
           trigger: "\u25BA TEXT CHANNELS"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, channelList)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
@@ -1215,6 +1217,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var msp = function msp(state, ownProps) {
   var errors = state.errors.session.errors;
+  var created = false;
   var channelInfo = {
     title: "",
     server_id: '',
@@ -1222,6 +1225,7 @@ var msp = function msp(state, ownProps) {
   };
   return {
     channelInfo: channelInfo,
+    created: created,
     formType: "create",
     errors: errors
   };
@@ -1317,6 +1321,8 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ChannelForm).call(this, props));
     _this.state = _this.props.channelInfo;
+    _this.created = _this.props.created;
+    _this.res = _this.props.res;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -1333,16 +1339,42 @@ function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(e) {
+      var _this3 = this;
+
       e.preventDefault();
+      console.log(this.props.channelInfo.server_id);
       var server = Object.assign({}, this.state);
-      this.props.processForm(server);
-      this.props.closeModal();
+      this.props.processForm(server).then(function (response) {
+        _this3.setState();
+
+        console.log(response);
+        console.log("/servers/".concat(_this3.props.channelInfo.server_id, "/").concat(response.id));
+
+        _this3.setState({
+          channelInfo: _this3.state.channelInfo
+        });
+
+        _this3.res = response.id;
+        _this3.created = true;
+
+        _this3.forceUpdate();
+      }); // return <Redirect to={`servers/${this.props.channelInfo.server_id}/55`} />
     }
   }, {
     key: "render",
     value: function render() {
       var serverId = this.props.location.pathname.split("/")[2];
       this.props.channelInfo.server_id = serverId;
+      console.log(this.created);
+
+      if (this.created) {
+        console.log("HIT IT!");
+        this.props.closeModal();
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          to: "/servers/".concat(this.props.channelInfo.server_id, "/").concat(this.res)
+        });
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-createChannel"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
@@ -1356,13 +1388,9 @@ function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "checkbox",
         type: "checkbox",
-        checked: true
-      }), " # Text Channel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "channel-text-button-deactivate"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        className: "checkbox",
-        type: "checkbox"
-      }), " # ...another Text Channel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+        checked: true,
+        readOnly: true
+      }), " # Text Channel"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "modal-createChannelInput",
         onSubmit: this.handleSubmit
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
@@ -1684,8 +1712,7 @@ function (_React$Component) {
     key: "render",
     value: function render() {
       this.state.channel_id = this.props.channel;
-      this.state.author_id = this.props.currentUser; // the only nicely formatted return statement I have so far
-
+      this.state.author_id = this.props.currentUser;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "nav-content-message-bar"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
@@ -2056,6 +2083,8 @@ var msp = function msp(state) {
   var server = state.ui.active.server;
   return {
     serverInfo: serverInfo,
+    status: false,
+    nextServer: null,
     formType: "Edit",
     errors: errors,
     servers: servers,
@@ -2152,6 +2181,8 @@ function (_React$Component) {
     _this.state = Object.assign({}, _this.props.serverInfo);
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.deleteServer = _this.deleteServer.bind(_assertThisInitialized(_this));
+    _this.status = _this.props.status;
+    _this.nextServer = _this.props.nextServer;
     return _this;
   }
 
@@ -2182,20 +2213,24 @@ function (_React$Component) {
     value: function deleteServer(e) {
       this.props.removeServer(this.props.server);
       var serverList = Object.values(this.props.servers);
-      var lastServer = serverList[serverList.length - 2]; // console.log(lastServer);
-
-      this.props.closeModal(); // console.log(`/servers/${lastServer.id}`);
-      // not working correctly
-
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
-        to: "/servers/".concat(lastServer.id, "/")
-      });
+      var lastServer = serverList[serverList.length - 2];
+      this.status = true;
+      this.forceUpdate();
+      this.nextServer = lastServer.id;
     }
   }, {
     key: "render",
     value: function render() {
       var serverId = this.props.location.pathname.split("/")[2];
       var currentServer;
+
+      if (this.status) {
+        console.log(this.nextServer);
+        this.props.closeModal();
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Redirect"], {
+          to: "/servers/".concat(this.nextServer, "/")
+        });
+      }
 
       if (typeof this.props.servers !== 'undefined') {
         currentServer = this.props.servers[this.props.server];
@@ -2858,6 +2893,7 @@ function (_React$Component) {
 
     _classCallCheck(this, ServerShow);
 
+    console.log(props);
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ServerShow).call(this, props));
     _this.state = _this.props.currentUser;
     _this.onEnterPress = _this.onEnterPress.bind(_assertThisInitialized(_this));
@@ -2912,7 +2948,7 @@ function (_React$Component) {
 
       var loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
       var channelId;
-      var channelTitle = "";
+      var channelTitle = "Loading...";
       var channelTopic = ""; // debugger
 
       if (this.props.location.pathname.split("/").length >= 3) {
@@ -2953,7 +2989,8 @@ function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "search-dummy-bar",
         type: "text",
-        value: "Search \uD83D\uDD0D"
+        value: "Search \uD83D\uDD0D",
+        readOnly: true
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
         className: "spacer",
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faAt"]
@@ -3804,7 +3841,8 @@ function (_React$Component) {
         className: "settings-input-title-text-star"
       }, "*")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         className: "settings-input",
-        type: "text"
+        type: "text",
+        defaultValue: "test"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "settings-icon-edit-preview-dimensions-text"
       }, "Minimum Size: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "128x128"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4326,14 +4364,17 @@ function (_React$Component) {
 
       if (this.props.server) {
         userList = Object.values(this.props.users).map(function (user, idx) {
-          return user.joinedServerIds.includes(_this.props.server.id) ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-            key: "user-".concat(user.id)
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
-            user: user,
-            currentUser: _this.props.currentUser
-          })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-            key: idx
-          });
+          if (user !== null) {
+            // console.log(user);
+            return user.joinedServerIds.includes(_this.props.server.id) ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+              key: "user-".concat(user.id)
+            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_user_index_item__WEBPACK_IMPORTED_MODULE_2__["default"], {
+              user: user,
+              currentUser: _this.props.currentUser
+            })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+              key: idx
+            });
+          }
         });
       } else {}
 
@@ -4376,6 +4417,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var msp = function msp(state) {
+  // console.log("STATE OF USER INDEX");
+  // console.log(state.entities.users);
   // debugger
   var users = state.entities.users;
   var currentUser = state.session.currentUser;

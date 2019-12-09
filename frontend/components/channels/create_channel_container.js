@@ -6,9 +6,11 @@ import ChannelForm from './create_channel_form'
 
 const msp = (state, ownProps) => {
   const errors = state.errors.session.errors;
+  let created = false;
   let channelInfo = { title: "", server_id: '', topic: "Default topic!" }
   return {
     channelInfo,
+    created: created,
     formType: "create",
     errors: errors
   }

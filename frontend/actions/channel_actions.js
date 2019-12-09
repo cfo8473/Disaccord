@@ -16,7 +16,12 @@ export const fetchChannel = id => dispatch => {
 
 export const createChannel = channel => dispatch => {
   return APIChannelUtil
-    .createChannel(channel).then(channel => dispatch(receiveChannel(channel)));
+    .createChannel(channel).then(channel => {
+      
+      dispatch(receiveChannel(channel));
+      // console.log(channel);
+      return channel;
+    });
 };
 
 export const editChannel = channel => dispatch => {

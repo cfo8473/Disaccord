@@ -11,6 +11,7 @@ import CreateMessageContainer from '../messages/create_message_container'
 
 class ServerShow extends React.Component {
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = this.props.currentUser;
     this.onEnterPress = this.onEnterPress.bind(this)
@@ -70,7 +71,7 @@ class ServerShow extends React.Component {
     )
 
     let channelId;
-    let channelTitle = "";
+    let channelTitle = "Loading...";
     let channelTopic = "";
     // debugger
     if (this.props.location.pathname.split("/").length >= 3) {
@@ -100,7 +101,7 @@ class ServerShow extends React.Component {
               <FontAwesomeIcon className="spacer" icon={faBell} />
               <FontAwesomeIcon className="spacer" icon={faUser} />
               <input className="search-dummy-bar" type="text"
-                value="Search 🔍"
+                value="Search 🔍" readOnly
                />
               <FontAwesomeIcon className="spacer" icon={faAt} />
               <FontAwesomeIcon className="spacer" icon={faQuestionCircle} />
@@ -131,12 +132,16 @@ class ServerShow extends React.Component {
                 
             {/* Users NavBar (4th) */}
             <nav className="nav-users">
+              {/* readd after fixing */}
               <UsersIndexContainer users={this.props.users}/>
             </nav>
             </div>
           {/* <div style={{ float: "left", clear: "both" }}
             ref={(el) => { this.messagesEnd = el; }}>
           </div> */}
+
+      
+          
           </div>
         
       </div>

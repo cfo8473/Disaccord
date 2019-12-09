@@ -7,6 +7,8 @@ import { fetchServer } from '../../actions/server_actions'
 import {fetchUsers } from '../../actions/user_actions'
 
 const msp = (state) => {
+  // console.log("STATE OF USER INDEX");
+  // console.log(state.entities.users);
   // debugger
   let users = state.entities.users;
   let currentUser = state.session.currentUser;

@@ -8,6 +8,8 @@ class EditServerForm extends React.Component {
     this.state = Object.assign({}, this.props.serverInfo)
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteServer = this.deleteServer.bind(this);
+    this.status = this.props.status;
+    this.nextServer = this.props.nextServer;
   }
 
   componentDidMount() {
@@ -33,17 +35,24 @@ class EditServerForm extends React.Component {
     
     let serverList = Object.values(this.props.servers);
     let lastServer = serverList[serverList.length-2];
-    // console.log(lastServer);
-    this.props.closeModal();
-    // console.log(`/servers/${lastServer.id}`);
-    // not working correctly
-    <Redirect to={`/servers/${lastServer.id}/`} />
+    this.status = true;
+    this.forceUpdate();
+    this.nextServer = lastServer.id;
+
     
   }
 
   render() {
     let serverId = this.props.location.pathname.split("/")[2];
     let currentServer;
+
+    if (this.status) {
+      console.log(this.nextServer);
+      
+      this.props.closeModal();
+      return <Redirect to={`/servers/${this.nextServer}/`} />
+      
+    }
 
     if (typeof(this.props.servers) !== 'undefined') {
       currentServer = this.props.servers[this.props.server];

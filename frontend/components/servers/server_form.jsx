@@ -14,6 +14,7 @@ class ServerForm extends React.Component {
     }
   }
 
+
   handleSubmit(e) {
     e.preventDefault();
     const server = Object.assign({}, this.state);
