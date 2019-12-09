@@ -20,6 +20,18 @@ a {
   text-decoration: none;
 }
 
+.session-contact {
+  display: block;
+}
+
+.canvas-blob-container {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+
+}
+
 .sessionFormDiv {
   display: flex;
   flex-direction: column;
@@ -27,6 +39,8 @@ a {
   align-items: center;
 
 }
+
+
 
 .sessionForm {
   font-family: Helvetica;
@@ -47,15 +61,18 @@ a {
   -moz-box-shadow: 10px 10px 19px 3px rgba(0,0,0,0.56);
   box-shadow: 10px 10px 19px 3px rgba(0,0,0,0.56);
 
+  animation: 0.5s ease-out 0s 1 slideLeft;
 }
 
 .session-logo {
   display: flex;
-  align-items: center;
+  position: absolute;
+  margin: 60px;
+  left: 0%;
+  align-items: left;
   font-size: 40px;
-  opacity: .8;
   cursor: default;
-  color: #000000d6;
+  color: #ffffff;
 
 }
 

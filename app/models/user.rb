@@ -47,6 +47,14 @@ class User < ApplicationRecord
     foreign_key: :author_id,
     class_name: :Message
 
+  def default_server(user)
+
+    serverMembership = Membership.new(user_id: user.id, membership_id: 1, membership_type: "Server")
+    serverMembership.save!
+    channelMembership = Membership.new(user_id: user.id, membership_id: 1, membership_type: "Channel")
+    channelMembership.save!
+  end
+
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
