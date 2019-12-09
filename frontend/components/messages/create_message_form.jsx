@@ -17,7 +17,6 @@ class MessageForm extends React.Component {
 
   handleSubmit(e) {
     if (e.keyCode == 13 && e.shiftKey == false) {
-
       this.props.updateChannel(this.props.match.params.channelId)
       e.preventDefault();
       const message = Object.assign({}, this.state);
@@ -29,7 +28,6 @@ class MessageForm extends React.Component {
   render() {
     this.state.channel_id = this.props.channel
     this.state.author_id = this.props.currentUser
-
     return (
       <form className="nav-content-message-bar">
         <textarea className   = "nav-content-message-box" 

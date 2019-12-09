@@ -33,7 +33,9 @@ a {
   display: flex;
   width: 480px;
   padding: 40px;
-  font-size: 18px;
+  font-size: 18px;  
+  position: absolute;
+  top: 130px;
   color: #72767d;
   background: #272d35;
   border-radius: 5px;
@@ -53,6 +55,7 @@ a {
   font-size: 40px;
   opacity: .8;
   cursor: default;
+  color: #000000d6;
 
 }
 
@@ -170,3 +173,23 @@ a {
 }
 
 
+
+.search-dummy-bar {
+  width: 120px;
+  padding: 10px;
+  height: 7px;
+  font-size: 14px;
+  border-radius: 2px;
+  border: 1px solid #1b1e22;
+  background: rgba(0, 0, 0, 0.28);
+  color: #8c8c8c;
+  
+}
+
+.search-dummy-bar:hover{
+  border-color: black;
+}
+
+.search-dummy-bar:focus{
+  outline: none;
+}

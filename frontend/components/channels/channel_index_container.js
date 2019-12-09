@@ -36,7 +36,7 @@ const mdp = dispatch => ({
   closeModal: () => dispatch(closeModal()),
   openServerModalEdit: () => dispatch(openModal("editServer")),
   // openModal: (modalType, serverId) => dispatch(openModal(modalType, serverId)),
-  // openModal: (modalType) => dispatch(openModal(modalType)),
+  openModal: (modalType) => dispatch(openModal(modalType)),
   openSettings: <button className="settings-icon tooltips" onClick={() => dispatch(openModal('settings'))}>
     <FontAwesomeIcon icon={faCog} />
     <span>User Settings</span>

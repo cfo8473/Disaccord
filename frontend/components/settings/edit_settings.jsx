@@ -61,6 +61,7 @@ class EditSettings extends React.Component {
       formData.append('user[photo]', this.state.photoFile);
     }
     this.props.editUser(formData);
+    this.props.closeModal()
   }
 
   render() {
@@ -89,7 +90,13 @@ class EditSettings extends React.Component {
     )
 
 
-    const preview = this.props.photo ? <img className="settings-icon-preview" src={this.props.photo} /> : <img className="settings-icon-preview" src="https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png" />;
+    const preview = this.props.photo ? 
+      <img className="settings-icon-preview" src={this.props.photo} /> :
+      <div className="settings-icon-preview">
+        <div className="messages-icon-picture-default"
+        />
+
+      </div>;
 
     return (
       <div className="modal-settings">
@@ -124,7 +131,7 @@ class EditSettings extends React.Component {
                 <input className="settings-input" type="text" placeholder={this.state.userInfo.email} value={this.state.userInfo.email} onChange={this.update('email')} />
 
                 <h5 className="settings-input-title-text">CURRENT PASSWORD <span className="settings-input-title-text-star">*</span></h5>
-                <input className="settings-input" type="text" />
+                <input className="settings-input" type="text" defaultValue="test"/>
               </div>
           </form>
             <span className="settings-icon-edit-preview-dimensions-text">Minimum Size: <strong>128x128</strong></span>
@@ -147,7 +154,7 @@ class EditSettings extends React.Component {
           <span className="settings-edit-cancel-text" onClick={this.props.openSettingsModal} type="submit" value="Edit">
             Cancel
           </span>
-          <button className="settings-submit-button" onClick={this.handleSubmit} type="submit" value="Edit">
+          <button className="settings-submit-button" onClick={this.handleSubmit} type="submit" value="Edit" >
             Save
           </button>
           <div className="settings-edit-bar"></div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { faAddressCard, faDog, faHome } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard, faDog, faHome, faGuitar, faSearch, faBell, faUser, faAt, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { withRouter } from 'react-router-dom'
 import UsersIndexContainer from '../users/users_index_container'
@@ -11,6 +11,7 @@ import CreateMessageContainer from '../messages/create_message_container'
 
 class ServerShow extends React.Component {
   constructor(props) {
+    console.log(props);
     super(props);
     this.state = this.props.currentUser;
     this.onEnterPress = this.onEnterPress.bind(this)
@@ -70,13 +71,13 @@ class ServerShow extends React.Component {
     )
 
     let channelId;
-    let channelTitle = "";
+    let channelTitle = "Loading...";
     let channelTopic = "";
     // debugger
     if (this.props.location.pathname.split("/").length >= 3) {
       channelId = this.props.location.pathname.split("/")[3];
       if (this.props.channels[channelId]) {
-        channelTitle = this.props.channels[channelId].title;
+        channelTitle = `# ${this.props.channels[channelId].title}`;
         channelTopic = this.props.channels[channelId].topic;
       }
     }
@@ -95,6 +96,17 @@ class ServerShow extends React.Component {
         <ProtectedRoute path='/servers/:serverId' component={ChannelIndexContainer} />
         <div className="nav-block">
           <div className="nav-content-header">{channelTitle}  <span className="login-text">| {channelTopic}</span>
+          <div className="nav-content-header-icons"> 
+              <FontAwesomeIcon className="spacer" icon={faGuitar} />
+              <FontAwesomeIcon className="spacer" icon={faBell} />
+              <FontAwesomeIcon className="spacer" icon={faUser} />
+              <input className="search-dummy-bar" type="text"
+                value="Search 🔍" readOnly
+               />
+              <FontAwesomeIcon className="spacer" icon={faAt} />
+              <FontAwesomeIcon className="spacer" icon={faQuestionCircle} />
+
+          </div>
           </div>
             <div className="content-block">
     
@@ -120,12 +132,16 @@ class ServerShow extends React.Component {
                 
             {/* Users NavBar (4th) */}
             <nav className="nav-users">
+              {/* readd after fixing */}
               <UsersIndexContainer users={this.props.users}/>
             </nav>
             </div>
           {/* <div style={{ float: "left", clear: "both" }}
             ref={(el) => { this.messagesEnd = el; }}>
           </div> */}
+
+      
+          
           </div>
         
       </div>

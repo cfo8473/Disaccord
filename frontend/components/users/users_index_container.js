@@ -7,12 +7,18 @@ import { fetchServer } from '../../actions/server_actions'
 import {fetchUsers } from '../../actions/user_actions'
 
 const msp = (state) => {
+  // console.log("STATE OF USER INDEX");
+  // console.log(state.entities.users);
   // debugger
-  let users = state.entities.users
-  let currentUser = state.session.currentUser
+  let users = state.entities.users;
+  let currentUser = state.session.currentUser;
+  let servers = state.entities.servers;
+  let server = state.entities.servers[state.ui.active.server];
   return {
     users: users,
-    currentUser: currentUser
+    currentUser: currentUser,
+    servers: servers,
+    server: server
   }
 };
 

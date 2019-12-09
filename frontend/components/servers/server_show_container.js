@@ -16,7 +16,6 @@ const msp = (state, ownProps) => {
   let servers = state.entities.servers;
   let channels = state.entities.channels;
   let users = state.entities.users;
-  console.log(state)
 
 
   
@@ -31,7 +30,7 @@ const msp = (state, ownProps) => {
 const mdp = dispatch => ({
   logout: () => dispatch(logout()),
   closeModal: () => dispatch(closeModal()),
-  openServerModal: () => dispatch(openModal("createServer")),
+  openServerModal: () => dispatch(openModal("openServerModal")),
   openModal: modalType => dispatch(openModal(modalType)),
   fetchChannels: () => dispatch(fetchChannels()),
   fetchServers: () => dispatch(fetchServers()),

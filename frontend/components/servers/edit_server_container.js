@@ -11,8 +11,11 @@ const msp = (state) => {
   let servers = state.entities.servers;
   let server = state.ui.active.server;
 
+
   return {
     serverInfo,
+    status: false,
+    nextServer: null,
     formType: "Edit",
     errors: errors,
     servers: servers,

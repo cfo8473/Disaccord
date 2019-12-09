@@ -19,16 +19,21 @@ class ChannelShow extends React.Component {
   }
 
 
-  componentWillUpdate() {
-    this.props.updateChannel(this.props.match.params.channelId);
+  // componentWillUpdate() {
+  //   this.props.updateChannel(this.props.match.params.channelId);
     
+  // }
+
+  componentDidUpdate() {
+    this.props.updateChannel(this.props.match.params.channelId);
+
   }
 
   updateScroll() {
     let container;
     if (document.getElementsByClassName('nav-content-messages').length >= 1) {
       container = document.getElementsByClassName('nav-content-messages')[0];
-      console.log(container.scrollHeight)
+      // console.log(container.scrollHeight)
       // container.scrollTop + container.clientHeight >= container.scrollHeight
       container.scrollTop = container.scrollHeight
     }
@@ -45,7 +50,7 @@ class ChannelShow extends React.Component {
     const messageList = Object.values(this.props.messages).map((message, idx) => (
       (message.channel_id === parseInt(this.props.channel)) ? (
         <li key={`message-${message.id}`}>
-          <MessageIndexItem message={message} key={`message-${idx}`} users={this.props.users}/>
+          <MessageIndexItem message={message} users={this.props.users}/>
         </li>) : (<div key={idx}></div>)
     ))
     
@@ -54,6 +59,7 @@ class ChannelShow extends React.Component {
       <div>
         <ul>
           {messageList}
+
 
           {/* {this.updateScroll()} */}
         </ul>

@@ -36,8 +36,8 @@ class ChannelIndex extends React.Component {
   }
 
   userIcon() {
-    if (this.props.users[this.props.currentUser.id]) {
-      if (this.props.users[this.props.currentUser.id].photo) {
+    if (this.props.users[this.props.currentUser.id] && this.props.users[this.props.currentUser.id].photo) {
+     {
         return (
         <div className="messages-icon">
           <img className="messages-icon-picture" src={this.props.users[this.props.currentUser.id].photo} />
@@ -45,8 +45,13 @@ class ChannelIndex extends React.Component {
       }
     } else {
       return (
+        // <div className="messages-icon">
+        //   <img className="messages-icon-picture" src="https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png" />
+        // </div>
         <div className="messages-icon">
-          <img className="messages-icon-picture" src="https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png" />
+          <div className="messages-icon-picture-default"
+          />
+
         </div>
         
       )
@@ -115,7 +120,7 @@ class ChannelIndex extends React.Component {
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     )
     if (!this.props.server) { return (
-      <div>Loading...</div>
+      <div></div>
     ) } else {
       return (
           <nav className="nav-channels">
@@ -134,7 +139,7 @@ class ChannelIndex extends React.Component {
               <div className="channel-text-header-block">
 
               <Collapsible open={Boolean(true)} style="div" triggerWhenOpen="▼ TEXT CHANNELS"
-                transitionTime={parseInt(10)} className="channel-text-title" trigger="► TEXT CHANNELS">
+                transitionTime={parseInt(50)} className="channel-text-title" trigger="► TEXT CHANNELS">
                   <ul>
                     {channelList}
                   </ul>

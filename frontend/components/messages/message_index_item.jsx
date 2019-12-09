@@ -12,20 +12,18 @@ class MessageIndexItem extends React.Component {
   }
 
   userIcon(){
-    if (this.props.users[this.props.message.author_id]){
-    if (this.props.users[this.props.message.author_id].photo) {
+    if (this.props.users[this.props.message.author_id] && this.props.users[this.props.message.author_id].photo){
       return (<div className="messages-icon">
         <img className="messages-icon-picture" src={this.props.users[this.props.message.author_id].photo}/>
       </div>)
-    } } else {
-      return(
-        <div className="messages-icon">
-          <button >
-            <FontAwesomeIcon icon={faDog} />
-          </button>
-        </div>
-      )
-    }
+      } else {
+        return(
+          <div className="messages-icon">
+            <div className="messages-icon-picture-default"
+            />
+          </div>
+        )
+      } 
   }
 
   messageContent() {

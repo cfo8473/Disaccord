@@ -17,8 +17,8 @@ class UserIndexItem extends React.Component {
       } else {
       return (
         <div className="messages-icon">
-            <img className="messages-icon-picture" 
-              src="https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png"/>
+          <div className="messages-icon-picture-default"
+          />
 
         </div>
       )

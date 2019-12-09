@@ -17,11 +17,29 @@ class UsersIndex extends React.Component {
 
   render() {
 
-    const userList = Object.values(this.props.users).map(user => (
-      <li key={`user-${user.id}`}>
-        <UserIndexItem user={user} currentUser={this.props.currentUser}/>
-      </li>
-    ))
+    // const userList = Object.values(this.props.users).map(user => (
+    //   <li key={`user-${user.id}`}>
+    //     <UserIndexItem user={user} currentUser={this.props.currentUser}/>
+    //   </li>
+    // ))
+
+    let userList;
+    
+    if (this.props.server) {
+      userList = Object.values(this.props.users).map((user, idx) => {
+        if (user !== null) {
+          // console.log(user);
+          return (user.joinedServerIds.includes(this.props.server.id)) ? (
+            <li key={`user-${user.id}`}>
+              {/* <UserIndexItem user={user}/> */}
+              <UserIndexItem user={user} currentUser={this.props.currentUser} />
+            </li>
+          ) : (<div key={idx}></div>)
+        }
+        
+      })
+    } else {
+    }
 
     return (
       <div>
