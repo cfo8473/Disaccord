@@ -883,6 +883,10 @@ var mdp = function mdp(dispatch) {
     }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_8__["FontAwesomeIcon"], {
       icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_7__["faCog"]
     }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "User Settings")),
+    // openSettings: <button className="settings-icon" onClick={() => dispatch(openModal('settings'))}>
+    //   <FontAwesomeIcon icon={faCog} />
+    //   <span className="tooltip-wrapper"><span className="tooltip-set">User Settings</span></span>
+    // </button>,
     updateServer: function updateServer(serverId) {
       return dispatch(Object(_actions_active_actions__WEBPACK_IMPORTED_MODULE_9__["updateServer"])(serverId));
     },
@@ -1232,6 +1236,7 @@ var msp = function msp(state, ownProps) {
     channelInfo: channelInfo,
     created: created,
     formType: "create",
+    res: null,
     errors: errors
   };
 };
@@ -3212,7 +3217,7 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-
+ // import Blob from './login_blob.js'
 
 var SessionForm =
 /*#__PURE__*/
@@ -3247,9 +3252,133 @@ function (_React$Component) {
       this.props.processForm(user);
     }
   }, {
+    key: "blob",
+    value: function blob() {
+      var HALF_PI = Math.PI / 2;
+      var canvas = document.getElementById("canvas-blob");
+      var blobCanvas = canvas.getContext("2d");
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      var Blob =
+      /*#__PURE__*/
+      function () {
+        function Blob() {
+          _classCallCheck(this, Blob);
+
+          this.radius = 500;
+          this.segments = 12;
+          this.step = HALF_PI / this.segments;
+          this.anchors = [];
+          this.radii = [];
+          this.thetaOff = [];
+          var bumpRadius = 100;
+          var halfBumpRadius = bumpRadius / 2;
+
+          for (var i = 0; i < this.segments + 2; i++) {
+            this.anchors.push(0, 0);
+            this.radii.push(Math.random() * bumpRadius - halfBumpRadius);
+            this.thetaOff.push(Math.random() * 2 * Math.PI);
+          }
+
+          this.theta = 0;
+          this.thetaRamp = 0;
+          this.thetaRampDest = 12;
+          this.rampDamp = 25;
+        }
+
+        _createClass(Blob, [{
+          key: "update",
+          value: function update() {
+            this.thetaRamp += (this.thetaRampDest - this.thetaRamp) / this.rampDamp;
+            this.theta += 0.03;
+            this.anchors = [0, this.radius];
+
+            for (var i = 0; i <= this.segments + 2; i++) {
+              var sine = Math.sin(this.thetaOff[i] + this.theta + this.thetaRamp);
+              var rad = this.radius + this.radii[i] * sine;
+              var x = rad * Math.sin(this.step * i);
+              var y = rad * Math.cos(this.step * i);
+              this.anchors.push(x, y);
+            }
+
+            blobCanvas.save();
+            blobCanvas.translate(-10, -10);
+            blobCanvas.scale(1.5, 1.5);
+            blobCanvas.fillStyle = "rgb(47, 49, 54, 0.9)"; // let pat = blobCanvas.createPattern(blobBg, "no-repeat");
+            // blobCanvas.fillStyle = pat;
+
+            blobCanvas.beginPath();
+            blobCanvas.moveTo(0, 0);
+            mathFunction(this.anchors, false);
+            blobCanvas.lineTo(0, 0);
+            blobCanvas.fill();
+            blobCanvas.restore();
+          }
+        }]);
+
+        return Blob;
+      }();
+
+      var blob = new Blob();
+      var blobBg = new Image();
+      blobBg.src = 'https://discordapp.com/assets/8eba753f8b6d02be1013c5e659b0fc2f.png';
+
+      function loop() {
+        blobCanvas.clearRect(0, 0, canvas.width, canvas.height);
+        blob.update();
+        window.requestAnimationFrame(loop);
+      }
+
+      loop();
+
+      function mathFunction(bezier) {
+        var closed = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+        var averages = calcAvg(bezier);
+        var bLength = bezier.length;
+
+        if (closed) {
+          blobCanvas.moveTo(averages[0], averages[1]);
+
+          for (var i = 2; i < bLength; i += 2) {
+            var n = i + 1;
+            blobCanvas.quadraticCurveTo(bezier[i], bezier[n], averages[i], averages[n]);
+          }
+
+          blobCanvas.quadraticCurveTo(bezier[0], bezier[1], averages[0], averages[1]);
+        } else {
+          blobCanvas.moveTo(bezier[0], bezier[1]);
+          blobCanvas.lineTo(averages[0], averages[1]);
+
+          for (var _i = 2; _i < bLength - 2; _i += 2) {
+            var _n = _i + 1;
+
+            blobCanvas.quadraticCurveTo(bezier[_i], bezier[_n], averages[_i], averages[_n]);
+          }
+
+          blobCanvas.lineTo(bezier[bLength - 2], bezier[bLength - 1]);
+        }
+      }
+
+      function calcAvg(p) {
+        var averages = [];
+        var bLength = p.length;
+        var prev;
+
+        for (var i = 2; i < bLength; i++) {
+          prev = i - 2;
+          averages.push((p[prev] + p[i]) / 2);
+        }
+
+        averages.push((p[0] + p[bLength - 2]) / 2, (p[1] + p[bLength - 1]) / 2);
+        return averages;
+      }
+    }
+  }, {
     key: "componentDidMount",
     value: function componentDidMount() {
       var location = "form";
+      this.blob();
     }
   }, {
     key: "componentWillUnmount",
@@ -3319,7 +3448,12 @@ function (_React$Component) {
       var buttonText = this.props.formType === "login" ? "Login" : "Continue";
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sessionFormDiv"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("canvas", {
+        id: "canvas-blob",
+        className: "canvas-blob-container",
+        width: "1111",
+        height: "444"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "session-logo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDog"]

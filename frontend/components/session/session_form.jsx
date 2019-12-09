@@ -3,6 +3,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import { faDog } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import Blob from './login_blob.js'
 
 export default class SessionForm extends React.Component {
   constructor(props) {
@@ -22,9 +23,133 @@ export default class SessionForm extends React.Component {
     this.props.processForm(user);
   }
 
+  blob() {
+    const HALF_PI = Math.PI / 2;
+    const canvas = document.getElementById("canvas-blob");
+    const blobCanvas = canvas.getContext("2d");
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    class Blob {
+      constructor() {
+        this.radius = 500;
+        this.segments = 12;
+        this.step = HALF_PI / this.segments;
+        this.anchors = [];
+        this.radii = [];
+        this.thetaOff = [];
+
+        const bumpRadius = 100;
+        const halfBumpRadius = bumpRadius / 2;
+
+        for (let i = 0; i < this.segments + 2; i++) {
+          this.anchors.push(0, 0);
+          this.radii.push(Math.random() * bumpRadius - halfBumpRadius);
+          this.thetaOff.push(Math.random() * 2 * Math.PI);
+        }
+
+        this.theta = 0;
+        this.thetaRamp = 0;
+        this.thetaRampDest = 12;
+        this.rampDamp = 25;
+
+        
+      }
+
+      update() {
+
+
+
+        this.thetaRamp += (this.thetaRampDest - this.thetaRamp) / this.rampDamp;
+        this.theta += 0.03;
+
+        this.anchors = [0, this.radius];
+        for (let i = 0; i <= this.segments + 2; i++) {
+          const sine = Math.sin(this.thetaOff[i] + this.theta + this.thetaRamp);
+          const rad = this.radius + this.radii[i] * sine;
+          const x = rad * Math.sin(this.step * i);
+          const y = rad * Math.cos(this.step * i);
+          this.anchors.push(x, y);
+        }
+
+        blobCanvas.save();
+
+        blobCanvas.translate(-10, -10);
+        blobCanvas.scale(1.5, 1.5);
+        blobCanvas.fillStyle = "rgb(47, 49, 54, 0.9)";
+        // let pat = blobCanvas.createPattern(blobBg, "no-repeat");
+        // blobCanvas.fillStyle = pat;
+        blobCanvas.beginPath();
+        blobCanvas.moveTo(0, 0);
+        mathFunction(this.anchors, false);
+
+        blobCanvas.lineTo(0, 0);
+        blobCanvas.fill();
+        blobCanvas.restore();
+      }
+    }
+
+    const blob = new Blob();
+
+    const blobBg = new Image();
+    blobBg.src = 'https://discordapp.com/assets/8eba753f8b6d02be1013c5e659b0fc2f.png';
+
+    function loop() {
+
+      blobCanvas.clearRect(0, 0, canvas.width, canvas.height);
+      
+      blob.update();
+      
+      window.requestAnimationFrame(loop);
+    }
+
+    loop();
+
+
+
+    function mathFunction(bezier, closed = true) {
+      const averages = calcAvg(bezier);
+      const bLength = bezier.length;
+
+      if (closed) {
+        blobCanvas.moveTo(averages[0], averages[1]);
+        for (let i = 2; i < bLength; i += 2) {
+          let n = i + 1;
+          blobCanvas.quadraticCurveTo(bezier[i], bezier[n], averages[i], averages[n]);
+        }
+        blobCanvas.quadraticCurveTo(bezier[0], bezier[1], averages[0], averages[1]);
+      } else {
+        blobCanvas.moveTo(bezier[0], bezier[1]);
+        blobCanvas.lineTo(averages[0], averages[1]);
+        for (let i = 2; i < bLength- 2; i += 2) {
+          let n = i + 1;
+          blobCanvas.quadraticCurveTo(bezier[i], bezier[n], averages[i], averages[n]);
+        }
+        blobCanvas.lineTo(bezier[bLength - 2], bezier[bLength - 1]);
+      }
+    }
+
+    function calcAvg(p) {
+      const averages = [];
+      const bLength = p.length;
+      let prev;
+
+      for (let i = 2; i < bLength; i++) {
+        prev = i - 2;
+        averages.push((p[prev] + p[i]) / 2);
+      }
+
+      averages.push((p[0] + p[bLength - 2]) / 2, (p[1] + p[bLength - 1]) / 2);
+      return averages;
+    }
+
+  }
+
   componentDidMount() {
     let location = "form"
-  
+    
+    this.blob();
   }
 
   componentWillUnmount() {
@@ -84,8 +209,12 @@ export default class SessionForm extends React.Component {
       
 
       <div className="sessionFormDiv">
+        <canvas id="canvas-blob" className="canvas-blob-container" width="1111" height="444" />
+        
         <div className="session-logo">
-          <FontAwesomeIcon icon={faDog} />  disaccord
+          <FontAwesomeIcon icon={faDog} />  disaccord 
+          
+          
         </div>
         <div className="vertical-spacer">{this.formSpacers()}</div>
         <div className="sessionForm">

@@ -12,6 +12,7 @@ const msp = (state, ownProps) => {
     channelInfo,
     created: created,
     formType: "create",
+    res: null,
     errors: errors
   }
 };

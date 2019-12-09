@@ -15,6 +15,44 @@
   padding-right: 16px;
   position: relative;
   
+  .tooltip-wrapper {
+    position: absolute;
+    visibility: hidden;
+    z-index: 32423423;
+}
+
+  .settings-icon:hover .tooltip-wrapper {
+      visibility: visible;
+  }
+
+  .tooltip-set {
+      display: block;
+      position: relative;
+        top: -2em;
+        right: 0%;
+      width: 140px;
+      height: 36px;
+      /*margin-left: -76px;*/
+      color: #FFFFFF;
+      background: #000000;
+      line-height: 36px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 4px 3px 10px #000000;
+    }
+    .tooltip-set:after {
+      content: '';
+      position: absolute;
+        top: 0%;
+        left: 150%;
+      margin-left: 0px;
+      width: 0;
+      height: 0;
+      border-bottom: 8px solid #000000;
+      border-right: 8px solid transparent;
+      border-left: 8px solid transparent;
+    }
+
 
 }
 
@@ -43,7 +81,7 @@
 
 
 .channel-title {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 400;
   text-overflow: ellipsis;
@@ -54,16 +92,17 @@
   flex: 1 1 auto;
   color: #9b9fa5;
   text-transform: lowercase;
-  font-family: Whitney;
+  // font-family: Whitney;
+  letter-spacing: 1px;
   padding: 5px;
   width: 85%;
 
 }
 
 .current-channel-title {
-  font-size: 16px;
+  font-size: 14px;
   line-height: 20px;
-  font-weight: 500;
+  font-weight: 700;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -72,7 +111,8 @@
   flex: 1 1 auto;
   color: white;
   text-transform: lowercase;
-  font-family: Whitney;
+  // font-family: Whitney;
+  letter-spacing: 1px;
   padding: 5px;
   width: 85%;
   background: rgba(78, 78, 78, 0.397);
@@ -91,7 +131,7 @@
 }
 
 .channel-title-pound {
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 0;
   padding-right: 10px;
 }

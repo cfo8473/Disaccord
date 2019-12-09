@@ -41,6 +41,11 @@ const mdp = dispatch => ({
     <FontAwesomeIcon icon={faCog} />
     <span>User Settings</span>
   </button>,
+
+  // openSettings: <button className="settings-icon" onClick={() => dispatch(openModal('settings'))}>
+  //   <FontAwesomeIcon icon={faCog} />
+  //   <span className="tooltip-wrapper"><span className="tooltip-set">User Settings</span></span>
+  // </button>,
   updateServer: (serverId) => dispatch(updateServer(serverId)),
   updateChannel: (channelId) => dispatch(updateChannel(channelId)),
 
