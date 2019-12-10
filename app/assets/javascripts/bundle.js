@@ -2801,9 +2801,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -2818,12 +2818,47 @@ function (_React$Component) {
   _inherits(ServerIndexItem, _React$Component);
 
   function ServerIndexItem(props) {
+    var _this;
+
     _classCallCheck(this, ServerIndexItem);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ServerIndexItem).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ServerIndexItem).call(this, props));
+    _this.handleMouseHover = _this.handleMouseHover.bind(_assertThisInitialized(_this));
+    _this.state = {
+      isHovering: false
+    };
+    return _this;
   }
 
   _createClass(ServerIndexItem, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      this.state.isHovering = false;
+    }
+  }, {
+    key: "handleMouseHover",
+    value: function handleMouseHover() {
+      this.setState(this.toggleHoverState);
+    }
+  }, {
+    key: "toggleHoverState",
+    value: function toggleHoverState(state) {
+      return {
+        isHovering: !state.isHovering
+      };
+    }
+  }, {
+    key: "pillAnimation",
+    value: function pillAnimation() {
+      if (this.state.isHovering) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "nav-servers-pill-select"
+        }));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var serverId = this.props.location.pathname.split("/")[2]; // debugger
@@ -2842,7 +2877,10 @@ function (_React$Component) {
           }, this.props.server.title.slice(0, 1)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, this.props.server.title))))
         );
       } else {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          onMouseEnter: this.handleMouseHover,
+          onMouseLeave: this.handleMouseHover
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           to: "/servers/".concat(this.props.server.id)
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "nav-servers-button tooltips",

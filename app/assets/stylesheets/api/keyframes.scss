@@ -46,3 +46,14 @@
     -webkit-transform: scale(2);
   }
 }
+
+@keyframes pill {
+  0% {
+    -webkit-transform: scale(0.2);
+
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
