@@ -6,11 +6,46 @@ class ServerForm extends React.Component {
     super(props);
     this.state = this.props.serverInfo;
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.closeWindow = this.closeWindow.bind(this);
+
+    this.close = false;
+
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
   }
 
   update(field) {
     return (e) => {
       this.setState({ [field]: e.target.value })
+    }
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  closeWindow() {
+    this.close = true;
+
+    setTimeout(() => {
+      this.props.closeModal();
+      this.close = false;
+    }, 150)
+
+    this.forceUpdate();
+  }
+  setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
+
+  handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.closeWindow();
     }
   }
 
@@ -24,7 +59,7 @@ class ServerForm extends React.Component {
 
   render() {
     return (
-      <div className="modal-createServer">
+      <div ref={this.setWrapperRef} className={`modal-createServer` + (this.close ? `-reverse` : ``)}>
         <p className="modal-createServerGreet">CREATE YOUR SERVER</p>
         <p className="modal-createServerGreetText">By creating a server, you will have access to text chat to use amongst your friends.</p>
         <form className="modal-createServerInput" onSubmit={this.handleSubmit} >
@@ -42,7 +77,7 @@ class ServerForm extends React.Component {
           <span className="server-icon-warning">Minimum Size: <strong>128x128</strong></span>
           
           <div className="createServerFooter" >
-            <div className="createServerReturn" onClick={() => this.props.returnServer()}> ← BACK </div>
+            <div className="createServerReturn" onClick={() => this.closeWindow()}> ← BACK </div>
            <input className="modal-createServerButton" type="submit" value="Create"/>
           </div>
        

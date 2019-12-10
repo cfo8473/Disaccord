@@ -20,7 +20,12 @@ export default class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user);
+    this.props.processForm(user)
+  }
+  
+  componentWillUnmount() {
+    console.log("JSLDFD");
+    this.forceUpdate();
   }
 
   blob() {
@@ -76,7 +81,7 @@ export default class SessionForm extends React.Component {
         blobCanvas.save();
 
         blobCanvas.translate(-10, -10);
-        blobCanvas.scale(1.5, 1.5);
+        blobCanvas.scale(1.6, 1.6);
         blobCanvas.fillStyle = "rgb(47, 49, 54, 0.9)";
         // let pat = blobCanvas.createPattern(blobBg, "no-repeat");
         // blobCanvas.fillStyle = pat;
@@ -96,6 +101,8 @@ export default class SessionForm extends React.Component {
     blobBg.src = 'https://discordapp.com/assets/8eba753f8b6d02be1013c5e659b0fc2f.png';
 
     function loop() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
 
       blobCanvas.clearRect(0, 0, canvas.width, canvas.height);
       
@@ -206,8 +213,6 @@ export default class SessionForm extends React.Component {
     const buttonText = (this.props.formType === "login") ? "Login" : "Continue";
 
     return (
-      
-
       <div className="sessionFormDiv">
         <canvas id="canvas-blob" className="canvas-blob-container" width="1111" height="444" />
         

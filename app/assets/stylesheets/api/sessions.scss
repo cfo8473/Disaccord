@@ -64,6 +64,12 @@ a {
   animation: 0.5s ease-out 0s 1 slideLeft;
 }
 
+@media screen and (min-width: 1400px) {
+  .sessionForm {
+    left: 25%;
+  }
+}
+
 .session-logo {
   display: flex;
   position: absolute;

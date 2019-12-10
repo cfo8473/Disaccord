@@ -207,15 +207,39 @@
   padding: 28px 40px 0;
   width: 370px;
   height: 380px;
-  left: 50%;
+  left: 60%;
   top: 50%;
-  transform: translate(-50%, -50%);
+  // transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-top: auto;
   background: #36393f;
   z-index: 11;
   color: black;
   border-radius: 10px;
-
+  // animation: 0.25s ease-out 0s 1 zoomIn;
   
+  animation-name: zoomIn;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+.modal-createChannel-reverse {
+  position: absolute;
+  padding: 28px 40px 0;
+  width: 370px;
+  height: 380px;
+  left: 60%;
+  top: 50%;
+  // transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-top: auto;
+  background: #36393f;
+  z-index: 11;
+  color: black;
+  border-radius: 10px;
+  animation-name: zoomOut;
+  animation-duration: 0.2s;
+  animation-fill-mode: backwards;
 }
 
 .modal-createChannelGreet{

@@ -8,3 +8,41 @@
   }
 }
 
+@keyframes zoomIn {
+  0% {
+    -webkit-transform: scale3d(1,1,1);
+  }
+  100% {
+    -webkit-transform: scale3d(0.1,0.1,1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    -webkit-transform: scale3d(0.1,0.1,1);
+    
+  }
+  100% {
+    -webkit-transform: scale3d(1,1,1);
+  }
+}
+
+@keyframes settingsPopIn {
+  0% {
+    -webkit-transform: scale(2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes settingsPopOut {
+  0% {
+    -webkit-transform: scale(1);
+  }
+
+  100% {
+    -webkit-transform: scale(2);
+  }
+}
