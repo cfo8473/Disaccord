@@ -1536,7 +1536,9 @@ function (_React$Component) {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDog"]
       }), " DISACCORD"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "header-nav-center"
-      }, "This is where all the bars will be... if I had them!  Click on the login button to start ------->"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://github.com/cfo8473"
+      }, "Github")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "header-icons"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faKiwiBird"]

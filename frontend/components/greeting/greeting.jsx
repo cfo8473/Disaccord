@@ -16,7 +16,10 @@ class Greeting extends React.Component {
             <div className="header-logo">
               <FontAwesomeIcon icon={faDog} /> DISACCORD
             </div>
-            <ul className="header-nav-center">This is where all the bars will be... if I had them!  Click on the login button to start -------></ul>
+            <ul className="header-nav-center">
+              
+              <a href="https://github.com/cfo8473">Github</a>
+            </ul>
 
             <div className="header-icons">
               <FontAwesomeIcon icon={faKiwiBird} /> - 
