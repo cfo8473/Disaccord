@@ -5,11 +5,17 @@
 <p align="center">
   <img src="https://github.com/cfo8473/Disaccord/blob/master/disaccordanim.gif">
 </p>
-Disaccord is an application clone of the popular web chatting service Discord. The chat application is created using Rails and React providing the main text-communication based functions you would expect from Discord (servers, channels, private messages complete with users and roles.)
+Disaccord is a single-page application clone of the popular web chatting service Discord. The chat application is created using Rails and React providing the main text-communication based functions you would expect from Discord (servers, channels, private messages complete with users and roles.)
 
 ## Technologies
 
 This application was created using <b>Ruby, Rails, React, JavaScript</b> and <b>PostGresQL</b>
+
+## How Disaccord works
+
+Disaccord takes advantage of the PostGreSQL database to handle information tables which are then called by the front-end using two main objects: users and messages. Each user is an entity which has the following: `ID, username, password_digest, session_token` and `email`. Each message has an `author_id` which will link it to an individual user and a `channel_id` which will link it to the Channels table.
+
+The channels and servers will hold both users and messages through a polymorphic association table `memberships` which will store both `type` and `id`.
 
 ## Features
 
@@ -21,6 +27,44 @@ This application was created using <b>Ruby, Rails, React, JavaScript</b> and <b>
 - Public or private channels that handle text communication
 - Ability to delete servers, channels or messages (for respective administrators)
 - Other upcoming features
+
+
+## Example
+
+```
+class Api::MembershipsController < ApplicationController
+  def index
+    @memberships = Membership.all
+    render :index
+  end
+ 
+  def create
+    @membership = Membership.new(membership_params)
+    @membership.user_id = current_user.id
+    
+    if @membership.save
+      render :show
+    else
+      render json: @membership.errors.full_messages, status: 422
+    end
+  end
+
+  def destroy
+    @membership = Membership.find(params[:id])
+    if @membership.update_attributes(membership_params)
+      render :show
+    else
+      render json: @membership.errors.full_messages, status:422
+    end
+  end
+
+  private
+  def membership_params
+    params.require(:server).permit(:membership_type)
+  end
+end
+
+```
 
 ## Setup
 Clone the repository onto your desktop and run `npm run webpack` to install all the dependencies.
