@@ -7,6 +7,10 @@
 </p>
 Disaccord is an application clone of the popular web chatting service Discord. The chat application is created using Rails and React providing the main text-communication based functions you would expect from Discord (servers, channels, private messages complete with users and roles.)
 
+## Technologies
+
+This application was created using <b>Ruby, Rails, React, JavaScript</b> and <b>PostGresQL</b>
+
 ## Features
 
 ![Features](https://i.imgur.com/TPCteOa.png)
