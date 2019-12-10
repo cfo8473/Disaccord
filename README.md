@@ -67,6 +67,13 @@ end
 ```
 
 ## Setup
+```
+npm run webpack
+rails s
+bundle exec rails db:seed
+bundle exec rails db:reset
+```
+
 Clone the repository onto your desktop and run `npm run webpack` to install all the dependencies.
 
 Run `rails s` to load the PostgreSQL database and populate with the commands `bundle exec rails db:seed` and `bundle exec rails db:reset`
