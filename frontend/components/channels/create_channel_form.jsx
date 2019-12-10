@@ -9,6 +9,20 @@ class ChannelForm extends React.Component {
     this.created = this.props.created;
     this.res = this.props.res;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.close = false;
+    this.closeWindow = this.closeWindow.bind(this);
+
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+    
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
   }
 
   update(field) {
@@ -38,11 +52,32 @@ class ChannelForm extends React.Component {
     
   }
 
+  setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
+
+  handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.closeWindow();
+    }
+  }
+
+  closeWindow() {
+    this.close = true;
+
+    setTimeout(() => {
+      this.props.closeModal();
+      this.close = false;
+    }, 150)
+    
+    this.forceUpdate();
+  }
+
   render() {
     let serverId = this.props.location.pathname.split("/")[2];
     this.props.channelInfo.server_id = serverId;
 
-    console.log(this.created);
+    // console.log(this.created);
     if (this.created) {
       console.log("HIT IT!");
       this.props.closeModal();
@@ -50,7 +85,7 @@ class ChannelForm extends React.Component {
     }
 
     return (
-      <div className="modal-createChannel">
+      <div ref={this.setWrapperRef} className={`modal-createChannel` + (this.close ? `-reverse` : ``)}>
         <p className="modal-createChannelGreet">CREATE TEXT CHANNEL</p>
         <p className="modal-createChannelGreetText">in Text Channels</p>
         <p className="login-text"> CHANNEL TYPE</p>
@@ -60,7 +95,7 @@ class ChannelForm extends React.Component {
           <label className="modal-createChannelTitle">CHANNEL NAME</label>
           <input className="modal-createChannelTitleInput" type="text" value={this.state.title} onChange={this.update("title")} />
           <div className="createChannelDarkBar">
-            <span className="modal-createChannelCancel" onClick={this.props.closeModal}>Cancel</span>
+            <span className="modal-createChannelCancel" onClick={() => this.closeWindow()}>Cancel</span>
             <input className="modal-createChannelButton" type="submit" value="Create Channel" />
           </div>
         </form>

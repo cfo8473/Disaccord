@@ -14,6 +14,42 @@ class EditSettings extends React.Component {
     };
     this.logoutModal = this.logoutModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+
+    this.closeWindow = this.closeWindow.bind(this);
+
+    this.close = false;
+
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  closeWindow() {
+    this.close = true;
+
+    setTimeout(() => {
+      this.props.closeModal();
+      this.close = false;
+    }, 150)
+
+    this.forceUpdate();
+  }
+  setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
+
+  handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.closeWindow();
+    }
   }
 
   logoutModal(e) {
@@ -99,7 +135,7 @@ class EditSettings extends React.Component {
       </div>;
 
     return (
-      <div className="modal-settings">
+      <div ref={this.setWrapperRef} className={`modal-settings` + (this.close ? `-reverse` : ``)}>
         <nav className="menu-bar">
           {menuBar}
           <Link className="settings-logout" to="/" onClick={this.logoutModal}>Log Out</Link>
@@ -161,7 +197,7 @@ class EditSettings extends React.Component {
         </div>
         
 
-        <p className="settings-exit" onClick={this.props.closeModal}>X</p>
+        <p className="settings-exit" onClick={() => this.closeWindow()}>X</p>
 
         
 

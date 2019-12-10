@@ -10,10 +10,28 @@
   z-index: 11;
   color: black;
   border-radius: 5px;
-  transition: all 5s ease-in-out;
-
-  
+  animation-name: zoomIn;
+  animation-duration: 0s;
+  animation-fill-mode: forwards;
 }
+
+.modal-createServer-reverse{
+  position: absolute;
+  padding: 28px 40px 0;
+  width: 460px;
+  height: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 11;
+  color: black;
+  border-radius: 5px;
+  animation-name: zoomOut;
+  animation-duration: 0.2s;
+  animation-fill-mode: backwards;
+}
+
 .modal-createServerExit {
   font-size: 20px;
   top: 44px;

@@ -10,10 +10,43 @@ class EditServerForm extends React.Component {
     this.deleteServer = this.deleteServer.bind(this);
     this.status = this.props.status;
     this.nextServer = this.props.nextServer;
+
+    this.closeWindow = this.closeWindow.bind(this);
+
+    this.close = false;
+
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+
   }
 
   componentDidMount() {
     this.props.fetchServers()
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  closeWindow() {
+    this.close = true;
+
+    setTimeout(() => {
+      this.props.closeModal();
+      this.close = false;
+    }, 150)
+
+    this.forceUpdate();
+  }
+  setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
+
+  handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.closeWindow();
+    }
   }
 
   update(field) {
@@ -78,7 +111,7 @@ class EditServerForm extends React.Component {
     return (
 
       
-      <div className="modal-settings">
+      <div ref={this.setWrapperRef} className={`modal-settings` + (this.close ? `-reverse` : ``)}>
         <nav className="menu-bar">
 
           <div className="settings-logout" onClick={this.deleteServer}>Delete Server</div>
@@ -99,7 +132,7 @@ class EditServerForm extends React.Component {
           </div>
         </div>
         {flavorText}
-        <p className="settings-exit" onClick={this.props.closeModal}>X</p>
+        <p className="settings-exit" onClick={() => this.closeWindow()}>X</p>
 
       </div>
     )

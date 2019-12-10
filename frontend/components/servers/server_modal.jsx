@@ -6,6 +6,40 @@ class ServerModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props.serverInfo;
+    this.closeWindow = this.closeWindow.bind(this);
+
+    this.close = false;
+
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  closeWindow() {
+    this.close = true;
+
+    setTimeout(() => {
+      this.props.closeModal();
+      this.close = false;
+    }, 150)
+
+    this.forceUpdate();
+  }
+  setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
+
+  handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.closeWindow();
+    }
   }
 
   update(field) {
@@ -17,7 +51,7 @@ class ServerModal extends React.Component {
 
   render() {
     return (
-      <div className="modal-serverModal">
+      <div ref={this.setWrapperRef} className={`modal-serverModal` + (this.close ? `-reverse` : ``)}>
         <p className="modal-serverModalGreet">OH, ANOTHER SERVER HUH?</p>
       
           

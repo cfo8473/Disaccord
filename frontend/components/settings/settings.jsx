@@ -11,11 +11,20 @@ class Settings extends React.Component {
       photoUrl: null
     };
     this.logoutModal = this.logoutModal.bind(this);
+
+    this.closeWindow = this.closeWindow.bind(this);
+    
+    this.close = false;
+
+    this.setWrapperRef = this.setWrapperRef.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+
   }
 
   logoutModal(e) {
-    this.props.logout();
     this.props.closeModal();
+    this.props.logout();
+    
     
   }
 
@@ -63,6 +72,34 @@ class Settings extends React.Component {
       }
     );
   }
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClickOutside);
+  }
+
+  closeWindow() {
+    this.close = true;
+
+    setTimeout(() => {
+      this.props.closeModal();
+      this.close = false;
+    }, 150)
+
+    this.forceUpdate();
+  }
+  setWrapperRef(node) {
+    this.wrapperRef = node;
+  }
+
+  handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
+      this.closeWindow();
+    }
+  }
+
 
   render () {
     $('.button').click(function () {
@@ -108,11 +145,11 @@ class Settings extends React.Component {
       </div>;
 
     return (
-      <div className="modal-settings">
+      <div ref={this.setWrapperRef} className={`modal-settings` + (this.close ? `-reverse` : ``)}>
         
         <nav className="menu-bar">
           {menuBar}
-          <Link className="settings-logout" to="/" onClick={this.logoutModal}>Log Out</Link>
+          <Link className="settings-logout" to="#" onClick={this.logoutModal}>Log Out</Link>
         </nav>
         
         <div className="modal-settings-user-info">
@@ -146,7 +183,7 @@ class Settings extends React.Component {
         </div>
         
 
-         <p className="settings-exit" onClick={this.props.closeModal}>X</p>
+         <p className="settings-exit" onClick={() => this.closeWindow()}>X</p>
 
       </div>
     )

@@ -1,3 +1,64 @@
+.modal-serverLoading { 
+  position: absolute;
+  padding: 28px 40px 0;
+  width: 460px;
+  height: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  color: black;
+  border-radius: 5px;
+
+}
+
+
+.loading-icon { 
+  position:absolute;
+  left: 50%;
+  top: 30%;
+  animation-name: spinnyLogo;
+  animation-duration: 0.78s;
+  animation-iteration-count: infinite;
+  display: inline-block;
+  font-size: 80px;
+  color: rgb(148, 198, 240);
+  
+}
+
+.loading-text {
+  position: absolute;
+  left: 40%;
+  top: 55%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 35px;
+  letter-spacing: 6px;
+  animation: 0.3s ease-out 0s 1 slideLeft;
+}
+
+.loading-text-sub {
+  position: absolute;
+  left: 17%;
+  top: 65%;
+  text-align: center;
+  color: rgb(150, 150, 150);
+  line-height: 24px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  animation: 0.3s ease-out 0s 1 settingsPopIn;
+}
+
+@keyframes spinnyLogo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .modal-serverModal{
   position: absolute;
   padding: 28px 40px 0;
@@ -10,7 +71,45 @@
   z-index: 11;
   color: black;
   border-radius: 5px;
-  transition: all 5s ease-in-out;
+  animation-name: zoomIn;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+
+
+.modal-serverModal-reverse{
+  position: absolute;
+  padding: 28px 40px 0;
+  width: 460px;
+  height: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 11;
+  color: black;
+  border-radius: 5px;
+  animation-name: zoomOut;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+.modal-serverModal{
+  position: absolute;
+  padding: 28px 40px 0;
+  width: 460px;
+  height: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 11;
+  color: black;
+  border-radius: 5px;
+  animation-name: zoomIn;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
 }
 
 
