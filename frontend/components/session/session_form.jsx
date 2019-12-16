@@ -24,7 +24,6 @@ export default class SessionForm extends React.Component {
   }
   
   componentWillUnmount() {
-    console.log("JSLDFD");
     this.forceUpdate();
   }
 
@@ -223,7 +222,7 @@ export default class SessionForm extends React.Component {
         </div>
         <div className="vertical-spacer">{this.formSpacers()}</div>
         <div className="sessionForm">
-          <button className="guest-button" type="submit" onClick={this.props.guestLogin}>Guest Login</button>
+          <button className="guest-button" type="submit" onClick={this.props.guestLogin}>Demo Login</button>
           <form onSubmit={this.handleSubmit}>
     
           {this.formSwapGreeting()}

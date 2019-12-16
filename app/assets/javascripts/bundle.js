@@ -738,7 +738,7 @@ function (_React$Component) {
       var addChannel = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-plus",
         onClick: function onClick() {
-          return dispatch(_this2.props.openModal("createChannel", serverId));
+          return _this2.props.openModal("createChannel", serverId);
         }
       }, "+");
       var preview = this.props.photo ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
@@ -1369,10 +1369,9 @@ function (_React$Component) {
       console.log(this.props.channelInfo.server_id);
       var server = Object.assign({}, this.state);
       this.props.processForm(server).then(function (response) {
-        _this3.setState();
+        _this3.setState(); // console.log(response);
+        // console.log(`/servers/${this.props.channelInfo.server_id}/${response.id}`)
 
-        console.log(response);
-        console.log("/servers/".concat(_this3.props.channelInfo.server_id, "/").concat(response.id));
 
         _this3.setState({
           channelInfo: _this3.state.channelInfo
@@ -1534,38 +1533,38 @@ function (_React$Component) {
         className: "header-logo"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
         icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDog"]
-      }), " DISACCORD"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }), " disaccord"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "header-nav-center"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "splash-portfolio-link",
+        href: "https://cfong.io"
+      }, "Portfolio"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "splash-portfolio-link",
         href: "https://github.com/cfo8473"
-      }, "Github")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "header-icons"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faKiwiBird"]
-      }), " -", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faDove"]
-      }), " -", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faCat"]
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, "Github"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "splash-portfolio-link",
+        href: "https://www.linkedin.com/in/chris-fong-33b6b3197/"
+      }, "LinkedIn"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        className: "splash-portfolio-link",
+        href: "https://angel.co/chris-fong-7"
+      }, "AngelList")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "header-nav-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         className: "login-button",
         to: "/login"
-      }, "Log In")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "header-language"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
-        icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_2__["faLanguage"]
-      })))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Log In")))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "greeting-text-padding"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "greeting-header-text"
-      }, "It's time to ditch Skype and Teamspeak."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      }, "Welcome to Disaccord!"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "greeting-header-text"
-      }, "Also ditch this clone for that matter..."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "A full stack messaging app inspired by Discord"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "greeting-text-use"
-      }, "Text chat for gamers that's free, secure, and works on both your desktop and your...laptop."), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, "Single-page application designed for chat messaging using the following technologies:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "greeting-text-use"
-      }, "Stop paying for TeamSpeak servers and hassling with Skype because nobody even uses those anymore. Simplify your life.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Ruby, Rails, React, JavaScript, Node, Amazon S3 and PostGreSQL"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+        className: "greeting-text-use"
+      }, "Please log in using the button on the top right. Demo Login is available.")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "splashBackground"
       })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, display);
@@ -2678,8 +2677,7 @@ function (_React$Component) {
     }
   }, {
     key: "componentWillUnmount",
-    value: function componentWillUnmount() {
-      this.props.fetchServers();
+    value: function componentWillUnmount() {// this.props.fetchServers()
     }
   }, {
     key: "render",
@@ -3203,7 +3201,15 @@ function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      this.props.fetchChannels(), this.props.fetchUsers(), this.props.updateChannel(this.props.match.params.channelId), this.props.fetchServer(this.props.location.pathname.split("/")[2]), setTimeout(function () {
+      if (this.props.location.pathname = "/servers") {
+        this.props.fetchServer(1);
+      } else {
+        this.props.fetchServer(this.props.location.pathname.split("/")[2]);
+      } // this.props.fetchServer(this.props.location.pathname.split("/")[2]),
+      // this.props.fetchServer(1);
+
+
+      this.props.fetchChannels(), this.props.fetchUsers(), this.props.updateChannel(this.props.match.params.channelId), setTimeout(function () {
         _this2.rendered = true, _this2.forceUpdate();
       }, 1000);
     }
@@ -3254,8 +3260,7 @@ function (_React$Component) {
         }
       }
 
-      var currentUser = this.props.users[this.props.currentUser.id];
-      var defaultServer = currentUser.joinedServerIds[0];
+      var currentUser = this.props.users[this.props.currentUser.id]; // let defaultServer = currentUser.joinedServerIds[0];
 
       if (this.rendered) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -3271,29 +3276,7 @@ function (_React$Component) {
           className: "nav-content-header"
         }, channelTitle, "  ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "login-text"
-        }, "| ", channelTopic), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "nav-content-header-icons"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-          className: "spacer",
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faGuitar"]
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-          className: "spacer",
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faBell"]
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-          className: "spacer",
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faUser"]
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-          className: "search-dummy-bar",
-          type: "text",
-          value: "Search \uD83D\uDD0D",
-          readOnly: true
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-          className: "spacer",
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faAt"]
-        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_2__["FontAwesomeIcon"], {
-          className: "spacer",
-          icon: _fortawesome_free_solid_svg_icons__WEBPACK_IMPORTED_MODULE_1__["faQuestionCircle"]
-        }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "| ", channelTopic)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "content-block"
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "nav-content-messages"
@@ -3543,7 +3526,6 @@ function (_React$Component) {
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      console.log("JSLDFD");
       this.forceUpdate();
     }
   }, {
@@ -3762,7 +3744,7 @@ function (_React$Component) {
         className: "guest-button",
         type: "submit",
         onClick: this.props.guestLogin
-      }, "Guest Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+      }, "Demo Login"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         onSubmit: this.handleSubmit
       }, this.formSwapGreeting(), this.props.errors && this.props.errors.map(function (ele, idx) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
@@ -4246,7 +4228,15 @@ function (_React$Component) {
         className: "settings-input-title-text"
       }, "USER SETTINGS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "settings-selected-menu-text"
-      }, "My Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "));
+      }, "My Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://cfong.io"
+      }, "Portfolio")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://github.com/cfo8473"
+      }, "Github")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.linkedin.com/in/chris-fong-33b6b3197/"
+      }, "LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://angel.co/chris-fong-7"
+      }, "AngelList")));
       var flavorText = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "settings-flavor-text-edit"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -4325,17 +4315,7 @@ function (_React$Component) {
         className: "settings-icon-edit-preview-dimensions-text"
       }, "Minimum Size: ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("strong", null, "128x128"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "modal-settings-user-info-text-edit"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "settings-delete-button",
-        onClick: this.props.openServerModal,
-        type: "submit",
-        value: "Edit"
-      }, "Delete Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "settings-disable-button",
-        onClick: this.props.openServerModal,
-        type: "submit",
-        value: "Edit"
-      }, "Disable Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
         className: "settings-edit-cancel-text",
         onClick: this.props.openSettingsModal,
         type: "submit",
@@ -4612,7 +4592,15 @@ function (_React$Component) {
         className: "settings-input-title-text"
       }, "USER SETTINGS"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "settings-selected-menu-text"
-      }, "My Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Placeholder "));
+      }, "My Account"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://cfong.io"
+      }, "Portfolio")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://github.com/cfo8473"
+      }, "Github")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.linkedin.com/in/chris-fong-33b6b3197/"
+      }, "LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://angel.co/chris-fong-7"
+      }, "AngelList")));
       var flavorText = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "settings-flavor-text"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
@@ -5039,12 +5027,12 @@ window.addEventListener("DOMContentLoaded", function () {
     delete window.currentUser;
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_3__["default"])();
-  }
+  } // window.fetchChannels = fetchChannels;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.logout = store.logout;
 
-  window.fetchChannels = _actions_channel_actions__WEBPACK_IMPORTED_MODULE_6__["fetchChannels"];
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.logout = store.logout;
+
   react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_4__["default"], {
     store: store
   }), rootEl);

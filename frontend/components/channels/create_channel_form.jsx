@@ -38,8 +38,8 @@ class ChannelForm extends React.Component {
     
     this.props.processForm(server).then( (response) => {
       this.setState()
-      console.log(response);
-      console.log(`/servers/${this.props.channelInfo.server_id}/${response.id}`)
+      // console.log(response);
+      // console.log(`/servers/${this.props.channelInfo.server_id}/${response.id}`)
       this.setState({ channelInfo: this.state.channelInfo });
       this.res = response.id;
       this.created = true;

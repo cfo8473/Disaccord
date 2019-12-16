@@ -91,7 +91,7 @@ class ChannelIndex extends React.Component {
     }
     const addChannel = (
       
-      <div className="channel-plus" onClick={() => dispatch(this.props.openModal("createChannel", serverId))}>
+      <div className="channel-plus" onClick={() => this.props.openModal("createChannel", serverId)}>
         +
       </div>
     )

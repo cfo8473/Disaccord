@@ -28,10 +28,19 @@ class ServerShow extends React.Component {
 
 
   componentDidMount() {
+
+    if (this.props.location.pathname = "/servers") {
+      this.props.fetchServer(1);
+    } else {
+      this.props.fetchServer(this.props.location.pathname.split("/")[2]);
+    }
+
+    // this.props.fetchServer(this.props.location.pathname.split("/")[2]),
+    // this.props.fetchServer(1);
     this.props.fetchChannels(),
     this.props.fetchUsers(),
     this.props.updateChannel(this.props.match.params.channelId),
-    this.props.fetchServer(this.props.location.pathname.split("/")[2]),
+    
 
     setTimeout(() => {
       this.rendered = true,
@@ -89,7 +98,7 @@ class ServerShow extends React.Component {
       }
     }
     let currentUser = this.props.users[this.props.currentUser.id]
-    let defaultServer = currentUser.joinedServerIds[0];
+    // let defaultServer = currentUser.joinedServerIds[0];
 
 
     if (this.rendered) {
@@ -105,7 +114,7 @@ class ServerShow extends React.Component {
           <ProtectedRoute path='/servers/:serverId' component={ChannelIndexContainer} />
           <div className="nav-block">
             <div className="nav-content-header">{channelTitle}  <span className="login-text">| {channelTopic}</span>
-              <div className="nav-content-header-icons">
+              {/* <div className="nav-content-header-icons">
                 <FontAwesomeIcon className="spacer" icon={faGuitar} />
                 <FontAwesomeIcon className="spacer" icon={faBell} />
                 <FontAwesomeIcon className="spacer" icon={faUser} />
@@ -115,7 +124,7 @@ class ServerShow extends React.Component {
                 <FontAwesomeIcon className="spacer" icon={faAt} />
                 <FontAwesomeIcon className="spacer" icon={faQuestionCircle} />
 
-              </div>
+              </div> */}
             </div>
             <div className="content-block">
 
