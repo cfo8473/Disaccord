@@ -317,7 +317,7 @@ flex: 0;
     vertical-align: bottom;
     /* left: 40px; */
     /* top: 900px; */
-    padding-bottom: 40px;
+    // padding-bottom: 40px;
     float: left;
   
 
@@ -361,8 +361,6 @@ input.nav-content-message-box[type="text"], textarea {
   padding: 16px;
   position: relative;
   flex-direction: column-reverse;
-
-  overflow: auto;
 }
 
 .nav-content.message-box:focus {

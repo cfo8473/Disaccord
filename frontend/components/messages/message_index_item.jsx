@@ -35,7 +35,7 @@ class MessageIndexItem extends React.Component {
             < span className = "messages-username-name" > 
               { this.props.users[this.props.message.author_id].username }
             </span >
-            <span className="login-text">{`${message.created_at.split('T')[0]} @ ${message.created_at.split('T')[1].slice(0, 5)}`}</span>
+            <span className="timestamp-text">{`${message.created_at.split('T')[0]} @ ${message.created_at.split('T')[1].slice(0, 5)}`}</span>
           </div>
         )
       } else { 
