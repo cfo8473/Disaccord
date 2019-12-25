@@ -160,7 +160,6 @@ li {
 .nav-servers-button {
   position: relative;
   text-align: center;
-  display: flex;
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
@@ -176,10 +175,18 @@ li {
   margin-bottom: 10px;
   -webkit-align-content: center;
   align-content: center;
-}
+  
+  &:focus {
+    outline: none;
+  }
 
-.nav-servers-button:focus {
-  outline: none;
+  &:hover {
+    border-radius: 15px;
+    background: #7289da;
+    border: none;
+    color: white;
+    transition: color .15s ease-out,background-color .15s ease-out
+  }
 }
 
 .nav-servers-button-spacer{
@@ -236,17 +243,6 @@ nav-servers-button-tooltip .tooltip:hover .tooltiptext {
 
   border-radius: 15px;
   background: #43b581;
-  left: 1px;
-  border: none;
-  color: white;
-  transition: color .15s ease-out,background-color .15s ease-out
-
-}
-
-.nav-servers-button:hover {
-
-  border-radius: 15px;
-  background: #7289da;
   left: 1px;
   border: none;
   color: white;
@@ -388,7 +384,7 @@ textarea {
   background: #7289da;
   position: relative;
   text-align: center;
-  display: flex;
+  // display: flex;
   cursor: pointer;
   margin-left: auto;
   margin-right: auto;
@@ -403,10 +399,9 @@ textarea {
   -webkit-align-content: center;
   align-content: center;
 
-}
-
-.nav-servers-current-button:focus {
-  outline: none;
+  &:focus {
+    outline: none;
+  }
 }
 
 .nav-content-message-box{
