@@ -9,14 +9,13 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util'
 
 export default () => (
   <div className="test">
-    <Modal/>
-    <AuthRoute exact path="/" component={GreetingContainer} />
-    <AuthRoute path="/login"  component={LoginFormContainer} />
-    <AuthRoute path="/signup" component={SignupFormContainer} />
-    <ProtectedRoute path ="/servers" component={ServerContainer}/>
+    <Modal />
 
-    
+    <AuthRoute exact path="/" component={GreetingContainer} />
+    <AuthRoute path="/login" component={LoginFormContainer} />
+    <AuthRoute path="/signup" component={SignupFormContainer} />
+    <ProtectedRoute path="/servers" component={ServerContainer} />
+
     {/* pull in the ffirst server of current user */}
-    
   </div>
 );

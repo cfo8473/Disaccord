@@ -165,9 +165,9 @@ class EditSettings extends React.Component {
 
                 <h5 className="settings-input-title-text">EMAIL <span className="settings-input-title-text-star">*</span></h5>
                 <input className="settings-input" type="text" placeholder={this.state.userInfo.email} value={this.state.userInfo.email} onChange={this.update('email')} />
-
+{/* 
                 <h5 className="settings-input-title-text">CURRENT PASSWORD <span className="settings-input-title-text-star">*</span></h5>
-                <input className="settings-input" type="text" defaultValue="test"/>
+                <input className="settings-input" type="text" defaultValue="test"/> */}
               </div>
           </form>
             <span className="settings-icon-edit-preview-dimensions-text">Minimum Size: <strong>128x128</strong></span>
