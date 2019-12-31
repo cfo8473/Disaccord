@@ -1,3 +1,9 @@
+.splashPage {
+  overflow-y: hidden;
+  overflow-x: hidden;
+  
+}
+
 .header-logo {
   font-size: 50px;
   opacity: .4;
@@ -25,3 +31,295 @@
 .splash-portfolio-link:hover {
   color: white;
 }
+
+
+.splash-imgs {
+  position: relative;
+  width: 100%;
+  height: 638px;
+  min-height: 638px;
+
+  .shadow {
+    position: absolute;
+    left: 50%;
+    margin-left: -650px;
+    bottom: 0;
+    border-radius: 50px;
+    width: 1300px;
+    height: 50px;
+    background: rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+  }
+
+  svg {
+    left: 50%;
+    transition: all 0.5s ease;
+  }
+
+  .float {
+    animation-name: float;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+  }
+
+  @keyframes float {
+    from {
+      transform: translateY(-4px);
+    }
+
+    to {
+      transform: translateY(4px);
+    }
+  }
+
+  @mixin nth-triangle($n) {
+    &:nth-of-type(#{$n}) {
+      @content;
+    }
+  }
+
+  @mixin nth-dot($n) {
+    &:nth-of-type(#{$n + 3}) {
+      @content;
+    }
+  }
+
+  @mixin nth-circle($n) {
+    &:nth-of-type(#{$n + 8}) {
+      @content;
+    }
+  }
+
+  @mixin nth-square($n) {
+    &:nth-of-type(#{$n + 11}) {
+      @content;
+    }
+  }
+
+  @mixin nth-x($n) {
+    &:nth-of-type(#{$n + 14}) {
+      @content;
+    }
+  }
+
+  @mixin nth-coin($n) {
+    &:nth-of-type(#{$n + 19}) {
+      @content;
+    }
+  }
+
+  .triangle {
+    @include nth-triangle(1) {
+      margin-left: -579px;
+      bottom: 300px;
+    }
+
+    @include nth-triangle(2) {
+      margin-left: 31px;
+      bottom: 550px;
+    }
+
+    @include nth-triangle(3) {
+      margin-left: -289px;
+      bottom: 448px;
+    }
+  }
+
+  .dot {
+    @include nth-dot(1) {
+      margin-left: -599px;
+      bottom: 200px;
+    }
+
+    @include nth-dot(2) {
+      margin-left: -319px;
+      bottom: 600px;
+    }
+
+    @include nth-dot(3) {
+      margin-left: 181px;
+      bottom: 500px;
+    }
+
+    @include nth-dot(4) {
+      margin-left: 531px;
+      bottom: 600px;
+    }
+
+    @include nth-dot(5) {
+      margin-left: 621px;
+      bottom: 140px;
+    }
+  }
+
+  .circle {
+    @include nth-circle(1) {
+      margin-left: -359px;
+      bottom: 530px;
+    }
+
+    @include nth-circle(2) {
+      margin-left: 576px;
+      bottom: 280px;
+    }
+
+    @include nth-circle(3) {
+      margin-left: -199px;
+      bottom: 88px;
+    }
+  }
+
+  .square {
+    @include nth-square(1) {
+      margin-left: 17px;
+      bottom: 92px;
+    }
+
+    @include nth-square(2) {
+      margin-left: 431px;
+      bottom: 400px;
+    }
+
+    @include nth-square(3) {
+      margin-left: 331px;
+      bottom: 600px;
+    }
+  }
+
+  .x {
+    @include nth-x(1) {
+      margin-left: 101px;
+      bottom: 440px;
+    }
+
+    @include nth-x(2) {
+      margin-left: 541px;
+      bottom: 220px;
+    }
+
+    @include nth-x(3) {
+      margin-left: -579px;
+      bottom: 510px;
+    }
+  }
+
+  .potion {
+    margin-left: -40%;
+    bottom: 200px;
+    z-index: 1;
+  }
+
+  .bomb {
+    margin-left: -45%;
+    bottom: 335px;
+    animation-delay: 0.4s;
+  }
+
+  .coin {
+    @include nth-coin(1) {
+      margin-left: -41%;
+      bottom: 300px;
+    }
+
+    @include nth-coin(2) {
+      margin-left: 10%;
+      bottom: 530px;
+    }
+  }
+
+  .cartridge {
+    margin-left: 24%;
+    bottom: 432px;
+  }
+
+  .shield {
+    margin-left: 423px;
+    bottom: 10px;
+  }
+
+  .block {
+    margin-left: -239px;
+    bottom: 462px;
+    transition: none;
+  }
+
+  .desktop {
+    margin-left: -289.5px;
+    bottom: 10px;
+  }
+
+  .android {
+    margin-left: -46%;
+    bottom: 10px;
+    z-index: 2;
+  }
+
+  .iphone {
+    margin-left: -30%;
+    bottom: 10px;
+  }
+
+  .controller {
+    margin-left: -20% ;
+    bottom: 10px;
+  }
+
+  .laptop {
+    margin-left: 0%;
+    bottom: 10px;
+  }
+
+  .headphones {
+    margin-left: 270px;
+    bottom: 142px;
+    transform: scale(0.75);
+  }
+}
+
+// @media screen and (max-width: 848px) {
+//   .splash-imgs {
+//     height: 410px;
+//     min-height: 410px;
+
+//     .shadow, .triangle, .dot, .circle, .square, .x, .potion, .bomb, .coin, .cartridge,
+//     .shield, .block, .desktop, .controller {
+//       display: none;
+//     }
+
+//     .android {
+//       margin-left: -384px;
+//     }
+
+//     .iphone {
+//       margin-left: -229.5px;
+//     }
+
+//     .laptop {
+//       margin-left: -124px;
+//     }
+//   }
+// }
+
+// @media screen and (max-width: 700px) {
+//   .splash-imgs {
+//     margin-top: 40px;
+
+//     .laptop, .headphones {
+//       display: none;
+//     }
+
+//     .android {
+//       margin-left: -178px;
+//       top: 7%;
+//       bottom: auto;
+//     }
+
+//     .iphone {
+//       margin-left: 34.5px;
+//       top: 7%;
+//       bottom: auto;
+//     }
+//   }
+// }
