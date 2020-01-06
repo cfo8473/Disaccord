@@ -246,8 +246,16 @@
   }
 
   .desktop {
-    margin-left: -289.5px;
-    bottom: 10px;
+    // margin-left: -289.5px;
+    margin-left: 20%;
+    margin-top: 40px;
+    bottom: 40px;
+    background-image: image-url("disaccordanim.gif");
+   background-repeat: no-repeat;
+   background-size: cover;
+  background-color: transparent;
+  width: 979px;
+  height: 570px;
   }
 
   .android {
@@ -269,6 +277,7 @@
   .laptop {
     margin-left: 0%;
     bottom: 10px;
+    
   }
 
   .headphones {

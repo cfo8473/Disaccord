@@ -39,7 +39,8 @@ class MessageForm extends React.Component {
                   onKeyDown   = {this.handleSubmit} 
                   value       = {this.props.body}
                   onChange    = {this.update("body")}
-                  placeholder = "Message #channelplaceholder">      
+                  placeholder = "Message #channelplaceholder"
+                  required>      
         </textarea>
       </form>
     )

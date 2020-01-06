@@ -98,7 +98,8 @@ class Greeting extends React.Component {
           {imgs.coin}
           {imgs.cartridge}
           {imgs.block}
-          {imgs.desktop}
+          {/* {imgs.desktop} */}
+          <div className="desktop"></div> 
           {imgs.android}
           {imgs.iphone}
           {imgs.controller}
