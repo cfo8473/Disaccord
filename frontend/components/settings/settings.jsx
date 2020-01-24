@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect} from 'react-router-dom';
 import EditSettingsContainer from './edit_settings_container'
 
 class Settings extends React.Component {
@@ -23,7 +23,9 @@ class Settings extends React.Component {
 
   logoutModal(e) {
     this.props.closeModal();
+    
     this.props.logout();
+    
     
     
   }
@@ -117,10 +119,10 @@ class Settings extends React.Component {
       <div className="menu-contents" >
         <h5 className="settings-input-title-text">USER SETTINGS</h5>
         <h2 className="settings-selected-menu-text">My Account</h2>
-        <h2>Placeholder </h2>
-        <h2>Placeholder </h2>
-        <h2>Placeholder </h2>
-        <h2>Placeholder </h2>
+        <h2><a href="https://cfong.io">Portfolio</a></h2>
+        <h2><a href="https://github.com/cfo8473">Github</a></h2>
+        <h2><a href="https://www.linkedin.com/in/chris-fong-33b6b3197/">LinkedIn</a></h2>
+        <h2><a href="https://angel.co/chris-fong-7">AngelList</a></h2 >
       </div >
     )
 

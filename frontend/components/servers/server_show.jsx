@@ -9,7 +9,7 @@ import ChannelIndexContainer from '../channels/channel_index_container'
 import ChannelShowContainer from '../channels/channel_show_container'
 import CreateMessageContainer from '../messages/create_message_container'
 import LoadingContainer from "./loading_container.jsx";
-
+import ReactTooltip from "react-tooltip";
 class ServerShow extends React.Component {
   constructor(props) {
     // console.log(props);
@@ -28,10 +28,19 @@ class ServerShow extends React.Component {
 
 
   componentDidMount() {
+
+    if (this.props.location.pathname = "/servers") {
+      this.props.fetchServer(1);
+    } else {
+      this.props.fetchServer(this.props.location.pathname.split("/")[2]);
+    }
+
+    // this.props.fetchServer(this.props.location.pathname.split("/")[2]),
+    // this.props.fetchServer(1);
     this.props.fetchChannels(),
     this.props.fetchUsers(),
     this.props.updateChannel(this.props.match.params.channelId),
-    this.props.fetchServer(this.props.location.pathname.split("/")[2]),
+    
 
     setTimeout(() => {
       this.rendered = true,
@@ -89,23 +98,28 @@ class ServerShow extends React.Component {
       }
     }
     let currentUser = this.props.users[this.props.currentUser.id]
-    let defaultServer = currentUser.joinedServerIds[0];
+    // let defaultServer = currentUser.joinedServerIds[0];
 
 
     if (this.rendered) {
       return (
         <div className="navbar">
+          <ReactTooltip />
           <nav className="nav-servers">
             {home}
             <ServerIndexContainer />
             {addServer}
           </nav>
 
-
-          <ProtectedRoute path='/servers/:serverId' component={ChannelIndexContainer} />
+          <ProtectedRoute
+            path="/servers/:serverId"
+            component={ChannelIndexContainer}
+          />
           <div className="nav-block">
-            <div className="nav-content-header">{channelTitle}  <span className="login-text">| {channelTopic}</span>
-              <div className="nav-content-header-icons">
+            <div className="nav-content-header">
+              {channelTitle}{" "}
+              <span className="login-text">| {channelTopic}</span>
+              {/* <div className="nav-content-header-icons">
                 <FontAwesomeIcon className="spacer" icon={faGuitar} />
                 <FontAwesomeIcon className="spacer" icon={faBell} />
                 <FontAwesomeIcon className="spacer" icon={faUser} />
@@ -115,16 +129,15 @@ class ServerShow extends React.Component {
                 <FontAwesomeIcon className="spacer" icon={faAt} />
                 <FontAwesomeIcon className="spacer" icon={faQuestionCircle} />
 
-              </div>
+              </div> */}
             </div>
             <div className="content-block">
-
               <div className="nav-content-messages">
                 <div className="nav-content-message-block">
-
-
-                  <ProtectedRoute path={`/servers/:serverId/:channelId`} component={ChannelShowContainer} />
-
+                  <ProtectedRoute
+                    path={`/servers/:serverId/:channelId`}
+                    component={ChannelShowContainer}
+                  />
                 </div>
 
                 {/* <div className="nav-content-message-bar">
@@ -132,12 +145,7 @@ class ServerShow extends React.Component {
               </div> */}
 
                 <CreateMessageContainer />
-
-
-
               </div>
-
-
 
               {/* Users NavBar (4th) */}
               <nav className="nav-users">
@@ -148,11 +156,7 @@ class ServerShow extends React.Component {
             {/* <div style={{ float: "left", clear: "both" }}
             ref={(el) => { this.messagesEnd = el; }}>
           </div> */}
-
-
-
           </div>
-
         </div>
       );
     } else {

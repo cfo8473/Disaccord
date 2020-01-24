@@ -15,7 +15,7 @@ class ServerIndex extends React.Component {
   }
   
   componentWillUnmount() {
-    this.props.fetchServers()
+    // this.props.fetchServers()
   }
   
   render() {

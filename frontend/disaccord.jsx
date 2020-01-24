@@ -24,10 +24,10 @@ window.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
 
-  window.fetchChannels = fetchChannels;
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  window.logout = store.logout;
+  // window.fetchChannels = fetchChannels;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
+  // window.logout = store.logout;
 
   ReactDom.render(<Root store={store} />, rootEl)
 });

@@ -6,6 +6,7 @@ import { withRouter, Redirect } from 'react-router-dom'
 import Collapsible from 'react-collapsible';
 
 
+
 class ChannelIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -91,7 +92,7 @@ class ChannelIndex extends React.Component {
     }
     const addChannel = (
       
-      <div className="channel-plus" onClick={() => dispatch(this.props.openModal("createChannel", serverId))}>
+      <div className="channel-plus" onClick={() => this.props.openModal("createChannel", serverId)}>
         +
       </div>
     )

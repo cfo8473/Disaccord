@@ -11,11 +11,15 @@ class ChannelShow extends React.Component {
 
   }
 
+  scrollToBottom() {
+    this.messagesEnd.scrollIntoView();
+  }
+
   componentDidMount() {
     this.props.fetchMessages();
     this.props.fetchChannels();
     this.props.updateChannel(this.props.match.params.channelId);
-    
+    this.scrollToBottom();
   }
 
 
@@ -26,7 +30,7 @@ class ChannelShow extends React.Component {
 
   componentDidUpdate() {
     this.props.updateChannel(this.props.match.params.channelId);
-
+    this.scrollToBottom();
   }
 
   updateScroll() {
@@ -59,10 +63,13 @@ class ChannelShow extends React.Component {
       <div>
         <ul>
           {messageList}
-
+          
 
           {/* {this.updateScroll()} */}
         </ul>
+        <div style={{ float: "left", clear: "both" }}
+          ref={(el) => { this.messagesEnd = el; }}>
+          </div>
       </div>
     )
   }
