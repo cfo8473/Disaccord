@@ -22,6 +22,38 @@ class User < ApplicationRecord
     foreign_key: :admin_id,
     class_name: :Server,
     dependent: :destroy
+  
+  has_one_attached :photo
+  
+  has_many :memberships
+
+  has_many :icon_memberships
+
+  has_many :joined_servers, 
+    through: :memberships,
+    source: :membership,
+    source_type: :Server
+
+  has_many :joined_channels,
+    through: :memberships,
+    source: :membership,
+    source_type: :Channel
+
+  has_many :userRoles,
+    foreign_key: :user_id,
+    class_name: :UserRole
+
+  has_many :messages,
+    foreign_key: :author_id,
+    class_name: :Message
+
+  def default_server(user)
+
+    serverMembership = Membership.new(user_id: user.id, membership_id: 1, membership_type: "Server")
+    serverMembership.save!
+    channelMembership = Membership.new(user_id: user.id, membership_id: 1, membership_type: "Channel")
+    channelMembership.save!
+  end
 
 
   def self.find_by_credentials(username, password)

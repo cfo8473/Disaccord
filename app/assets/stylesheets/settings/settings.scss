@@ -1,18 +1,64 @@
+.modal-settings-content {
+  width: 100%;
+  z-index: 74440;
+}
+
+.modal-settings-user-info {
+  position: absolute;
+  width: 600px;
+  height: 120px; 
+  left: 60%;
+  top: 185px;
+  transform: translate(-50%, -50%);
+  background: rgba(32,34,37,0.6);
+  border: solid #202225 1px;
+
+  padding: 20px;
+  border-radius: 5px;
+  border-style: solid black;
+  border-width: 1px
+}
+
+.settings-info-text {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: rgb(124, 123, 123);
+  text-transform: lowercase;
+  font-weight: 400;
+  
+}
+
+.modal-settings-user-info-text {
+
+  padding: 10px;
+  // position: relative;
+  left: 180px;
+  float: left;
+  padding-left: 20px;
+}
+.modal-settings-user-info-text-edit {
+
+  padding: 10px;
+  // position: relative;
+  left: 180px;
+}
+
 .settings-logout {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
-  width: 100px;
+  bottom: 30px;
+  left: 75px;
+  width: 140px;
   font-size: 14px;
   color: rgb(182, 88, 88);
   padding: 10px;
+  z-index: 99;
+  font-weight: 500;
   font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 .settings-logout:hover {
   position: absolute;
-  bottom: 16px;
-  left: 16px;
+  cursor: pointer;
   
   color: rgb(182, 88, 88);
   background-color: rgba(170, 111, 111, 0.438)
@@ -20,14 +66,16 @@
 
 .settings-window {
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: 200%;
+  height: 200%;
 }
 
 .menu-bar {
-  width: 20%;
-  background: #262b33;
-  z-index: 11;
+  width: 220px;
+  height: 100%;
+  background: #2f3136;
+  z-index: 14;
+  padding: 60px 6px 60px 20px;
   display: flex;
 }
 
@@ -50,5 +98,336 @@
 .settings-exit:hover {
   opacity: 1;
   background-color: #6e7c9271;
+}
 
+.settings-user-icon {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  margin-right: auto;
+  font-size: 16px;
+  color: white;
+  border-radius: 50%;
+  background: #202225;
+  border-color: transparent;
+  opacity: .8;
+  height: 120px;
+  width: 120px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  -webkit-align-content: center;
+  align-content: center;
+}
+
+.settings-form {
+  float: left;
+}
+.settings-account-header-text {
+  position: absolute;
+    top: -40px;
+    font-size: 20px;
+    left: -2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    opacity: .7;
+    cursor: default;
+}
+
+.settings-icon-preview {
+  width: 100%;
+  height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.settings-icon-edit-preview {
+  width: 100%;
+  height: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.settings-icon-upload-button{
+  top: 20px;
+  position: absolute;
+  color: transparent;
+  width: 120px;
+  height: 120px;
+  font-family: sans-serif;
+}
+
+.settings-icon-upload-button:hover{
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.settings-icon-upload-button:focus{
+  outline: none;
+}
+
+
+
+.settings-icon-edit-preview:hover {
+  opacity: .6
+}
+
+.settings-icon-edit-preview-upload {
+  width: 200%;
+  height: 200%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  border-radius: 50%;
+  z-index: 90;
+  color: transparent;
+  right: 60px;
+  /* left: 900px; */
+  /* top: 400px; */
+  position: relative;
+}
+
+// settings edit button
+.settings-edit-button {
+  display: block;
+  position: relative;
+  margin-bottom: auto;
+  margin-left: auto;
+  width: 80px;
+  height: 40px;
+
+  color: white;
+  background-color: #7289da;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 3px;
+  padding: 10px;
+  border: none;
+}
+
+.settings-edit-button:hover{
+  cursor: pointer;
+  background-color: #6c80cc;
+}
+
+.settings-edit-button:focus{
+  outline: none;
+}
+
+// settings-delete-button
+.settings-delete-button {
+  color: white;
+  border-color: #8f302d;
+  background: transparent;
+  color: #f04747;
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 10px;
+  float: left;
+  top: 287px;
+  position: absolute;
+}
+
+.settings-delete-button:hover{
+  cursor: pointer;
+  border-color: #d64a45;
+}
+
+.settings-delete-button:focus{
+  outline: none;
+}
+
+.settings-edit-input-fields {
+width: 100%
+}
+.settings-edit-input-fields-float {
+  float: right;
+  width: 460px;
+  position: absolute;
+  left: 160px;
+}
+
+.settings-submit-button {
+  position: relative;
+  margin-top: auto;
+  margin-left: auto;
+  width: 60px;
+  height: 40px;
+  color: white;
+  background-color: #399c70;
+  font-size: 14px;
+  line-height: 24px;
+  border-radius: 3px;
+  padding: 10px;
+  border: none;
+  float: right;
+  top: 148px;
+}
+
+.settings-submit-button:hover{
+  cursor: pointer;
+  background-color: #36946a;
+}
+
+.settings-submit-button:focus{
+  outline: none;
+}
+
+.settings-edit-cancel-text {
+  font-size: 14px;
+  color: white;
+  font-weight: 400;
+  margin-left: 76%;
+  position: relative;
+  top: 160px;
+}
+
+.settings-edit-cancel-text:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.modal-settings-edit-user-info {
+position: absolute;
+    width: 600px;
+    height: 300px;
+    left: 60%;
+    top: 275px;
+    transform: translate(-50%, -50%);
+    
+    padding: 20px;
+    border-radius: 5px;
+    border-style: solid black;
+    border-width: 1px;
+    background: #2f3136;
+    border: solid #202225 1px;
+}
+
+.settings-input-title-text {
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #8e9297;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: default;
+  
+}
+
+.settings-selected-menu-text{
+  color: white;
+  font-weight: bold;
+}
+
+.settings-input-title-text-star {
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #8e9297;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: default;
+}
+
+.settings-input {
+  width: 95%;
+  padding: 10px;
+  height: 16px;
+  margin-bottom: 16px;
+  font-size: 16px;
+  border-radius: 2px;
+  border: 1px solid #1b1e22;
+  background: rgba(0, 0, 0, 0.1);
+  color: #dcddde;
+}
+
+.settings-icon-edit-preview-dimensions-text {
+  font-size: 10px;
+  color: #87909c;
+  cursor: default;
+  position: absolute;
+  left: 20px;
+  top: 150px;
+  
+}
+
+.settings-edit-bar {
+  border: solid 1px rgba(255, 255, 255, 0.06);
+  width: 590px;
+  top: 270px;
+  position: absolute;
+}
+
+.menu-contents {
+  width: 140px;
+  font-size: 16px;
+  line-height: 30px;
+  color: #b9bbbe;
+  left: 20px;
+  position: absolute;
+  left: 85px;
+}
+
+.settings-flavor-text-edit {
+  position: absolute;
+  left: 0px;
+  top: 370px;
+  font-size: 14px;
+  color: #b9bbbe;
+  width: 500px;
+  cursor: default;
+}
+
+.settings-two-factor-edit {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+
+}
+
+.settings-flavor-text {
+  position: absolute;
+  left: -2px;
+  top: 185px;
+  font-size: 14px;
+  color: #b9bbbe;
+  width: 500px;
+  cursor: default;
+}
+
+.settings-two-factor {
+  font-size: 16px;
+  font-weight: 700;
+  color: white;
+
+}
+
+// settings-disable-button
+.settings-disable-button {
+  color: white;
+  border-color: #8f302d;
+  background: transparent;
+  color: #f04747;
+  font-size: 14px;
+  border-radius: 3px;
+  padding: 10px;
+  float: left;
+  top: 287px;
+  position: absolute;
+  left: 160px;
+}
+
+.settings-disable-button:hover{
+  cursor: pointer;
+  border-color: #d64a45;
+}
+
+.settings-disable-button:focus{
+  outline: none;
 }

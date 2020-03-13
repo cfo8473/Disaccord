@@ -1,0 +1,472 @@
+// Place all the styles related to the api/channels controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.nav-channels {
+  width: 320px;
+  min-height: 100%;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: stretch;
+  background: #2f3136;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  overflow-y: hidden;
+  padding-right: 16px;
+  position: relative;
+  
+  .tooltip-wrapper {
+    position: absolute;
+    visibility: hidden;
+    z-index: 32423423;
+}
+
+  .settings-icon:hover .tooltip-wrapper {
+      visibility: visible;
+  }
+
+  .tooltip-set {
+      display: block;
+      position: relative;
+        top: -2em;
+        right: 0%;
+      width: 140px;
+      height: 36px;
+      /*margin-left: -76px;*/
+      color: #FFFFFF;
+      background: #000000;
+      line-height: 36px;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 4px 3px 10px #000000;
+    }
+    .tooltip-set:after {
+      content: '';
+      position: absolute;
+        top: 0%;
+        left: 150%;
+      margin-left: 0px;
+      width: 0;
+      height: 0;
+      border-bottom: 8px solid #000000;
+      border-right: 8px solid transparent;
+      border-left: 8px solid transparent;
+    }
+
+
+}
+
+
+
+.nav-channels-header {
+  padding: 16px;
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+  width: 100%;
+  height: 24px;
+  line-height: 5;
+  align-items: center;
+  border-bottom: 1px solid #242424;
+  text-overflow: ellipsis;
+
+}
+
+.nav-channels-list {
+  padding: 16px;
+  opacity: .8;
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+
+.channel-title {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  color: #9b9fa5;
+  text-transform: lowercase;
+  // font-family: Whitney;
+  letter-spacing: 1px;
+  padding: 5px;
+  width: 85%;
+
+}
+
+.current-channel-title {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  color: white;
+  text-transform: lowercase;
+  // font-family: Whitney;
+  letter-spacing: 1px;
+  padding: 5px;
+  width: 85%;
+  background: rgba(78, 78, 78, 0.397);
+  color: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.current-channel-title:hover {
+  background: rgba(78, 78, 78, 0.397);
+  color: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.channel-title-pound {
+  font-size: 16px;
+  font-weight: 0;
+  padding-right: 10px;
+}
+
+.channel-title:hover {
+  background: rgba(78, 78, 78, 0.397);
+  color: white;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.channel-text-header-block {
+  padding-bottom: 16px;
+  width: 120%;
+  color: #9b9fa5;
+}
+
+.channel-text-header-block:hover {
+  color: white;
+  font-weight: 700;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.channel-text-title {
+  margin-bottom: 18px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.Collapsible {
+  margin-bottom: 18px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+  width: 100%;
+
+}
+
+.Collapsible__contentInner{
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.channel-add-button {
+
+  position: relative;
+  right: 20px;
+  color: #9b9fa5;
+  font-size: 22px;
+  background: transparent;
+  top: 65px;
+
+  
+}
+
+.channel-add-button:hover {
+  color: white;
+}
+
+.channel-plus {
+  color: #9b9fa5;
+}
+
+.channel-plus:hover {
+  color: white;
+}
+
+.modal-createChannel{
+  position: absolute;
+  padding: 28px 40px 0;
+  width: 370px;
+  height: 380px;
+  left: 60%;
+  top: 50%;
+  // transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-top: auto;
+  background: #36393f;
+  z-index: 11;
+  color: black;
+  border-radius: 10px;
+  // animation: 0.25s ease-out 0s 1 zoomIn;
+  
+  animation-name: zoomIn;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+.modal-createChannel-reverse {
+  position: absolute;
+  padding: 28px 40px 0;
+  width: 370px;
+  height: 380px;
+  left: 60%;
+  top: 50%;
+  // transform: translate(-50%, -50%);
+  margin-left: auto;
+  margin-top: auto;
+  background: #36393f;
+  z-index: 11;
+  color: black;
+  border-radius: 10px;
+  animation-name: zoomOut;
+  animation-duration: 0.2s;
+  animation-fill-mode: backwards;
+}
+
+.modal-createChannelGreet{
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 18px;
+
+}
+
+.modal-createChannelGreetText{
+  color: #949494;
+  font-weight: 350;
+  font-size: 13px;
+  margin-bottom: 25px;
+
+}
+
+.checkbox{
+
+}
+
+.channel-text-button {
+  margin-top: 10px;
+  width: 100%;
+  color: #ffffffba;
+  background-color: #7289da;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: none;
+  text-align: left;
+}
+
+.channel-text-button-deactivate {
+
+  width: 100%;
+  color: #ffffffba;
+  background-color: #282d33;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: none;
+  text-align: left;
+  border: 1px solid #1b1e22;
+}
+
+.modal-createChannelTitle {
+  margin-top: 6px;
+  color: #87909c;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+}
+
+.modal-createChannelTitleInput {
+  margin-top: 10px;
+  width: 93%;
+  padding: 10px;
+  height: 16px;
+  margin-bottom: 8px;
+  font-size: 16px;
+  border-radius: 2px;
+  border: 1px solid #1b1e22;
+  background: #282d33;
+  color: rgb(211, 211, 211);
+  
+}
+
+.modal-createChannelTitleInput:hover {
+  border-color: #121416;
+}
+
+.modal-createChannelTitleInput:focus {
+  border-color: #5e71b8;
+  outline: none;
+}
+
+.modal-createChannelButton {
+  display: block;
+  position: absolute;
+  margin-top: auto;
+  height: 40px;
+  bottom: 5px;
+  right: 45px;
+  margin-left: auto;
+  color: white;
+  background-color: #7289da;
+  font-size: 14px;
+  line-height: 24px;
+  border-radius: 3px;
+  /* padding: 10px; */
+  margin-bottom: 8px;
+  border: none;
+}
+.modal-createChannelCancel{
+  display: block;
+  position: relative;
+  top: 38px;
+  left: 220px;
+  display: block;
+  color: white;
+  font-size: 14px;
+
+}
+
+.createChannelDarkBar {
+  width: 100%;
+  height: 80px;
+  background: #0000002e;
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+}
+
+.modal-createChannelCancel:hover{
+  text-decoration: underline;
+  cursor: pointer;
+  
+}
+
+.modal-createChannelButton:hover {
+  cursor: pointer;
+  background-color: #6c80cc;
+}
+
+.modal-serverOverviewGreet {
+  color: white;
+  font-weight: 700;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+
+.modal-settings-server {
+  position: absolute;
+  width: 499px;
+  /* min-width: 200px; */
+  /* height: 30%; */
+  left: 520px;
+  top: 100px;
+  transform: translate(-50%, -50%);
+  background: transparent;
+  /* padding: 20px; */
+  border-radius: 5px;
+  border-style: solid black;
+  border-width: 1px;
+}
+
+.modal-settings-server-text {
+
+  padding: 10px;
+  position: relative;
+  left: 0px;
+}
+
+.modal-editServerInput {
+  display: block;
+}
+
+.modal-editServerTitle {
+  color: #87909c;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  position: relative;
+  text-align: right;
+}
+
+.modal-editServerTitleInput {
+  margin-top: 10px;
+  width: 70%;
+  padding: 10px;
+  height: 16px;
+  margin-bottom: 8px;
+  margin-right: auto;
+  font-size: 16px;
+  border-radius: 2px;
+  border: 1px solid #1b1e22;
+  background: #282d33;
+  color: rgb(211, 211, 211);
+  position: relative;
+  
+}
+
+.modal-editServerTitleInput:hover {
+  border-color: #121416;
+}
+
+.modal-editServerTitleInput:focus {
+  border-color: #5e71b8;
+  outline: none;
+}
+
+
+.debug-text {
+  margin-bottom: 8px;
+  font-size: 16px;
+  color: rgb(36, 194, 181);
+  text-transform: uppercase;
+  font-weight: 500;
+  
+}
+
+.debug-text-channel{
+   margin-bottom: 8px;
+  font-size: 77px;
+  text-align: center;
+  color: rgb(167, 255, 4);
+  text-transform: uppercase;
+  font-weight: 500;
+  opacity: 1.4;
+}
+
+.editServerFlavorText {
+  position: absolute;
+  left: 280px;
+  top: 160px;
+  font-size: 14px;
+  color: #b9bbbe;
+  width: 500px;
+  cursor: default;
+}

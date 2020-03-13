@@ -1,0 +1,132 @@
+// Place all the styles related to the api/messages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.timestamp-text {
+  margin-bottom: 8px;
+  font-size: 10px;
+  color: rgb(182, 182, 182);
+  text-transform: uppercase;
+  font-weight: 500;
+  line-height: 10px;
+  
+}
+
+.messages-username{
+  color: rgb(255, 37, 37);
+  font-weight: 500;
+  line-height: 2px;
+  
+  padding-top: 10px;
+  
+
+}
+
+.messages-username-name{
+padding-right: 20px;
+}
+
+.messages-username-name:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.messages-body {
+  word-break: break-word;
+  word-wrap: break-word;
+  font-weight: 0;
+  font-size: 14px;
+  margin-top: 10px;
+}
+
+.messages-time {
+  color: white;
+}.nav-users-icon {
+  position: relative;
+  text-align: center;
+
+  font-size: 16px;
+  color: white;
+  border-radius: 50%;
+  background: rgb(173, 20, 87);
+  border-color: transparent;
+  opacity: .8;
+  height: 33px;
+  width: 33px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+
+  -webkit-align-content: center;
+
+}
+.message-content{
+  height: 100%;
+  float: left;
+  width: 80%;
+
+}
+
+.messages-block {
+  overflow-x: inherit;
+  display: inline-block;
+  width: 100%;
+  padding: 5px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+
+  padding: 10px;
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.message-icon-block {
+  height: 100%;
+  float: left;
+}
+
+.message-wrap {
+  width: 100%;
+}
+
+.messages-icon {
+  float: left;
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  font-size: 25px;
+  color: white;
+  border-radius: 50%;
+  background: white;
+  border-color: transparent;
+  opacity: 1;
+  height: 44px;
+  width: 44px;
+  margin-right: 10px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+
+  -webkit-align-content: center;
+
+}
+
+.messages-icon-picture {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%
+}
+
+// .messages-icon-picture-default {
+//   width: 100%;
+//   height: 100%;
+//   border-radius: 50%;
+//   background-image: image_url("../default-icon-orange.jpg");
+//   background-repeat: no-repeat;
+//   background-size: cover; 
+//   background-color: transparent;
+// }
+
+.messages-icon-picture:hover {
+  background: rgba(0, 0, 0, 0.137);
+}
+
+.message-divider {
+  margin: 20px 20px -20px;
+  border-bottom: solid 1px black;
+}
