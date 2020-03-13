@@ -14,11 +14,8 @@ class EditSettings extends React.Component {
     };
     this.logoutModal = this.logoutModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
     this.closeWindow = this.closeWindow.bind(this);
-
     this.close = false;
-
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
 
@@ -101,7 +98,6 @@ class EditSettings extends React.Component {
   }
 
   render() {
-
     const menuBar = (
       <div className="menu-contents" >
         <h5 className="settings-input-title-text">USER SETTINGS</h5>
@@ -119,19 +115,14 @@ class EditSettings extends React.Component {
         <br></br>
         <h2>...does not exist on this server so heres a lorem ipsum block.</h2>
         <br></br>
-          
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
-
     )
-
 
     const preview = this.props.photo ? 
       <img className="settings-icon-preview" src={this.props.photo} /> :
       <div className="settings-icon-preview">
-        <div className="messages-icon-picture-default"
-        />
-
+        <div className="messages-icon-picture-default"/>
       </div>;
 
     return (
@@ -145,47 +136,30 @@ class EditSettings extends React.Component {
           <span className="settings-account-header-text">My account</span>
           <div className="settings-edit-input-fields">
           
-          <form onSubmit={this.handleSubmit.bind(this)} >
-              <div className="settings-form">
-                
-                <div className="settings-user-icon">
-                    <div className="settings-icon-edit-preview" >
-                      {preview}
-                    <input className="settings-icon-edit-preview-upload" type="file"
-                      onChange={this.handleFile.bind(this)} />
+            <form onSubmit={this.handleSubmit.bind(this)} >
+                <div className="settings-form">
+                  
+                  <div className="settings-user-icon">
+                      <div className="settings-icon-edit-preview" >
+                        {preview}
+                      <input className="settings-icon-edit-preview-upload" type="file"
+                        onChange={this.handleFile.bind(this)} />
+                      </div>
                     </div>
-                  </div>
-                <input type="file"
-                  onChange={this.handleFile.bind(this)} className="settings-icon-upload-button"/>
-              </div>
-              
-              <div className="settings-edit-input-fields-float">
-                <h5 className="settings-input-title-text">USERNAME <span className="settings-input-title-text-star">*</span></h5>
-                <input className="settings-input" type="text" placeholder={this.state.userInfo.username} value={this.state.userInfo.username} onChange={this.update('username')} />
-
-                <h5 className="settings-input-title-text">EMAIL <span className="settings-input-title-text-star">*</span></h5>
-                <input className="settings-input" type="text" placeholder={this.state.userInfo.email} value={this.state.userInfo.email} onChange={this.update('email')} />
-{/* 
-                <h5 className="settings-input-title-text">CURRENT PASSWORD <span className="settings-input-title-text-star">*</span></h5>
-                <input className="settings-input" type="text" defaultValue="test"/> */}
-              </div>
-          </form>
+                  <input type="file" onChange={this.handleFile.bind(this)} className="settings-icon-upload-button"/>
+                </div>
+                
+                <div className="settings-edit-input-fields-float">
+                  <h5 className="settings-input-title-text">USERNAME <span className="settings-input-title-text-star">*</span></h5>
+                  <input className="settings-input" type="text" placeholder={this.state.userInfo.username} value={this.state.userInfo.username} onChange={this.update('username')} />
+                  <h5 className="settings-input-title-text">EMAIL <span className="settings-input-title-text-star">*</span></h5>
+                  <input className="settings-input" type="text" placeholder={this.state.userInfo.email} value={this.state.userInfo.email} onChange={this.update('email')} />
+                </div>
+            </form>
             <span className="settings-icon-edit-preview-dimensions-text">Minimum Size: <strong>128x128</strong></span>
-            
           </div>
           
-          <div className="modal-settings-user-info-text-edit">
-
-            
-
-          </div>
-          {/* <button className="settings-delete-button" onClick={this.props.openServerModal} type="submit" value="Edit">
-            Delete Account
-          </button>
-
-          <button className="settings-disable-button" onClick={this.props.openServerModal} type="submit" value="Edit">
-            Disable Account
-          </button> */}
+          <div className="modal-settings-user-info-text-edit"/>
 
           <span className="settings-edit-cancel-text" onClick={this.props.openSettingsModal} type="submit" value="Edit">
             Cancel
@@ -196,11 +170,7 @@ class EditSettings extends React.Component {
           <div className="settings-edit-bar"></div>
         </div>
         
-
         <p className="settings-exit" onClick={() => this.closeWindow()}>X</p>
-
-        
-
       </div>
     )
   }

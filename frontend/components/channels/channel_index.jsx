@@ -17,16 +17,12 @@ class ChannelIndex extends React.Component {
 
   }
 
-
-  
-  
   componentDidMount() {
     this.props.fetchServer(this.props.match.params.serverId);
     this.props.fetchChannels(),
     this.props.fetchServers(),
     this.props.fetchMessages(),
     this.props.updateServer(this.props.match.params.serverId)
-
   }
 
   componentDidUpdate(prevProps) {
@@ -46,19 +42,12 @@ class ChannelIndex extends React.Component {
       }
     } else {
       return (
-        // <div className="messages-icon">
-        //   <img className="messages-icon-picture" src="https://icon-icons.com/icons2/1476/PNG/64/discord_101785.png" />
-        // </div>
         <div className="messages-icon">
-          <div className="messages-icon-picture-default"
-          />
-
+          <div className="messages-icon-picture-default"/>
         </div>
-        
       )
     }
   }
-
 
   render() {
     let pathName = this.props.location.pathname;
@@ -70,8 +59,6 @@ class ChannelIndex extends React.Component {
          <ChannelIndexItem channel={channel}/>
       </li> ) : ( <div key={idx}></div>)
     ))
-
-
 
     let server;
     if (!this.props.server){
@@ -137,13 +124,8 @@ class ChannelIndex extends React.Component {
             <header className="nav-channels-header">
               {this.props.server.title}
               {serverEdit}
-            {/* <button className="debug-button tooltips " onClick={this.props.openServerModalEdit}>
-              <FontAwesomeIcon icon={faCog}/>
-              <span>Edit Server</span>
-          </button> */}
             </header>
             
-          
             <div className="nav-channels-list">
 
               <div className="channel-text-header-block">
@@ -163,12 +145,10 @@ class ChannelIndex extends React.Component {
 
               </div>
 
-              
             </div>
 
             <br></br>
-          
-          
+            
             {userBox}
           </nav>
       )

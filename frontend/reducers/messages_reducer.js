@@ -5,10 +5,8 @@ export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_MESSAGES:
-
       return action.messages;
     case RECEIVE_MESSAGE:
-      // debugger
       return Object.assign({}, state, { [action.message.id]: action.message })
     case REMOVE_MESSAGE:
       let newState = Object.assign({}, state)
@@ -18,5 +16,3 @@ export default (state = {}, action) => {
       return state;
   }
 };
-
-//users 4

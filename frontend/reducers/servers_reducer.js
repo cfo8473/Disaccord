@@ -5,7 +5,6 @@ export default (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
     case RECEIVE_SERVERS:
-      // return merge({}, state, action.servers);
       return action.servers;
     case RECEIVE_SERVER:
       return Object.assign({}, state, {[action.server.id]: action.server})

@@ -6,12 +6,7 @@ import { selectJoinedServers} from '../../reducers/selectors'
 const msp = (state) => {
   let currentUser = state.entities.users[state.session.currentUser.id]
   let servers = state.entities.servers;
-  
-  // let currentUserServers = (currentUser) ? 
-  //             selectJoinedServers(state, currentUser) 
-  //                  :  [] 
   let currentUserServers = currentUser.joinedServerIds
-  //jioned server selector
   
   return {
     currentUser: currentUser,

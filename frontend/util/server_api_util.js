@@ -1,7 +1,4 @@
-//fetchServers params empty until joins table are implemented
-//will need to fetch only servers that belong in users server array
 export const fetchServers = (filter) => {
-  // debugger
   return $.ajax({
     method: "GET",
     url: `/api/servers`,

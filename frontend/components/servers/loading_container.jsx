@@ -11,7 +11,6 @@ class LoadingContainer extends React.Component {
 
   render() {
     let serverId = this.props.location.pathname.split("/")[2];
-    // debugger
    return (
      <div className="modal-serverLoading">
     <div className="loading-icon">

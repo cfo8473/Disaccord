@@ -4,7 +4,6 @@ import { withRouter, Route, Redirect } from "react-router-dom"
 class EditServerForm extends React.Component {
   constructor(props) {
     super(props);
-    // this.state = this.props.serverInfo;
     this.state = Object.assign({}, this.props.serverInfo)
     this.handleSubmit = this.handleSubmit.bind(this);
     this.deleteServer = this.deleteServer.bind(this);
@@ -106,11 +105,8 @@ class EditServerForm extends React.Component {
       </div>
 
     )
- 
 
     return (
-
-      
       <div ref={this.setWrapperRef} className={`modal-settings` + (this.close ? `-reverse` : ``)}>
         <nav className="menu-bar">
 

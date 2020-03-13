@@ -1,4 +1,3 @@
-
 export const fetchMessages = () => {
   return $.ajax({
     method: "GET",

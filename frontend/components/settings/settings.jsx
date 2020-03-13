@@ -11,11 +11,8 @@ class Settings extends React.Component {
       photoUrl: null
     };
     this.logoutModal = this.logoutModal.bind(this);
-
     this.closeWindow = this.closeWindow.bind(this);
-    
     this.close = false;
-
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
 
@@ -23,11 +20,7 @@ class Settings extends React.Component {
 
   logoutModal(e) {
     this.props.closeModal();
-    
     this.props.logout();
-    
-    
-    
   }
 
   update(field) {
@@ -132,7 +125,6 @@ class Settings extends React.Component {
         <br></br>
         <h2>...does not exist on this server so heres a lorem ipsum block.</h2>
           <br></br>
-
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
 
@@ -141,9 +133,7 @@ class Settings extends React.Component {
     const preview = this.props.photo ?
       <img className="settings-icon-preview" src={this.props.photo} /> :
       <div className="settings-icon-preview">
-        <div className="messages-icon-picture-default"
-        />
-
+        <div className="messages-icon-picture-default"/>
       </div>;
 
     return (
@@ -167,25 +157,18 @@ class Settings extends React.Component {
             
           </div>
           <div className="modal-settings-user-info-text">
-
-              
-             
-
             <h5 className="settings-input-title-text">USERNAME</h5>
             <h6 className="settings-info-text">{this.props.username}#{this.props.id}</h6>
-
             <h5 className="settings-input-title-text">EMAIL</h5>
             <h6 className="settings-info-text">{this.props.email} </h6>
           </div>
 
           <button className="settings-edit-button button" id="four" onClick={this.props.openServerModal} type="submit" value="Edit">
             Edit
-
           </button>
         </div>
         
-
-         <p className="settings-exit" onClick={() => this.closeWindow()}>X</p>
+        <p className="settings-exit" onClick={() => this.closeWindow()}>X</p>
 
       </div>
     )

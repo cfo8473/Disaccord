@@ -39,10 +39,8 @@ class ServerIndexItem extends React.Component {
 
   render() {
     let serverId = this.props.location.pathname.split("/")[2];
-    // debugger
     if (this.props.server.id === parseInt(serverId)) {
       return (
-        // current servers icon
         <div>
           <span className="nav-servers-pill"></span>
           <Link to={`/servers/${this.props.server.id}`}>
@@ -64,7 +62,6 @@ class ServerIndexItem extends React.Component {
           onMouseEnter={this.handleMouseHover}
           onMouseLeave={this.handleMouseHover}
         >
-          {/* {this.pillAnimation()} */}
           <Link to={`/servers/${this.props.server.id}`}>
             <button
               className="nav-servers-button tooltips"

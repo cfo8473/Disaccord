@@ -7005,10 +7005,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createServer", function() { return createServer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "editServer", function() { return editServer; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteServer", function() { return deleteServer; });
-//fetchServers params empty until joins table are implemented
-//will need to fetch only servers that belong in users server array
 var fetchServers = function fetchServers(filter) {
-  // debugger
   return $.ajax({
     method: "GET",
     url: "/api/servers",

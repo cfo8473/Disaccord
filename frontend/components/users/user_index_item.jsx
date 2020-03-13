@@ -17,13 +17,12 @@ class UserIndexItem extends React.Component {
       } else {
       return (
         <div className="messages-icon">
-          <div className="messages-icon-picture-default"
-          />
-
+          <div className="messages-icon-picture-default"/>
         </div>
       )
     }
   }
+  
   render() {
     return ( 
       <div className="nav-users-block">
@@ -33,10 +32,7 @@ class UserIndexItem extends React.Component {
         <span className="nav-users-username">{this.props.user.username}</span>
       </div>
     )
-
-    
   }
-
 }
 
 export default withRouter(UserIndexItem);

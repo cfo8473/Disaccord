@@ -3,7 +3,6 @@ import ReactDom from 'react-dom';
 import {login, logout, signup, clearErrors} from './actions/session_actions'
 import configureStore from './store/store'
 import Root from './components/root'
-
 import {fetchServers} from './actions/server_actions'
 import {fetchChannels} from './actions/channel_actions'
 
@@ -23,11 +22,6 @@ window.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-
-  // window.fetchChannels = fetchChannels;
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
-  // window.logout = store.logout;
 
   ReactDom.render(<Root store={store} />, rootEl)
 });
