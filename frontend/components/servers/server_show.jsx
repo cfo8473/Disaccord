@@ -10,9 +10,9 @@ import ChannelShowContainer from '../channels/channel_show_container'
 import CreateMessageContainer from '../messages/create_message_container'
 import LoadingContainer from "./loading_container.jsx";
 import ReactTooltip from "react-tooltip";
+
 class ServerShow extends React.Component {
   constructor(props) {
-    // console.log(props);
     super(props);
     this.state = this.props.currentUser;
     this.onEnterPress = this.onEnterPress.bind(this)
@@ -26,7 +26,6 @@ class ServerShow extends React.Component {
     }
   }
 
-
   componentDidMount() {
 
     if (this.props.location.pathname = "/servers") {
@@ -35,12 +34,9 @@ class ServerShow extends React.Component {
       this.props.fetchServer(this.props.location.pathname.split("/")[2]);
     }
 
-    // this.props.fetchServer(this.props.location.pathname.split("/")[2]),
-    // this.props.fetchServer(1);
     this.props.fetchChannels(),
     this.props.fetchUsers(),
     this.props.updateChannel(this.props.match.params.channelId),
-    
 
     setTimeout(() => {
       this.rendered = true,
@@ -50,7 +46,6 @@ class ServerShow extends React.Component {
 
 
   render() {
-    // debugger
     const addServer = (
       <div>
         <button className="nav-servers-add-server tooltips" onClick={this.props.openServerModal}>
@@ -89,7 +84,6 @@ class ServerShow extends React.Component {
     let channelId;
     let channelTitle = "Loading...";
     let channelTopic = "";
-    // debugger
     if (this.props.location.pathname.split("/").length >= 3) {
       channelId = this.props.location.pathname.split("/")[3];
       if (this.props.channels[channelId]) {
@@ -98,8 +92,6 @@ class ServerShow extends React.Component {
       }
     }
     let currentUser = this.props.users[this.props.currentUser.id]
-    // let defaultServer = currentUser.joinedServerIds[0];
-
 
     if (this.rendered) {
       return (
@@ -139,23 +131,13 @@ class ServerShow extends React.Component {
                     component={ChannelShowContainer}
                   />
                 </div>
-
-                {/* <div className="nav-content-message-bar">
-                <CreateMessageContainer/>
-              </div> */}
-
                 <CreateMessageContainer />
               </div>
 
-              {/* Users NavBar (4th) */}
               <nav className="nav-users">
-                {/* readd after fixing */}
                 <UsersIndexContainer users={this.props.users} />
               </nav>
             </div>
-            {/* <div style={{ float: "left", clear: "both" }}
-            ref={(el) => { this.messagesEnd = el; }}>
-          </div> */}
           </div>
         </div>
       );
@@ -165,7 +147,6 @@ class ServerShow extends React.Component {
           <LoadingContainer/>
       </div>
       )
-      
     }
     
   }

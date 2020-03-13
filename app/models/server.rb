@@ -41,8 +41,4 @@ class Server < ApplicationRecord
     userRole = UserRole.new(user_id: user, role_id: role.id)
     userRole.save!
   end
-
-  
-
-    
 end

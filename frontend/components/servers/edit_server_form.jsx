@@ -9,14 +9,10 @@ class EditServerForm extends React.Component {
     this.deleteServer = this.deleteServer.bind(this);
     this.status = this.props.status;
     this.nextServer = this.props.nextServer;
-
     this.closeWindow = this.closeWindow.bind(this);
-
     this.close = false;
-
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
-
   }
 
   componentDidMount() {
@@ -62,16 +58,12 @@ class EditServerForm extends React.Component {
   }
 
   deleteServer(e) {
-    
     this.props.removeServer(this.props.server);
-    
     let serverList = Object.values(this.props.servers);
     let lastServer = serverList[serverList.length-2];
     this.status = true;
     this.forceUpdate();
     this.nextServer = lastServer.id;
-
-    
   }
 
   render() {
@@ -80,10 +72,8 @@ class EditServerForm extends React.Component {
 
     if (this.status) {
       console.log(this.nextServer);
-      
       this.props.closeModal();
       return <Redirect to={`/servers/${this.nextServer}/`} />
-      
     }
 
     if (typeof(this.props.servers) !== 'undefined') {
@@ -103,19 +93,16 @@ class EditServerForm extends React.Component {
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </div>
-
     )
 
     return (
       <div ref={this.setWrapperRef} className={`modal-settings` + (this.close ? `-reverse` : ``)}>
         <nav className="menu-bar">
-
           <div className="settings-logout" onClick={this.deleteServer}>Delete Server</div>
         </nav>
 
         <div className="modal-settings-server">
           <div className="modal-settings-server-text">
-
             <p className="modal-serverOverviewGreet">SERVER OVERVIEW</p>
 
             <form onSubmit={this.handleSubmit}>
@@ -125,8 +112,10 @@ class EditServerForm extends React.Component {
                 <input className="modal-createServerButton" type="submit" value={this.props.formType} />
               </div>
             </form>
+
           </div>
         </div>
+        
         {flavorText}
         <p className="settings-exit" onClick={() => this.closeWindow()}>X</p>
 

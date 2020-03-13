@@ -19,5 +19,4 @@ class Membership < ApplicationRecord
 
   belongs_to :membership,
     polymorphic: true
-
 end

@@ -4,17 +4,14 @@ import {withRouter, Redirect} from 'react-router-dom'
 class ChannelForm extends React.Component {
   constructor(props) {
     super(props);
-    
     this.state = this.props.channelInfo;
     this.created = this.props.created;
     this.res = this.props.res;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.close = false;
     this.closeWindow = this.closeWindow.bind(this);
-
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
-    
   }
 
   componentDidMount() {
@@ -38,18 +35,11 @@ class ChannelForm extends React.Component {
     
     this.props.processForm(server).then( (response) => {
       this.setState()
-      // console.log(response);
-      // console.log(`/servers/${this.props.channelInfo.server_id}/${response.id}`)
       this.setState({ channelInfo: this.state.channelInfo });
       this.res = response.id;
       this.created = true;
       this.forceUpdate();
-      
-    });
-    
-    // return <Redirect to={`servers/${this.props.channelInfo.server_id}/55`} />
-    
-    
+    }); 
   }
 
   setWrapperRef(node) {
@@ -77,7 +67,6 @@ class ChannelForm extends React.Component {
     let serverId = this.props.location.pathname.split("/")[2];
     this.props.channelInfo.server_id = serverId;
 
-    // console.log(this.created);
     if (this.created) {
       console.log("HIT IT!");
       this.props.closeModal();
@@ -90,7 +79,6 @@ class ChannelForm extends React.Component {
         <p className="modal-createChannelGreetText">in Text Channels</p>
         <p className="login-text"> CHANNEL TYPE</p>
         <button className="channel-text-button"><input className="checkbox" type="checkbox" checked readOnly/> # Text Channel</button>
-        {/* <button className="channel-text-button-deactivate"><input className="checkbox" type="checkbox" /> # ...another Text Channel</button> */}
         <form className="modal-createChannelInput" onSubmit={this.handleSubmit}>
           <label className="modal-createChannelTitle">CHANNEL NAME</label>
           <input className="modal-createChannelTitleInput" type="text" value={this.state.title} onChange={this.update("title")} />

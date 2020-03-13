@@ -14,14 +14,12 @@ class MessageForm extends React.Component {
     }
   }
 
-
   handleSubmit(e) {
     
     if (e.keyCode == 13 && e.shiftKey == false) {
       e.preventDefault();
       if (this.state.body.length !== 0) {
         this.props.updateChannel(this.props.match.params.channelId);
-        
         const message = Object.assign({}, this.state);
         this.props.processForm(message);
       }

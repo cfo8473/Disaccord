@@ -3,12 +3,10 @@ import { withRouter, Redirect } from 'react-router-dom'
 import CreateMessageContainer from '../messages/create_message_container'
 import MessageIndexItem from '../messages/message_index_item'
 
-
 class ChannelShow extends React.Component {
   constructor(props) {
     super(props);
     this.updateScroll = this.updateScroll.bind(this)
-
   }
 
   scrollToBottom() {
@@ -22,12 +20,6 @@ class ChannelShow extends React.Component {
     this.scrollToBottom();
   }
 
-
-  // componentWillUpdate() {
-  //   this.props.updateChannel(this.props.match.params.channelId);
-    
-  // }
-
   componentDidUpdate() {
     this.props.updateChannel(this.props.match.params.channelId);
     this.scrollToBottom();
@@ -37,12 +29,9 @@ class ChannelShow extends React.Component {
     let container;
     if (document.getElementsByClassName('nav-content-messages').length >= 1) {
       container = document.getElementsByClassName('nav-content-messages')[0];
-      // console.log(container.scrollHeight)
-      // container.scrollTop + container.clientHeight >= container.scrollHeight
       container.scrollTop = container.scrollHeight
     }
   }
-
 
   render() {
     let container;
@@ -58,14 +47,10 @@ class ChannelShow extends React.Component {
         </li>) : (<div key={idx}></div>)
     ))
     
-
     return (
       <div>
         <ul>
           {messageList}
-          
-
-          {/* {this.updateScroll()} */}
         </ul>
         <div style={{ float: "left", clear: "both" }}
           ref={(el) => { this.messagesEnd = el; }}>

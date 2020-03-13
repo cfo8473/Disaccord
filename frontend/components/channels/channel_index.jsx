@@ -5,8 +5,6 @@ import ChannelIndexItem from './channel_index_item'
 import { withRouter, Redirect } from 'react-router-dom'
 import Collapsible from 'react-collapsible';
 
-
-
 class ChannelIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -14,7 +12,6 @@ class ChannelIndex extends React.Component {
       server: this.props.server
     }
     this.userIcon = this.userIcon.bind(this)
-
   }
 
   componentDidMount() {
@@ -70,7 +67,6 @@ class ChannelIndex extends React.Component {
       }
     }
     
-
     let serverId;
     if (!this.props.server) {
       <div></div>
@@ -83,24 +79,16 @@ class ChannelIndex extends React.Component {
         +
       </div>
     )
-
-  
     const preview = this.props.photo ? <img className="settings-icon-preview" src={this.props.photo} /> : null;
       
     const userBox = (
-
-      
       <div className="current-user-block">
-        {/* <div className="username-icon"><FontAwesomeIcon icon={faAddressCard} /></div> */}
         <div className="username-icon">{this.userIcon()}</div>
         <div className="username-box">
           <div className="username-text">{this.props.currentUser.username}</div>
           <div className="username-id">#{this.props.currentUser.id}</div>
         </div>
           {this.props.openSettings}
-
-        
-       
       </div>
     )
      
@@ -127,9 +115,7 @@ class ChannelIndex extends React.Component {
             </header>
             
             <div className="nav-channels-list">
-
               <div className="channel-text-header-block">
-
               <Collapsible open={Boolean(true)} style="div" triggerWhenOpen="▼ TEXT CHANNELS"
                 transitionTime={parseInt(50)} className="channel-text-title" trigger="► TEXT CHANNELS">
                   <ul>
@@ -140,15 +126,11 @@ class ChannelIndex extends React.Component {
                 <a className="channel-add-button tooltips">
                   {addChannel}
                   <span>Create Channel</span>
-                
                 </a>
-
               </div>
-
             </div>
-
             <br></br>
-            
+
             {userBox}
           </nav>
       )

@@ -6,11 +6,8 @@ class ServerForm extends React.Component {
     super(props);
     this.state = this.props.serverInfo;
     this.handleSubmit = this.handleSubmit.bind(this);
-
     this.closeWindow = this.closeWindow.bind(this);
-
     this.close = false;
-
     this.setWrapperRef = this.setWrapperRef.bind(this);
     this.handleClickOutside = this.handleClickOutside.bind(this);
   }
@@ -49,7 +46,6 @@ class ServerForm extends React.Component {
     }
   }
 
-
   handleSubmit(e) {
     e.preventDefault();
     const server = Object.assign({}, this.state);
@@ -71,9 +67,8 @@ class ServerForm extends React.Component {
             <div className="region-text">US West</div>
           </div>
 
-          <div className="server-icon">
-    
-          </div>
+          <div className="server-icon"/>
+
           <span className="server-icon-warning">Minimum Size: <strong>128x128</strong></span>
           
           <div className="createServerFooter" >

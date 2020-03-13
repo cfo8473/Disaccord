@@ -42,15 +42,12 @@ class MessageIndexItem extends React.Component {
         <div></div>
       }
     }
-
   }
 
   render() {
-
     return (
       <div>
         <div className="message-wrap">
-          
             <div className="messages-block">
             <div className="message-icon-block">
               {this.userIcon()}
@@ -68,7 +65,6 @@ class MessageIndexItem extends React.Component {
       </div>
     )
   }
-
 }
 
 export default withRouter(MessageIndexItem);

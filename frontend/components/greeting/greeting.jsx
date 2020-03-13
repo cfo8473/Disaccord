@@ -42,17 +42,12 @@ class Greeting extends React.Component {
               </a>
             </ul>
 
-            {/* <div className="header-icons">
-              <FontAwesomeIcon icon={faKiwiBird} /> - 
-              <FontAwesomeIcon icon={faDove} /> - 
-              <FontAwesomeIcon icon={faCat} />
-            </div> */}
             <ul className="header-nav-right">
               <Link className="login-button" to="/login">
                 Log In
               </Link>
             </ul>
-            {/* <div className="header-language"><FontAwesomeIcon icon={faLanguage} /></div> */}
+            
           </nav>
         </header>
         <div className="greeting-text-padding">
@@ -114,7 +109,6 @@ class Greeting extends React.Component {
     return (
       <div>
         {display}
-        
       </div>
     )
   };

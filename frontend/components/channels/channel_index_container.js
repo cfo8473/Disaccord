@@ -35,20 +35,13 @@ const mdp = dispatch => ({
   removeServer: (serverId) => dispatch(removeServer(serverId)),
   closeModal: () => dispatch(closeModal()),
   openServerModalEdit: () => dispatch(openModal("editServer")),
-  // openModal: (modalType, serverId) => dispatch(openModal(modalType, serverId)),
   openModal: (modalType) => dispatch(openModal(modalType)),
   openSettings: <button className="settings-icon tooltips" onClick={() => dispatch(openModal('settings'))}>
     <FontAwesomeIcon icon={faCog} />
     <span>User Settings</span>
   </button>,
-
-  // openSettings: <button className="settings-icon" onClick={() => dispatch(openModal('settings'))}>
-  //   <FontAwesomeIcon icon={faCog} />
-  //   <span className="tooltip-wrapper"><span className="tooltip-set">User Settings</span></span>
-  // </button>,
   updateServer: (serverId) => dispatch(updateServer(serverId)),
   updateChannel: (channelId) => dispatch(updateChannel(channelId)),
-
 })
 
 export default withRouter(connect(msp, mdp)(ChannelIndex));

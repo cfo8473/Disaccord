@@ -19,6 +19,4 @@ class UserRole < ApplicationRecord
   belongs_to :role,
     foreign_key: :role_id,
     class_name: :Role
-
-  
 end

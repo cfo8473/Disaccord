@@ -10,10 +10,8 @@ class ChannelIndexItem extends React.Component {
   }
 
   render() {
-    
     let channelId = this.props.location.pathname.split("/")[3];
 
-    // console.log(channelId)
     if (this.props.channel.id === parseInt(channelId)) {
       return (
         <div key={this.props.channel.id}>
@@ -27,7 +25,7 @@ class ChannelIndexItem extends React.Component {
           </Link>
         </div>
       )
-  } else {
+    } else {
       return (
         <div key={this.props.channel.id}>
           <Link to={`/servers/${this.props.channel.server_id}/${this.props.channel.id}`}>
@@ -40,9 +38,8 @@ class ChannelIndexItem extends React.Component {
           </Link>
         </div>
       )
+    }
   }
-
-}
 }
 
 export default withRouter(ChannelIndexItem);

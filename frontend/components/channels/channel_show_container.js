@@ -18,10 +18,7 @@ const msp = (state, ownProps) => {
   let channels = state.entities.channels;
   let users = state.entities.users;
   let channel = state.ui.active.channel;
-  // debugger
   let messages = state.entities.messages;
-
-
 
   return {
     currentUser: currentUser,
