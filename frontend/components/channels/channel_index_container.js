@@ -5,7 +5,7 @@ import ChannelIndex from './channel_index'
 import { fetchServers, removeServer, fetchServer } from '../../actions/server_actions'
 import { fetchChannels } from '../../actions/channel_actions'
 import { openModal, closeModal } from '../../actions/modal_actions';
-import { faCog, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCog } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { updateServer, updateChannel} from '../../actions/active_actions'
 import { fetchMessages } from '../../actions/message_actions'

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom"
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -20,7 +20,7 @@ class LoadingContainer extends React.Component {
       LOADING
     </div>
     <div className="loading-text-sub">
-      Loading assets and making an excuse for the lack of a proper spinny logo
+      Loading assets
     </div>
      </div>
    );

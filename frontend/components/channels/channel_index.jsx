@@ -1,5 +1,5 @@
 import React from "react";
-import { faAddressCard, faDog, faCog } from '@fortawesome/free-solid-svg-icons'
+import { faCog } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import ChannelIndexItem from './channel_index_item'
 import { withRouter, Redirect } from 'react-router-dom'

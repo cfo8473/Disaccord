@@ -32,7 +32,7 @@ class MessageIndexItem extends React.Component {
       if (this.props.users[this.props.message.author_id]) {
         return (
           <div>
-            < span className = "messages-username-name" > 
+            <span className = "messages-username-name" > 
               { this.props.users[this.props.message.author_id].username }
             </span >
             <span className="timestamp-text">{`${message.created_at.split('T')[0]} @ ${message.created_at.split('T')[1].slice(0, 5)}`}</span>
@@ -48,7 +48,7 @@ class MessageIndexItem extends React.Component {
     return (
       <div>
         <div className="message-wrap">
-            <div className="messages-block">
+          <div className="messages-block">
             <div className="message-icon-block">
               {this.userIcon()}
             </div>
