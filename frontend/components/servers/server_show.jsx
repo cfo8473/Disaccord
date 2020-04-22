@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { withRouter } from 'react-router-dom'
 import UsersIndexContainer from '../users/users_index_container'
 import ServerIndexContainer from './server_index_container'
-import { AuthRoute, ProtectedRoute, Redirect } from '../../util/route_util'
+import { ProtectedRoute} from '../../util/route_util'
 import ChannelIndexContainer from '../channels/channel_index_container'
 import ChannelShowContainer from '../channels/channel_show_container'
 import CreateMessageContainer from '../messages/create_message_container'
@@ -76,7 +76,6 @@ class ServerShow extends React.Component {
       </div>
     )
 
-    // test const for Lorem ipsum
     const loremIpsum = (
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     )
@@ -96,40 +95,24 @@ class ServerShow extends React.Component {
     if (this.rendered) {
       return (
         <div className="navbar">
-          <ReactTooltip />
+          <ReactTooltip/>
           <nav className="nav-servers">
             {home}
-            <ServerIndexContainer />
+            <ServerIndexContainer/>
             {addServer}
           </nav>
 
-          <ProtectedRoute
-            path="/servers/:serverId"
-            component={ChannelIndexContainer}
-          />
+          <ProtectedRoute path="/servers/:serverId" component={ChannelIndexContainer}/>
+
           <div className="nav-block">
             <div className="nav-content-header">
               {channelTitle}{" "}
               <span className="login-text">| {channelTopic}</span>
-              {/* <div className="nav-content-header-icons">
-                <FontAwesomeIcon className="spacer" icon={faGuitar} />
-                <FontAwesomeIcon className="spacer" icon={faBell} />
-                <FontAwesomeIcon className="spacer" icon={faUser} />
-                <input className="search-dummy-bar" type="text"
-                  value="Search 🔍" readOnly
-                />
-                <FontAwesomeIcon className="spacer" icon={faAt} />
-                <FontAwesomeIcon className="spacer" icon={faQuestionCircle} />
-
-              </div> */}
             </div>
             <div className="content-block">
               <div className="nav-content-messages">
                 <div className="nav-content-message-block">
-                  <ProtectedRoute
-                    path={`/servers/:serverId/:channelId`}
-                    component={ChannelShowContainer}
-                  />
+                  <ProtectedRoute path={`/servers/:serverId/:channelId`} component={ChannelShowContainer} />
                 </div>
                 <CreateMessageContainer />
               </div>

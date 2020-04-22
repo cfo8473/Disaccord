@@ -2,7 +2,6 @@ import React from "react";
 import ServerIndexItem from './server_index_item'
 import {withRouter, Redirect} from 'react-router-dom'
 
-
 class ServerIndex extends React.Component {
   constructor(props) {
     super(props);

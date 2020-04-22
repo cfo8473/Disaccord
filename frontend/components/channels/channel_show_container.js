@@ -4,13 +4,13 @@ import ChannelShow from './channel_show'
 import { withRouter } from "react-router-dom"
 import { logout } from '../../actions/session_actions'
 import { openModal, closeModal } from '../../actions/modal_actions';
-import { faCog, faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faCog } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { fetchServers, fetchServer } from "../../actions/server_actions"
 import { fetchChannels } from '../../actions/channel_actions'
 import { fetchUsers } from '../../actions/user_actions'
 import { fetchMessages } from '../../actions/message_actions'
-import { updateServer, updateChannel } from '../../actions/active_actions'
+import { updateChannel } from '../../actions/active_actions'
 
 const msp = (state, ownProps) => {
   let currentUser = state.session.currentUser

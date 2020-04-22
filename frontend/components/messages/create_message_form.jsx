@@ -15,7 +15,6 @@ class MessageForm extends React.Component {
   }
 
   handleSubmit(e) {
-    
     if (e.keyCode == 13 && e.shiftKey == false) {
       e.preventDefault();
       if (this.state.body.length !== 0) {

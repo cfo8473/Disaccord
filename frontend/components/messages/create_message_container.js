@@ -1,11 +1,10 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { createMessage } from '../../actions/message_actions'
-import { openModal, closeModal } from '../../actions/modal_actions';
+import { closeModal } from '../../actions/modal_actions';
 import CreateMessageForm from './create_message_form'
-import { updateServer, updateChannel } from '../../actions/active_actions'
+import { updateChannel } from '../../actions/active_actions'
 
-const msp = (state, ownProps) => {
+const msp = (state) => {
   const errors = state.errors.session.errors;
   let messageInfo = { body: '', author_id: '', channel_id: '', pinned: Boolean(false) }
   let channels = state.entities.channels
