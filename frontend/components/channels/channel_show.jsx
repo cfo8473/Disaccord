@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter, Redirect } from 'react-router-dom'
-import CreateMessageContainer from '../messages/create_message_container'
+// import CreateMessageContainer from '../messages/create_message_container'
 import MessageIndexItem from '../messages/message_index_item'
 
 class ChannelShow extends React.Component {
