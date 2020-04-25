@@ -1,5 +1,4 @@
 import { RECEIVE_MESSAGE, RECEIVE_MESSAGES, REMOVE_MESSAGE } from "../actions/message_actions";
-import { merge } from 'lodash'
 
 export default (state = {}, action) => {
   Object.freeze(state);
