@@ -1,5 +1,5 @@
 import React from "react";
-import { faAddressCard, faDog, faHome, faGuitar, faSearch, faBell, faUser, faAt, faQuestionCircle } from '@fortawesome/free-solid-svg-icons'
+import { faAddressCard, faHome } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { withRouter } from 'react-router-dom'
 import UsersIndexContainer from '../users/users_index_container'

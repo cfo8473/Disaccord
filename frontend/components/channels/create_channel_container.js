@@ -1,10 +1,9 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { createChannel } from '../../actions/channel_actions'
-import { openModal, closeModal } from '../../actions/modal_actions';
+import { closeModal } from '../../actions/modal_actions';
 import ChannelForm from './create_channel_form'
 
-const msp = (state, ownProps) => {
+const msp = (state) => {
   const errors = state.errors.session.errors;
   let created = false;
   let channelInfo = { title: "", server_id: '', topic: "Default topic!" }
