@@ -4,15 +4,13 @@ import React from 'react'
 
 const Auth = ({ component: Component, path, loggedIn, exact }) => (
   <Route path={path} exact={exact} render={props =>
-    // !loggedIn ? <Redirect to="/servers" /> : <Redirect to="/" />
-      !loggedIn ? <Component {...props} /> : <Redirect to="/" />
+      !loggedIn ? <Component {...props} /> : <Redirect to="/servers" />
     }/>
 );
 
 const Protected = ({component: Component, path, loggedIn, exact}) => (
   <Route path={path} exact={exact} render={props =>
-    // !loggedIn ? <Redirect to="/servers" /> : <Redirect to="/" />
-    !loggedIn ? <Redirect to="/" /> : <Component {...props} />
+    loggedIn ? <Component {...props} /> : <Redirect to="/" />
   } />
 )
 

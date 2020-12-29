@@ -7,6 +7,7 @@ import SessionForm from './session_form'
 const msp = (state, ownProps) => {
   const errors = state.errors.session.errors;
   let userInfo = {username: "", password: "", email: ""}
+  
   return {
     userInfo,
     formType: "signup",
@@ -15,7 +16,7 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = (dispatch, ownProps) => {
-  const guest = { username: "test2", password: "hunter2" };
+  const guest = { username: "GuestUser", password: "hunter2" };
   return {
     processForm: formUser => dispatch(signup(formUser)),
     clearErrors: () => dispatch(clearErrors()),

@@ -2,8 +2,13 @@ class Api::ServersController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @servers = Server.all
+    if (params[:filter] && params[:filter][:userId])
+      @servers = User.find(params[:filter][:userId]).joined_servers
+    else
+      @servers = Server.all
+    end
     render :index
+
   end
 
   def show
@@ -12,10 +17,11 @@ class Api::ServersController < ApplicationController
   end
 
   def create
-    @server = Server.new(user_params)
-
+    @server = Server.new(server_params)
     if @server.save
-      render :index
+      @server.setup_server(current_user.id)
+
+      render :show
     else
       render json: @server.errors.full_messages, status: 422
     end
@@ -38,6 +44,6 @@ class Api::ServersController < ApplicationController
 
   private
   def server_params
-    params.require(:server).permit(:title)
+    params.require(:server).permit(:title, :admin_id)
   end
 end
