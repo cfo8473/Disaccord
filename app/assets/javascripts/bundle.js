@@ -4320,12 +4320,7 @@ function (_React$Component) {
         className: "modal-serverModalJoinButton",
         type: "submit",
         value: "Join a server"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "modal-serverModalButton",
-        onClick: function onClick() {
-          return _this4.props.joinServer();
-        }
-      }, "Join a Server")));
+      })));
     }
   }]);
 

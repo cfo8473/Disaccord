@@ -62,7 +62,7 @@ class ServerModal extends React.Component {
           <div className="modal-serverModalJoinText">Enter an invite and join your friend's server!</div>
           <div className="modal-serverModalJoinIcon"><FontAwesomeIcon icon={faPersonBooth} /></div>
           <input className="modal-serverModalJoinButton" type="submit" value="Join a server" />
-          <button className="modal-serverModalButton" onClick={() => this.props.joinServer()}>Join a Server</button>
+          {/* <button className="modal-serverModalButton" onClick={() => this.props.joinServer()}>Join a Server</button> */}
         </div>
       </div>
     )
