@@ -1,5 +1,3 @@
-
-
 # Disaccord
 
 [Live Demo](https://disaccord-c.herokuapp.com)
@@ -26,7 +24,7 @@ The channels and servers will hold both users and messages through a polymorphic
 - Material Design
 - Chat support
 - Multiple server functionality
-- Public or private channels that handle text communication
+- Public or private channels that handle text communications
 - Ability to delete servers, channels or messages (for respective administrators)
 - Other upcoming features
 
