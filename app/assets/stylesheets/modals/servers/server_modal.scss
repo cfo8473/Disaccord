@@ -1,0 +1,308 @@
+.modal-serverLoading { 
+  position: absolute;
+  padding: 28px 40px 0;
+  width: 460px;
+  height: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+  color: black;
+  border-radius: 5px;
+
+}
+
+
+.loading-icon { 
+  position:absolute;
+  left: 50%;
+  top: 30%;
+  animation-name: spinnyLogo;
+  animation-duration: 0.78s;
+  animation-iteration-count: infinite;
+  display: inline-block;
+  font-size: 80px;
+  color: rgb(148, 198, 240);
+  
+}
+
+.loading-text {
+  position: absolute;
+  left: 40%;
+  top: 55%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: 35px;
+  letter-spacing: 6px;
+  animation: 0.3s ease-out 0s 1 slideLeft;
+}
+
+.loading-text-sub {
+  position: absolute;
+  left: 17%;
+  top: 65%;
+  text-align: center;
+  color: rgb(150, 150, 150);
+  line-height: 24px;
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  animation: 0.3s ease-out 0s 1 settingsPopIn;
+}
+
+@keyframes spinnyLogo {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.modal-serverModal{
+  position: absolute;
+  padding: 28px 40px 0;
+  width: 460px;
+  height: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 11;
+  color: black;
+  border-radius: 5px;
+  animation-name: zoomIn;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+
+
+.modal-serverModal-reverse{
+  position: absolute;
+  padding: 28px 40px 0;
+  width: 460px;
+  height: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 11;
+  color: black;
+  border-radius: 5px;
+  animation-name: zoomOut;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+.modal-serverModal{
+  position: absolute;
+  padding: 28px 40px 0;
+  width: 460px;
+  height: 400px;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  z-index: 11;
+  color: black;
+  border-radius: 5px;
+  animation-name: zoomIn;
+  animation-duration: 0.2s;
+  animation-fill-mode: forwards;
+}
+
+
+.modal-serverModalExit {
+  font-size: 20px;
+  top: 44px;
+  right: 44px;
+  position: absolute;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  border: 2px solid hsla(0,0%,100%,.8);
+  background: black;
+  padding: 8px 14px 8px;
+  border-radius: 20px;
+  opacity: .8;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.modal-serverModalGreet {
+  color: #7289da;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px;
+}
+.modal-serverModalGreetText {
+  color: #99aab5;
+  font-weight: 350;
+  padding: 10px 0;
+  text-align: center;
+  font-size: 16px;
+}
+
+.modal-serverModalTitle {
+  color: #87909c;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  display: block;
+}
+
+.modal-serverModalTitleInput {
+  margin-top: 12px;
+  border-width: 0 0 2px;
+  border-radius: 0;
+  padding-left: 4px;
+  border-bottom-style: 2px solid;
+  height: 40px;
+  font-size: 16px;
+  color: #99aab5;
+}
+
+
+.modal-serverModalTitleInput:focus {
+  outline: none;
+}
+
+.modal-serverModalButton {
+  display: block;
+  position: relative;
+  /* margin-top: auto; */
+  width: 196px;
+  height: 45px;
+  left: 18px;
+    top: 245px;
+  color: white;
+  background-color: #7289da;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: none;
+}
+
+.modal-serverModalButton:hover{
+  cursor: pointer;
+  background-color: #6c80cc;
+}
+
+.modal-serverModalButton:focus{
+  outline: none;
+}
+
+.modal-serverModalJoinButton {
+  display: block;
+  position: relative;
+  /* margin-top: auto; */
+  width: 196px;
+  height: 45px;
+  top: 244px;
+  color: white;
+  background-color: #3ca374;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 3px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: none;
+  left: 16px;
+}
+
+.modal-serverModalJoinButton:hover{
+  cursor: pointer;
+  background-color: #369368;
+}
+
+.modal-serverModalJoinButton:focus{
+  outline: none;
+}
+
+.create-server-container {
+  border: 1px solid #0000001f;
+  width: 230px;
+  height: 300px;
+  border-radius: 5px;
+  position: absolute;
+  top: 100px;
+}
+
+.join-server-container {
+  border: 1px solid #0000001f;
+  width: 230px;
+  height: 300px;
+  border-radius: 5px;
+  position: absolute;
+  top: 100px;
+  left: 278px;
+  float: right;
+}
+
+.modal-serverModalCreateHeader {
+  color: #7289da;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px;
+  position: absolute;
+  top: 40px;
+  left: 80px;
+  opacity: .8;
+  cursor: default;
+}
+
+.modal-serverModalCreateText {
+  color: #99aab5;
+  text-align: center;
+  /* text-transform: uppercase; */
+  font-size: 14px;
+  position: absolute;
+  top: 75px;
+  width: 170px;
+  left: 30px;
+  opacity: .8;
+}
+.modal-serverModalCreateIcon{
+  color: #7289da;
+  font-size: 100px;
+  position: absolute;
+  top: 120px;
+  left: 68px;
+  opacity: .3;
+}
+
+
+.modal-serverModalJoinHeader {
+  color: #3ca374;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 18px;
+  position: absolute;
+  top: 40px;
+  left: 92px;
+  opacity: .8;
+  cursor: default;
+}
+
+.modal-serverModalJoinText {
+  color: #99aab5;
+  text-align: center;
+  /* text-transform: uppercase; */
+  font-size: 14px;
+  position: absolute;
+  top: 75px;
+  width: 170px;
+  left: 30px;
+  opacity: .8;
+}
+.modal-serverModalJoinIcon{
+  color: #3ca374;
+  font-size: 100px;
+  position: absolute;
+  top: 120px;
+  left: 68px;
+  opacity: .3;
+}

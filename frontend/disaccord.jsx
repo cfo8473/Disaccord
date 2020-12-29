@@ -3,6 +3,8 @@ import ReactDom from 'react-dom';
 import {login, logout, signup, clearErrors} from './actions/session_actions'
 import configureStore from './store/store'
 import Root from './components/root'
+import {fetchServers} from './actions/server_actions'
+import {fetchChannels} from './actions/channel_actions'
 
 window.addEventListener("DOMContentLoaded", () => {
   let rootEl = document.getElementById("root"); 
@@ -13,7 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
       entities: {
         users: { [window.currentUser.id]: window.currentUser }
       },
-      session: { currentUser: {id: window.currentUser.id, username: window.currentUser.username }}
+      session: { currentUser: {id: window.currentUser.id, username: window.currentUser.username}}
     };
     store = configureStore(preloadedState);
     delete window.currentUser;
@@ -21,7 +23,6 @@ window.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
 
-  window.getState = store.getState;
   ReactDom.render(<Root store={store} />, rootEl)
 });
 

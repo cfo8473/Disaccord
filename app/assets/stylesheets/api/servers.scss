@@ -1,3 +1,469 @@
-// Place all the styles related to the api/servers controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+li {
+  list-style-type: none;
+}
+
+.username-box {
+  display: box;
+  padding: 5px;
+  flex-grow: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-right: 4px;
+  margin-top: 5px;
+}
+
+.username-icon {
+  font-size: 30px;
+  padding: 7px;
+  color: rgb(206, 109, 109);
+}
+
+
+
+.username-text {
+  line-height: 28px;
+  font-size: 14px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-weight: 600;
+}
+
+.username-id {
+  line-height: 1px;
+  font-size: 12px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  color: gray;
+}
+
+.settings-bar {
+  display: block;
+}
+
+.settings-icon {
+  top: 4px;
+  background: inherit;
+  position: absolute;
+  border: none;
+  color: white;
+  font-size: 20px;
+  right: 9px;
+  cursor: pointer;
+  opacity: .7;
+  padding: 10px;
+  
+}
+
+.settings-icon:hover {
+  background: #6d7a91a1; 
+}
+
+.settings-icon:focus {
+  outline: none;
+}
+
+.settings-icon .tooltips {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.settings-icon .tooltips {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.nav-servers-button-tooltip .tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.settings-icon .tooltips:hover .tooltiptext {
+  visibility: visible;
+}
+
+//bunch of settings, can be split into different server components later
+
+.navbar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+.nav-servers {
+  display: block;
+  width: 90px;
+  padding: 16px;
+  background: #202225;
+  // overflow: hidden;
+  overflow-y: auto;
+  contain: layout size;
+  overflow-x: hidden;
+} 
+
+::-webkit-scrollbar {
+  width: 3px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: #2f3136; 
+  border: 3px solid #36393f;
+  border-radius: 7px;
+  border-style: solid;
+  background-clip: padding-box;
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.nav-servers-add-server {
+  position: relative;
+  text-align: center;
+  display: flex;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+  font-size: 29px;
+  color: #43b581;
+  border-radius: 50%;
+  background: #2f3136;
+  border-color: transparent;
+  opacity: .8;
+  height: 52px;
+  width: 52px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  margin-bottom: 10px;
+  -webkit-align-content: center;
+  align-content: center;
+}
+
+.nav-servers-button {
+  position: relative;
+  text-align: center;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  color: white;
+  border-radius: 50%;
+  background: #2f3136;
+  border-color: transparent;
+  opacity: .8;
+  height: 52px;
+  width: 52px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  margin-bottom: 10px;
+  -webkit-align-content: center;
+  align-content: center;
+  
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    border-radius: 15px;
+    background: #7289da;
+    border: none;
+    color: white;
+    transition: color .15s ease-out,background-color .15s ease-out
+  }
+}
+
+.nav-servers-button-spacer{
+  position: relative;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-transform: lowercase;
+}
+
+.nav-servers-home-button-spacer{
+  position: relative;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 33px;
+}
+
+
+.nav-servers-button-title{
+  visibility: hidden;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-servers-button-title:first-letter {
+  visibility: visible;
+  text-transform: lowercase;
+}
+
+.nav-servers-button-tooltip .tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.nav-servers-button-tooltip .tooltip {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+}
+
+nav-servers-button-tooltip .tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.nav-servers-add-server:hover {
+
+  border-radius: 15px;
+  background: #43b581;
+  left: 1px;
+  border: none;
+  color: white;
+  transition: color .15s ease-out,background-color .15s ease-out
+
+}
+
+.current-user-block {
+  display: flex;
+  background: #262b33;
+  position: relative;
+  height: 60px;
+  width: 100%;
+  margin-top: auto;
+  padding: 0 10px;
+flex: 0;
+}
+
+
+.nav-main{
+  width: 100%;
+  display: flex;
+}
+
+.nav-content {
+  width: 100%;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  background: #36393f;
+  overflow-y: scroll;
+}
+
+.nav-content-header {
+  padding: 16px;
+  height: 24px;
+  font-weight: 500;
+  display: block;
+  align-items: center;
+  border-bottom: 1px solid #242424;
+  border-width: 110%;
+  left: 30px;
+}
+
+.nav-content-messages {
+    opacity: .8;
+    height: 100%;
+    width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.content-block {
+  display: flex;
+  align-items: stretch;
+  flex-direction: row;
+  width: 100%;
+  height: 90%;
+  background: #36393f;
+  contain: layout size;
+}
+
+
+.nav-content-message-bar {
+    width: 100%;
+    position: relative;
+    margin-top: auto;
+    border-top: 2px solid rgba(255, 255, 255, 0.06);
+    float: bottom;
+    display: block;
+    vertical-align: bottom;
+    /* left: 40px; */
+    /* top: 900px; */
+    // padding-bottom: 40px;
+    float: left;
+  
+
+}
+.nav-content-message-bar:sticky {
+  
+}
+
+input.nav-content-message-box[type="text"], textarea {
+
+  background-color : #434750
+
+}
+
+.nav-content-message-box {
+
+  resize: none;
+  border: none;
+  font-weight: 200;
+  
+  // font-size: 1rem;
+  width: 80%;
+  padding: 10px;
+  min-height: 10px;
+  max-height: 20px;
+  margin: 2px 2px 2px 0;
+  border-radius: 5px;
+  color: white;
+  margin-left:  auto;
+  margin-right:  auto;
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-family: Helvetica;
+}
+
+.nav-content-message-block{
+  opacity: .8;
+  height:  calc(100% - 124px);
+  overflow-y: auto; 
+  overflow-x: hidden;
+  padding: 16px;
+  position: relative;
+  flex-direction: column-reverse;
+
+}
+
+.nav-content.message-box:focus {
+  outline: none;
+}
+
+textarea {
+
+    border: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+.nav-servers-current-button {
+
+  border-radius: 15px;
+  background: #7289da;
+  position: relative;
+  text-align: center;
+  // display: flex;
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  color: white;
+  border-color: transparent;
+  opacity: .8;
+  height: 52px;
+  width: 52px;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+  margin-bottom: 10px;
+  -webkit-align-content: center;
+  align-content: center;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.nav-content-message-box{
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.nav-servers-pill{
+  position: absolute;
+  background: white;
+  left: 0px;
+  height: 52px;
+  width: 4px;
+  z-index: 3000;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  animation: 0.4s ease-out 0s 1 pill;
+}
+
+.nav-servers-pill-select{
+  position: absolute;
+  background: white;
+  left: 0px;
+  height: 20px;
+  width: 4px;
+  z-index: 3000;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  animation: 0.2s ease-out 0s 1 pill;
+}
+
+
+.nav-servers-home-spacer {
+  height: 2px;
+  width: 52px;
+  border-radius: 1px;
+  background: #3d4247;
+  margin-bottom: 10px;
+}
+
+.nav-block {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: #36393f;
+}
+
+.nav-content-header-icons{
+  position: absolute;
+  top: 15px;
+  font-size: 19px;
+  right: 0px;
+  color: #929292;
+}
+
+.spacer {
+  padding-left: 7px;
+  padding-right: 7px;
+}
+
+.spacer:hover {
+  color: white;
+  cursor: pointer;
+}
