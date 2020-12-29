@@ -1,0 +1,59 @@
+@keyframes slideLeft {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    -webkit-transform: scale3d(1,1,1);
+  }
+  100% {
+    -webkit-transform: scale3d(0.1,0.1,1);
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    -webkit-transform: scale3d(0.1,0.1,1);
+    
+  }
+  100% {
+    -webkit-transform: scale3d(1,1,1);
+  }
+}
+
+@keyframes settingsPopIn {
+  0% {
+    -webkit-transform: scale(2);
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes settingsPopOut {
+  0% {
+    -webkit-transform: scale(1);
+  }
+
+  100% {
+    -webkit-transform: scale(2);
+  }
+}
+
+@keyframes pill {
+  0% {
+    -webkit-transform: scale(0.2);
+
+  }
+
+  100% {
+    -webkit-transform: scale(1);
+  }
+}
