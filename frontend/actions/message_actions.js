@@ -1,8 +1,19 @@
 import * as APIMessageUtil from "../util/message_api_util";
+import axios from 'axios';
+export const API_BASE = "http://localhost:5000"
+export const WS_BASE = "http://localhost:5000"
 
 export const RECEIVE_MESSAGES = "RECEIVE_MESSAGES"
 export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE"
 export const REMOVE_MESSAGE = "REMOVE_MESSAGE"
+export const UPDATE_CHAT = "UPDATE_CHAT"
+
+export const updateChatLog = () => update => {
+    return {
+        type: UPDATE_CHAT_LOG,
+        update
+    }
+}
 
 export const fetchMessages = () => dispatch => {
   return APIMessageUtil.fetchMessages()

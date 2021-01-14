@@ -10,6 +10,9 @@ import ChannelShowContainer from '../channels/channel_show_container'
 import CreateMessageContainer from '../messages/create_message_container'
 import LoadingContainer from "./loading_container.jsx";
 import ReactTooltip from "react-tooltip";
+// import { socket } from 'socketUtil.js';
+import { useDispatch } from 'react-redux';
+import WebSocketProvider, { WebSocketContext } from '../../websockets/Webs.jsx';
 
 class ServerShow extends React.Component {
   constructor(props) {
